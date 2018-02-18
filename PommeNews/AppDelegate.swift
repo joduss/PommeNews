@@ -7,15 +7,66 @@
 //
 
 import UIKit
+import Swinject
+
+
+class Inject {
+    
+    
+    static let container = Container()
+    
+    
+    class func setup(withFakeServices: Bool = false) {
+        
+        container.register(RSSClient.self, factory: { _ in
+            if withFakeServices {
+                return FakeRSSClient()
+            }
+            else {
+                return RSSClient()
+            }
+        }).inObjectScope(.container)
+        
+        container.register(RSSManager.self, factory: { r in
+                return RSSManager(rssClient: r.resolve(RSSClient.self)!)
+        }).inObjectScope(.container)
+        
+    }
+    
+    class func component<T>(_ ofType: T.Type) -> T {
+        return container.resolve(ofType)!
+    }
+    
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //        let sites = RSSManager().getAllRssSites()
+        //        print(sites)
+        
+        #if DEBUG
+            Inject.setup(withFakeServices: true)
+        #else
+            Inject.setup(withFakeServices: false)
+        #endif
+        
+        Inject.component(RSSManager.self).getArticles { result in
+            switch result {
+            case .success(let articles):
+                print(articles)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
         return true
     }
 
