@@ -9,11 +9,26 @@
 import UIKit
 
 class ArticlesListVC: UIViewController {
+    
+    @IBOutlet weak var tableview: UITableView!
+    
+    private var rssManager: RSSManager!
+    fileprivate var articles: [RssArticle] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tableview.delegate = self
+        tableview.dataSource = self
+        
+        tableview.register(UINib.init(nibName: String(describing: ArticleListCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ArticleListCell.self))
+        
+//        tableview.rowHeight = UITableViewAutomaticDimension
+        tableview.estimatedRowHeight = 100
+        
+        rssManager = Inject.component(RSSManager.self)
+        rssManager.getArticles(completion: self.articlesUpdated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +36,16 @@ class ArticlesListVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func articlesUpdated(result: Result<[RssArticle]>) {
+        switch result {
+        case .failure(let error):
+            //TODO
+            break
+        case .success(let articles):
+            self.articles = articles
+            self.tableview.reloadData()
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -32,4 +57,31 @@ class ArticlesListVC: UIViewController {
     }
     */
 
+}
+
+extension ArticlesListVC: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return articles.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableview.dequeueReusableCell(withIdentifier: String(describing: ArticleListCell.self)) as! ArticleListCell
+        
+        cell.configure(with: articles[indexPath.row])
+        
+        return cell
+    }
+}
+
+extension ArticlesListVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 95
+    }
+    
 }

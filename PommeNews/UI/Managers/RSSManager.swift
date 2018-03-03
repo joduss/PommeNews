@@ -83,6 +83,7 @@ class RSSManager {
                     switch result {
                     case .failure(let error):
                         //todo
+                        print(error)
                         break
                     case .success(let feed):
                         articles += feed
@@ -95,9 +96,11 @@ class RSSManager {
             }
             
             //TODO
-            _ = group.wait(timeout: DispatchTime.now() + DispatchTimeInterval.seconds(30)) //TODO)
+            _ = group.wait(timeout: DispatchTime.now() + DispatchTimeInterval.seconds(300)) //TODO)
             
-            completion(Result.success(articles))
+            DispatchQueue.main.async {
+                completion(Result.success(articles))
+            }
         }
     }
     

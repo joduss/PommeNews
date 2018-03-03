@@ -4,6 +4,14 @@
 <array>
 	<dict>
 		<key>name</key>
+		<string>Mac4Ever</string>
+		<key>id</key>
+		<string>mac4ever</string>
+		<key>url</key>
+		<string>https://www.mac4ever.com/rss/actutitremobile</string>
+	</dict>
+	<dict>
+		<key>name</key>
 		<string>Macg</string>
 		<key>id</key>
 		<string>macg.co</string>

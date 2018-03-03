@@ -77,8 +77,8 @@ class RSSClient {
                             continue
                     }
                     
-                    let article = RssArticle(title: title,
-                                             summary: summary,
+                    let article = RssArticle(titleHtml: title,
+                                             summaryHtml: summary.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
                                              feed: RSSFeed.rss(rssFeed),
                                              imageURL: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url),
                                              date: date,

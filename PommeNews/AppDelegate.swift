@@ -58,14 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Inject.setup(withFakeServices: false)
         #endif
         
-        Inject.component(RSSManager.self).getArticles { result in
-            switch result {
-            case .success(let articles):
-                print(articles)
-            case .failure(let error):
-                print(error)
-            }
-        }
+
         
         return true
     }

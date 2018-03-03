@@ -16,7 +16,6 @@
 		6B0E1669203A04C10035C75B /* macg.co.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6B0E1668203A04C10035C75B /* macg.co.xml */; };
 		6B828660204A977B00AB9242 /* mac4ever.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6B82865F204A977A00AB9242 /* mac4ever.xml */; };
 		6B82C350201FC838006FA35D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82C34F201FC838006FA35D /* AppDelegate.swift */; };
-		6B82C352201FC838006FA35D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82C351201FC838006FA35D /* ViewController.swift */; };
 		6B82C355201FC838006FA35D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B82C353201FC838006FA35D /* Main.storyboard */; };
 		6B82C357201FC838006FA35D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B82C356201FC838006FA35D /* Assets.xcassets */; };
 		6B82C35A201FC838006FA35D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B82C358201FC838006FA35D /* LaunchScreen.storyboard */; };
@@ -35,6 +34,8 @@
 		6BB8FC812023B7B600AB870F /* ArticlesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB8FC802023B7B600AB870F /* ArticlesListVC.swift */; };
 		6BB8FC832023BAD500AB870F /* RSSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB8FC822023BAD500AB870F /* RSSManager.swift */; };
 		6BB8FC852023BAF300AB870F /* Managers in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8FC842023BAF300AB870F /* Managers */; };
+		6BC9132C203F290600F969DD /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 6BC9132B203F290500F969DD /* Cartfile */; };
+		6BC9132E203F35D600F969DD /* HTMLString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC9132D203F35D600F969DD /* HTMLString.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +68,6 @@
 		6B82865F204A977A00AB9242 /* mac4ever.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mac4ever.xml; sourceTree = "<group>"; };
 		6B82C34C201FC838006FA35D /* PommeNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PommeNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B82C34F201FC838006FA35D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6B82C351201FC838006FA35D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6B82C354201FC838006FA35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6B82C356201FC838006FA35D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B82C359201FC838006FA35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,6 +91,8 @@
 		6BB8FC802023B7B600AB870F /* ArticlesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesListVC.swift; sourceTree = "<group>"; };
 		6BB8FC822023BAD500AB870F /* RSSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RSSManager.swift; path = Managers/RSSManager.swift; sourceTree = "<group>"; };
 		6BB8FC842023BAF300AB870F /* Managers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Managers; path = UI/Managers; sourceTree = "<group>"; };
+		6BC9132B203F290500F969DD /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		6BC9132D203F35D600F969DD /* HTMLString.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLString.framework; path = Carthage/Build/iOS/HTMLString.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC9132E203F35D600F969DD /* HTMLString.framework in Frameworks */,
 				6B82C3A620212372006FA35D /* FeedKit.framework in Frameworks */,
 				6B0E1666203A00E40035C75B /* Swinject.framework in Frameworks */,
 			);
@@ -149,6 +152,7 @@
 		6B82C343201FC838006FA35D = {
 			isa = PBXGroup;
 			children = (
+				6BC9132B203F290500F969DD /* Cartfile */,
 				6B82C34E201FC838006FA35D /* PommeNews */,
 				6B82C363201FC838006FA35D /* PommeNewsTests */,
 				6B82C36E201FC838006FA35D /* PommeNewsUITests */,
@@ -176,7 +180,6 @@
 				6B82C3AB202197EF006FA35D /* Utils */,
 				6B82C37D201FC958006FA35D /* Network */,
 				6B82C34F201FC838006FA35D /* AppDelegate.swift */,
-				6B82C351201FC838006FA35D /* ViewController.swift */,
 				6B82C353201FC838006FA35D /* Main.storyboard */,
 				6B82C356201FC838006FA35D /* Assets.xcassets */,
 				6B82C358201FC838006FA35D /* LaunchScreen.storyboard */,
@@ -228,6 +231,7 @@
 		6B82C3A420212371006FA35D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6BC9132D203F35D600F969DD /* HTMLString.framework */,
 				6B0E1665203A00E40035C75B /* Swinject.framework */,
 				6B82C3A520212371006FA35D /* FeedKit.framework */,
 			);
@@ -380,6 +384,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC9132C203F290600F969DD /* Cartfile in Resources */,
 				6B0E165E20373FD00035C75B /* Localizations.strings in Resources */,
 				6BB8FC852023BAF300AB870F /* Managers in Resources */,
 				6B82C35A201FC838006FA35D /* LaunchScreen.storyboard in Resources */,
@@ -417,10 +422,12 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/FeedKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/HTMLString.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FeedKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Swinject.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/HTMLString.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -436,7 +443,6 @@
 				6B82C3AD202197FA006FA35D /* PError.swift in Sources */,
 				6B0E1662203741510035C75B /* URLExtension.swift in Sources */,
 				6B05F53A203496AF0028F053 /* RssArticle.swift in Sources */,
-				6B82C352201FC838006FA35D /* ViewController.swift in Sources */,
 				6B82C3AA202197E2006FA35D /* RSSFeedSite.swift in Sources */,
 				6BB8FC812023B7B600AB870F /* ArticlesListVC.swift in Sources */,
 				6B82C350201FC838006FA35D /* AppDelegate.swift in Sources */,
