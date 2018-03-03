@@ -8,20 +8,20 @@
   "watchOS" : [
     {
       "name" : "Swinject",
-      "hash" : "82bc96028ac2aab62f0c869b5e5291abfccc1a05d1f75aaeb3e9c561f2fec754"
+      "hash" : "fde9e363e3138d8a92464e7af3c3c2746498895e079a9a142d593eb8478a37ca"
     }
   ],
   "tvOS" : [
     {
       "name" : "Swinject",
-      "hash" : "64c69bde1e173462bdd3621feac6c906b095c33fc9b40f348dfcaba02791ad19"
+      "hash" : "6a6513414a34b47a9381f8053bb2e3ea5cedb435eb703d006bfa4c6637e1c0e5"
     }
   ],
   "commitish" : "2.2.0",
   "iOS" : [
     {
       "name" : "Swinject",
-      "hash" : "f832dafdac4c533fe60fc58e957f9c1e71488f79279c880e971d834f7dcb7454"
+      "hash" : "faeb467082678b0e50f47a13ff20b776ee503e9d5e4990c07db899b676bf2f12"
     }
   ]
 }

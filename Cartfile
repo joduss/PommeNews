@@ -2,3 +2,4 @@
 
 github "nmdias/FeedKit" ~> 7.0
 github "Swinject/Swinject" ~> 2.2.0
+github "alexaubry/HTMLString" ~> 4.0

@@ -8,20 +8,20 @@
   "watchOS" : [
     {
       "name" : "FeedKit",
-      "hash" : "0fb21252445b8e04b5b627d6948f25e0b8c92b633355fc23651f01dc62900518"
+      "hash" : "9fb948f827515f0c9f99c32092626b9874ec58a8e56ee55930a2564e2f0e9f88"
     }
   ],
   "tvOS" : [
     {
       "name" : "FeedKit",
-      "hash" : "386679f1bab4c4387e75c59614eb51083a604d424370da1130414f50649f9d80"
+      "hash" : "856bece13ec87323081835da6909efa0b4620a862c1022bee50ad74c2287b4ae"
     }
   ],
   "commitish" : "7.0.1",
   "iOS" : [
     {
       "name" : "FeedKit",
-      "hash" : "8d17c1c634690b76bcf406bd5cd55c8dfaedcf0ff0715c6cc19e9aff087cd3bf"
+      "hash" : "baa5c651f621dbfe83a7f73ae78c39e2cc6581bf050eff8e617addf8b8009015"
     }
   ]
 }
