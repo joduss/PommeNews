@@ -15,7 +15,7 @@ class FakeRSSClient: RSSClient {
     
     override func fetch(stream: RSSFeedSite,  completion:@escaping (Result<[RssArticle]>) -> ()) {
         
-        let data = try! Data(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: stream.name, ofType: ".xml")!))
+        let data = try! Data(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: stream.id, ofType: ".xml")!))
         
         let parser = FeedParser(data: data)
         
@@ -62,8 +62,8 @@ class FakeRSSClient: RSSClient {
                             continue
                     }
                     
-                    let article = RssArticle(title: title,
-                                             summary: summary,
+                    let article = RssArticle(titleHtml: title,
+                                             summaryHtml: summary.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
                                              feed: RSSFeed.rss(rssFeed),
                                              imageURL: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url),
                                              date: date,

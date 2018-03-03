@@ -13,7 +13,8 @@
 		6B0E1662203741510035C75B /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E1661203741510035C75B /* URLExtension.swift */; };
 		6B0E1664203748840035C75B /* FakeRSSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E1663203748840035C75B /* FakeRSSClient.swift */; };
 		6B0E1666203A00E40035C75B /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B0E1665203A00E40035C75B /* Swinject.framework */; };
-		6B0E1669203A04C10035C75B /* Macg.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6B0E1668203A04C10035C75B /* Macg.xml */; };
+		6B0E1669203A04C10035C75B /* macg.co.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6B0E1668203A04C10035C75B /* macg.co.xml */; };
+		6B828660204A977B00AB9242 /* mac4ever.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6B82865F204A977A00AB9242 /* mac4ever.xml */; };
 		6B82C350201FC838006FA35D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82C34F201FC838006FA35D /* AppDelegate.swift */; };
 		6B82C352201FC838006FA35D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82C351201FC838006FA35D /* ViewController.swift */; };
 		6B82C355201FC838006FA35D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B82C353201FC838006FA35D /* Main.storyboard */; };
@@ -62,7 +63,8 @@
 		6B0E1661203741510035C75B /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		6B0E1663203748840035C75B /* FakeRSSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRSSClient.swift; sourceTree = "<group>"; };
 		6B0E1665203A00E40035C75B /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
-		6B0E1668203A04C10035C75B /* Macg.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Macg.xml; sourceTree = "<group>"; };
+		6B0E1668203A04C10035C75B /* macg.co.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = macg.co.xml; sourceTree = "<group>"; };
+		6B82865F204A977A00AB9242 /* mac4ever.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mac4ever.xml; sourceTree = "<group>"; };
 		6B82C34C201FC838006FA35D /* PommeNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PommeNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B82C34F201FC838006FA35D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B82C351201FC838006FA35D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +140,8 @@
 		6B0E1667203A04B50035C75B /* FakeData */ = {
 			isa = PBXGroup;
 			children = (
-				6B0E1668203A04C10035C75B /* Macg.xml */,
+				6B82865F204A977A00AB9242 /* mac4ever.xml */,
+				6B0E1668203A04C10035C75B /* macg.co.xml */,
 			);
 			path = FakeData;
 			sourceTree = "<group>";
@@ -382,9 +385,10 @@
 				6B82C35A201FC838006FA35D /* LaunchScreen.storyboard in Resources */,
 				6B82C357201FC838006FA35D /* Assets.xcassets in Resources */,
 				6B82C355201FC838006FA35D /* Main.storyboard in Resources */,
+				6B828660204A977B00AB9242 /* mac4ever.xml in Resources */,
 				6B82C381201FD03C006FA35D /* RSSFeeds.plist in Resources */,
 				6BA871D020222272006CCDD9 /* ArticleListCell.xib in Resources */,
-				6B0E1669203A04C10035C75B /* Macg.xml in Resources */,
+				6B0E1669203A04C10035C75B /* macg.co.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
