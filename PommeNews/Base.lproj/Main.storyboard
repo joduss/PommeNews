@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="caj-0J-pUt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Articles ListVC-->
+        <!--PommeNews-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ArticlesListVC" customModule="PommeNews" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="34U-Pb-0ch">
-                                <rect key="frame" x="-0.5" y="10" width="375" height="667"/>
+                                <rect key="frame" x="-0.5" y="32" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -32,12 +33,85 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="PommeNews" id="pJG-KS-emI"/>
                     <connections>
                         <outlet property="tableview" destination="34U-Pb-0ch" id="9j8-YG-8jV"/>
+                        <segue destination="aJx-y1-ljm" kind="show" identifier="ArticleViewController" id="ytc-aT-yvy"/>
+                        <segue destination="KS3-6T-5Dd" kind="show" id="iET-MP-jos"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="476" y="107.49625187406298"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="xK3-DO-2oF">
+            <objects>
+                <viewController id="aJx-y1-ljm" customClass="ArticleViewController" customModule="PommeNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4IA-UV-HbB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jL-a2-1Cj">
+                                <rect key="frame" x="0.0" y="32" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1jL-a2-1Cj" firstAttribute="centerX" secondItem="Jvz-xR-JTH" secondAttribute="centerX" id="FGH-We-XhF"/>
+                            <constraint firstItem="1jL-a2-1Cj" firstAttribute="height" secondItem="4IA-UV-HbB" secondAttribute="height" id="SDE-nm-mxW"/>
+                            <constraint firstItem="1jL-a2-1Cj" firstAttribute="width" secondItem="4IA-UV-HbB" secondAttribute="width" id="jY9-DV-dQE"/>
+                            <constraint firstItem="1jL-a2-1Cj" firstAttribute="centerY" secondItem="Jvz-xR-JTH" secondAttribute="centerY" id="vQa-Gj-enT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Jvz-xR-JTH"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="stB-ir-i5R">
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" systemItem="action" id="Kur-WC-Q26"/>
+                            <barButtonItem style="plain" systemItem="reply" id="jQA-Vz-coj"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webviewContainer" destination="1jL-a2-1Cj" id="prP-aq-QXL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p29-qd-ET5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1278" y="107"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="oud-72-p59">
+            <objects>
+                <viewController id="KS3-6T-5Dd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uq9-od-z6t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="u1Y-tH-xAt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AQ2-dj-MAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312" y="857"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NXQ-Pi-qRX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="caj-0J-pUt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N26-ye-2Bx">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UlU-Wg-P5t"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="73P-xY-hnA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-455" y="107"/>
         </scene>
     </scenes>
 </document>

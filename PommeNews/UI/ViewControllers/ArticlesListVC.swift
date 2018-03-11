@@ -84,4 +84,8 @@ extension ArticlesListVC: UITableViewDelegate {
         return 95
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: String(describing: ArticleViewController.self), sender: self)
+    }
+    
 }

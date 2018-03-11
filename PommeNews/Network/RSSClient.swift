@@ -83,7 +83,8 @@ class RSSClient {
                                              imageURL: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url),
                                              date: date,
                                              link: URL(string: entry.link),
-                                             creator: creator)
+                                             creator: creator,
+                                             site: stream)
                     articles.append(article)
                     completion(Result.success(articles))
                 }

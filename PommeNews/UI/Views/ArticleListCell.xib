@@ -56,16 +56,24 @@
                     <constraint firstItem="7J6-wD-GOB" firstAttribute="leading" secondItem="DwY-8W-f5R" secondAttribute="leading" id="F8A-d3-2PC"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="O4p-ZM-TdO" secondAttribute="bottom" constant="10.5" id="O8o-zl-GYg"/>
                     <constraint firstAttribute="trailing" secondItem="DwY-8W-f5R" secondAttribute="trailing" constant="15" id="a4p-yi-uvR"/>
+                    <constraint firstItem="DwY-8W-f5R" firstAttribute="leading" secondItem="8WN-dc-bqL" secondAttribute="leading" constant="20" symbolic="YES" id="dBR-pM-1si"/>
                     <constraint firstItem="O4p-ZM-TdO" firstAttribute="leading" secondItem="8WN-dc-bqL" secondAttribute="leading" constant="11" id="lPX-Zz-sXX"/>
                     <constraint firstItem="DwY-8W-f5R" firstAttribute="top" secondItem="8WN-dc-bqL" secondAttribute="top" constant="10" id="o0D-zH-KpB"/>
                     <constraint firstAttribute="trailing" secondItem="7J6-wD-GOB" secondAttribute="trailing" constant="15" id="wcb-Wr-Dwj"/>
                     <constraint firstItem="DwY-8W-f5R" firstAttribute="leading" secondItem="O4p-ZM-TdO" secondAttribute="trailing" constant="8" id="x7c-y9-i7n"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="dBR-pM-1si"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="noImageLeftConstraint" destination="dBR-pM-1si" id="vyc-5f-7uN"/>
                 <outlet property="pictureView" destination="O4p-ZM-TdO" id="Jfr-uo-uaM"/>
                 <outlet property="subtitleLabel" destination="7J6-wD-GOB" id="wX0-We-icQ"/>
                 <outlet property="titleLabel" destination="DwY-8W-f5R" id="9gi-qE-zaF"/>
+                <outlet property="withImageLeftConstraint" destination="x7c-y9-i7n" id="OSC-Je-uUV"/>
             </connections>
             <point key="canvasLocation" x="-186" y="-61"/>
         </tableViewCell>

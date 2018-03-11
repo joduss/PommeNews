@@ -68,7 +68,8 @@ class FakeRSSClient: RSSClient {
                                              imageURL: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url),
                                              date: date,
                                              link: URL(string: entry.link),
-                                             creator: entry.author)
+                                             creator: entry.author,
+                                             site: stream)
                     articles.append(article)
                 }
                 completion(Result.success(articles))

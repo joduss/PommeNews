@@ -20,6 +20,7 @@ struct RssArticle {
     let link: URL?
     
     let creator: String?
+    let site: RSSFeedSite
     
     var summary: String {
         let summary = self.summaryHtml.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
