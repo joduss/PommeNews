@@ -12,13 +12,34 @@ import UIKit
 
 class MenuViewControllerBase: UIViewController {
     
-    @IBOutlet weak var closeMenuButtonWidthConstraint: NSLayoutConstraint!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let button = UIView()
+        self.view.addSubview(button)
+
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor).isActive = true
+        button.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor).isActive = true
+        button.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        button.widthAnchor.constraint(equalTo: self.view.widthAnchor,
+                                      multiplier: SideMenuConfiguration.menuRelativeWidth,
+                                      constant: 0).isActive = true
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(sender:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapMainView(sender:)))
+        
+        button.addGestureRecognizer(tap)
+        button.addGestureRecognizer(pan)
+        
+        self.view.updateConstraints()
+    }
 
     
     // 1
     var interactor: Interactor? = nil
     // 2
-    @IBAction private func handleGesture(sender: UIPanGestureRecognizer) {
+    @objc private func handleGesture(sender: UIPanGestureRecognizer) {
         // 3
         let translation = sender.translation(in: view)
         
@@ -40,9 +61,7 @@ class MenuViewControllerBase: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+
     
 
     @IBAction private func closeMenu(sender: UITapGestureRecognizer) {
