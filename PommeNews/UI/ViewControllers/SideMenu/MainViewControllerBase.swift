@@ -13,6 +13,10 @@ class MainViewControllerBase: UIViewController {
     
     let interactor = Interactor()
     
+    
+    //MARK: - Life cycle
+    //================================================
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +24,9 @@ class MainViewControllerBase: UIViewController {
         pan.edges = .left
         self.view.addGestureRecognizer(pan)
     }
+    
+    //MARK: - Navitation
+    //================================================
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let menuVC = segue.destination as? MenuViewControllerBase {
@@ -29,12 +36,14 @@ class MainViewControllerBase: UIViewController {
         }
     }
     
+    //MARK: - Action
+    //================================================
+    
     @IBAction func edgePanGesture(sender: UIScreenEdgePanGestureRecognizer) {
-        let translation = sender.translation(in: view)
         
+        //Get how much we translate the finger on the view and compute the progress of the showing of the menu
+        let translation = sender.translation(in: view)
         let progress = MenuHelper.progress(translationInView: translation, viewBounds: view.bounds, direction: .right)
-
-        print("Progerss is: \(progress)")
         
         MenuHelper.mapGestureStateToInteractor(
             gestureState: sender.state,
@@ -45,6 +54,9 @@ class MainViewControllerBase: UIViewController {
     }
     
 }
+
+//MARK: - UIViewControllerTransitioningDelegate
+//================================================
 
 extension MainViewControllerBase: UIViewControllerTransitioningDelegate {
     
@@ -57,12 +69,10 @@ extension MainViewControllerBase: UIViewControllerTransitioningDelegate {
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        print("Has Started \(interactor.hasStarted)")
         return interactor.hasStarted ? interactor : nil
     }
     
     func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        print("Has Started? \(interactor.hasStarted)")
         return interactor.hasStarted ? interactor : nil
     }
 

@@ -12,12 +12,17 @@ import UIKit
 
 class MenuViewControllerBase: UIViewController {
     
+    var interactor: Interactor? = nil
+    
+    //MARK: - Life cycle
+    //================================================
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let button = UIView()
         self.view.addSubview(button)
-
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         button.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor).isActive = true
         button.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor).isActive = true
@@ -34,20 +39,20 @@ class MenuViewControllerBase: UIViewController {
         
         self.view.updateConstraints()
     }
-
     
-    // 1
-    var interactor: Interactor? = nil
-    // 2
+    
+    //MARK: - Actions
+    //================================================
+    
     @objc private func handleGesture(sender: UIPanGestureRecognizer) {
-        // 3
+        
+        //Get the translation in the view.
         let translation = sender.translation(in: view)
         
-        // 4
+        //and compute the progress of the translation to show the menu
         let progress = MenuHelper.progress(translationInView: translation, viewBounds: view.bounds, direction: .left)
         
-        // 5
-        
+        // We map the state and the closure is what to do on state "Start"
         MenuHelper.mapGestureStateToInteractor(
             gestureState: sender.state,
             progress: progress,
@@ -60,9 +65,6 @@ class MenuViewControllerBase: UIViewController {
     @IBAction private func tapMainView(sender: UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-
-    
 
     @IBAction private func closeMenu(sender: UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)

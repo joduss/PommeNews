@@ -8,10 +8,8 @@
 
 import UIKit
 
-class DismissMenuAnimator : NSObject {
-}
 
-extension DismissMenuAnimator : UIViewControllerAnimatedTransitioning {
+class DismissMenuAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.6
@@ -19,28 +17,18 @@ extension DismissMenuAnimator : UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let containerView = transitionContext.containerView
-        
-        guard
-            let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
-            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
-            else {
-                return
-        }
-        // 1
-        let snapshot = containerView.viewWithTag(MenuHelper.snapshotTag)
-        
+        // Get the snapshot view that shows the VC that is partially visible
+        let snapshot = transitionContext.containerView.viewWithTag(MenuHelper.snapshotTag)
         
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
             animations: {
-                // 2
+                // Animate to the original position without Menu
                 snapshot?.frame = CGRect(origin: CGPoint.zero, size: UIScreen.main.bounds.size)
         },
             completion: { _ in
                 let didTransitionComplete = !transitionContext.transitionWasCancelled
                 if didTransitionComplete {
-                    // 3
                     snapshot?.removeFromSuperview()
                 }
                 transitionContext.completeTransition(didTransitionComplete)

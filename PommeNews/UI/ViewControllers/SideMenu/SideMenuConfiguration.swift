@@ -13,4 +13,7 @@ public struct SideMenuConfiguration {
     
     public static var menuRelativeWidth: CGFloat = 0.22
     
+    public static var percentThreshold:CGFloat = 0.3
+
+    
 }

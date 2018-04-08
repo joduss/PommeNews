@@ -11,21 +11,15 @@ import UIKit
 
 struct MenuHelper {
     
-    static let menuWidthRatio: CGFloat = 0.8
-    static let percentThreshold:CGFloat = 0.3
     static let snapshotTag = 123456
     
     static func progress(translationInView translation: CGPoint, viewBounds: CGRect, direction: Direction) -> CGFloat {
-        
         let pointInView = translation.x
         let axisLength = viewBounds.width
-        
-        
+    
         let movementInAxis = abs(pointInView / axisLength)
         
-        let progress = fmin(1, movementInAxis)
-        
-        return progress
+        return fmin(1, movementInAxis)
     }
     
     
@@ -37,8 +31,8 @@ struct MenuHelper {
             interactor.hasStarted = true
             triggerSegue()
         case .changed:
-            print("Change with progress \(progress) | should finish: \(progress > percentThreshold)")
-            interactor.shouldFinish = progress > percentThreshold
+            print("Change with progress \(progress) | should finish: \(progress > SideMenuConfiguration.percentThreshold)")
+            interactor.shouldFinish = progress > SideMenuConfiguration.percentThreshold
             interactor.update(progress)
         case .cancelled:
             print("Cancel")
