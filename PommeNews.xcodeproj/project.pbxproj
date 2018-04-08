@@ -14,6 +14,13 @@
 		6B0E1664203748840035C75B /* FakeRSSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E1663203748840035C75B /* FakeRSSClient.swift */; };
 		6B0E1666203A00E40035C75B /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B0E1665203A00E40035C75B /* Swinject.framework */; };
 		6B0E1669203A04C10035C75B /* macg.co.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6B0E1668203A04C10035C75B /* macg.co.xml */; };
+		6B37D319205EB9EA00321701 /* MenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B37D318205EB9EA00321701 /* MenuHelper.swift */; };
+		6B37D31C205EBA2800321701 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B37D31B205EBA2800321701 /* Interactor.swift */; };
+		6B37D31E205EBACE00321701 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B37D31D205EBACE00321701 /* Direction.swift */; };
+		6B37D320205ECD3F00321701 /* MainViewControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B37D31F205ECD3F00321701 /* MainViewControllerBase.swift */; };
+		6B37D322205ECFFD00321701 /* MenuViewControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B37D321205ECFFD00321701 /* MenuViewControllerBase.swift */; };
+		6B37D324205ED93A00321701 /* PresentMenuAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B37D323205ED93A00321701 /* PresentMenuAnimator.swift */; };
+		6B40A4A5206A0A9D0093160E /* SideMenuDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B40A4A4206A0A9D0093160E /* SideMenuDismissAnimator.swift */; };
 		6B828660204A977B00AB9242 /* mac4ever.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6B82865F204A977A00AB9242 /* mac4ever.xml */; };
 		6B828662204A9A7600AB9242 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B828661204A9A7600AB9242 /* ArticleViewController.swift */; };
 		6B82C350201FC838006FA35D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82C34F201FC838006FA35D /* AppDelegate.swift */; };
@@ -37,6 +44,7 @@
 		6BB8FC852023BAF300AB870F /* Managers in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8FC842023BAF300AB870F /* Managers */; };
 		6BC9132C203F290600F969DD /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 6BC9132B203F290500F969DD /* Cartfile */; };
 		6BC9132E203F35D600F969DD /* HTMLString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC9132D203F35D600F969DD /* HTMLString.framework */; };
+		6BF103F42075EB0A0044F1BD /* SideMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF103F32075EB0A0044F1BD /* SideMenuConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +74,13 @@
 		6B0E1663203748840035C75B /* FakeRSSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRSSClient.swift; sourceTree = "<group>"; };
 		6B0E1665203A00E40035C75B /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		6B0E1668203A04C10035C75B /* macg.co.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = macg.co.xml; sourceTree = "<group>"; };
+		6B37D318205EB9EA00321701 /* MenuHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuHelper.swift; path = PommeNews/UI/ViewControllers/SideMenu/MenuHelper.swift; sourceTree = SOURCE_ROOT; };
+		6B37D31B205EBA2800321701 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		6B37D31D205EBACE00321701 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		6B37D31F205ECD3F00321701 /* MainViewControllerBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerBase.swift; sourceTree = "<group>"; };
+		6B37D321205ECFFD00321701 /* MenuViewControllerBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewControllerBase.swift; sourceTree = "<group>"; };
+		6B37D323205ED93A00321701 /* PresentMenuAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentMenuAnimator.swift; sourceTree = "<group>"; };
+		6B40A4A4206A0A9D0093160E /* SideMenuDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuDismissAnimator.swift; sourceTree = "<group>"; };
 		6B82865F204A977A00AB9242 /* mac4ever.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mac4ever.xml; sourceTree = "<group>"; };
 		6B828661204A9A7600AB9242 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		6B82C34C201FC838006FA35D /* PommeNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PommeNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +110,7 @@
 		6BB8FC842023BAF300AB870F /* Managers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Managers; path = UI/Managers; sourceTree = "<group>"; };
 		6BC9132B203F290500F969DD /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		6BC9132D203F35D600F969DD /* HTMLString.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLString.framework; path = Carthage/Build/iOS/HTMLString.framework; sourceTree = "<group>"; };
+		6BF103F32075EB0A0044F1BD /* SideMenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +165,28 @@
 				6B0E1668203A04C10035C75B /* macg.co.xml */,
 			);
 			path = FakeData;
+			sourceTree = "<group>";
+		};
+		6B37D317205EB95700321701 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Animator;
+			sourceTree = "<group>";
+		};
+		6B37D31A205EBA1700321701 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				6B37D318205EB9EA00321701 /* MenuHelper.swift */,
+				6B37D31B205EBA2800321701 /* Interactor.swift */,
+				6B37D31D205EBACE00321701 /* Direction.swift */,
+				6B37D31F205ECD3F00321701 /* MainViewControllerBase.swift */,
+				6B37D321205ECFFD00321701 /* MenuViewControllerBase.swift */,
+				6B37D323205ED93A00321701 /* PresentMenuAnimator.swift */,
+				6B40A4A4206A0A9D0093160E /* SideMenuDismissAnimator.swift */,
+				6BF103F32075EB0A0044F1BD /* SideMenuConfiguration.swift */,
+			);
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 		6B82C343201FC838006FA35D = {
@@ -253,6 +291,7 @@
 		6BA871CB2022222E006CCDD9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6B37D317205EB95700321701 /* Animator */,
 				6BB8FC7F2023B79400AB870F /* ViewControllers */,
 				6BA871CE20222255006CCDD9 /* Views */,
 				6BB8FC822023BAD500AB870F /* RSSManager.swift */,
@@ -273,6 +312,7 @@
 		6BB8FC7F2023B79400AB870F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6B37D31A205EBA1700321701 /* SideMenu */,
 				6BB8FC802023B7B600AB870F /* ArticlesListVC.swift */,
 				6B828661204A9A7600AB9242 /* ArticleViewController.swift */,
 			);
@@ -443,6 +483,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B37D319205EB9EA00321701 /* MenuHelper.swift in Sources */,
+				6B40A4A5206A0A9D0093160E /* SideMenuDismissAnimator.swift in Sources */,
 				6B82C3AD202197FA006FA35D /* PError.swift in Sources */,
 				6B0E1662203741510035C75B /* URLExtension.swift in Sources */,
 				6B05F53A203496AF0028F053 /* RssArticle.swift in Sources */,
@@ -452,12 +494,18 @@
 				6BB8FC7E2023830C00AB870F /* ArticleListCell.swift in Sources */,
 				6B828662204A9A7600AB9242 /* ArticleViewController.swift in Sources */,
 				6B82C383201FD1C0006FA35D /* RSSFeedsListManager.swift in Sources */,
+				6B37D322205ECFFD00321701 /* MenuViewControllerBase.swift in Sources */,
+				6B37D320205ECD3F00321701 /* MainViewControllerBase.swift in Sources */,
 				6B0E1664203748840035C75B /* FakeRSSClient.swift in Sources */,
 				6B82C3A8202197C9006FA35D /* RSSFeed.swift in Sources */,
+				6B37D31C205EBA2800321701 /* Interactor.swift in Sources */,
 				6BB8FC832023BAD500AB870F /* RSSManager.swift in Sources */,
 				6B82C3AF20219806006FA35D /* Result.swift in Sources */,
+				6B37D324205ED93A00321701 /* PresentMenuAnimator.swift in Sources */,
 				6B0E165920373E420035C75B /* StringExtension.swift in Sources */,
 				6B82C37F201FC963006FA35D /* RSSClient.swift in Sources */,
+				6B37D31E205EBACE00321701 /* Direction.swift in Sources */,
+				6BF103F42075EB0A0044F1BD /* SideMenuConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,7 +683,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SB56D8K42E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -645,6 +695,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -654,7 +705,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SB56D8K42E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -664,6 +717,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
