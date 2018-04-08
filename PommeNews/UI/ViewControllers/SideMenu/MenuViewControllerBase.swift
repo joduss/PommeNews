@@ -28,7 +28,7 @@ class MenuViewControllerBase: UIViewController {
         button.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor).isActive = true
         button.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         button.widthAnchor.constraint(equalTo: self.view.widthAnchor,
-                                      multiplier: SideMenuConfiguration.menuRelativeWidth,
+                                      multiplier: 1.0 - SideMenuConfiguration.menuRelativeWidth,
                                       constant: 0).isActive = true
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(sender:)))
