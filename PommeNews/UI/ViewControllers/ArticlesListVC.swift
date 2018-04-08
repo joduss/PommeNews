@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ArticlesListVC: UIViewController {
+class ArticlesListVC: MainViewControllerBase {
     
     @IBOutlet weak var tableview: UITableView!
     
     private var rssManager: RSSManager!
     fileprivate var articles: [RssArticle] = []
     
+    private var articleDetailsView: ArticleViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,9 @@ class ArticlesListVC: UIViewController {
         
         rssManager = Inject.component(RSSManager.self)
         rssManager.getArticles(completion: self.articlesUpdated)
+        
+        
+        self.articleDetailsView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: ArticleViewController.self)) as! ArticleViewController
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +60,13 @@ class ArticlesListVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    fileprivate func showArticle(_ article: RssArticle) {
+        if let url = article.link {
+            self.articleDetailsView.load(url: url)
+            self.show(articleDetailsView, sender: self)
+        }
+    }
 
 }
 
@@ -85,7 +96,7 @@ extension ArticlesListVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: String(describing: ArticleViewController.self), sender: self)
+        self.showArticle(articles[indexPath.row])
     }
     
 }

@@ -12,32 +12,39 @@ import WebKit
 class ArticleViewController: UIViewController {
 
     @IBOutlet weak var webviewContainer: UIView!
+    private let webview: WKWebView
     
-    private var webview: WKWebView!
+    required init?(coder aDecoder: NSCoder) {
+        self.webview = WKWebView(frame: CGRect.zero, configuration: WKWebViewConfiguration())
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.webview = WKWebView(frame: webviewContainer.frame, configuration: WKWebViewConfiguration())
+        self.webview.translatesAutoresizingMaskIntoConstraints = false
+        
         webviewContainer.addSubview(webview)
         let contraintsVertical = NSLayoutConstraint.constraints(withVisualFormat: "V:|[webview]|", options: .alignAllCenterY, metrics: nil, views: ["webview": webview])
         let contraintsHorizontal = NSLayoutConstraint.constraints(withVisualFormat: "H:|[webview]|", options: .alignAllCenterX, metrics: nil, views: ["webview": webview])
-
+        
         self.webviewContainer.addConstraints(contraintsVertical)
         self.webviewContainer.addConstraints(contraintsHorizontal)
-        self.webview.translatesAutoresizingMaskIntoConstraints = false
+        self.webview.navigationDelegate = self
 
-        let myURL = URL(string: "https://www.mac4ever.com/iphone/article?id=130490&page=1&app=true&base64=false&hd=false")
-        let myRequest = URLRequest(url: myURL!)
-        webview.load(myRequest)
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func load(url: URL) {
+        webview.stopLoading()
+        webview.load(URLRequest(url: URL(string:"about:blank")!))
+        webview.stopLoading()
+        let myRequest = URLRequest(url: url)
+        webview.load(myRequest)
+        self.title = "loading"
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
 
     /*
     // MARK: - Navigation
@@ -49,4 +56,16 @@ class ArticleViewController: UIViewController {
     }
     */
 
+}
+
+extension ArticleViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        self.title = "didCommit"
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.title = "didFinish"
+    }
+    
 }
