@@ -1,0 +1,14 @@
+/* 
+  Localization.strings
+  PommeNews
+
+  Created by Jonathan Duss on 16.04.18.
+  Copyright © 2018 Swizapp. All rights reserved.
+*/
+
+"rssarticle.unknownAuthor" = "Inconnu";
+
+"menu.settings" = "Paramètres";
+"menu.my_news" = "Mes News";
+"menu.sources" = "Les flux";
+"menu.all_sources" = "Tous";
