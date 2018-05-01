@@ -41,10 +41,7 @@ class ArticleListCell: UITableViewCell {
         
         var imageUrlToDownload: URL?
         
-        if let imageUrl = article.imageURL{
-            imageUrlToDownload = imageUrl
-        }
-        else if let imageUrl = article.extractImageUrlFromSummary() {
+        if let imageUrl = article.imageUrl {
             imageUrlToDownload = imageUrl
         }
         

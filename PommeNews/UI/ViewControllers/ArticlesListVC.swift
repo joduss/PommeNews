@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import CoreData
 
 class ArticlesListVC: MainViewControllerBase {
     
     @IBOutlet weak var tableview: UITableView!
     
-    private var rssManager: RSSManager!
+    private var rssManager: RSSManager = Inject.component(RSSManager.self)
     fileprivate var articles: [RssArticle] = []
     
+    var fetchResultController: NSFetchedResultsController<RssArticle>! = nil
+
     private var articleDetailsView: ArticleViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
+        self.setupFetchRequest()
         tableview.delegate = self
         tableview.dataSource = self
         
@@ -28,11 +32,17 @@ class ArticlesListVC: MainViewControllerBase {
 //        tableview.rowHeight = UITableViewAutomaticDimension
         tableview.estimatedRowHeight = 100
         
-        rssManager = Inject.component(RSSManager.self)
-        rssManager.getArticles(completion: self.articlesUpdated)
-        
-        
         self.articleDetailsView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: ArticleViewController.self)) as! ArticleViewController
+        
+        rssManager.updateFeeds()
+    }
+    
+    private func setupFetchRequest() {
+        let request: NSFetchRequest<RssArticle> = RssArticle.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: RssArticle.datePropertyName, ascending: false)]
+        self.fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataStack.shared.context, sectionNameKeyPath: nil, cacheName: nil)
+        self.fetchResultController.delegate = self
+        try? self.fetchResultController.performFetch()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,16 +60,27 @@ class ArticlesListVC: MainViewControllerBase {
             self.tableview.reloadData()
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func showArticles(of: RssFeed) {
+        
     }
-    */
+    
+    func showAllArticles() {
+        
+    }
+    
+    func showArticlesOfMyFavoriteFeeds() {
+        
+    }
+
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let menuVC = segue.destination as? MenuViewController {
+            menuVC.articleListVC = self
+            super.prepare(for: segue, sender: sender)
+        }
+    }
+     
     
     fileprivate func showArticle(_ article: RssArticle) {
         if let url = article.link {
@@ -77,13 +98,15 @@ extension ArticlesListVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
+        return fetchResultController.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: String(describing: ArticleListCell.self)) as! ArticleListCell
         
-        cell.configure(with: articles[indexPath.row])
+        if let article = fetchResultController.fetchedObjects?[indexPath.row] {
+            cell.configure(with: article)
+        }
         
         return cell
     }
@@ -97,6 +120,31 @@ extension ArticlesListVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.showArticle(articles[indexPath.row])
+    }
+    
+}
+
+extension ArticlesListVC: NSFetchedResultsControllerDelegate {
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableview.endUpdates()
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableview.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            tableview.deleteRows(at: [indexPath!], with: .automatic)
+        case .insert:
+            tableview.insertRows(at: [newIndexPath!], with: .automatic)
+        case .move:
+            tableview.moveRow(at: indexPath!, to: newIndexPath!)
+        case .update:
+            self.tableview.reloadRows(at: [indexPath!], with: .automatic)
+        }
     }
     
 }
