@@ -9,12 +9,11 @@
 import Foundation
 import FeedKit
 
-
 class RSSClient {
     
     let session = URLSession(configuration: .default)
     
-    func fetch(stream: RSSFeedSite,  completion:@escaping (Result<[RssArticle]>) -> ()) {
+    func fetch(feed: RssFeed,  completion:@escaping (Result<[RssArticlePO]>) -> ()) {
         //        session.dataTask(with: stream.url, completionHandler: { data, response, error in
         //
         //            if let error = error {
@@ -32,10 +31,11 @@ class RSSClient {
         //
         //        })
         
-        let parser = FeedParser(URL: URL(string: stream.url)!)
+        
+        let parser = FeedParser(URL: feed.url)
         parser?.parseAsync(result: { result in
             
-            var articles: [RssArticle] = []
+            var articles: [RssArticlePO] = []
 
             switch result {
             case .atom(_):
@@ -77,14 +77,12 @@ class RSSClient {
                             continue
                     }
                     
-                    let article = RssArticle(titleHtml: title,
+                    let article = RssArticlePO(titleHtml: title,
                                              summaryHtml: summary.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
-                                             feed: RSSFeed.rss(rssFeed),
-                                             imageURL: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url),
+                                             imageUrl: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url),
                                              date: date,
                                              link: URL(string: entry.link),
-                                             creator: creator,
-                                             site: stream)
+                                             creator: creator)
                     articles.append(article)
                     completion(Result.success(articles))
                 }

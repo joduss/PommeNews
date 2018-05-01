@@ -13,15 +13,15 @@ import FeedKit
 class FakeRSSClient: RSSClient {
 
     
-    override func fetch(stream: RSSFeedSite,  completion:@escaping (Result<[RssArticle]>) -> ()) {
+    override func fetch(feed: RssFeed,  completion:@escaping (Result<[RssArticlePO]>) -> ()) {
         
-        let data = try! Data(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: stream.id, ofType: ".xml")!))
+        let data = try! Data(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: feed.id, ofType: ".xml")!))
         
         let parser = FeedParser(data: data)
         
         parser?.parseAsync(result: { result in
             
-            var articles: [RssArticle] = []
+            var articles: [RssArticlePO] = []
             
             switch result {
             case .atom(_):
@@ -62,20 +62,21 @@ class FakeRSSClient: RSSClient {
                             continue
                     }
                     
-                    let article = RssArticle(titleHtml: title,
+                    let article = RssArticlePO(titleHtml: title,
                                              summaryHtml: summary.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
-                                             feed: RSSFeed.rss(rssFeed),
-                                             imageURL: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url),
+                                             imageUrl: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url),
                                              date: date,
                                              link: URL(string: entry.link),
-                                             creator: entry.author,
-                                             site: stream)
+                                             creator: entry.author
+                                             )
+                    
+                    
                     articles.append(article)
                 }
                 completion(Result.success(articles))
                 break
             case .json(_):
-                assertionFailure("Atom not supported")
+                assertionFailure("json not supported")
                 break
             case .failure(let error):
                 completion(Result.failure(PError.FeedFetchingError(error)))
