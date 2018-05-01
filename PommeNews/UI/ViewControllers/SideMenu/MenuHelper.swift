@@ -13,6 +13,8 @@ struct MenuHelper {
     
     static let snapshotTag = 123456
     
+    static let AnimationDuration = 0.3
+    
     static func progress(translationInView translation: CGPoint, viewBounds: CGRect, direction: Direction) -> CGFloat {
         let pointInView = translation.x
         let axisLength = viewBounds.width

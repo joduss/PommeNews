@@ -12,7 +12,7 @@ import UIKit
 class MainViewControllerBase: UIViewController {
     
     let interactor = Interactor()
-    
+    private let openMenuSegueIdentifier = "openMenuSegueIdentifier"
     
     //MARK: - Life cycle
     //================================================
@@ -25,7 +25,7 @@ class MainViewControllerBase: UIViewController {
         self.view.addGestureRecognizer(pan)
     }
     
-    //MARK: - Navitation
+    //MARK: - Navigation
     //================================================
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,8 +36,14 @@ class MainViewControllerBase: UIViewController {
         }
     }
     
+
+    
     //MARK: - Action
     //================================================
+    
+    @IBAction func openMenu(sender: Any) {
+        self.performSegue(withIdentifier: openMenuSegueIdentifier, sender: sender)
+    }
     
     @IBAction func edgePanGesture(sender: UIScreenEdgePanGestureRecognizer) {
         
@@ -49,7 +55,7 @@ class MainViewControllerBase: UIViewController {
             gestureState: sender.state,
             progress: progress,
             interactor: interactor){
-                self.performSegue(withIdentifier: "openMenu", sender: nil)
+                self.performSegue(withIdentifier: openMenuSegueIdentifier, sender: nil)
         }
     }
     

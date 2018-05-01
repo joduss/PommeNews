@@ -11,7 +11,7 @@ import UIKit
 
 public struct SideMenuConfiguration {
     
-    public static var menuRelativeWidth: CGFloat = 0.78
+    public static var menuRelativeWidth: CGFloat = 0.6
     
     //Percent of the transition after which a release will lead to a completion
     public static var percentThreshold:CGFloat = 0.3
