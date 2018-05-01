@@ -8,9 +8,10 @@
 
 import Foundation
 
-enum PError {
+enum PError: Error {
     case HTTPErrorTimeout
     case HTTPErrorCode(Int)
     case HTTPErrorInvalidFormat
     case FeedFetchingError(NSError)
+    case inconsistency(String)
 }
