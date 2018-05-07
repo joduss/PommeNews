@@ -130,6 +130,7 @@ extension MenuViewController: UITableViewDelegate {
         case .yourNews:
             break
         case .settings:
+            self.performSegue(withIdentifier: String(describing: SettingsViewController.self), sender: nil)
             break
         case .allProviders:
             break
