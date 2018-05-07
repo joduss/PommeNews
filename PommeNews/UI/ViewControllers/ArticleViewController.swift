@@ -33,17 +33,17 @@ class ArticleViewController: UIViewController {
 
     }
 
-    func load(url: URL) {
-        webview.stopLoading()
-        webview.load(URLRequest(url: URL(string:"about:blank")!))
+    func load(url: URL, title: String) {
         webview.stopLoading()
         let myRequest = URLRequest(url: url)
         webview.load(myRequest)
-        self.title = "loading"
+        self.title = title
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        webview.stopLoading()
+        webview.load(URLRequest(url: URL(string:"about:blank")!))
+        super.viewDidDisappear(animated)
     }
 
     /*
@@ -61,11 +61,11 @@ class ArticleViewController: UIViewController {
 extension ArticleViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        self.title = "didCommit"
+//        self.title = "didCommit"
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.title = "didFinish"
+//        self.title = "didFinish"
     }
     
 }

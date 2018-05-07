@@ -84,7 +84,7 @@ class ArticlesListVC: MainViewControllerBase {
     
     fileprivate func showArticle(_ article: RssArticle) {
         if let url = article.link {
-            self.articleDetailsView.load(url: url)
+            self.articleDetailsView.load(url: url, title: article.feed.name)
             self.show(articleDetailsView, sender: self)
         }
     }
@@ -119,7 +119,9 @@ extension ArticlesListVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.showArticle(articles[indexPath.row])
+        if let article = fetchResultController.fetchedObjects?[indexPath.row] {
+            self.showArticle(article)
+        }
     }
     
 }
