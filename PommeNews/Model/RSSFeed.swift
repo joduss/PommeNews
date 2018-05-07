@@ -36,6 +36,10 @@ extension RssFeed: EntityName {
     static var favoritePropertyName: String {
         return "favorite"
     }
+    
+    static var hiddenPropertyName: String {
+        return "hidden"
+    }
 
     
     //MARK: - Helpers

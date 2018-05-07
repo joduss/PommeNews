@@ -17,11 +17,12 @@ extension RssFeed {
         return NSFetchRequest<RssFeed>(entityName: "RssFeed")
     }
 
+    @NSManaged public var hidden: Bool
     @NSManaged public var favorite: Bool
     @NSManaged public var id: String!
-    @NSManaged public var name: String?
+    @NSManaged public var name: String!
     @NSManaged public var url: URL!
-    @NSManaged public var articles: NSSet?
+    @NSManaged public var articles: NSSet!
 
 }
 
