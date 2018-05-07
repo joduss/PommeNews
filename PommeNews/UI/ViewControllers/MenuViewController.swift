@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import JDSideMenu
 
 private enum MenuTableSection {
     case you
