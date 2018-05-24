@@ -1,3 +1,4 @@
-github "Swinject/Swinject" "2.2.0"
-github "alexaubry/HTMLString" "4.0.1"
-github "nmdias/FeedKit" "7.0.1"
+github "Swinject/Swinject" "2.4.0"
+github "alexaubry/HTMLString" "4.0.2"
+github "kukushi/SideMenu" "ad612081761a30dd41aa19a3fe6190b6757e093c"
+github "nmdias/FeedKit" "7.1.0"

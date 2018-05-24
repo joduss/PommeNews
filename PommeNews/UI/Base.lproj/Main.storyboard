@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="caj-0J-pUt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wch-RV-2mw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Settings View Controller-->
         <scene sceneID="srW-hA-wOU">
             <objects>
-                <tableViewController id="gIo-6G-xxp" customClass="SettingsViewController" customModule="PommeNews" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsViewController" id="gIo-6G-xxp" customClass="SettingsViewController" customModule="PommeNews" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="cGn-fh-9ju">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,7 +167,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09I-nB-tK3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1960" y="958"/>
+            <point key="canvasLocation" x="802" y="896"/>
         </scene>
         <!--Stream Management View Controller-->
         <scene sceneID="4VC-ut-bMN">
@@ -195,7 +195,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QaB-qb-zu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2794" y="947"/>
+            <point key="canvasLocation" x="1687" y="896"/>
         </scene>
         <!--PommeNews-->
         <scene sceneID="tne-QT-ifu">
@@ -219,22 +219,34 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="PommeNews" id="pJG-KS-emI">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" image="menuButton" id="K2a-79-dEQ">
-                            <connections>
-                                <action selector="openMenuWithSender:" destination="BYZ-38-t0r" id="6F9-HA-nEL"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="PommeNews" id="pJG-KS-emI"/>
                     <connections>
                         <outlet property="tableview" destination="34U-Pb-0ch" id="9j8-YG-8jV"/>
                         <segue destination="aJx-y1-ljm" kind="show" identifier="ArticleViewController" id="ytc-aT-yvy"/>
-                        <segue destination="Tie-JG-PYJ" kind="presentation" identifier="openMenuSegueIdentifier" id="X8v-lK-Mir"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="476" y="107.49625187406298"/>
+        </scene>
+        <!--Side Menu Controller-->
+        <scene sceneID="vg9-jc-llu">
+            <objects>
+                <viewController id="wch-RV-2mw" customClass="PNSideMenuController" customModule="PommeNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FOz-PW-FKZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="BT7-et-5rP"/>
+                    </view>
+                    <connections>
+                        <segue destination="Tie-JG-PYJ" kind="custom" identifier="SideMenu.Menu" customClass="SideMenuSegue" customModule="SideMenu" id="wkE-ck-HAi"/>
+                        <segue destination="caj-0J-pUt" kind="custom" identifier="SideMenu.Content" customClass="SideMenuSegue" customModule="SideMenu" id="uFV-yT-Eiv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MCK-ia-q8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2132" y="125"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="rEU-bT-ZuB">
@@ -266,12 +278,12 @@
                     <connections>
                         <outlet property="tableView" destination="hVV-X1-MvV" id="hlF-pE-Lbj"/>
                         <outlet property="tableViewWidthConstraint" destination="Lk3-Ur-gos" id="f8M-1Z-Ufo"/>
-                        <segue destination="Qle-5F-I5c" kind="presentation" identifier="SettingsViewController" id="SQn-3k-BGc"/>
+                        <segue destination="Qle-5F-I5c" kind="custom" identifier="SettingsViewController" id="SQn-3k-BGc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTr-OW-Pgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="436" y="958"/>
+            <point key="canvasLocation" x="-1310" y="897"/>
         </scene>
         <!--Title-->
         <scene sceneID="xK3-DO-2oF">
@@ -343,12 +355,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lqy-Kv-wP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1228" y="957.57121439280365"/>
+            <point key="canvasLocation" x="-39" y="896"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="menuButton" width="24" height="24"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="p4P-Mc-BZa"/>
     </inferredMetricsTieBreakers>

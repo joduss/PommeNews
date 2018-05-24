@@ -8,9 +8,9 @@
 
 import UIKit
 import CoreData
-import JDSideMenu
+import SideMenu
 
-class ArticlesListVC: MainViewControllerBase {
+class ArticlesListVC: ContentViewController {
     
     @IBOutlet weak var tableview: UITableView!
     
@@ -23,6 +23,7 @@ class ArticlesListVC: MainViewControllerBase {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
       
         self.setupFetchRequest()
         tableview.delegate = self
@@ -73,8 +74,7 @@ class ArticlesListVC: MainViewControllerBase {
     func showArticlesOfMyFavoriteFeeds() {
         
     }
-
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let menuVC = segue.destination as? MenuViewController {
             menuVC.articleListVC = self

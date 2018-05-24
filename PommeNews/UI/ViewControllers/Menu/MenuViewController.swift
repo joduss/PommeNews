@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import JDSideMenu
 
 private enum MenuTableSection {
     case you
@@ -39,7 +38,7 @@ private enum MenuTableRowType {
     }
 }
 
-class MenuViewController: MenuViewControllerBase {
+class MenuViewController: UIViewController {
     
     
     var fetchResultController: NSFetchedResultsController<RssFeed>!
@@ -110,7 +109,7 @@ class MenuViewController: MenuViewControllerBase {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.tableViewWidthConstraint.constant = self.view.frame.width * SideMenuConfiguration.menuRelativeWidth
+//        self.tableViewWidthConstraint.constant = self.view.frame.width * SideMenuConfiguration.menuRelativeWidth
     }
     
 }
@@ -131,7 +130,9 @@ extension MenuViewController: UITableViewDelegate {
         case .yourNews:
             break
         case .settings:
-            self.performSegue(withIdentifier: String(describing: SettingsViewController.self), sender: nil)
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: SettingsViewController.self)) as! SettingsViewController
+            self.sideMenuController?.contentViewController = vc
+            self.sideMenuController?.hideMenu()
             break
         case .allProviders:
             break
