@@ -150,13 +150,7 @@
                             <outlet property="delegate" destination="gIo-6G-xxp" id="AXh-Pe-UaJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yiT-hJ-n6G">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="EFI-WD-xrS">
-                            <connections>
-                                <action selector="close:" destination="gIo-6G-xxp" id="TAV-ZI-LcS"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="yiT-hJ-n6G"/>
                     <size key="freeformSize" width="300" height="667"/>
                     <connections>
                         <outlet property="emptyCacheCell" destination="6W5-ju-ON4" id="DSO-vR-uzN"/>
@@ -246,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCK-ia-q8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2132" y="125"/>
+            <point key="canvasLocation" x="-2591" y="564"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="rEU-bT-ZuB">
@@ -342,7 +336,7 @@
         <!--Navigation Controller-->
         <scene sceneID="eIv-s2-eI1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qle-5F-I5c" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SettingsViewControllerContainer" automaticallyAdjustsScrollViewInsets="NO" id="Qle-5F-I5c" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VkX-dj-ijB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -359,6 +353,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="p4P-Mc-BZa"/>
+        <segue reference="ZPa-xW-rcb"/>
     </inferredMetricsTieBreakers>
 </document>

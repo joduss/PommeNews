@@ -126,19 +126,23 @@ extension MenuViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
+        var vc: UIViewController!
+        
         switch MenuTableRowType(indexPath) {
         case .yourNews:
             break
         case .settings:
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: SettingsViewController.self)) as! SettingsViewController
-            self.sideMenuController?.contentViewController = vc
-            self.sideMenuController?.hideMenu()
+            vc = Scene.settingsViewController
+
             break
         case .allProviders:
             break
         case .aProvider:
             break
         }
+        
+        self.sideMenuController?.contentViewController = vc
+        self.sideMenuController?.hideMenu()
         
     }
     
