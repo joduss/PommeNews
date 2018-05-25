@@ -75,6 +75,7 @@ class RSSManager {
             //            let newFeed: RssFeed = NSEntityDescription.insertNewObject(into: CoreDataStack.shared.managedObjectContext)
             coreDataFeed = newFeed
             coreDataFeed.favorite = false
+            coreDataFeed.hidden = false
         }
         coreDataFeed.id = feed.id
         coreDataFeed.name = feed.name
