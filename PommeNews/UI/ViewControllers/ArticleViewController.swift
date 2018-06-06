@@ -11,8 +11,13 @@ import WebKit
 
 class ArticleViewController: UIViewController {
 
+    @IBOutlet var progressView: UIProgressView!
+    
     @IBOutlet weak var webviewContainer: UIView!
-    private let webview: WKWebView
+    fileprivate let webview: WKWebView
+    
+    //MARK: Life cycle
+    //=======================================================
     
     required init?(coder aDecoder: NSCoder) {
         self.webview = WKWebView(frame: CGRect.zero, configuration: WKWebViewConfiguration())
@@ -29,13 +34,21 @@ class ArticleViewController: UIViewController {
         
         self.webviewContainer.addConstraints(contraintsVertical)
         self.webviewContainer.addConstraints(contraintsHorizontal)
-        self.webview.navigationDelegate = self
 
+        self.progressView?.progress = 0
     }
 
+    //MARK: Setup - Loading page
+    //=======================================================
+    
     func load(url: URL, title: String) {
         webview.stopLoading()
         let myRequest = URLRequest(url: url)
+        
+        self.progressView?.progress = 0
+        self.progressView?.alpha = 1
+        webview.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+
         webview.load(myRequest)
         self.title = title
     }
@@ -43,29 +56,35 @@ class ArticleViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         webview.stopLoading()
         webview.load(URLRequest(url: URL(string:"about:blank")!))
+        webview.removeObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress))
         super.viewDidDisappear(animated)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if webview.estimatedProgress == 1 {
+            self.progressView.alpha = 0
+        }
     }
-    */
 
 }
 
-extension ArticleViewController: WKNavigationDelegate {
+
+//MARK: Progress
+//=======================================================
+
+extension ArticleViewController {
     
-    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-//        self.title = "didCommit"
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        guard object is WKWebView, keyPath == #keyPath(WKWebView.estimatedProgress) else { return }
+        
+        
+        progressView?.setProgress(Float(webview.estimatedProgress),
+                                 animated: true)
+        
+        if progressView?.progress == 1 {
+            UIView.animate(withDuration: 0.2, animations: { self.progressView.alpha = 0 })
+        }
     }
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-//        self.title = "didFinish"
-    }
-    
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wch-RV-2mw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wch-RV-2mw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -105,7 +105,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qGv-xN-TCY">
-                                                    <rect key="frame" x="153" y="8" width="128" height="29"/>
+                                                    <rect key="frame" x="228" y="8" width="128" height="29"/>
                                                     <segments>
                                                         <segment title="10m"/>
                                                         <segment title="30m"/>
@@ -290,12 +290,19 @@
                                 <rect key="frame" x="0.0" y="32" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Jct-rX-vB1">
+                                <rect key="frame" x="-0.5" y="64" width="375" height="2"/>
+                                <color key="trackTintColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Jct-rX-vB1" firstAttribute="width" secondItem="4IA-UV-HbB" secondAttribute="width" id="4aj-wW-S1Q"/>
                             <constraint firstItem="1jL-a2-1Cj" firstAttribute="centerX" secondItem="Jvz-xR-JTH" secondAttribute="centerX" id="FGH-We-XhF"/>
+                            <constraint firstItem="Jct-rX-vB1" firstAttribute="centerX" secondItem="Jvz-xR-JTH" secondAttribute="centerX" id="Lbb-p9-pIg"/>
                             <constraint firstItem="1jL-a2-1Cj" firstAttribute="height" secondItem="4IA-UV-HbB" secondAttribute="height" id="SDE-nm-mxW"/>
                             <constraint firstItem="1jL-a2-1Cj" firstAttribute="width" secondItem="4IA-UV-HbB" secondAttribute="width" id="jY9-DV-dQE"/>
+                            <constraint firstItem="Jvz-xR-JTH" firstAttribute="top" secondItem="Jct-rX-vB1" secondAttribute="bottom" constant="-2" id="nuH-Mh-lqd"/>
                             <constraint firstItem="1jL-a2-1Cj" firstAttribute="centerY" secondItem="Jvz-xR-JTH" secondAttribute="centerY" id="vQa-Gj-enT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jvz-xR-JTH"/>
@@ -307,6 +314,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="progressView" destination="Jct-rX-vB1" id="TQf-CC-5b3"/>
                         <outlet property="webviewContainer" destination="1jL-a2-1Cj" id="prP-aq-QXL"/>
                     </connections>
                 </viewController>
