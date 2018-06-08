@@ -1,6 +1,0 @@
-framework module HTMLString {
-  header "HTMLString-Swift.h"
-
-  export *
-  module HTMLString { export * }
-}
