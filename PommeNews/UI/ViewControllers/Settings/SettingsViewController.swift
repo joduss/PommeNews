@@ -18,6 +18,8 @@ class SettingsViewController: UITableViewController {
     
     @IBOutlet weak var intervalSelector: UISegmentedControl!
     
+    private let rssManager = Inject.component(RSSManager.self)
+    
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

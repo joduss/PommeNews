@@ -9,6 +9,7 @@
 import Foundation
 import FeedKit
 import CoreData
+import WebKit
 
 class RSSManager {
     
@@ -277,6 +278,22 @@ class RSSManager {
     //            }
     //        }
     //    }
+    
+    
+    func cleanCache() {
+        let websitesData = WKWebsiteDataStore.allWebsiteDataTypes()
+        
+        WKWebsiteDataStore.default().removeData(ofTypes: websitesData,
+                                                modifiedSince: Date(timeIntervalSinceReferenceDate: 0),
+                                                completionHandler: { })
+        do {
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: RssArticle.fetchRequest())
+            try context?.execute(deleteRequest)
+        
+        } catch {
+            return
+        }
+    }
     
     
 }
