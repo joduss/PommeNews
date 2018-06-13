@@ -16,4 +16,8 @@ class Scene {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: SettingsViewController.self) + "Container")
     }
     
+    static var articlesListViewController: ArticlesListVC {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: ArticlesListVC.self)) as! ArticlesListVC
+    }
+    
 }
