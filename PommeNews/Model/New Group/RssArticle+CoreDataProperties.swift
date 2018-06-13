@@ -12,11 +12,7 @@ import CoreData
 
 
 extension RssArticle {
-
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<RssArticle> {
-        return NSFetchRequest<RssArticle>(entityName: "RssArticle")
-    }
-
+    
     @NSManaged public var creator: String?
     @NSManaged public var date: NSDate!
     @NSManaged public var feedTypeRaw: Int16

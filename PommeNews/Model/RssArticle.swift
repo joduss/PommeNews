@@ -35,6 +35,10 @@ extension RssArticle: EntityName {
         return "date"
     }
     
+    static var feedPropertyName: String {
+        return "feed"
+    }
+    
 }
 
 extension RssArticle {
