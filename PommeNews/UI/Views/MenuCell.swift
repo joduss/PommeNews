@@ -29,7 +29,7 @@ class MenuCell: UITableViewCell {
         //Configure icon image view
         let iconLayer = iconImageView.layer
         iconLayer.cornerRadius = 10
-        iconLayer.borderWidth = 2
+        iconLayer.borderWidth = 1.3
         iconLayer.borderColor = UIColor.black.cgColor
     }
     
@@ -40,13 +40,13 @@ class MenuCell: UITableViewCell {
         self.unreadLabel.isHidden = (numberUnreadArticles < 0)
         self.unreadLabelBackground.isHidden = (numberUnreadArticles < 0)
         self.unreadLabel.text = "\(numberUnreadArticles > 999 ? 999 : numberUnreadArticles)"
-        
     }
     
-    func setup(with title: String) {
+    func setup(with title: String, image: UIImage?) {
         self.titleLabel.text = title
         self.unreadLabel.isHidden = true
         self.unreadLabelBackground.isHidden = true
+        self.iconImageView.image = image
     }
     
     override func prepareForReuse() {

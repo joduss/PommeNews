@@ -15,7 +15,6 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var hiddenStreamsCell: UITableViewCell!
     @IBOutlet weak var myStreamsCell: UITableViewCell!
     @IBOutlet weak var emptyCacheCell: UITableViewCell!
-    
     @IBOutlet weak var intervalSelector: UISegmentedControl!
     
     private let rssManager = Inject.component(RSSManager.self)
@@ -34,6 +33,7 @@ class SettingsViewController: UITableViewController {
         case myStreamsCell:
             break
         case emptyCacheCell:
+            rssManager.cleanCache()
             break
         default:
             break
@@ -41,13 +41,15 @@ class SettingsViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MyStreams" {
+        switch segue.identifier  {
+        case "MyStreams":
             let vc = segue.destination as! StreamManagementViewController
             vc.mode = .favorite
-        }
-        else if segue.identifier == "HiddenStreams" {
+        case "HiddenStreams":
             let vc = segue.destination as! StreamManagementViewController
             vc.mode = .hidden
+        default:
+            break
         }
     }
     
