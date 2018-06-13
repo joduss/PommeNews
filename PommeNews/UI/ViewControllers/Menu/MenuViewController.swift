@@ -12,14 +12,24 @@ import CoreData
 private enum MenuTableSection {
     case you
     case providers
+    case settings
     
     init(_ section: Int) {
-        self = (section == 0) ? .you : .providers
+        switch section {
+        case 0: self = .you
+        case 1: self = .providers
+        default: self = .settings
+        }
+    }
+    
+    static fileprivate func numberOfSections() -> Int {
+        return 3
     }
 }
 
 private enum MenuTableRowType {
     case yourNews
+    case thematicNews
     case settings
     case allProviders
     case aProvider
@@ -29,6 +39,8 @@ private enum MenuTableRowType {
         case (0,0):
             self = .yourNews
         case (0,1):
+            self = .thematicNews
+        case (2,0):
             self = .settings
         case (1,0):
             self = .allProviders
@@ -36,7 +48,17 @@ private enum MenuTableRowType {
             self = .aProvider
         }
     }
+    
+    static fileprivate func numberOfRows(in section: Int, numberOfProviders: Int) -> Int {
+        switch section {
+        case 0: return 2
+        case 1: return 1 + numberOfProviders
+        case 2: return 1
+        default: return 0
+        }
+    }
 }
+
 
 class MenuViewController: UIViewController {
     
@@ -50,7 +72,7 @@ class MenuViewController: UIViewController {
     var articleListVC: ArticlesListVC!
     
     /*
- 
+     
      Header with logo
      
      
@@ -60,9 +82,9 @@ class MenuViewController: UIViewController {
      //second group: News providers
      // all
      // each provider
- 
- 
- */
+     
+     
+     */
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -109,7 +131,7 @@ class MenuViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        self.tableViewWidthConstraint.constant = self.view.frame.width * SideMenuConfiguration.menuRelativeWidth
+        //        self.tableViewWidthConstraint.constant = self.view.frame.width * SideMenuConfiguration.menuRelativeWidth
     }
     
 }
@@ -125,19 +147,35 @@ extension MenuViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        
         var vc: UIViewController!
         
         switch MenuTableRowType(indexPath) {
         case .yourNews:
+            let newsVC = Scene.articlesListViewController
+            newsVC.request = RssFavoriteArticlesRequest().create()
+            vc = UINavigationController(rootViewController: newsVC)
+            break
+            
+        case .thematicNews:
             break
         case .settings:
             vc = Scene.settingsViewController
-
             break
+            
         case .allProviders:
+            let newsVC = Scene.articlesListViewController
+            newsVC.request = RssArticlesRequest().create()
+            newsVC.request.sortDescriptors = [NSSortDescriptor(key: RssArticle.datePropertyName, ascending: true)]
+            vc = UINavigationController(rootViewController: newsVC)
             break
+            
         case .aProvider:
+            if let provider = fetchResultController.fetchedObjects?[indexPath.row - 1] {
+                let newsVC = Scene.articlesListViewController
+                newsVC.request = RssArticlesByProviderRequest().create(withProvider: provider)
+                vc = UINavigationController(rootViewController: newsVC)
+            }
             break
         }
         
@@ -152,21 +190,22 @@ extension MenuViewController: UITableViewDelegate {
 extension MenuViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return MenuTableSection.numberOfSections()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if MenuTableSection(section) == .you {
-            return 2
-        }
-        return fetchResultController.fetchedObjects?.count ?? 0 + 1
+        let numberOfProviders = fetchResultController.fetchedObjects?.count ?? 0
+        return MenuTableRowType.numberOfRows(in: section, numberOfProviders: numberOfProviders)
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if MenuTableSection(section) == .providers {
-            return "menu.sources".localized
+        
+        switch MenuTableSection(section) {
+        case .you: return nil
+        case .providers: return "menu.sources".localized
+        case .settings: return "menu.settings".localized
         }
-        return nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -174,11 +213,14 @@ extension MenuViewController: UITableViewDataSource {
         
         switch (MenuTableRowType(indexPath)) {
         case .yourNews:
-            cell.setup(with: "menu.my_news".localized)
+            cell.setup(with: "menu.my_news".localized, image: #imageLiteral(resourceName: "myNews"))
+        case .thematicNews:
+            cell.setup(with: "menu.thematic_news".localized, image: nil)
+            break
         case .settings:
-            cell.setup(with: "menu.settings".localized)
+            cell.setup(with: "menu.settings".localized, image: #imageLiteral(resourceName: "settings"))
         case .allProviders:
-            cell.setup(with: "menu.all_sources".localized)
+            cell.setup(with: "menu.all_sources".localized, image: #imageLiteral(resourceName: "rss"))
         case .aProvider:
             cell.setup(with: fetchResultController.fetchedObjects![indexPath.row - 1], numberUnreadArticles: 10)
         }
@@ -186,6 +228,6 @@ extension MenuViewController: UITableViewDataSource {
         return cell
     }
     
-
+    
     
 }
