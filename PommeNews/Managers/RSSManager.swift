@@ -200,7 +200,7 @@ class RSSManager {
     }
     
     private func exists(article: RssArticlePO) -> Bool {
-        let request: NSFetchRequest<RssArticle> = RssArticle.fetchRequest()
+        let request: NSFetchRequest<RssArticle> = RssArticlesRequest().create()
         request.predicate = NSPredicate(format: "\(RssArticle.summaryPropertyName) == %@", article.summary)
         
         do {
