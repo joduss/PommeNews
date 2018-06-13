@@ -17,21 +17,21 @@ class ArticlesListVC: ContentViewController {
     private var rssManager: RSSManager = Inject.component(RSSManager.self)
     fileprivate var articles: [RssArticle] = []
     
-    var fetchResultController: NSFetchedResultsController<RssArticle>! = nil
-
+    private var fetchResultController: NSFetchedResultsController<RssArticle>! = nil
+    var request: NSFetchRequest<RssArticle>!
     private var articleDetailsView: ArticleViewController!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
+        
         self.setupFetchRequest()
         tableview.delegate = self
         tableview.dataSource = self
         
         tableview.register(UINib.init(nibName: String(describing: ArticleListCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ArticleListCell.self))
         
-//        tableview.rowHeight = UITableViewAutomaticDimension
+        //        tableview.rowHeight = UITableViewAutomaticDimension
         tableview.estimatedRowHeight = 100
         
         self.articleDetailsView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: ArticleViewController.self)) as! ArticleViewController
@@ -40,13 +40,19 @@ class ArticlesListVC: ContentViewController {
     }
     
     private func setupFetchRequest() {
-        let request: NSFetchRequest<RssArticle> = RssArticle.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: RssArticle.datePropertyName, ascending: false)]
+        if request == nil {
+            request = RssArticlesRequest().create()
+            request.sortDescriptors = [NSSortDescriptor(key: RssArticle.datePropertyName, ascending: false)]
+            self.fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataStack.shared.context, sectionNameKeyPath: nil, cacheName: nil)
+            self.fetchResultController.delegate = self
+            try? self.fetchResultController.performFetch()
+        }
+        
         self.fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataStack.shared.context, sectionNameKeyPath: nil, cacheName: nil)
         self.fetchResultController.delegate = self
         try? self.fetchResultController.performFetch()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -81,7 +87,7 @@ class ArticlesListVC: ContentViewController {
             super.prepare(for: segue, sender: sender)
         }
     }
-     
+    
     
     fileprivate func showArticle(_ article: RssArticle) {
         if let url = article.link {
@@ -89,7 +95,7 @@ class ArticlesListVC: ContentViewController {
             self.show(articleDetailsView, sender: self)
         }
     }
-
+    
 }
 
 extension ArticlesListVC: UITableViewDataSource {

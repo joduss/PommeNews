@@ -19,7 +19,7 @@ class ArticleViewController: UIViewController {
     //MARK: Life cycle
     //=======================================================
     
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {        
         self.webview = WKWebView(frame: CGRect.zero, configuration: WKWebViewConfiguration())
         super.init(coder: aDecoder)
     }
