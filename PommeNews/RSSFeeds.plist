@@ -8,7 +8,7 @@
 		<key>id</key>
 		<string>mac4ever</string>
 		<key>url</key>
-		<string>https://www.mac4ever.com/rss/actutitremobile</string>
+		<string>https://www.mac4ever.com/rss/actu</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -16,7 +16,7 @@
 		<key>id</key>
 		<string>macg</string>
 		<key>url</key>
-		<string>https://www.macg.co/rss</string>
+		<string>https://megaflux.macg.co/</string>
 	</dict>
 </array>
 </plist>
