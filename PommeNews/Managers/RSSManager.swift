@@ -71,11 +71,9 @@ class RSSManager {
             coreDataFeed = existingFeed
         }
         else {
-            let newFeed = NSEntityDescription.insertNewObject(forEntityName: "RssFeed", into: CoreDataStack.shared.context) as! RssFeed
-            
-            //            let newFeed: RssFeed = NSEntityDescription.insertNewObject(into: CoreDataStack.shared.managedObjectContext)
+            let newFeed = NSEntityDescription.insertNewObject(forEntityName: "RssFeed", into: CoreDataStack.shared.context) as! RssFeed            
             coreDataFeed = newFeed
-            coreDataFeed.favorite = false
+            coreDataFeed.favorite = true
             coreDataFeed.hidden = false
         }
         coreDataFeed.id = feed.id
@@ -92,26 +90,26 @@ class RSSManager {
         request.predicate = NSPredicate(format: "\(RssFeed.idPropertyName) == %@", id)
         
         
-
+        
         //Add fetch in CoreDataStack
-            do {
-                let entitiesFetchResult = try context?.fetch(request)
-                guard let entities = entitiesFetchResult else {
-                    return nil
-                }
-                
-                if entities.count == 0 {
-                    return nil
-                }
-                else if entities.count == 1 {
-                    return entities.first!
-                }
-                else {
-                    throw PError.inconsistency("Entity should be UNIQUE")
-                }
-            } catch {
+        do {
+            let entitiesFetchResult = try context?.fetch(request)
+            guard let entities = entitiesFetchResult else {
                 return nil
             }
+            
+            if entities.count == 0 {
+                return nil
+            }
+            else if entities.count == 1 {
+                return entities.first!
+            }
+            else {
+                throw PError.inconsistency("Entity should be UNIQUE")
+            }
+        } catch {
+            return nil
+        }
         
     }
     
@@ -126,7 +124,7 @@ class RSSManager {
             let group = DispatchGroup()
             
             var error: PError? = nil
-//            var singleError = true
+            //            var singleError = true
             
             for feed in self.feeds {
                 group.enter()
@@ -136,14 +134,16 @@ class RSSManager {
                     case .success(_): break
                     case .failure(let failureError):
                         if error != nil {
-//                            singleError = false
+                            //                            singleError = false
                         }
                         else {
                             error = failureError
                         }
                     }
+                    
                     group.leave()
                 })
+                
             }
             
             let timeout = group.wait(timeout: DispatchTime.now() + DispatchTimeInterval.seconds(10))
@@ -164,7 +164,7 @@ class RSSManager {
     }
     
     ///Get the new articles for the specified feed
-     func update(feed: RssFeed, completion: ((Result<Void>) -> ())?) {
+    func update(feed: RssFeed, completion: ((Result<Void>) -> ())?) {
         self.rssClient.fetch(feed: feed, completion: { result in
             switch result {
             case .success(let articles):
@@ -210,7 +210,7 @@ class RSSManager {
             return false
         }
     }
-        
+    
     
     //    var allFeeds: [RSSFeed] {
     //        let decoder = PropertyListDecoder()
@@ -289,7 +289,7 @@ class RSSManager {
         do {
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: RssArticle.fetchRequest())
             try context?.execute(deleteRequest)
-        
+            
         } catch {
             return
         }
