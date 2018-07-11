@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B05F53A203496AF0028F053 /* RssArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05F539203496AF0028F053 /* RssArticle.swift */; };
+		6B0C2A7C20ED362300813EA6 /* ContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C2A7B20ED362300813EA6 /* ContentTableViewController.swift */; };
 		6B0E165920373E420035C75B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E165820373E420035C75B /* StringExtension.swift */; };
 		6B0E1662203741510035C75B /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E1661203741510035C75B /* URLExtension.swift */; };
 		6B0E1664203748840035C75B /* FakeRSSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E1663203748840035C75B /* FakeRSSClient.swift */; };
@@ -15,6 +16,7 @@
 		6B0E1669203A04C10035C75B /* macg.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6B0E1668203A04C10035C75B /* macg.xml */; };
 		6B1A4B5820CAE1F30071C67B /* RssArticlesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A4B5720CAE1F30071C67B /* RssArticlesRequest.swift */; };
 		6B1A4B5A20CB1BF70071C67B /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A4B5920CB1BF70071C67B /* ImageFetcher.swift */; };
+		6B4A099920F509B6009B3FD8 /* RssFeedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A099820F509B6009B3FD8 /* RssFeedRequest.swift */; };
 		6B828660204A977B00AB9242 /* mac4ever.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6B82865F204A977A00AB9242 /* mac4ever.xml */; };
 		6B828662204A9A7600AB9242 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B828661204A9A7600AB9242 /* ArticleViewController.swift */; };
 		6B82C350201FC838006FA35D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82C34F201FC838006FA35D /* AppDelegate.swift */; };
@@ -82,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		6B05F539203496AF0028F053 /* RssArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssArticle.swift; sourceTree = "<group>"; };
+		6B0C2A7B20ED362300813EA6 /* ContentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentTableViewController.swift; path = PommeNews/UI/ViewControllers/Menu/ContentTableViewController.swift; sourceTree = "<group>"; };
 		6B0E165820373E420035C75B /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		6B0E165A20373F9C0035C75B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		6B0E165B20373F9D0035C75B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		6B0E1668203A04C10035C75B /* macg.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = macg.xml; sourceTree = "<group>"; };
 		6B1A4B5720CAE1F30071C67B /* RssArticlesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssArticlesRequest.swift; sourceTree = "<group>"; };
 		6B1A4B5920CB1BF70071C67B /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
+		6B4A099820F509B6009B3FD8 /* RssFeedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedRequest.swift; sourceTree = "<group>"; };
 		6B82865F204A977A00AB9242 /* mac4ever.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mac4ever.xml; sourceTree = "<group>"; };
 		6B828661204A9A7600AB9242 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		6B82C34C201FC838006FA35D /* PommeNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PommeNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +204,7 @@
 				6BF08B0320C984580002E3CE /* RssFavoriteArticlesRequest.swift */,
 				6BF08B0520CA47800002E3CE /* RssArticlesByProviderRequest.swift */,
 				6B1A4B5720CAE1F30071C67B /* RssArticlesRequest.swift */,
+				6B4A099820F509B6009B3FD8 /* RssFeedRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 		6B82C343201FC838006FA35D = {
 			isa = PBXGroup;
 			children = (
+				6B0C2A7B20ED362300813EA6 /* ContentTableViewController.swift */,
 				6BC9132B203F290500F969DD /* Cartfile */,
 				6B82C34E201FC838006FA35D /* PommeNews */,
 				6B82C363201FC838006FA35D /* PommeNewsTests */,
@@ -597,6 +603,7 @@
 			files = (
 				6BCD760A20885D6800F584BA /* Inject.swift in Sources */,
 				6B82C3AD202197FA006FA35D /* PError.swift in Sources */,
+				6B0C2A7C20ED362300813EA6 /* ContentTableViewController.swift in Sources */,
 				6B870AC1209F60AF004EC529 /* StreamManagementViewController.swift in Sources */,
 				6B0E1662203741510035C75B /* URLExtension.swift in Sources */,
 				6B870AC3209F623B004EC529 /* MenuFeedCell.swift in Sources */,
@@ -610,6 +617,7 @@
 				6B1A4B5820CAE1F30071C67B /* RssArticlesRequest.swift in Sources */,
 				6BF5A2A420B7362C005E0765 /* ContentViewController.swift in Sources */,
 				6BF1D0AA207A843B005725E7 /* MenuViewController.swift in Sources */,
+				6B4A099920F509B6009B3FD8 /* RssFeedRequest.swift in Sources */,
 				6B82C350201FC838006FA35D /* AppDelegate.swift in Sources */,
 				6BB8FC7E2023830C00AB870F /* ArticleListCell.swift in Sources */,
 				6B828662204A9A7600AB9242 /* ArticleViewController.swift in Sources */,
