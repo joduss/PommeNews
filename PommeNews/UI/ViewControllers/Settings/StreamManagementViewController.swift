@@ -38,7 +38,20 @@ class StreamManagementViewController: UITableViewController {
                 
             }
         }
-        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        try? CoreDataStack.shared.save()
+    }
+    
+    private func configureTitle() {
+        switch mode {
+        case .favorite:
+            self.title = "settings.stream_management.favorites".localized
+        case .hidden:
+            self.title = "settings.stream_management.hidden".localized
+        }
     }
     
     
