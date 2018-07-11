@@ -12,51 +12,52 @@ import SideMenu
 
 class ArticlesListVC: ContentViewController {
     
+    private static let CellHeight: CGFloat = 100
+    
     @IBOutlet weak var tableview: UITableView!
     
     private var rssManager: RSSManager = Inject.component(RSSManager.self)
     fileprivate var articles: [RssArticle] = []
     
     private var fetchResultController: NSFetchedResultsController<RssArticle>! = nil
-    var request: NSFetchRequest<RssArticle>!
+    private var request: NSFetchRequest<RssArticle>!
     private var articleDetailsView: ArticleViewController!
+    
+    //MARK: Life Cycle
+    //==================================================================
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        self.setupFetchRequest()
         tableview.delegate = self
         tableview.dataSource = self
-        
+        tableview.estimatedRowHeight = ArticlesListVC.CellHeight
         tableview.register(UINib.init(nibName: String(describing: ArticleListCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ArticleListCell.self))
-        
-        //        tableview.rowHeight = UITableViewAutomaticDimension
-        tableview.estimatedRowHeight = 100
-        
         self.articleDetailsView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: ArticleViewController.self)) as! ArticleViewController
         
         rssManager.updateFeeds()
     }
     
-    private func setupFetchRequest() {
-        if request == nil {
-            request = RssArticlesRequest().create()
-            request.sortDescriptors = [NSSortDescriptor(key: RssArticle.datePropertyName, ascending: false)]
-            self.fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataStack.shared.context, sectionNameKeyPath: nil, cacheName: nil)
-            self.fetchResultController.delegate = self
-            try? self.fetchResultController.performFetch()
+    //MARK: Fetch Request Configuration
+    //==================================================================
+    
+    private func executeArticlesFetchRequest() {
+        guard let request = self.request else {
+            return
         }
-        
+    
         self.fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataStack.shared.context, sectionNameKeyPath: nil, cacheName: nil)
         self.fetchResultController.delegate = self
         try? self.fetchResultController.performFetch()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func setupWith(fetchRequest: NSFetchRequest<RssArticle>) {
+        self.request = fetchRequest
+        self.executeArticlesFetchRequest()
     }
+    
+    //MARK: Content Configuration
+    //==================================================================
     
     func articlesUpdated(result: Result<[RssArticle]>) {
         switch result {
@@ -81,6 +82,9 @@ class ArticlesListVC: ContentViewController {
         
     }
     
+    //MARK: Nav
+    //==================================================================
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let menuVC = segue.destination as? MenuViewController {
             menuVC.articleListVC = self
@@ -98,10 +102,13 @@ class ArticlesListVC: ContentViewController {
     
 }
 
+//MARK: Table View Delegate and Data Source
+//==================================================================
+
 extension ArticlesListVC: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return fetchResultController == nil ? 0 : 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -132,6 +139,9 @@ extension ArticlesListVC: UITableViewDelegate {
     }
     
 }
+
+//MARK: Fetch Results Controller Delegate
+//==================================================================
 
 extension ArticlesListVC: NSFetchedResultsControllerDelegate {
     
