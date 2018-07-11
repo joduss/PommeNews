@@ -14,4 +14,5 @@ enum PError: Error {
     case HTTPErrorInvalidFormat
     case FeedFetchingError(NSError)
     case inconsistency(String)
+    case unsupported
 }
