@@ -13,3 +13,9 @@
 "menu.sources" = "Les flux";
 "menu.all_sources" = "Tous";
 "menu.thematic_news" = "Thematiques";
+
+
+"Settings.Title" = "Paramètres";
+
+"settings.stream_management.hidden" = "Flux visibles";
+"settings.stream_management.favorites" = "Flux préférés";
