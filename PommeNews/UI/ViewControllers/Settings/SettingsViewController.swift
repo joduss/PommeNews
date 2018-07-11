@@ -19,8 +19,14 @@ class SettingsViewController: ContentTableViewController {
     
     private let rssManager = Inject.component(RSSManager.self)
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Settings.Title".localized
+    }
+    
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        try? CoreDataStack.shared.save()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
