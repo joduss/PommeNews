@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SettingsViewController: UITableViewController {
+class SettingsViewController: ContentTableViewController {
     
     
     @IBOutlet weak var hiddenStreamsCell: UITableViewCell!
