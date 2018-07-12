@@ -135,7 +135,7 @@ class MenuViewController: UIViewController {
     
     private func showDefaultSelection() {
         let newsVC = Scene.articlesListViewController
-        let request = RssArticlesRequest().create()
+        let request = RssFavoriteArticlesRequest().create()
         request.sortDescriptors = [NSSortDescriptor(key: RssArticle.datePropertyName, ascending: true)]
         newsVC.setupWith(fetchRequest: request)
         let vc = UINavigationController(rootViewController: newsVC)
