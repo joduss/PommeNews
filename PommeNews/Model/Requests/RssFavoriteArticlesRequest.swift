@@ -13,8 +13,8 @@ class RssFavoriteArticlesRequest {
 
     func create() -> NSFetchRequest<RssArticle> {
         let request: NSFetchRequest<RssArticle> = RssArticlesRequest().create()
-        request.predicate = NSPredicate(format: "feed." + RssFeed.favoritePropertyName + " == %@", NSNumber(value: true))
-        request.sortDescriptors = [NSSortDescriptor(key: RssArticle.datePropertyName, ascending: false)]
+        request.predicate = NSPredicate(format: "feed." + #keyPath(RssFeed.favorite) + " == %@", NSNumber(value: true))
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(RssArticle.date), ascending: false)]
         return request
     }
     
