@@ -19,3 +19,7 @@
 
 "settings.stream_management.hidden" = "Flux visibles";
 "settings.stream_management.favorites" = "Flux préférés";
+
+
+
+"activity.safari" = "Ouvrir dans Safari";

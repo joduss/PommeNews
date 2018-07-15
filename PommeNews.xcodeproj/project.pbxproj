@@ -16,6 +16,7 @@
 		6B0E1669203A04C10035C75B /* macg.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6B0E1668203A04C10035C75B /* macg.xml */; };
 		6B1A4B5820CAE1F30071C67B /* RssArticlesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A4B5720CAE1F30071C67B /* RssArticlesRequest.swift */; };
 		6B1A4B5A20CB1BF70071C67B /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A4B5920CB1BF70071C67B /* ImageFetcher.swift */; };
+		6B2FF8D220FBBBD7003A91BE /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2FF8D120FBBBD7003A91BE /* SafariActivity.swift */; };
 		6B4A099920F509B6009B3FD8 /* RssFeedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A099820F509B6009B3FD8 /* RssFeedRequest.swift */; };
 		6B828660204A977B00AB9242 /* mac4ever.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6B82865F204A977A00AB9242 /* mac4ever.xml */; };
 		6B828662204A9A7600AB9242 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B828661204A9A7600AB9242 /* ArticleViewController.swift */; };
@@ -94,6 +95,7 @@
 		6B0E1668203A04C10035C75B /* macg.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = macg.xml; sourceTree = "<group>"; };
 		6B1A4B5720CAE1F30071C67B /* RssArticlesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssArticlesRequest.swift; sourceTree = "<group>"; };
 		6B1A4B5920CB1BF70071C67B /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
+		6B2FF8D120FBBBD7003A91BE /* SafariActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		6B4A099820F509B6009B3FD8 /* RssFeedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedRequest.swift; sourceTree = "<group>"; };
 		6B82865F204A977A00AB9242 /* mac4ever.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mac4ever.xml; sourceTree = "<group>"; };
 		6B828661204A9A7600AB9242 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,14 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
+		6B2FF8D020FBBBBB003A91BE /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				6B2FF8D120FBBBD7003A91BE /* SafariActivity.swift */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 		6B37D317205EB95700321701 /* Animator */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +252,7 @@
 		6B82C34E201FC838006FA35D /* PommeNews */ = {
 			isa = PBXGroup;
 			children = (
+				6B2FF8D020FBBBBB003A91BE /* Others */,
 				6BD7229C20A0E9BF00022353 /* Librairies */,
 				6BCD760B20885E2B00F584BA /* Resources */,
 				6BCD760820885D3900F584BA /* Application */,
@@ -611,6 +622,7 @@
 				6B05F53A203496AF0028F053 /* RssArticle.swift in Sources */,
 				6B82C3AA202197E2006FA35D /* RSSFeed.swift in Sources */,
 				6B1A4B5A20CB1BF70071C67B /* ImageFetcher.swift in Sources */,
+				6B2FF8D220FBBBD7003A91BE /* SafariActivity.swift in Sources */,
 				6BF08B0420C984580002E3CE /* RssFavoriteArticlesRequest.swift in Sources */,
 				6BB8FC812023B7B600AB870F /* ArticlesListVC.swift in Sources */,
 				6BAFD26F2085311D00BDD0D3 /* CoreDataStack.swift in Sources */,
