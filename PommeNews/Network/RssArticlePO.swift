@@ -11,29 +11,29 @@ import Foundation
 import HTMLString
 
 ///Simple common representation of an article. Makes usage later much easier.
-struct RssArticlePO {
-    let titleHtml: String
-    let summaryHtml: String
+public struct RssArticlePO: Codable {
+    public let titleHtml: String
+    public let summaryHtml: String
     
     
-    let imageUrl: URL?
-    let date: Date
-    let link: URL?
+    public let imageUrl: URL?
+    public let date: Date
+    public let link: URL?
     
-    let creator: String?
+    public let creator: String?
     
     
-    var summary: String {
+    public var summary: String {
         let summary = self.summaryHtml.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
         return summary.removingHTMLEntities
     }
     
-    var title: String {
+    public var title: String {
         let title = self.titleHtml.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
         return title.removingHTMLEntities
     }
     
-    func extractImageUrlFromSummary() -> URL? {
+    public func extractImageUrlFromSummary() -> URL? {
         let regex = try! NSRegularExpression(pattern: "<img src=\\\"([:0-9a-zA-Z-_\\/.]+)\\\"", options: .anchorsMatchLines)
         
         guard let nsrangeOfFound = regex.firstMatch(in: self.summaryHtml,

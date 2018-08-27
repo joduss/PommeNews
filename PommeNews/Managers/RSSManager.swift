@@ -31,6 +31,8 @@ class RSSManager {
     init(rssClient: RSSClient) {
         self.rssClient = rssClient
         
+        try! ThemeLoader().loadThemes()
+        
         //Init feeds
         var allFeeds: [RssFeed] = []
         for feed in supportedFeeds {
@@ -60,9 +62,7 @@ class RSSManager {
             return []
         }
     }
-    
-    
-    
+
     private func insertFeedInCoreData(_ feed: RssPlistFeed) -> RssFeed {
         
         var coreDataFeed: RssFeed!
@@ -88,8 +88,6 @@ class RSSManager {
         let request: NSFetchRequest<RssFeed> = RssFeed.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: RssFeed.namePropertyName, ascending: true)]
         request.predicate = NSPredicate(format: "\(RssFeed.idPropertyName) == %@", id)
-        
-        
         
         //Add fetch in CoreDataStack
         do {
@@ -159,13 +157,18 @@ class RSSManager {
             else {
                 completion?(Result.success(()))
             }
-            
         }
     }
     
     ///Get the new articles for the specified feed
     func update(feed: RssFeed, completion: ((Result<Void>) -> ())?) {
-        self.rssClient.fetch(feed: feed, completion: { result in
+        let feedPO = FeedPO(id: feed.id!,
+                            name: feed.name,
+                            url: feed.url,
+                            favorite: feed.favorite,
+                            hidden: feed.hidden)
+        
+        self.rssClient.fetch(feed: feedPO, completion: { result in
             switch result {
             case .success(let articles):
                 //TODO
@@ -195,8 +198,11 @@ class RSSManager {
             article.link = articlePO.link
             article.summary = articlePO.summary
             article.read = false
+            
+            DispatchQueue(label: "theme").async {
+                
+            }
         }
-        
     }
     
     private func exists(article: RssArticlePO) -> Bool {
@@ -210,75 +216,6 @@ class RSSManager {
             return false
         }
     }
-    
-    
-    //    var allFeeds: [RSSFeed] {
-    //        let decoder = PropertyListDecoder()
-    //        let sitesPlistPath = Bundle.main.url(forResource: "RSSFeeds", withExtension: "plist")!
-    //        do {
-    //            let sitesPlist = try Data(contentsOf: sitesPlistPath)
-    //            let sites = try decoder.decode([RSSFeed].self, from: sitesPlist)
-    //            return sites
-    //        }
-    //        catch {
-    //            return []
-    //        }
-    //    }
-    //
-    //    var getFavoriteFeeds: [RSSFeed] {
-    //
-    //        guard let ids = UserDefaults.standard.array(forKey: StorageKeys.sitesToShow) as? [String] else {
-    //            let defaultSitesIds = self.allFeeds.map({$0.id})
-    //            UserDefaults.standard.setValue(defaultSitesIds, forKey: StorageKeys.sitesToShow)
-    //            return self.allFeeds
-    //        }
-    //
-    //        return self.allFeeds.filter({ids.contains($0.id)})
-    //    }
-    //
-    //    func showSite(_ site: RSSFeed) {
-    //        guard var ids = UserDefaults.standard.array(forKey: StorageKeys.sitesToShow) as? [String],
-    //            ids.contains(site.id) == false else {
-    //                return
-    //        }
-    //        ids.append(site.id)
-    //        UserDefaults.standard.setValue(ids, forKey: StorageKeys.sitesToShow)
-    //    }
-    
-    //    func getArticles(completion: @escaping (Result<[RssClientArticle]>) -> ()) {
-    //        DispatchQueue.global(qos: .userInitiated).async {
-    //
-    //            var articles: [RssArticle] = []
-    //
-    //            let group = DispatchGroup()
-    //
-    //            for site in self.getRssSitesToShow() {
-    //                group.enter()
-    //                self.rssClient.fetch(stream: site, completion: { result in
-    //                    switch result {
-    //                    case .failure(let error):
-    //                        //todo
-    //                        print(error)
-    //                        break
-    //                    case .success(let feed):
-    //                        articles += feed
-    //                        break
-    //                    }
-    //
-    //                    //append
-    //                    group.leave()
-    //                })
-    //            }
-    //
-    //            //TODO
-    //            _ = group.wait(timeout: DispatchTime.now() + DispatchTimeInterval.seconds(300)) //TODO)
-    //
-    //            DispatchQueue.main.async {
-    //                completion(Result.success(articles))
-    //            }
-    //        }
-    //    }
-    
     
     func cleanCache() {
         let websitesData = WKWebsiteDataStore.allWebsiteDataTypes()

@@ -11,9 +11,8 @@ import FeedKit
 
 
 class FakeRSSClient: RSSClient {
-
     
-    override func fetch(feed: RssFeed,  completion:@escaping (Result<[RssArticlePO]>) -> ()) {
+    override func fetch(feed: FeedPO,  completion:@escaping (Result<[RssArticlePO]>) -> ()) {
         
         let data = try! Data(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: feed.id, ofType: ".xml")!))
         

@@ -18,7 +18,7 @@ class ArticleViewController: UIViewController {
     
     private var url: URL!
     
-    //MARK: Life cycle
+    //MARK: - Life cycle
     //=======================================================
     
     required init?(coder aDecoder: NSCoder) {        
@@ -40,7 +40,23 @@ class ArticleViewController: UIViewController {
         self.progressView?.progress = 0
     }
     
-    //MARK: Setup - Loading page
+    override func viewDidDisappear(_ animated: Bool) {
+        if self.presentedViewController == nil  {
+            webview.stopLoading()
+            webview.load(URLRequest(url: URL(string:"about:blank")!))
+            webview.removeObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress))
+        }
+        super.viewDidDisappear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if webview.estimatedProgress == 1 {
+            self.progressView.alpha = 0
+        }
+    }
+    
+    //MARK: - Setup - Loading page
     //=======================================================
     
     func load(url: URL, title: String) {
@@ -56,14 +72,8 @@ class ArticleViewController: UIViewController {
         self.title = title
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        if self.presentedViewController == nil  {
-            webview.stopLoading()
-            webview.load(URLRequest(url: URL(string:"about:blank")!))
-            webview.removeObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress))
-        }
-        super.viewDidDisappear(animated)
-    }
+    //MARK: - Actions
+    //=======================================================
     
     @IBAction func shareClicked(_ sender: Any) {
         
@@ -72,20 +82,10 @@ class ArticleViewController: UIViewController {
         let activityController = UIActivityViewController(activityItems: [self.url], applicationActivities: [safariActivity])
         present(activityController, animated: true, completion: nil)
     }
-    
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if webview.estimatedProgress == 1 {
-            self.progressView.alpha = 0
-        }
-    }
-    
 }
 
 
-//MARK: Progress
+//MARK: - Progress
 //=======================================================
 
 extension ArticleViewController {

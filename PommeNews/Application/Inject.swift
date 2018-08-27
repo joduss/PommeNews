@@ -31,6 +31,9 @@ class Inject {
             return RSSManager(rssClient: r.resolve(RSSClient.self)!)
         }).inObjectScope(.container)
         
+        container.register(ImageFetcher.self, factory: { r in
+            return ImageFetcherKF()
+        }).inObjectScope(.container)
         
         
         return Inject()

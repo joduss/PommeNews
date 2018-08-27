@@ -9,14 +9,14 @@
 import Foundation
 
 
-enum Result<T> {
+public enum Result<T> {
     case failure(PError)
     case success(T)
     
 }
 
 extension Result where T == Void {
-    static var success: Result {
+    public static var success: Result {
         return .success(())
     }
 }

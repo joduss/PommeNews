@@ -22,6 +22,7 @@ class ArticleListCell: UITableViewCell {
     @IBOutlet var withImageLeftConstraint: NSLayoutConstraint!
     
     private var article: RssArticle?
+    private let imageFetcher = Inject.component(ImageFetcher.self)
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -86,7 +87,7 @@ class ArticleListCell: UITableViewCell {
             return
         }
         
-        ImageFetcher(imageUrl: imageUrl).fetch(completion: { image in
+        imageFetcher.fetchImage(at: imageUrl) { image in
             guard article == self.article else {
                 //this is not the same article as the one that should be now displayed (concurrency)
                 return
@@ -103,9 +104,7 @@ class ArticleListCell: UITableViewCell {
             else {
                 self.setupForNoImage()
             }
-        })
-        
-        
+        }
     }
     
     private func setupForNoImage() {

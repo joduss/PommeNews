@@ -8,11 +8,13 @@
 
 import Foundation
 
-enum PError: Error {
+public enum PError: Error {
     case HTTPErrorTimeout
     case HTTPErrorCode(Int)
     case HTTPErrorInvalidFormat
     case FeedFetchingError(NSError)
     case inconsistency(String)
     case unsupported
+    
+    case dbIssue(String)
 }

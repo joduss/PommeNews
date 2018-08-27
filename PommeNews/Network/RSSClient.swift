@@ -9,30 +9,13 @@
 import Foundation
 import FeedKit
 
-class RSSClient {
+public class RSSClient {
     
     let session = URLSession(configuration: .default)
     
-    func fetch(feed: RssFeed,  completion:@escaping (Result<[RssArticlePO]>) -> ()) {
-        //        session.dataTask(with: stream.url, completionHandler: { data, response, error in
-        //
-        //            if let error = error {
-        //                let perror = PError.HTTPErrorCode((error as NSError).code)
-        //                completion(Result.failure(perror))
-        //                return
-        //            }
-        //
-        //            guard let data = data else {
-        //                completion(Result.failure(PError.HTTPErrorInvalidFormat))
-        //                return
-        //            }
-        //
-        //            //process XML
-        //
-        //        })
-        
-        
-        let parser = FeedParser(URL: feed.url)
+    func fetch(feed: RssPlistFeed, completion:@escaping (Result<[RssArticlePO]>) -> ()) {
+
+        let parser = FeedParser(URL: URL(string: feed.url)!)
         
         
         parser?.parseAsync(result: { result in
@@ -43,51 +26,25 @@ class RSSClient {
             case .atom(_):
                 completion(Result.failure(PError.unsupported))
                 assertionFailure("Atom not supported")
-                //                guard let entries = atomFeed.entries else { return }
-                //
-                //                var articles: [RssArticle] = []
-                //
-                //                for entry in entries {
-                //
-                //                    guard let title = entry.title,
-                //                        let summary = entry.summary?.value,
-                //                        let link = entry.links?.first,
-                //                        let date = entry.published
-                //                        else {
-                //                            continue
-                //                    }
-                //
-                //                    let article = RssArticle(title: title,
-                //                                             summary: summary,
-                //                                             feed: RSSFeed.atom(atomFeed),
-                //                                             imageURL: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url ?? ""),
-                //                                             date: date,
-                //                                             link: URL(string: link.attributes?.href ?? ""),
-                //                                             creator: entry.authors.first.name ?? "rssarticle.unknownAuthor".localized)
-                //                    articles.append(article)
-                //                }
-                //                break
                 
             case .rss(let rssFeed):
                 guard let entries = rssFeed.items else { return }
-                
-                print(feed.url)
-                
                 
                 for entry in entries {
                     
                     guard let title = entry.title,
                         let summary = entry.description,
-                        let date = entry.pubDate
+                        let date = entry.pubDate,
+                        let link = entry.link
                         else {
                             continue
                     }
                     
                     let article = RssArticlePO(titleHtml: title,
                                                summaryHtml: summary.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
-                                               imageUrl: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url),
+                                               imageUrl: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url ?? ""),
                                                date: date,
-                                               link: URL(string: entry.link),
+                                               link: URL(string: link),
                                                creator: entry.author ?? "?")
                     articles.append(article)
                 }
