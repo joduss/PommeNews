@@ -4,10 +4,53 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FetchNewArticleToJson.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>NewArticlesToJson.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>PommeNews.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Release Run.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>ThemeClassifierEvaluation.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>6B82C34B201FC838006FA35D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6B82C35F201FC838006FA35D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6B82C36A201FC838006FA35D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6BB51C3021347359005772A0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

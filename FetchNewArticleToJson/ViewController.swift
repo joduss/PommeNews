@@ -8,91 +8,127 @@
 
 import Cocoa
 
+
 class ViewController: NSViewController {
     
+    private static let FileExtension = "json"
+    
+    private let feedSupport = FeedSupport(supportedFeedPlist: "RSSFeeds")
 
+    private var articles: [ArticleForIO] = []
+    
+    
+    private let articlesFetcher = ArticleFetcher()
+    private let jsonArticlesIO = ArticlesJsonFileIO()
+    let converter = ArticleJsonConverter()
+    
+    
+    //MARK: - outlets
+    //===================================================================
+    
     @IBOutlet var textView: NSTextView!
+    @IBOutlet weak var articlesCountTF: NSTextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    //MARK: - Actions
+    //===================================================================
+    
+    @IBAction func save(_ sender: Any) {
+        let dialog = NSSavePanel();
         
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear() {
-        super.viewWillAppear()
+        dialog.title                   = "Choose a .json file";
+        dialog.showsResizeIndicator    = true;
+        dialog.showsHiddenFiles        = false;
+        dialog.canCreateDirectories    = true;
+        dialog.allowedFileTypes        = [ViewController.FileExtension];
         
-        let articles = self.fetchArticles()
-        let json = self.convertToJson(articles: articles)
-        
-        self.textView.string = json ?? "oups"
-    }
-    
-    override var representedObject: Any? {
-        didSet {
-            // Update the view, if already loaded.
-        }
-    }
-    
-    
-    private func getFeedPO() -> [RssPlistFeed] {
-        let decoder = PropertyListDecoder()
-        let sitesPlistPath = Bundle.main.url(forResource: "RSSFeeds", withExtension: "plist")!
         do {
-            let sitesPlist = try Data(contentsOf: sitesPlistPath)
-            let sites = try decoder.decode([RssPlistFeed].self, from: sitesPlist)
-            return sites
-        }
-        catch {
-            return []
-        }
-    }
-    
-    private func convertToJson(articles: [RssArticlePO]) -> String? {
-        let encoder = JSONEncoder()
-    
-        do {
-            let json = try encoder.encode(articles)
-            return String(data: json, encoding: String.Encoding.utf8)
-        }
-        catch {}
-        return nil
-    }
-    
-    private func fetchArticles() -> [RssArticlePO] {
-        var fetchedArticles: [RssArticlePO] = []
-        
-        DispatchQueue(label: "fetchArticles").async {
-            let feeds = self.getFeedPO()
-            for feed in feeds {
-                let articles = self.fetchArticle(of: feed)
-                fetchedArticles = articles
-                print("downloaded articles of \(feed.name)")
+            if (dialog.runModal() == NSApplication.ModalResponse.OK) {
+                let result = dialog.url // Pathname of the file
+                
+                if (result != nil) {
+                    let path = result!.path
+                    try jsonArticlesIO.WriteToFile(articles: articles, at: path)
+                }
             }
         }
-        return fetchedArticles
+        catch {
+            self.showError(error)
+        }
     }
     
-    private func fetchArticle(of feed:RssPlistFeed) -> [RssArticlePO] {
+    @IBAction func loadExistingFile(_ sender: Any) {
+        let dialog = NSOpenPanel();
         
-        let client = RSSClient()
-        let semaphore = DispatchSemaphore(value: 1)
-        var articles: [RssArticlePO] = []
-
-        DispatchQueue.main.sync {
-            
-            client.fetch(feed: feed, completion: { result in
-                switch result {
-                case .success(let fetchedArticles):
-                    articles = fetchedArticles
-                default: break
+        dialog.title                   = "Choose a .json file";
+        dialog.showsResizeIndicator    = true;
+        dialog.showsHiddenFiles        = false;
+        dialog.canChooseDirectories    = true;
+        dialog.canCreateDirectories    = true;
+        dialog.allowsMultipleSelection = false;
+        dialog.allowedFileTypes        = [ViewController.FileExtension];
+        
+        do {
+            if (dialog.runModal() == NSApplication.ModalResponse.OK) {
+                let result = dialog.url // Pathname of the file
+                
+                if (result != nil) {
+                    let path = result!.path
+                    self.articles = try jsonArticlesIO.loadArticlesFrom(fileLocation: path)
+                    
+                    let jsonString = converter.convertToJson(articles: self.articles)
+                    self.textView.string = jsonString ?? "error"
+                    
                 }
-                semaphore.signal()
-            })
+            }
         }
-        semaphore.wait()
-        return articles
+        catch {
+            self.showError(error)
+        }
+        
+        self.articlesCountTF.stringValue = "\(articles.count)"
     }
+    
+    @IBAction func fetchNewArticles(_ sender: Any) {
+        
+        articlesFetcher.fetchArticles(of: feedSupport.getFeedPO(), onProgress: {
+            self.textView.string = "Fetching (\($0))"}, completion: { newArticles in
+                self.articles = self.mergeArticles(mergeInto: self.articles, from: newArticles)
+                let json = self.converter.convertToJson(articles: self.articles)
+                self.textView.string = json ?? "Nothing"
+                self.articlesCountTF.stringValue = "\(self.articles.count)"
+        })
+    }
+    
+    //MARK: - Helpers
+    //===================================================================
+    
+    private func showError(_ error: Error) {
+        if let error = error as? NAError {
+            switch error {
+            case .error(let message):
+                textView.string = message
+            }
+        }
+        else {
+            textView.string = e.localizedDescription
+        }
+    }
+    
+    private func mergeArticles(mergeInto: [ArticleForIO], from: [ArticleForIO]) -> [ArticleForIO] {
+        
+        var mergedArticles = mergeInto
+        mergedArticles.reserveCapacity(mergeInto.count + from.count)
+        
+        for article in from {
+            if mergedArticles.filter({$0.summary.hashValue == article.summary.hashValue}).count == 0 {
+                mergedArticles.append(article)
+            }
+        }
+        return mergedArticles
+    }
+    
+    
     
 }
 
