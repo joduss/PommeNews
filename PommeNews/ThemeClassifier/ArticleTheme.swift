@@ -14,7 +14,10 @@ struct ArticleTheme: Hashable {
     static let iPhone = ArticleTheme(key: "iphone")
     static let iPad = ArticleTheme(key: "ipad")
     static let appleWatch = ArticleTheme(key: "appleWatch")
-
+    static let appleTV = ArticleTheme(key: "appleTV")
+    static let mac = ArticleTheme(key: "mac")
+    static let pc = ArticleTheme(key: "pc")
+    
     static let surface = ArticleTheme(key: "surface")
     
     static let android = ArticleTheme(key: "android")
@@ -22,8 +25,7 @@ struct ArticleTheme: Hashable {
     static let windows = ArticleTheme(key: "windows")
     static let macos = ArticleTheme(key: "macos")
     
-    static let mac = ArticleTheme(key: "mac")
-    static let pc = ArticleTheme(key: "pc")
+    static let apps = ArticleTheme(key: "apps")
     
     static let computer = ArticleTheme(key: "computer")
     static let smartphone = ArticleTheme(key: "smartphone")
@@ -35,6 +37,11 @@ struct ArticleTheme: Hashable {
     static let google = ArticleTheme(key: "google")
     static let samsung = ArticleTheme(key: "samsung")
     
+    static let rumor = ArticleTheme(key: "rumor")
+    static let appleMusic = ArticleTheme(key: "appleMusic")
+    static let music = ArticleTheme(key: "music")
+    static let icloud = ArticleTheme(key: "icloud")
+
     static let other = ArticleTheme(key: "other")
 
     public static var allThemes: [ArticleTheme] = [ArticleTheme.iPhone,
