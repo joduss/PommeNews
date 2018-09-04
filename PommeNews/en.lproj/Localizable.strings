@@ -14,11 +14,24 @@
 "menu.all_sources" = "Tous";
 "menu.thematic_news" = "Thematiques";
 
-
 "Settings.Title" = "Paramètres";
 
 "settings.stream_management.hidden" = "Flux visibles";
 "settings.stream_management.favorites" = "Flux préférés";
 
-
 "activity.safari" = "Open in Safari";
+
+"error.theme.save" = "Impossible de charger les thèmes";
+
+
+
+//THEMES
+
+"computer" = "ordinateur";
+"tablet" = "tablette";
+"watch" = "montre connectée";
+"appleWatch" = "Apple Watch";
+"macos" = "macOS";
+"other" = "Divers";
+
+
