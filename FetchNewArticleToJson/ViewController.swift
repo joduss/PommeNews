@@ -111,7 +111,7 @@ class ViewController: NSViewController {
             }
         }
         else {
-            textView.string = e.localizedDescription
+            textView.string = error.localizedDescription
         }
     }
     
