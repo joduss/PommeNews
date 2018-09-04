@@ -62,7 +62,7 @@ class RSSManager {
             return []
         }
     }
-
+    
     private func insertFeedInCoreData(_ feed: RssPlistFeed) -> RssFeed {
         
         var coreDataFeed: RssFeed!
@@ -162,11 +162,10 @@ class RSSManager {
     
     ///Get the new articles for the specified feed
     func update(feed: RssFeed, completion: ((Result<Void>) -> ())?) {
-        let feedPO = FeedPO(id: feed.id!,
-                            name: feed.name,
-                            url: feed.url,
-                            favorite: feed.favorite,
-                            hidden: feed.hidden)
+        let feedPO = RssPlistFeed(name: feed.name,
+                                  url: feed.url.absoluteString,
+                                  id: feed.id!
+                                  )
         
         self.rssClient.fetch(feed: feedPO, completion: { result in
             switch result {
