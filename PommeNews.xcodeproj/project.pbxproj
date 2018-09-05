@@ -161,7 +161,6 @@
 		6B413AE2210A2D3300A0AC69 /* ImageFetcherKF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcherKF.swift; sourceTree = "<group>"; };
 		6B4A099820F509B6009B3FD8 /* RssFeedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedRequest.swift; sourceTree = "<group>"; };
 		6B62A89D2130590C001EDAD4 /* ThemeClassifierTermsMultiLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeClassifierTermsMultiLocalization.swift; sourceTree = "<group>"; };
-		6B62A8B92130AD6F001EDAD4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		6B62A8C22130ADC9001EDAD4 /* mac4ever.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mac4ever.xml; sourceTree = "<group>"; };
 		6B62A8C32130ADC9001EDAD4 /* macg.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = macg.xml; sourceTree = "<group>"; };
 		6B7F7DFB21384178000AE589 /* ArticlesJsonFileIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesJsonFileIO.swift; sourceTree = "<group>"; };
@@ -374,14 +373,6 @@
 				6BE3F8BC212FD52400CD8789 /* ThemeClassifier.swift */,
 			);
 			path = ThemeClassifier;
-			sourceTree = "<group>";
-		};
-		6B62A8B82130AD6F001EDAD4 /* ThemeClassifierEvaluation */ = {
-			isa = PBXGroup;
-			children = (
-				6B62A8B92130AD6F001EDAD4 /* main.swift */,
-			);
-			path = ThemeClassifierEvaluation;
 			sourceTree = "<group>";
 		};
 		6B62A8C12130ADBE001EDAD4 /* Feeds-Config */ = {
@@ -651,9 +642,8 @@
 		6BFC31A8213F13550030431F /* Classifier */ = {
 			isa = PBXGroup;
 			children = (
-				6BFC31C5213F1C160030431F /* ThemeClassifierEvaluation2 */,
+				6BFC31C5213F1C160030431F /* ThemeClassifierEvaluation */,
 				6BFC31BD213F18570030431F /* Shared */,
-				6B62A8B82130AD6F001EDAD4 /* ThemeClassifierEvaluation */,
 				6BB51C3221347359005772A0 /* FetchNewArticleToJson */,
 			);
 			name = Classifier;
@@ -678,7 +668,7 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
-		6BFC31C5213F1C160030431F /* ThemeClassifierEvaluation2 */ = {
+		6BFC31C5213F1C160030431F /* ThemeClassifierEvaluation */ = {
 			isa = PBXGroup;
 			children = (
 				6BFC31A9213F14130030431F /* Evaluator.swift */,
@@ -689,7 +679,7 @@
 				6BFC31CF213F1C190030431F /* Info.plist */,
 				6BFC31D0213F1C190030431F /* ThemeClassifierEvaluation2.entitlements */,
 			);
-			path = ThemeClassifierEvaluation2;
+			path = ThemeClassifierEvaluation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
