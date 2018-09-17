@@ -14,18 +14,18 @@ class ArticlesJsonFileIO {
     private let converter = ArticleJsonConverter()
     
 
-    public func loadArticlesFrom(fileLocation: String) throws -> [ArticleForIO] {
+    public func loadArticlesFrom(fileLocation: String) throws -> [TCArticle] {
         let fileManager = FileManager.default
         if let jsonData = fileManager.contents(atPath: fileLocation) {
             let decoder = JSONDecoder()
-            return try decoder.decode([ArticleForIO].self, from: jsonData)
+            return try decoder.decode([TCArticle].self, from: jsonData)
         }
         else {
             throw NAError.error(message: "Error while getting the data at \(fileLocation)")
         }
     }
     
-    public func WriteToFile(articles: [ArticleForIO], at fileLocation: String) throws {
+    public func WriteToFile(articles: [TCArticle], at fileLocation: String) throws {
         let encoder = JSONEncoder()
         let data = try encoder.encode(articles)
         FileManager.default.createFile(atPath: fileLocation, contents: data, attributes: nil)

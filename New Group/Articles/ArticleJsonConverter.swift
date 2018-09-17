@@ -10,7 +10,7 @@ import Foundation
 
 class ArticleJsonConverter {
     
-    func convertToJson(articles: [ArticleForIO]) -> String? {
+    func convertToJson(articles: [TCArticle]) -> String? {
         let encoder = JSONEncoder()
         
         do {

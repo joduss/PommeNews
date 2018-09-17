@@ -15,13 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     #if DEBUG
-        let injector = Inject.setup(withFakeServices: true)
+        let injector = Inject.setup(withFakeServices: false)
     #else
         let injector = Inject.setup(withFakeServices: false)
     #endif
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         print(FileManager.default,NSHomeDirectory())
 
         return true

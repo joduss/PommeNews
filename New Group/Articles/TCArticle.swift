@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct ArticleForIO: Codable {
+struct TCArticle: Codable, Hashable {
     let title: String
     let summary: String
     let themes: [String]
@@ -19,6 +19,7 @@ struct ArticleForIO: Codable {
         self.summary = summary
         self.themes = themes
     }
+    
     
 
 }

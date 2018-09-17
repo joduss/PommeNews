@@ -21,6 +21,16 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
+        NSLog("Starting")
+        
+        let themesToEvaluate: [ArticleTheme] = [ArticleTheme.mac]
+        
+        Evaluator().startEvaluation(articleLocation: Bundle.main.path(forResource: "articles", ofType: "json")!, themes: themesToEvaluate)
+    }
 
 
 }

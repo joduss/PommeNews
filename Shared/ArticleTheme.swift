@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct ArticleTheme: Hashable {
+struct ArticleTheme: Hashable, Equatable {
     
     static let iPhone = ArticleTheme(key: "iphone")
     static let iPad = ArticleTheme(key: "ipad")
@@ -76,5 +76,13 @@ struct ArticleTheme: Hashable {
     
     func title(forLanguageCode languageCode: String) -> String {
         return Locale.current.localizedString(forLanguageCode: languageCode) ?? "" // TODO
+    }
+    
+    static func == (themeLeft: ArticleTheme, ThemeRight: ArticleTheme) -> Bool {
+        return themeLeft.key == ThemeRight.key
+    }
+    
+    static func != (themeLeft: ArticleTheme, ThemeRight: ArticleTheme) -> Bool {
+        return themeLeft.key != ThemeRight.key
     }
 }

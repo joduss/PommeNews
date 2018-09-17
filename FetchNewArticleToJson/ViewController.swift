@@ -15,7 +15,7 @@ class ViewController: NSViewController {
     
     private let feedSupport = FeedSupport(supportedFeedPlist: "RSSFeeds")
 
-    private var articles: [ArticleForIO] = []
+    private var articles: [TCArticle] = []
     
     
     private let articlesFetcher = ArticleFetcher()
@@ -115,7 +115,7 @@ class ViewController: NSViewController {
         }
     }
     
-    private func mergeArticles(mergeInto: [ArticleForIO], from: [ArticleForIO]) -> [ArticleForIO] {
+    private func mergeArticles(mergeInto: [TCArticle], from: [TCArticle]) -> [TCArticle] {
         
         var mergedArticles = mergeInto
         mergedArticles.reserveCapacity(mergeInto.count + from.count)
