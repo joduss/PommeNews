@@ -112,7 +112,7 @@ class Evaluator {
     }
     
     
-    public func bla(articleLocation: String, themes: [ArticleTheme] = ArticleTheme.allThemes) {
+    public func precisionAndRecall(articleLocation: String, themes: [ArticleTheme] = ArticleTheme.allThemes) {
 
         var predictions: [TCArticle: [ArticleTheme]] = [:]
         
@@ -130,20 +130,31 @@ class Evaluator {
         for article in articles {
             predictions[article] = classifier.classify(article: article)
         }
+        
+        analysePrecisionAndRecall(predictions: predictions, themes: themes)
     }
     
-    private func analyzeCorrectness(predictions: [TCArticle: [ArticleTheme]], themes: [ArticleTheme]) {
+    private func analysePrecisionAndRecall(predictions: [TCArticle: [ArticleTheme]], themes: [ArticleTheme]) {
+        
+        var truePositives: [ArticleTheme: Int] = [:]
+        var trueNegative: [ArticleTheme: Int] = [:]
+        var falsePositives: [ArticleTheme: Int] = [:]
+        var falseNegative: [ArticleTheme: Int] = [:]
+        
+        var precision: [ArticleTheme: Double] = [:]
+        var recall: [ArticleTheme: Double] = [:]
         
         for theme in themes {
-            let nbTruth = predictions.keys.reduce(0, { result, article in
-                return article.themes.contains(theme.key) ? result + 1 : result
-            })
             
-            let nbOther = predictions.count - nbTruth
+            truePositives[theme] = truePositiveCounter(predictions: predictions, theme: theme)
+            trueNegative[theme] = trueNegativeCounter(predictions: predictions, theme: theme)
+            falsePositives[theme] = falsePositiveCounter(predictions: predictions, theme: theme)
+            falseNegative[theme] = falseNegativeCounter(predictions: predictions, theme: theme)
             
-            let nbTruePositives =
+            precision[theme] = Double(truePositives[theme]!) / Double(truePositives[theme]! + falsePositives[theme]!)
+            recall[theme] = Double(truePositives[theme]!) / Double(truePositives[theme]! + falseNegative[theme]!)
             
-            
+            print("THEME \(theme.key): Precision is \(precision[theme]!) - Recall is \(recall[theme]!)")
         }
     }
     

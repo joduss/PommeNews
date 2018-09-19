@@ -27,9 +27,32 @@ class ViewController: NSViewController {
         
         NSLog("Starting")
         
-        let themesToEvaluate: [ArticleTheme] = [ArticleTheme.mac]
+//        let themesToEvaluate: [ArticleTheme] = [ArticleTheme.mac,
+//                                                ArticleTheme.appleWatch,
+//                                                ArticleTheme.iPhone,
+//                                                ArticleTheme.iPad,
+//                                                ArticleTheme.ios,
+//                                                ArticleTheme.appleTV,
+//                                                ArticleTheme.music,
+//                                                ArticleTheme.apple,
+//                                                ArticleTheme.google,
+//                                                ArticleTheme.macos,
+//                                                ArticleTheme.samsung,
+//                                                ArticleTheme.smartphone,
+//                                                ArticleTheme.tablet,
+//                                                ArticleTheme.android
+//        ]
         
-        Evaluator().startEvaluation(articleLocation: Bundle.main.path(forResource: "articles", ofType: "json")!, themes: themesToEvaluate)
+        let themesToEvaluate = ArticleTheme.allThemes
+        
+//        Evaluator().startEvaluation(articleLocation: Bundle.main.path(forResource: "articles", ofType: "json")!, themes: themesToEvaluate)
+        
+        let articlesDataLocation = Bundle.main.path(forResource: "articles", ofType: "json")!
+        
+        Evaluator().precisionAndRecall(articleLocation: articlesDataLocation, themes: themesToEvaluate)
+        
+        
+        exit(0)
     }
 
 

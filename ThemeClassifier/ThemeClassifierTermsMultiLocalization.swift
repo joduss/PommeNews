@@ -28,7 +28,7 @@ class ThemeClassifierTermsMultiLocalization {
             case ArticleTheme.appleWatch.key:
                 dictionaryTerms[theme] = ["apple watch"]
             case ArticleTheme.appleTV.key:
-                dictionaryTerms[theme] = ["apple tv"]
+                dictionaryTerms[theme] = ["apple tv", "appletv"]
             case ArticleTheme.appleWatch.key:
                 dictionaryTerms[theme] = ["apple watch"]
             case ArticleTheme.mac.key:
