@@ -114,6 +114,7 @@
 		6BFC31CE213F1C190030431F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BFC31CC213F1C190030431F /* Main.storyboard */; };
 		6BFC31E2213F1D330030431F /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFC31A9213F14130030431F /* Evaluator.swift */; };
 		6BFC31E3213F1D7F0030431F /* HTMLString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE1846D2135CAC700DEA4FA /* HTMLString.framework */; };
+		6BFDC4AA2154391200BE97C4 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BFDC4A92154391200BE97C4 /* Kingfisher.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +255,7 @@
 		6BFC31CD213F1C190030431F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6BFC31CF213F1C190030431F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BFC31D0213F1C190030431F /* ThemeClassifierEvaluation2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ThemeClassifierEvaluation2.entitlements; sourceTree = "<group>"; };
+		6BFDC4A92154391200BE97C4 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BFDC4AA2154391200BE97C4 /* Kingfisher.framework in Frameworks */,
 				6BBA09E820B6800C0081D05F /* SideMenu.framework in Frameworks */,
 				6BC9132E203F35D600F969DD /* HTMLString.framework in Frameworks */,
 				6B82C3A620212372006FA35D /* FeedKit.framework in Frameworks */,
@@ -474,6 +477,7 @@
 		6B82C3A420212371006FA35D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6BFDC4A92154391200BE97C4 /* Kingfisher.framework */,
 				6BE1846E2135CAC700DEA4FA /* FeedKit.framework */,
 				6BE1846D2135CAC700DEA4FA /* HTMLString.framework */,
 				6BBA09E720B6800C0081D05F /* SideMenu.framework */,
@@ -931,12 +935,14 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/HTMLString.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SideMenu.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FeedKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Swinject.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/HTMLString.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SideMenu.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
