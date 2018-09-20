@@ -23,3 +23,38 @@
 
 
 "activity.safari" = "Ouvrir dans Safari";
+
+
+//THEMES
+
+"iphone" = "iPhone";
+"ipad" = "ipad";
+"appleWatch" = "Apple Watch";
+"appleTV" = "Apple TV";
+"mac" = "Mac";
+"pc" = "PC";
+"surface" = "Microsoft Surface";
+
+"android" = "Android";
+"ios" = "iOS";
+"windows" = "Windows";
+"macos" = "MacOS";
+
+"apps" = "Applications";
+
+"computer" = "Ordinateurs";
+"tablet" = "Tablettes";
+"watch" = "Montres connectées";
+"smartphone" = "Smartphones";
+
+"apple" = "Apple";
+"microsoft" = "Microsoft";
+"google" = "Google";
+"samsung" = "Samsung";
+
+"rumor" = "Rumeurs";
+"appleMusic" = "Apple Music";
+"music" = "Musique";
+"icloud" = "iCloud";
+
+"other" = "Divers";

@@ -31,38 +31,55 @@ struct ArticleTheme: Hashable, Equatable {
     static let smartphone = ArticleTheme(key: "smartphone")
     static let tablet = ArticleTheme(key: "tablet")
     static let watch = ArticleTheme(key: "watch")
-
+    
     static let apple = ArticleTheme(key: "apple")
     static let microsoft = ArticleTheme(key: "microsoft")
     static let google = ArticleTheme(key: "google")
     static let samsung = ArticleTheme(key: "samsung")
+    static let amazon = ArticleTheme(key: "amazon")
+
     
     static let rumor = ArticleTheme(key: "rumor")
     static let appleMusic = ArticleTheme(key: "appleMusic")
     static let music = ArticleTheme(key: "music")
     static let icloud = ArticleTheme(key: "icloud")
-
+    
     static let other = ArticleTheme(key: "other")
+    
+    public static var allThemes: [ArticleTheme] = [
+        ArticleTheme.iPhone,
+        ArticleTheme.iPad,
+        ArticleTheme.appleWatch,
+        ArticleTheme.appleTV,
+        ArticleTheme.mac,
+        ArticleTheme.pc,
+        
+        ArticleTheme.surface,
+        
+        ArticleTheme.android,
+        ArticleTheme.ios,
+        ArticleTheme.windows,
+        ArticleTheme.macos,
+        
+        ArticleTheme.apps,
 
-    public static var allThemes: [ArticleTheme] = [ArticleTheme.iPhone,
-                           ArticleTheme.iPad,
-                           ArticleTheme.appleWatch,
-                           ArticleTheme.surface,
-                           ArticleTheme.android,
-                           ArticleTheme.ios,
-                           ArticleTheme.windows,
-                           ArticleTheme.macos,
-                           ArticleTheme.mac,
-                           ArticleTheme.pc,
-                           ArticleTheme.computer,
-                           ArticleTheme.smartphone,
-                           ArticleTheme.tablet,
-                           ArticleTheme.watch,
-                           ArticleTheme.apple,
-                           ArticleTheme.microsoft,
-                           ArticleTheme.google,
-                           ArticleTheme.samsung,
-                           ArticleTheme.other]
+        ArticleTheme.computer,
+        ArticleTheme.smartphone,
+        ArticleTheme.tablet,
+        ArticleTheme.watch,
+        
+        ArticleTheme.apple,
+        ArticleTheme.microsoft,
+        ArticleTheme.google,
+        ArticleTheme.samsung,
+        ArticleTheme.amazon,
+        
+        ArticleTheme.rumor,
+        ArticleTheme.appleMusic,
+        ArticleTheme.music,
+        ArticleTheme.icloud,
+        
+        ArticleTheme.other]
     
     let key: String
     

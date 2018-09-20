@@ -14,7 +14,7 @@ class Evaluator {
     private let articlesIO = ArticlesJsonFileIO()
     
     //TODO filter the theme of the article as well!
-
+    
     
     
     public func startEvaluation(articleLocation: String, themes: [ArticleTheme] = ArticleTheme.allThemes) {
@@ -92,7 +92,7 @@ class Evaluator {
         
         print("Classifier Evaluation")
         print("=====================")
-
+        
         print("Number of articles: \(nbArticles)")
         print("Number of articles with given themes: \(nbArticleWithGivenThemes)")
         print("---")
@@ -101,7 +101,7 @@ class Evaluator {
         print("---")
         print("With missing themes [other exc.] \(nbArticleMissingThemes) (\(nbArticleMissingThemes / nbArticles * 100))")
         print("---")
-
+        
         print("# with incorrect predictions [other exc.] \(nbArticlesIncorrectThemes) (\(nbArticlesIncorrectThemes / nbArticles * 100))")
         print("----------------")
         print("Ratios")
@@ -112,23 +112,53 @@ class Evaluator {
     }
     
     
-    public func precisionAndRecall(articleLocation: String, themes: [ArticleTheme] = ArticleTheme.allThemes) {
-
+    public func precisionAndRecall(articleLocation: String, themes: [ArticleTheme] = ArticleTheme.allThemes, verbose: Bool = false) {
+        
         var predictions: [TCArticle: [ArticleTheme]] = [:]
         
         let classifier = ThemeClassifier()
         classifier.validThemes = themes
         
         let themesWithOther = themes + [ArticleTheme.other]
-
+        
         let articlesAllThemes = try! articlesIO.loadArticlesFrom(fileLocation: articleLocation)
         
         //We still keep article with other (these should not be classify as something else than other
         let articles = removeUnusedThemes(articlesAllThemes, usedThemes: themesWithOther)
-
-
+        
+        
         for article in articles {
             predictions[article] = classifier.classify(article: article)
+            
+            if verbose {
+                var themesBag = article.themes
+                var truePositiveThemes = ""
+                var falsePositiveThemes = ""
+                var falseNegativeThemes = ""
+                for theme in predictions[article]! {
+                    if themesBag.contains(theme.key) {
+                        truePositiveThemes += ", " + theme.key
+                        themesBag.remove(at: themesBag.firstIndex(of: theme.key)!)
+                    }
+                    else {
+                        falsePositiveThemes += ", " + theme.key
+                    }
+                }
+                for unpredictedTheme in themesBag {
+                    falseNegativeThemes += ", " + unpredictedTheme
+                }
+                
+                print("\n\(article.title) =>")
+                if truePositiveThemes.isEmpty == false {
+                    print("\t\tCorrect: [\(truePositiveThemes.substring(start: 2))]")
+                }
+                if falsePositiveThemes.isEmpty == false {
+                    print("\tIncoorrect: [\(falsePositiveThemes.substring(start: 2))]")
+                }
+                if falseNegativeThemes.isEmpty == false {
+                    print("\tMissing: [\(falseNegativeThemes.substring(start: 2))]")
+                }
+            }
         }
         
         analysePrecisionAndRecall(predictions: predictions, themes: themes)
@@ -144,6 +174,9 @@ class Evaluator {
         var precision: [ArticleTheme: Double] = [:]
         var recall: [ArticleTheme: Double] = [:]
         
+        let nf = NumberFormatter()
+        nf.maximumFractionDigits = 4
+        
         for theme in themes {
             
             truePositives[theme] = truePositiveCounter(predictions: predictions, theme: theme)
@@ -151,10 +184,15 @@ class Evaluator {
             falsePositives[theme] = falsePositiveCounter(predictions: predictions, theme: theme)
             falseNegative[theme] = falseNegativeCounter(predictions: predictions, theme: theme)
             
+            if truePositives[theme]! + falsePositives[theme]! == 0 {
+                print("THEME \(theme.key): No article of this theme")
+                continue
+            }
+            
             precision[theme] = Double(truePositives[theme]!) / Double(truePositives[theme]! + falsePositives[theme]!)
             recall[theme] = Double(truePositives[theme]!) / Double(truePositives[theme]! + falseNegative[theme]!)
             
-            print("THEME \(theme.key): Precision is \(precision[theme]!) - Recall is \(recall[theme]!)")
+            print("THEME \(theme.key): Precision is \(nf.string(from: precision[theme]! as NSNumber)!) - Recall is \(nf.string(from: recall[theme]! as NSNumber)!)")
         }
     }
     
@@ -201,9 +239,9 @@ class Evaluator {
     
     private func falsePositiveCounter(predictions: [TCArticle: [ArticleTheme]], theme: ArticleTheme) -> Int {
         return predictions
-        .filter({$0.key.themes.contains(theme.key) == false})
-        .filter({$0.value.contains(theme)})
-        .count
+            .filter({$0.key.themes.contains(theme.key) == false})
+            .filter({$0.value.contains(theme)})
+            .count
     }
     
     private func trueNegativeCounter(predictions: [TCArticle: [ArticleTheme]], theme: ArticleTheme) -> Int {
@@ -238,8 +276,8 @@ class Evaluator {
                 articleUsedThemeKeys.append(ArticleTheme.other.key)
             }
             filteredArticles += [TCArticle(title: article.title,
-                                         summary: article.summary,
-                                         themes: articleUsedThemeKeys)]
+                                           summary: article.summary,
+                                           themes: articleUsedThemeKeys)]
         }
         
         return filteredArticles

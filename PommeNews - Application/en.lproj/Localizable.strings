@@ -27,11 +27,36 @@
 
 //THEMES
 
-"computer" = "ordinateur";
-"tablet" = "tablette";
-"watch" = "montre connectée";
+"iphone" = "iPhone";
+"ipad" = "ipad";
 "appleWatch" = "Apple Watch";
-"macos" = "macOS";
-"other" = "Divers";
+"appleTV" = "Apple TV";
+"mac" = "Mac";
+"pc" = "PC";
+"surface" = "Microsoft Surface";
 
+"android" = "Android";
+"ios" = "iOS";
+"windows" = "Windows";
+"macos" = "MacOS";
+
+"apps" = "Applications";
+
+"computer" = "Computers";
+"tablet" = "Tablets";
+"watch" = "Smart Watches";
+"smartphone" = "Smartphones";
+
+"apple" = "Apple";
+"microsoft" = "Microsoft";
+"google" = "Google";
+"samsung" = "Samsung";
+"amazon" = "Amazon";
+
+"rumor" = "Rumors";
+"appleMusic" = "Apple Music";
+"music" = "Music";
+"icloud" = "iCloud";
+
+"other" = "Divers";
 
