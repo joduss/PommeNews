@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wch-RV-2mw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wch-RV-2mw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,7 +73,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vs-V5-5DM">
-                                                    <rect key="frame" x="16" y="12" width="97" height="21"/>
+                                                    <rect key="frame" x="16" y="11.5" width="97" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -98,7 +98,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interval" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdO-Gl-Px6">
-                                                    <rect key="frame" x="16" y="12" width="57" height="21"/>
+                                                    <rect key="frame" x="16" y="11.5" width="57" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -198,7 +198,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="34U-Pb-0ch">
-                                <rect key="frame" x="-0.5" y="32" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="32" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -211,8 +211,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="PommeNews" id="pJG-KS-emI"/>
+                    <navigationItem key="navigationItem" title="PommeNews" id="pJG-KS-emI">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="theme-icon" id="Ptt-7m-Oxj">
+                            <connections>
+                                <action selector="filterButtonClicked:" destination="BYZ-38-t0r" id="8DH-2c-3X3"/>
+                                <segue destination="KjN-5G-XFl" kind="presentation" id="j2k-nU-usP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="filterButton" destination="Ptt-7m-Oxj" id="o18-eT-H7E"/>
                         <outlet property="tableview" destination="34U-Pb-0ch" id="9j8-YG-8jV"/>
                         <segue destination="aJx-y1-ljm" kind="show" identifier="ArticleViewController" id="ytc-aT-yvy"/>
                     </connections>
@@ -289,7 +297,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Jct-rX-vB1">
-                                <rect key="frame" x="-0.5" y="64" width="375" height="2"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="2"/>
                                 <color key="trackTintColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
                         </subviews>
@@ -357,7 +365,68 @@
             </objects>
             <point key="canvasLocation" x="-455" y="896"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VNt-oy-zrn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KjN-5G-XFl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8No-sz-OYI">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9Qk-ht-hmS" kind="relationship" relationship="rootViewController" id="ntp-pX-5Yn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FrJ-IQ-opd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1524" y="-641.82908545727139"/>
+        </scene>
+        <!--FiltersVC-->
+        <scene sceneID="FZz-Sn-ajD">
+            <objects>
+                <collectionViewController storyboardIdentifier="FiltersVC" id="9Qk-ht-hmS" customClass="FiltersVC" customModule="PommeNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="d6c-yd-8M7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zbn-5B-a79">
+                            <size key="itemSize" width="70" height="70"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="9Qk-ht-hmS" id="zLi-rG-nqh"/>
+                            <outlet property="delegate" destination="9Qk-ht-hmS" id="Ffm-Wc-2NH"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="e4I-zl-UGt">
+                        <barButtonItem key="leftBarButtonItem" title="Ok" id="3KK-kM-fuD">
+                            <connections>
+                                <action selector="saveFilters:" destination="9Qk-ht-hmS" id="J6a-Ii-F4z"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="qOn-cy-442">
+                            <connections>
+                                <action selector="clearFilters:" destination="9Qk-ht-hmS" id="E02-Km-W5t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="clearFiltersButton" destination="qOn-cy-442" id="LGm-Ka-akV"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pcr-AH-zsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2670" y="-642"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="theme-icon" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="p4P-Mc-BZa"/>
     </inferredMetricsTieBreakers>
