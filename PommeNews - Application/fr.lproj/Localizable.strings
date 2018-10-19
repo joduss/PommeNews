@@ -25,6 +25,11 @@
 "activity.safari" = "Ouvrir dans Safari";
 
 
+//FILTERS
+
+"filters.clear" = "Aucun filtre";
+
+
 //THEMES
 
 "iphone" = "iPhone";

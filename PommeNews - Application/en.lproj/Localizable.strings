@@ -24,6 +24,8 @@
 "error.theme.save" = "Impossible de charger les thèmes";
 
 
+//Filters
+"filters.clear" = "Clear filters";
 
 //THEMES
 
