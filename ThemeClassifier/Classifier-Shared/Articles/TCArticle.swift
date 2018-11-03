@@ -14,9 +14,9 @@ struct TCArticle: Codable, Hashable {
     let summary: String
     let themes: [String]
     
-    init(title: String, summary: String, themes: [String] = []) {
-        self.title = title
-        self.summary = summary
+    init(title: String?, summary: String?, themes: [String] = []) {
+        self.title = title ?? ""
+        self.summary = summary ?? ""
         self.themes = themes
     }
     

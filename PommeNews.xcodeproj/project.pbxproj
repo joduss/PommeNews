@@ -433,10 +433,10 @@
 		6B82C343201FC838006FA35D = {
 			isa = PBXGroup;
 			children = (
+				6BEB52BF218E37C600C08D81 /* ThemeClassifier */,
 				6B62A8C12130ADBE001EDAD4 /* Feeds-Config */,
 				6B40EB2F213E4D620024664E /* Shared */,
 				6B82C34E201FC838006FA35D /* PommeNews - Application */,
-				6BFC31A8213F13550030431F /* ThemeClassifier */,
 				6BFC31A7213F133F0030431F /* Tests */,
 				6BE184692135C82B00DEA4FA /* FeedKit.framework.dSYM */,
 				6BE184682135C82A00DEA4FA /* HTMLString.framework.dSYM */,
@@ -685,6 +685,17 @@
 			path = CoreDataGen;
 			sourceTree = "<group>";
 		};
+		6BEB52BF218E37C600C08D81 /* ThemeClassifier */ = {
+			isa = PBXGroup;
+			children = (
+				6BB51C3221347359005772A0 /* FetchNewArticleToJson */,
+				6BFC31C5213F1C160030431F /* ThemeClassifierEvaluation */,
+				6BD5E58B214C02E600ACBE64 /* ThemeClassifier */,
+				6BFC31BD213F18570030431F /* Classifier-Shared */,
+			);
+			path = ThemeClassifier;
+			sourceTree = "<group>";
+		};
 		6BF5A2A720B73650005E0765 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -705,17 +716,6 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
-		6BFC31A8213F13550030431F /* ThemeClassifier */ = {
-			isa = PBXGroup;
-			children = (
-				6BD5E58B214C02E600ACBE64 /* ThemeClassifier */,
-				6BFC31C5213F1C160030431F /* ThemeClassifierEvaluation */,
-				6BFC31BD213F18570030431F /* Shared */,
-				6BB51C3221347359005772A0 /* FetchNewArticleToJson */,
-			);
-			name = ThemeClassifier;
-			sourceTree = "<group>";
-		};
 		6BFC31B3213F14D20030431F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -726,14 +726,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		6BFC31BD213F18570030431F /* Shared */ = {
+		6BFC31BD213F18570030431F /* Classifier-Shared */ = {
 			isa = PBXGroup;
 			children = (
 				6B7F7DFD213843CE000AE589 /* NAError.swift */,
 				6B1D7B632135ED7800BDC89D /* Articles */,
 			);
-			name = Shared;
-			path = "New Group";
+			path = "Classifier-Shared";
 			sourceTree = "<group>";
 		};
 		6BFC31C5213F1C160030431F /* ThemeClassifierEvaluation */ = {
