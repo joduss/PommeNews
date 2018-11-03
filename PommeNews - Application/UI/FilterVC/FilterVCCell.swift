@@ -20,6 +20,12 @@ class FilterVCCell: UICollectionViewCell {
         }
     }
     
+    override var isSelected: Bool {
+        didSet {
+            updateColor()
+        }
+    }
+    
     var image: UIImage? {
         get {
             return imageView.image
