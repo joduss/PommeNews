@@ -16,12 +16,19 @@ class ArticlesListVC: ContentViewController {
     
     @IBOutlet weak var tableview: UITableView!
     
+    @IBOutlet weak var filterButton: UIBarButtonItem!
     private var rssManager: RSSManager = Inject.component(RSSManager.self)
     fileprivate var articles: [RssArticle] = []
     
     private var fetchResultController: NSFetchedResultsController<RssArticle>! = nil
-    private var request: NSFetchRequest<RssArticle>!
+    private var desiredRequest: NSFetchRequest<RssArticle>!
+    private var request: Request<RssArticle>?
+
     private var articleDetailsView: ArticleViewController!
+    
+    @IBAction func filterButtonClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: String(describing: FiltersVC.self), sender: self)
+    }
     
     //MARK: Life Cycle
     //==================================================================
@@ -33,7 +40,7 @@ class ArticlesListVC: ContentViewController {
         tableview.dataSource = self
         tableview.estimatedRowHeight = ArticlesListVC.CellHeight
         tableview.register(UINib.init(nibName: String(describing: ArticleListCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ArticleListCell.self))
-        self.articleDetailsView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: ArticleViewController.self)) as! ArticleViewController
+        self.articleDetailsView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: ArticleViewController.self)) as? ArticleViewController
         
         rssManager.updateFeeds()
     }
@@ -42,7 +49,7 @@ class ArticlesListVC: ContentViewController {
     //==================================================================
     
     private func executeArticlesFetchRequest() {
-        guard let request = self.request else {
+        guard let request = self.request?.fetchRequest() else {
             return
         }
     
@@ -51,8 +58,8 @@ class ArticlesListVC: ContentViewController {
         try? self.fetchResultController.performFetch()
     }
     
-    func setupWith(fetchRequest: NSFetchRequest<RssArticle>) {
-        self.request = fetchRequest
+    func setupWith(request: Request<RssArticle>) {
+        self.request = request
         self.executeArticlesFetchRequest()
     }
     
@@ -89,6 +96,11 @@ class ArticlesListVC: ContentViewController {
         if let menuVC = segue.destination as? MenuViewController {
             menuVC.articleListVC = self
             super.prepare(for: segue, sender: sender)
+        }
+        else if let filterVC = segue.destination as? FiltersVC {
+            filterVC.onSave = { selectedTheme in
+                
+            }
         }
     }
     

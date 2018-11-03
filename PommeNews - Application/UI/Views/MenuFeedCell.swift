@@ -50,7 +50,7 @@ class MenuFeedCell: UITableViewCell {
     }
     
     @IBAction func switchClicked(_ sender: UISwitch) {
-        switch mode {
+        switch mode! {
         case .favorite:
             feed.favorite = !feed.favorite
         case .hidden:

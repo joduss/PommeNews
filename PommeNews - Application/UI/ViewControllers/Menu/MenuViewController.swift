@@ -49,8 +49,8 @@ private enum MenuTableRowType {
         switch (indexPath.section, indexPath.row) {
         case (0,0):
             self = .yourNews
-        case (0,1):
-            self = .thematicNews
+//        case (0,1):
+//            self = .thematicNews
         case (2,0):
             self = .settings
         case (1,0):
@@ -62,7 +62,7 @@ private enum MenuTableRowType {
     
     static fileprivate func numberOfRows(in section: Int, numberOfProviders: Int) -> Int {
         switch section {
-        case 0: return 2
+        case 0: return 1
         case 1: return 1 + numberOfProviders
         case 2: return 1
         default: return 0
@@ -135,8 +135,8 @@ class MenuViewController: UIViewController {
     
     private func showDefaultSelection() {
         let newsVC = Scene.articlesListViewController
-        let request = RssFavoriteArticlesRequest().create()
-        newsVC.setupWith(fetchRequest: request)
+        let request = ArticleRequest(favoriteOnly: true)
+        newsVC.setupWith(request: request)
         let vc = UINavigationController(rootViewController: newsVC)
         self.sideMenuController?.contentViewController = vc
     }
@@ -176,7 +176,7 @@ extension MenuViewController: UITableViewDelegate {
         switch MenuTableRowType(indexPath) {
         case .yourNews:
             let newsVC = Scene.articlesListViewController
-            newsVC.setupWith(fetchRequest: RssFavoriteArticlesRequest().create())
+            newsVC.setupWith(request: ArticleRequest(favoriteOnly: true))
             vc = UINavigationController(rootViewController: newsVC)
             break
             
@@ -188,15 +188,15 @@ extension MenuViewController: UITableViewDelegate {
             
         case .allProviders:
             let newsVC = Scene.articlesListViewController
-            newsVC.setupWith(fetchRequest: RssArticlesRequest().create())
+            newsVC.setupWith(request: ArticleRequest(favoriteOnly: false))
             vc = UINavigationController(rootViewController: newsVC)
             break
             
         case .aProvider:
             if let provider = fetchResultController.fetchedObjects?[indexPath.row - 1] {
                 let newsVC = Scene.articlesListViewController
-                let request = RssArticlesByProviderRequest().create(withProvider: provider)
-                newsVC.setupWith(fetchRequest: request)
+                let request = ArticleRequest(favoriteOnly: false, showOnlyFeed: provider)
+                newsVC.setupWith(request: request)
                 vc = UINavigationController(rootViewController: newsVC)
             }
             break
