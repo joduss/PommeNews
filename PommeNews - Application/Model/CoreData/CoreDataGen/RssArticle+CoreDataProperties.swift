@@ -2,7 +2,7 @@
 //  RssArticle+CoreDataProperties.swift
 //  PommeNews
 //
-//  Created by Jonathan Duss on 23.08.18.
+//  Created by Jonathan Duss on 03.11.18.
 //  Copyright © 2018 Swizapp. All rights reserved.
 //
 //
@@ -24,10 +24,10 @@ extension RssArticle {
     @NSManaged public var link: URL?
     @NSManaged public var read: Bool
     @NSManaged public var summary: String?
-    @NSManaged public var title: String?
+    @NSManaged public var title: String
     @NSManaged public var feed: RssFeed
     @NSManaged public var similarsArticles: NSSet?
-    @NSManaged public var themes: Theme?
+    @NSManaged public var themes: NSSet?
 
 }
 
@@ -45,5 +45,22 @@ extension RssArticle {
 
     @objc(removeSimilarsArticles:)
     @NSManaged public func removeFromSimilarsArticles(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for themes
+extension RssArticle {
+
+    @objc(addThemesObject:)
+    @NSManaged public func addToThemes(_ value: Theme)
+
+    @objc(removeThemesObject:)
+    @NSManaged public func removeFromThemes(_ value: Theme)
+
+    @objc(addThemes:)
+    @NSManaged public func addToThemes(_ values: NSSet)
+
+    @objc(removeThemes:)
+    @NSManaged public func removeFromThemes(_ values: NSSet)
 
 }

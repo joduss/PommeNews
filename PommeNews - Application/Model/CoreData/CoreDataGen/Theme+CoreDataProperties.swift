@@ -2,7 +2,7 @@
 //  Theme+CoreDataProperties.swift
 //  PommeNews
 //
-//  Created by Jonathan Duss on 23.08.18.
+//  Created by Jonathan Duss on 03.11.18.
 //  Copyright © 2018 Swizapp. All rights reserved.
 //
 //
@@ -17,7 +17,7 @@ extension Theme {
         return NSFetchRequest<Theme>(entityName: "Theme")
     }
 
-    @NSManaged public var key: String?
+    @NSManaged public var key: String
     @NSManaged public var articles: NSSet?
 
 }

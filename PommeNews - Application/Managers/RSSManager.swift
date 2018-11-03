@@ -28,10 +28,19 @@ class RSSManager {
     private var lastUpdate = Date()
     private let context = CoreDataStack.shared.context
     
+    private let classifier = ThemeClassifier()
+    
     init(rssClient: RSSClient) {
         self.rssClient = rssClient
         
+        //Init Themes
         try! ThemeLoader().loadThemes()
+        
+        //TODO: Remove newly unsupported themes
+        
+        //Configure classifier
+        let supportedThemes = Request<Theme>().execute(context: CoreDataStack.shared.context)
+        classifier.validThemes = supportedThemes.map({ArticleTheme(key: $0.key)})
         
         //Init feeds
         var allFeeds: [RssFeed] = []
@@ -164,8 +173,8 @@ class RSSManager {
     func update(feed: RssFeed, completion: ((Result<Void>) -> ())?) {
         let feedPO = RssPlistFeed(name: feed.name,
                                   url: feed.url.absoluteString,
-                                  id: feed.id!
-                                  )
+                                  id: feed.id
+        )
         
         self.rssClient.fetch(feed: feedPO, completion: { result in
             switch result {
@@ -198,8 +207,16 @@ class RSSManager {
             article.summary = articlePO.summary
             article.read = false
             
-            DispatchQueue(label: "theme").async {
-                
+            let articleForClassification = TCArticle(title: article.title,
+                                                     summary: article.summary)
+            let classification = self.classifier.classify(article: articleForClassification)
+
+            let themesCD = Request<Theme>().execute(context: CoreDataStack.shared.context)
+            
+            for themeOfClassifier in classification {
+                if let themeCD = themesCD.filter({$0.key == themeOfClassifier.key}).first {
+                    article.addToThemes(themeCD)
+                }
             }
         }
     }

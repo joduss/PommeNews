@@ -11,7 +11,7 @@ import HTMLString
 
 extension RssArticle: EntityName {
     
-    static var entityName: String {
+    public static var entityName: String {
         return String(describing: RssArticle.self)
     }
     
@@ -37,6 +37,10 @@ extension RssArticle: EntityName {
     
     static var feedPropertyName: String {
         return "feed"
+    }
+    
+    static var themesPropertyName: String {
+        return "themes"
     }
     
 }

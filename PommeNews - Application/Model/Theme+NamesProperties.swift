@@ -12,7 +12,7 @@ import CoreData
 extension Theme: EntityName {
     
     //==================================================
-    static var entityName: String {
+    public static var entityName: String {
         return String(describing: Theme.self)
     }
     

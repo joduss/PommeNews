@@ -13,7 +13,7 @@ extension RssFeed: EntityName {
     
     //MARK: - Static constants related to the model
     //==================================================
-    static var entityName: String {
+    public static var entityName: String {
         return String(describing: RssFeed.self)
     }
     
@@ -46,7 +46,7 @@ extension RssFeed: EntityName {
     //==================================================
     
     var logo: UIImage? {
-        return UIImage(named: id!)
+        return UIImage(named: id)
     }
 
 }

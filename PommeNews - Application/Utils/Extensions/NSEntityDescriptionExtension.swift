@@ -10,7 +10,8 @@ import Foundation
 import CoreData
 
 
-protocol EntityName {
+public protocol EntityName {
+    
     static var entityName: String { get }
 }
 

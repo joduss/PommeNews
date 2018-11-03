@@ -2,7 +2,7 @@
 //  RssFeed+CoreDataProperties.swift
 //  PommeNews
 //
-//  Created by Jonathan Duss on 23.08.18.
+//  Created by Jonathan Duss on 03.11.18.
 //  Copyright © 2018 Swizapp. All rights reserved.
 //
 //
@@ -19,7 +19,7 @@ extension RssFeed {
 
     @NSManaged public var favorite: Bool
     @NSManaged public var hidden: Bool
-    @NSManaged public var id: String?
+    @NSManaged public var id: String
     @NSManaged public var name: String
     @NSManaged public var url: URL
     @NSManaged public var articles: NSSet?

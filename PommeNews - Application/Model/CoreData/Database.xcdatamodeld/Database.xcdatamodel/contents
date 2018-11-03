@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Xcode 9.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Xcode 9.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="RssArticle" representedClassName="RssArticle" syncable="YES">
         <attribute name="creator" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="feedTypeRaw" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="imageUrl" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="read" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RssFeed" inverseName="articles" inverseEntity="RssFeed" syncable="YES"/>
         <relationship name="similarsArticles" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="RssArticle" inverseName="similarsArticles" inverseEntity="RssArticle" syncable="YES"/>
-        <relationship name="themes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Theme" inverseName="articles" inverseEntity="Theme" syncable="YES"/>
+        <relationship name="themes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Theme" inverseName="articles" inverseEntity="Theme" syncable="YES"/>
     </entity>
     <entity name="RssFeed" representedClassName="RssFeed" syncable="YES">
         <attribute name="favorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
@@ -22,7 +22,7 @@
         <relationship name="articles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RssArticle" inverseName="feed" inverseEntity="RssArticle" syncable="YES"/>
     </entity>
     <entity name="Theme" representedClassName="Theme" syncable="YES">
-        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" attributeType="String" syncable="YES"/>
         <relationship name="articles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RssArticle" inverseName="themes" inverseEntity="RssArticle" syncable="YES"/>
     </entity>
     <elements>
