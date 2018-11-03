@@ -26,7 +26,8 @@ struct ArticleTheme: Hashable, Equatable {
     static let macos = ArticleTheme(key: "macos")
     
     static let apps = ArticleTheme(key: "apps")
-    
+    static let game = ArticleTheme(key: "game")
+
     static let computer = ArticleTheme(key: "computer")
     static let smartphone = ArticleTheme(key: "smartphone")
     static let tablet = ArticleTheme(key: "tablet")
@@ -42,6 +43,8 @@ struct ArticleTheme: Hashable, Equatable {
     static let rumor = ArticleTheme(key: "rumor")
     static let appleMusic = ArticleTheme(key: "appleMusic")
     static let music = ArticleTheme(key: "music")
+    static let video = ArticleTheme(key: "video")
+    static let photo = ArticleTheme(key: "photo")
     static let icloud = ArticleTheme(key: "icloud")
     
     static let other = ArticleTheme(key: "other")
@@ -62,6 +65,7 @@ struct ArticleTheme: Hashable, Equatable {
         ArticleTheme.macos,
         
         ArticleTheme.apps,
+        ArticleTheme.game,
 
         ArticleTheme.computer,
         ArticleTheme.smartphone,
@@ -76,6 +80,8 @@ struct ArticleTheme: Hashable, Equatable {
         
         ArticleTheme.rumor,
         ArticleTheme.appleMusic,
+        ArticleTheme.video,
+        ArticleTheme.photo,
         ArticleTheme.music,
         ArticleTheme.icloud,
         
