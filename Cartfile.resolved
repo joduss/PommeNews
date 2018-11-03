@@ -1,5 +1,5 @@
-github "Swinject/Swinject" "2.4.1"
+github "Swinject/Swinject" "2.5.0"
 github "alexaubry/HTMLString" "4.0.2"
-github "kukushi/SideMenu" "51292bc2b3dd2d7884d2381af7f74bca82185b5a"
+github "kukushi/SideMenu" "48205a4c5fd44bb5df5afbe32816f01c6de7bc3f"
 github "nmdias/FeedKit" "7.1.1"
-github "onevcat/Kingfisher" "4.9.0"
+github "onevcat/Kingfisher" "4.10.1"
