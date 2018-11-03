@@ -13,7 +13,7 @@ import CoreData
 public class Request<T> where T: NSManagedObject & EntityName {
     
     private let request: NSFetchRequest<T>
-    
+    public let sortOrder: SortOrder
     private var andPredicates: [NSPredicate] = []
     
     convenience init() {
@@ -25,6 +25,7 @@ public class Request<T> where T: NSManagedObject & EntityName {
         if let sortKey = sortKey {
             request.sortDescriptors = [NSSortDescriptor(key: sortKey, ascending: sortOrder == .Ascending)]
         }
+        self.sortOrder = sortOrder
     }
     
     func and(_ predicate: NSPredicate) {

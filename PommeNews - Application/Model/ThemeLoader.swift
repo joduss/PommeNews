@@ -33,7 +33,7 @@ class ThemeLoader {
     }
     
     private func themeExist(_ theme: ArticleTheme) -> Bool {
-        let request = ThemeRequest().create()
+        let request = ThemeRequest().fetchRequest()
         request.predicate = NSPredicate(format: "\(Theme.keyPropertyName)==%@", theme.key)
         
         do {

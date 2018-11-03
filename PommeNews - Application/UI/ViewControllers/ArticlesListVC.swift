@@ -22,7 +22,7 @@ class ArticlesListVC: ContentViewController {
     
     private var fetchResultController: NSFetchedResultsController<RssArticle>! = nil
     private var desiredRequest: NSFetchRequest<RssArticle>!
-    private var request: Request<RssArticle>?
+    private var request: ArticleRequest?
 
     private var articleDetailsView: ArticleViewController!
     
@@ -58,7 +58,7 @@ class ArticlesListVC: ContentViewController {
         try? self.fetchResultController.performFetch()
     }
     
-    func setupWith(request: Request<RssArticle>) {
+    func setupWith(request: ArticleRequest) {
         self.request = request
         self.executeArticlesFetchRequest()
     }
@@ -66,28 +66,28 @@ class ArticlesListVC: ContentViewController {
     //MARK: Content Configuration
     //==================================================================
     
-    func articlesUpdated(result: Result<[RssArticle]>) {
-        switch result {
-        case .failure(let error):
-            //TODO
-            break
-        case .success(let articles):
-            self.articles = articles
-            self.tableview.reloadData()
-        }
-    }
-    
-    func showArticles(of: RssFeed) {
-        
-    }
-    
-    func showAllArticles() {
-        
-    }
-    
-    func showArticlesOfMyFavoriteFeeds() {
-        
-    }
+//    func articlesUpdated(result: Result<[RssArticle]>) {
+//        switch result {
+//        case .failure(let error):
+//            //TODO
+//            break
+//        case .success(let articles):
+//            self.articles = articles
+//            self.tableview.reloadData()
+//        }
+//    }
+//
+//    func showArticles(of: RssFeed) {
+//
+//    }
+//
+//    func showAllArticles() {
+//
+//    }
+//
+//    func showArticlesOfMyFavoriteFeeds() {
+//
+//    }
     
     //MARK: Nav
     //==================================================================
@@ -97,9 +97,12 @@ class ArticlesListVC: ContentViewController {
             menuVC.articleListVC = self
             super.prepare(for: segue, sender: sender)
         }
-        else if let filterVC = segue.destination as? FiltersVC {
+        else if let filterVC = segue.destination.childViewControllers.first as? FiltersVC {
             filterVC.onSave = { selectedTheme in
-                
+                self.request?.filter(themes: selectedTheme)
+                self.request?.update()
+                try! self.fetchResultController.performFetch()
+                self.tableview.reloadData()
             }
         }
     }

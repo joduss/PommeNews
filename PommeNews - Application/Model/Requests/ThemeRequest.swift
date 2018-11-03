@@ -9,13 +9,21 @@
 import Foundation
 import CoreData
 
-class ThemeRequest {
+class ThemeRequest: Request<Theme> {
     
-    func create() -> NSFetchRequest<Theme> {
-        let request: NSFetchRequest<Theme> = Theme.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: Theme.keyPropertyName, ascending: true)]
-        return request
+    override func execute(context: NSManagedObjectContext) -> [Theme] {
+        var result = super.execute(context: context)
+        result.sort(by: { ($0.key.localized < $1.key.localized) && (sortOrder == . Ascending) })
+        return result
     }
     
+    override func execute(context: NSManagedObjectContext, completion: (([Theme]) -> ())) {
+        super.execute(context: context,
+                      completion: { themes in
+                        var sortedThemes = themes
+                        sortedThemes.sort(by: { ($0.key.localized < $1.key.localized) && (sortOrder == . Ascending) })
+                        completion(sortedThemes)
+        })
+    }
     
 }

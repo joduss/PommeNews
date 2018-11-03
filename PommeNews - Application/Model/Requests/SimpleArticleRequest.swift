@@ -42,6 +42,7 @@ class ArticleRequest: Request<RssArticle> {
         
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: themesPredicates)
         self.and(compoundPredicate)
+        self.themePredicate = compoundPredicate
     }
     
     func filter(fromFeed feed: RssFeed?) {
@@ -64,7 +65,7 @@ class ArticleRequest: Request<RssArticle> {
             self.favoriteOnlyPredicate = nil
         }
         
-        guard showOnlyFavorite == false else { return }
+        guard showOnlyFavorite == true else { return }
         let predicate = NSPredicate(format: #keyPath(RssArticle.feed) + "." + #keyPath(RssFeed.favorite) + " == %@", NSNumber(value: true))
         self.and(predicate)
         self.favoriteOnlyPredicate = predicate
@@ -80,8 +81,7 @@ class ArticleRequest: Request<RssArticle> {
         
         let predicate = NSPredicate(format: #keyPath(RssArticle.feed) + "." + #keyPath(RssFeed.hidden) + " == %@", NSNumber(value: false))
         self.and(predicate)
-        self.showHiddenPredicate = predicate
-        
+        self.showHiddenPredicate = predicate        
     }
     
 }
