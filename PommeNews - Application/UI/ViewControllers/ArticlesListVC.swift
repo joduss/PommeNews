@@ -26,6 +26,8 @@ class ArticlesListVC: ContentViewController {
 
     private var articleDetailsView: ArticleViewController!
     
+    private var activeFilters: [Theme] = []
+    
     @IBAction func filterButtonClicked(_ sender: Any) {
         self.performSegue(withIdentifier: String(describing: FiltersVC.self), sender: self)
     }
@@ -98,7 +100,9 @@ class ArticlesListVC: ContentViewController {
             super.prepare(for: segue, sender: sender)
         }
         else if let filterVC = segue.destination.childViewControllers.first as? FiltersVC {
+            filterVC.activeFilters = self.activeFilters
             filterVC.onSave = { selectedTheme in
+                self.activeFilters = selectedTheme
                 self.request?.filter(themes: selectedTheme)
                 self.request?.update()
                 try! self.fetchResultController.performFetch()

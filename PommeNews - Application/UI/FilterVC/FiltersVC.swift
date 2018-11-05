@@ -16,6 +16,12 @@ class FiltersVC: UICollectionViewController {
     private let colors = [#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1),#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1),#colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1),#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1),#colorLiteral(red: 0.9199173373, green: 0.6700194326, blue: 1, alpha: 1)]
     private let sideInset: CGFloat = 10
     
+    public var activeFilters: [Theme] = [] {
+        didSet {
+            self.collectionView?.reloadData()
+        }
+    }
+    
     public var onSave: (([Theme]) -> ())?
     
     override func viewDidLoad() {
@@ -56,6 +62,13 @@ class FiltersVC: UICollectionViewController {
         cell.image = UIImage(named: supportedThemes[indexPath.row].key)
         cell.layer.cornerRadius = 10
         cell.iconBackgroundColor = colors.randomElement()
+        
+        let a = self.activeFilters.map({$0.key})
+        if a.contains(supportedThemes[indexPath.row].key) {
+            self.collectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .top)
+            cell.isSelected = true
+        }
+        
         return cell
     }
     
@@ -70,6 +83,8 @@ class FiltersVC: UICollectionViewController {
     }
     
     @IBAction func clearFilters(_ sender: Any) {
-        
+        for selectedIdx in self.collectionView?.indexPathsForSelectedItems ?? [] {
+            self.collectionView?.deselectItem(at: selectedIdx, animated: true)
+        }
     }
 }
