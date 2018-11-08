@@ -68,8 +68,18 @@ class ThemeClassifierTermsMultiLocalization {
             case ArticleTheme.microsoft.key:
                 dictionaryTerms[theme] = ["microsoft", "microsoft surface", "azure", "surface book", "surface pro", "surface go", "windows 10", "visual studio"]
                 
+            case ArticleTheme.amazon.key:
+                dictionaryTerms[theme] = ["amazon", "AWS", "alexa"]
+                
             case ArticleTheme.apps.key:
                 dictionaryTerms[theme] = ["photoshop", "itunes", "application", "apps"]
+                
+            case ArticleTheme.game.key:
+                dictionaryTerms[theme] = ["game", "jeu"]
+                
+            case ArticleTheme.video.key:
+                dictionaryTerms[theme] = ["netflix", "amazon prime", "youtube"]
+                
 
                 
             default:
