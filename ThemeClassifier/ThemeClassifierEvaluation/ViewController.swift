@@ -47,7 +47,7 @@ class ViewController: NSViewController {
         
 //        Evaluator().startEvaluation(articleLocation: Bundle.main.path(forResource: "articles", ofType: "json")!, themes: themesToEvaluate)
         
-        let articlesDataLocation = Bundle.main.path(forResource: "articles", ofType: "json")!
+        let articlesDataLocation = Bundle.main.path(forResource: "articles-evaluation", ofType: "json")!
         
         Evaluator().precisionAndRecall(articleLocation: articlesDataLocation, themes: themesToEvaluate, verbose: true)
         

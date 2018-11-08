@@ -50,6 +50,7 @@
 		6B870AC1209F60AF004EC529 /* StreamManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B870AC0209F60AF004EC529 /* StreamManagementViewController.swift */; };
 		6B870AC3209F623B004EC529 /* MenuFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B870AC2209F623B004EC529 /* MenuFeedCell.swift */; };
 		6B870AC5209F6258004EC529 /* MenuFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B870AC4209F6258004EC529 /* MenuFeedCell.xib */; };
+		6B89912B2194E2D400128A45 /* articles-evaluation.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B89912A2194E2D400128A45 /* articles-evaluation.json */; };
 		6BA21F3C2098F8E60075F4CD /* RSSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA21F3B2098F8E50075F4CD /* RSSManager.swift */; };
 		6BA21F3E209AD3110075F4CD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA21F3D209AD3110075F4CD /* SettingsViewController.swift */; };
 		6BA871D020222272006CCDD9 /* ArticleListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BA871CF20222272006CCDD9 /* ArticleListCell.xib */; };
@@ -104,7 +105,6 @@
 		6BEB52A5218DCC7A00C08D81 /* RssFeed+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB529F218DCC7A00C08D81 /* RssFeed+CoreDataProperties.swift */; };
 		6BEB52A6218DCC7A00C08D81 /* Theme+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB52A0218DCC7A00C08D81 /* Theme+CoreDataClass.swift */; };
 		6BEB52A7218DCC7A00C08D81 /* Theme+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB52A1218DCC7A00C08D81 /* Theme+CoreDataProperties.swift */; };
-		6BEB52BD218E2C8100C08D81 /* articles.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BEB52BC218E2C8100C08D81 /* articles.json */; };
 		6BF08B0420C984580002E3CE /* RssFavoriteArticlesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF08B0320C984580002E3CE /* RssFavoriteArticlesRequest.swift */; };
 		6BF08B0620CA47800002E3CE /* RssArticlesByProviderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF08B0520CA47800002E3CE /* RssArticlesByProviderRequest.swift */; };
 		6BF1D0AA207A843B005725E7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF1D0A9207A843B005725E7 /* MenuViewController.swift */; };
@@ -212,6 +212,7 @@
 		6B870AC0209F60AF004EC529 /* StreamManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamManagementViewController.swift; sourceTree = "<group>"; };
 		6B870AC2209F623B004EC529 /* MenuFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFeedCell.swift; sourceTree = "<group>"; };
 		6B870AC4209F6258004EC529 /* MenuFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuFeedCell.xib; sourceTree = "<group>"; };
+		6B89912A2194E2D400128A45 /* articles-evaluation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "articles-evaluation.json"; sourceTree = "<group>"; };
 		6BA21F3B2098F8E50075F4CD /* RSSManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSManager.swift; sourceTree = "<group>"; };
 		6BA21F3D209AD3110075F4CD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6BA871CF20222272006CCDD9 /* ArticleListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleListCell.xib; sourceTree = "<group>"; };
@@ -255,7 +256,6 @@
 		6BEB529F218DCC7A00C08D81 /* RssFeed+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RssFeed+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6BEB52A0218DCC7A00C08D81 /* Theme+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6BEB52A1218DCC7A00C08D81 /* Theme+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		6BEB52BC218E2C8100C08D81 /* articles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = articles.json; sourceTree = SOURCE_ROOT; };
 		6BF08B0320C984580002E3CE /* RssFavoriteArticlesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFavoriteArticlesRequest.swift; sourceTree = "<group>"; };
 		6BF08B0520CA47800002E3CE /* RssArticlesByProviderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssArticlesByProviderRequest.swift; sourceTree = "<group>"; };
 		6BF1D0A9207A843B005725E7 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -738,7 +738,7 @@
 		6BFC31C5213F1C160030431F /* ThemeClassifierEvaluation */ = {
 			isa = PBXGroup;
 			children = (
-				6BEB52BC218E2C8100C08D81 /* articles.json */,
+				6B89912A2194E2D400128A45 /* articles-evaluation.json */,
 				6BFC31A9213F14130030431F /* Evaluator.swift */,
 				6BFC31C6213F1C160030431F /* AppDelegate.swift */,
 				6BFC31C8213F1C160030431F /* ViewController.swift */,
@@ -956,7 +956,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BFC31CB213F1C190030431F /* Assets.xcassets in Resources */,
-				6BEB52BD218E2C8100C08D81 /* articles.json in Resources */,
+				6B89912B2194E2D400128A45 /* articles-evaluation.json in Resources */,
 				6BFC31CE213F1C190030431F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1489,7 +1489,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = ThemeClassifierEvaluation/Info.plist;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ThemeClassifier/ThemeClassifierEvaluation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1514,7 +1518,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = ThemeClassifierEvaluation/Info.plist;
+				INFOPLIST_FILE = ThemeClassifier/ThemeClassifierEvaluation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_FAST_MATH = YES;
