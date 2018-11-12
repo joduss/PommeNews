@@ -13,10 +13,29 @@ import CoreData
 /// Linked to CoreData
 class ThemeLoader {
     
+    private var onlySupportedThemes = false
+    init(onlySupportedThemes: Bool = true) {
+        self.onlySupportedThemes = onlySupportedThemes
+    }
+    
     //Will load the themes into CoreData
     func loadThemes() throws {
         
-        let themes = ArticleTheme.allThemes
+        //TODO: load the theme from the supported themes.plist!!!
+        
+        //Remote not supported themes
+        
+        //Relaunch classification if new themes are available
+        
+        
+        var themes: [ArticleTheme] = []
+        
+        if onlySupportedThemes == true {
+            themes = SupportedThemeFilterLoader().supportedThemes
+        }
+        else {
+            themes = ArticleTheme.allThemes
+        }
         
         for theme in themes {
             if themeExist(theme) ==  false {
