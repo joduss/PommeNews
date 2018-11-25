@@ -189,7 +189,7 @@
             </objects>
             <point key="canvasLocation" x="1524" y="896"/>
         </scene>
-        <!--PommeNews-->
+        <!--Articles ListVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ArticlesListVC" id="BYZ-38-t0r" customClass="ArticlesListVC" customModule="PommeNews" customModuleProvider="target" sceneMemberID="viewController">
@@ -211,7 +211,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="PommeNews" id="pJG-KS-emI">
+                    <navigationItem key="navigationItem" id="pJG-KS-emI">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="filter-theme" id="Ptt-7m-Oxj">
                             <connections>
                                 <action selector="filterButtonClicked:" destination="BYZ-38-t0r" id="8DH-2c-3X3"/>

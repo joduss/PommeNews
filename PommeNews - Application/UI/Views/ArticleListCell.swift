@@ -40,6 +40,10 @@ class ArticleListCell: UITableViewCell {
         feedImageViewLayer.borderColor = UIColor.black.withAlphaComponent(0.6).cgColor
         feedImageViewLayer.borderWidth = 1
         feedImageViewLayer.cornerRadius = feedImageView.frame.height / 4
+        
+        pictureView.layer.cornerRadius = 5
+        pictureView.layer.borderWidth = 1
+        pictureView.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     override func prepareForReuse() {
@@ -57,9 +61,9 @@ class ArticleListCell: UITableViewCell {
     //==========================================
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+        super.setSelected(selected, animated: animated)
     }
     
     //MARK: - Configuration
@@ -95,6 +99,7 @@ class ArticleListCell: UITableViewCell {
             if let image = image {
                 DispatchQueue.main.async {
                     self.pictureView.image = image
+                    self.pictureView.isHidden = false
                     self.noImageLeftConstraint.isActive = false
                     self.addConstraint(self.withImageLeftConstraint)
                     self.updateConstraints()
@@ -110,6 +115,7 @@ class ArticleListCell: UITableViewCell {
     private func setupForNoImage() {
         DispatchQueue.main.async {
             self.pictureView.image = nil
+            self.pictureView.isHidden = true
             self.withImageLeftConstraint.isActive = false
             self.addConstraint(self.noImageLeftConstraint)
             self.updateConstraints()

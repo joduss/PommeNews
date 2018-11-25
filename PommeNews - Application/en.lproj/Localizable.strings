@@ -6,26 +6,33 @@
   Copyright © 2018 Swizapp. All rights reserved.
 */
 
-"rssarticle.unknownAuthor" = "Inconnu";
 
-"menu.settings" = "Paramètres";
-"menu.my_news" = "Mes News";
-"menu.sources" = "Les flux";
-"menu.all_sources" = "Tous";
-"menu.thematic_news" = "Thematiques";
+//DATA
+"rssarticle.unknownAuthor" = "Unknown";
 
-"Settings.Title" = "Paramètres";
 
-"settings.stream_management.hidden" = "Flux visibles";
-"settings.stream_management.favorites" = "Flux préférés";
-
+//ARTICLE
 "activity.safari" = "Open in Safari";
 
-"error.theme.save" = "Impossible de charger les thèmes";
+//SETTINGS
+"Settings.Title" = "Settings";
 
+"settings.stream_management.hidden" = "Visible news feeds";
+"settings.stream_management.favorites" = "Favorite news feeds";
 
-//Filters
-"filters.clear" = "Clear filters";
+//MENU
+"menu.settings" = "Settings";
+"menu.my_news" = "My News";
+"menu.sources" = "News Feeds";
+"menu.all_sources" = "All";
+"menu.thematic_news" = "Thematic";
+
+//LIST OF ARTICLES
+"articleList.title.all" = "All news";
+"articleList.title.yourNews" = "My news";
+
+//FILTERS
+"filters.clear" = "No filter";
 
 //THEMES
 

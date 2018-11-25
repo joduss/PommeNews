@@ -12,7 +12,7 @@ import SideMenu
 
 class ArticlesListVC: ContentViewController {
     
-    private static let CellHeight: CGFloat = 100
+    private static let CellHeight: CGFloat = 102
     
     @IBOutlet weak var tableview: UITableView!
     

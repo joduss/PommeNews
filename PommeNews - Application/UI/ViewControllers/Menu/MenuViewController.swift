@@ -156,6 +156,7 @@ class MenuViewController: UIViewController {
         let request = ArticleRequest(favoriteOnly: true)
         newsVC.setupWith(request: request)
         let vc = UINavigationController(rootViewController: newsVC)
+        newsVC.title = "articleList.title.yourNews".localized
         self.sideMenuController?.contentViewController = vc
     }
     
@@ -196,6 +197,7 @@ extension MenuViewController: UITableViewDelegate {
             let newsVC = Scene.articlesListViewController
             newsVC.setupWith(request: ArticleRequest(favoriteOnly: true))
             vc = UINavigationController(rootViewController: newsVC)
+            newsVC.title = "articleList.title.yourNews".localized
             break
             
         case .thematicNews:
@@ -208,6 +210,7 @@ extension MenuViewController: UITableViewDelegate {
             let newsVC = Scene.articlesListViewController
             newsVC.setupWith(request: ArticleRequest(favoriteOnly: false))
             vc = UINavigationController(rootViewController: newsVC)
+            newsVC.title = "articleList.title.all".localized
             break
             
         case .aProvider:
@@ -216,6 +219,7 @@ extension MenuViewController: UITableViewDelegate {
                 let request = ArticleRequest(favoriteOnly: false, showOnlyFeed: provider)
                 newsVC.setupWith(request: request)
                 vc = UINavigationController(rootViewController: newsVC)
+                newsVC.title = provider.name
             }
             break
         }
