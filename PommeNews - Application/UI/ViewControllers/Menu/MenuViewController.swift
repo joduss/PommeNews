@@ -104,11 +104,7 @@ class MenuViewController: UIViewController {
         let theClass = String(describing: MenuCell.self)
         self.tableView.register(UINib(nibName: theClass, bundle: nil), forCellReuseIdentifier: theClass)
         
-        let view = UIView()
-        view.backgroundColor = UIColor.red
-        view.frame = CGRect(x: 0, y: 0, width: 250, height: 75)
-        
-        self.tableView.tableHeaderView = view
+        self.tableView.tableHeaderView = createHeaderView()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -117,9 +113,31 @@ class MenuViewController: UIViewController {
         self.showDefaultSelection()
     }
     
+    private func createHeaderView() -> UIView {
+        
+        let headerView = UIView()
+        headerView.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 90)
+
+        let imageViewPN = UIImageView(image: #imageLiteral(resourceName: "pommenew"))
+        
+        imageViewPN.translatesAutoresizingMaskIntoConstraints = false
+        headerView.addSubview(imageViewPN)
+        imageViewPN.contentMode = .scaleAspectFit
+        imageViewPN.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant:-25).isActive = true
+        imageViewPN.topAnchor.constraint(equalTo: headerView.topAnchor, constant:15).isActive = true
+        imageViewPN.widthAnchor.constraint(equalToConstant: self.tableView.frame.width - 150).isActive = true
+        imageViewPN.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: -40).isActive = true
+        
+        return headerView
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override var prefersStatusBarHidden: Bool {
