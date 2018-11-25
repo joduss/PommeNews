@@ -65,32 +65,6 @@ class ArticlesListVC: ContentViewController {
         self.executeArticlesFetchRequest()
     }
     
-    //MARK: Content Configuration
-    //==================================================================
-    
-//    func articlesUpdated(result: Result<[RssArticle]>) {
-//        switch result {
-//        case .failure(let error):
-//            //TODO
-//            break
-//        case .success(let articles):
-//            self.articles = articles
-//            self.tableview.reloadData()
-//        }
-//    }
-//
-//    func showArticles(of: RssFeed) {
-//
-//    }
-//
-//    func showAllArticles() {
-//
-//    }
-//
-//    func showArticlesOfMyFavoriteFeeds() {
-//
-//    }
-    
     //MARK: Nav
     //==================================================================
     
