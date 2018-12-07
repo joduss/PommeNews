@@ -4,6 +4,22 @@
 <array>
 	<dict>
 		<key>name</key>
+		<string>Consomac</string>
+		<key>id</key>
+		<string>consomac</string>
+		<key>url</key>
+		<string>https://consomac.fr/rss/consomac.xml</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>iPhone Addict</string>
+		<key>id</key>
+		<string>iphoneaddict</string>
+		<key>url</key>
+		<string>https://feeds.feedburner.com/Iphoneaddictfr?format=xml</string>
+	</dict>
+	<dict>
+		<key>name</key>
 		<string>Mac4Ever</string>
 		<key>id</key>
 		<string>mac4ever</string>
