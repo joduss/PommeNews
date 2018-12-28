@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         print(FileManager.default,NSHomeDirectory())
 
+
+        // Initialize the Google Mobile Ads SDK.
+//        #if DEBUG
+//            GADMobileAds.configure(withApplicationID: "ca-app-pub-3940256099942544~1458002511") //Test ads
+//        #else
+            GADMobileAds.configure(withApplicationID: PommeNewsConfig.GoogleAppId)
+//        #endif
+        
         return true
     }
 

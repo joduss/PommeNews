@@ -9,28 +9,28 @@
 import UIKit
 import CoreData
 import SideMenu
+import GoogleMobileAds
 
 class ArticlesListVC: ContentViewController {
     
     private static let CellHeight: CGFloat = 102
     
     @IBOutlet weak var tableview: UITableView!
-    
     @IBOutlet weak var filterButton: UIBarButtonItem!
-    private var rssManager: RSSManager = Inject.component(RSSManager.self)
-    fileprivate var articles: [RssArticle] = []
     
+    private var rssManager: RSSManager = Inject.component(RSSManager.self)
+
     private var fetchResultController: NSFetchedResultsController<RssArticle>! = nil
     private var desiredRequest: NSFetchRequest<RssArticle>!
     private var request: ArticleRequest?
+    
+    fileprivate var articles: [RssArticle] = []
+    private var activeFilters: [Theme] = []
 
     private var articleDetailsView: ArticleViewController!
     
-    private var activeFilters: [Theme] = []
-    
-    @IBAction func filterButtonClicked(_ sender: Any) {
-        self.performSegue(withIdentifier: String(describing: FiltersVC.self), sender: self)
-    }
+    private var bannerView: GADBannerView!
+    private var bannerViewBackgroundView: UIVisualEffectView!
     
     //MARK: Life Cycle
     //==================================================================
@@ -45,6 +45,38 @@ class ArticlesListVC: ContentViewController {
         self.articleDetailsView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: ArticleViewController.self)) as? ArticleViewController
         
         rssManager.updateFeeds()
+        
+        self.createBannerView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    private func createBannerView() {
+        
+        self.bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView.rootViewController = self
+        
+        self.bannerViewBackgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        bannerViewBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        bannerViewBackgroundView.isHidden = true
+        self.view.addSubview(bannerViewBackgroundView)
+
+        bannerViewBackgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        bannerViewBackgroundView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        bannerViewBackgroundView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+
+        self.bannerViewBackgroundView.contentView.addSubview(bannerView)
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+
+        bannerView.bottomAnchor.constraint(equalTo: bannerViewBackgroundView.bottomAnchor).isActive = true
+        bannerView.centerXAnchor.constraint(equalTo: bannerViewBackgroundView.centerXAnchor).isActive = true
+        bannerView.heightAnchor.constraint(equalTo: bannerViewBackgroundView.heightAnchor).isActive = true
+
+        self.bannerView.delegate = self
+        bannerView.adUnitID = PommeNewsConfig.AdUnitBanner
+        bannerView.load(GADRequest())
     }
     
     //MARK: Fetch Request Configuration
@@ -85,12 +117,18 @@ class ArticlesListVC: ContentViewController {
         }
     }
     
-    
     fileprivate func showArticle(_ article: RssArticle) {
         if let url = article.link {
             self.articleDetailsView.load(url: url, title: article.feed.name)
             self.show(articleDetailsView, sender: self)
         }
+    }
+    
+    //MARK: Actions
+    //==================================================================
+    
+    @IBAction func filterButtonClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: String(describing: FiltersVC.self), sender: self)
     }
     
 }
@@ -159,4 +197,24 @@ extension ArticlesListVC: NSFetchedResultsControllerDelegate {
         }
     }
     
+}
+
+extension ArticlesListVC: GADBannerViewDelegate {
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        
+        bannerViewBackgroundView.isHidden = false
+        
+        let existingInsets = self.tableview.contentInset
+        self.tableview.contentInset = UIEdgeInsets(top: existingInsets.top,
+                                                   left: existingInsets.left,
+                                                   bottom: bannerView.frame.height,
+                                                   right: existingInsets.right)
+        
+        let existingIndicatorInsets = self.tableview.scrollIndicatorInsets
+        self.tableview.scrollIndicatorInsets = UIEdgeInsets(top: existingIndicatorInsets.top,
+                                                            left: existingIndicatorInsets.left,
+                                                            bottom: bannerView.frame.height,
+                                                            right: existingIndicatorInsets.right)
+    }
 }
