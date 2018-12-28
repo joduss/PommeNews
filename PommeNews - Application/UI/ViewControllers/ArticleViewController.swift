@@ -56,6 +56,13 @@ class ArticleViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //if (Reachability)
+        //TODO: reachability test
+    }
+    
     //MARK: - Setup - Loading page
     //=======================================================
     

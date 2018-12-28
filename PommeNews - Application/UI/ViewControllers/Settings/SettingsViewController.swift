@@ -40,6 +40,7 @@ class SettingsViewController: ContentTableViewController {
             break
         case emptyCacheCell:
             rssManager.cleanCache()
+            tableView.deselectRow(at: tableView.indexPath(for: emptyCacheCell)!, animated: true)
             break
         default:
             break
