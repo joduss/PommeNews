@@ -8,8 +8,9 @@
 
 import UIKit
 import WebKit
+import GoogleMobileAds
 
-class ArticleViewController: UIViewController {
+class ArticleViewController: ViewControllerAdmob {
     
     @IBOutlet var progressView: UIProgressView!
     
@@ -50,7 +51,7 @@ class ArticleViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillDisappear(animated)
         if webview.estimatedProgress == 1 {
             self.progressView.alpha = 0
         }

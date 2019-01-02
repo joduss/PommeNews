@@ -19,4 +19,20 @@ class PommeNewsConfig {
         #endif
         }
     }
+    
+    public static var AdUnitInterstitial: String { get
+    {
+        #if DEBUG
+        return "ca-app-pub-4180653915602895/7860743184"
+        #else
+        return "ca-app-pub-4180653915602895~3091606580"
+        #endif
+        }
+    }
+    
+    
+    
+    
+    public static let MinIntervalForBanner: TimeInterval = 30 //TimeInterval(3600 * 24 * 2) // what's the maximum time between 2 display of interstitial
+    public static let InterstitialDisplayRequestsThreshold = 2 //after how many request should we really display the interstitial
 }

@@ -23,9 +23,11 @@
 		6B1D7B692135EE7700BDC89D /* FeedSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1D7B682135EE7700BDC89D /* FeedSupport.swift */; };
 		6B1D7B6B2135EF1100BDC89D /* ArticlesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1D7B6A2135EF1100BDC89D /* ArticlesFetcher.swift */; };
 		6B1D7B6D2135EF3B00BDC89D /* ArticleJsonConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1D7B6C2135EF3B00BDC89D /* ArticleJsonConverter.swift */; };
-		6B25770F21D55F6500D419B6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B25770E21D55F6500D419B6 /* GoogleMobileAds.framework */; };
 		6B25771121D56BB200D419B6 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B25771021D56BB200D419B6 /* CoreTelephony.framework */; };
 		6B25771321D56C6F00D419B6 /* PommeNewsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25771221D56C6F00D419B6 /* PommeNewsConfig.swift */; };
+		6B25771921DA92BD00D419B6 /* InterstitialAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25771821DA92BD00D419B6 /* InterstitialAd.swift */; };
+		6B25771E21DBE15900D419B6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B25771D21DBE15900D419B6 /* GoogleMobileAds.framework */; };
+		6B25772021DC139E00D419B6 /* ViewControllerAdmob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25771F21DC139E00D419B6 /* ViewControllerAdmob.swift */; };
 		6B2FF8D220FBBBD7003A91BE /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2FF8D120FBBBD7003A91BE /* SafariActivity.swift */; };
 		6B2FF8D420FC687D003A91BE /* ArticleTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2FF8D320FC687D003A91BE /* ArticleTheme.swift */; };
 		6B3A5459217369C300EB9637 /* FilterVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A5457217369C300EB9637 /* FilterVCCell.swift */; };
@@ -181,9 +183,11 @@
 		6B1D7B6C2135EF3B00BDC89D /* ArticleJsonConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleJsonConverter.swift; sourceTree = "<group>"; };
 		6B25770C21D55F5600D419B6 /* Firebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
 		6B25770D21D55F5600D419B6 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		6B25770E21D55F6500D419B6 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		6B25771021D56BB200D419B6 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		6B25771221D56C6F00D419B6 /* PommeNewsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PommeNewsConfig.swift; sourceTree = "<group>"; };
+		6B25771821DA92BD00D419B6 /* InterstitialAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAd.swift; sourceTree = "<group>"; };
+		6B25771D21DBE15900D419B6 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		6B25771F21DC139E00D419B6 /* ViewControllerAdmob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAdmob.swift; sourceTree = "<group>"; };
 		6B2FF8D120FBBBD7003A91BE /* SafariActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		6B2FF8D320FC687D003A91BE /* ArticleTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTheme.swift; sourceTree = "<group>"; };
 		6B3A5457217369C300EB9637 /* FilterVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVCCell.swift; sourceTree = "<group>"; };
@@ -292,11 +296,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B25771121D56BB200D419B6 /* CoreTelephony.framework in Frameworks */,
-				6B25770F21D55F6500D419B6 /* GoogleMobileAds.framework in Frameworks */,
 				6BFDC4AA2154391200BE97C4 /* Kingfisher.framework in Frameworks */,
 				6BBA09E820B6800C0081D05F /* SideMenu.framework in Frameworks */,
 				6BC9132E203F35D600F969DD /* HTMLString.framework in Frameworks */,
 				6B82C3A620212372006FA35D /* FeedKit.framework in Frameworks */,
+				6B25771E21DBE15900D419B6 /* GoogleMobileAds.framework in Frameworks */,
 				6B0E1666203A00E40035C75B /* Swinject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,7 +393,7 @@
 		6B25770321D55BEA00D419B6 /* Admob */ = {
 			isa = PBXGroup;
 			children = (
-				6B25770E21D55F6500D419B6 /* GoogleMobileAds.framework */,
+				6B25771D21DBE15900D419B6 /* GoogleMobileAds.framework */,
 			);
 			path = Admob;
 			sourceTree = "<group>";
@@ -414,6 +418,15 @@
 			sourceTree = "<group>";
 		};
 		6B2FF8D020FBBBBB003A91BE /* Others */ = {
+		6B25771621DA91CE00D419B6 /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				6B25771821DA92BD00D419B6 /* InterstitialAd.swift */,
+				6B25771F21DC139E00D419B6 /* ViewControllerAdmob.swift */,
+			);
+			path = Ads;
+			sourceTree = "<group>";
+		};
 			isa = PBXGroup;
 			children = (
 				6B2FF8D120FBBBD7003A91BE /* SafariActivity.swift */,
@@ -506,9 +519,10 @@
 		6B82C34E201FC838006FA35D /* PommeNews - Application */ = {
 			isa = PBXGroup;
 			children = (
+				6BD7229C20A0E9BF00022353 /* 3rd Party Librairies */,
+				6B25771621DA91CE00D419B6 /* Ads */,
 				6B3A5451217361B300EB9637 /* Configuration */,
 				6B2FF8D020FBBBBB003A91BE /* Others */,
-				6BD7229C20A0E9BF00022353 /* Librairies */,
 				6BCD760B20885E2B00F584BA /* Resources */,
 				6BCD760820885D3900F584BA /* Application */,
 				6BA21F3A2098F8E50075F4CD /* Managers */,
@@ -695,12 +709,12 @@
 			path = ThemeClassifier;
 			sourceTree = "<group>";
 		};
-		6BD7229C20A0E9BF00022353 /* Librairies */ = {
+		6BD7229C20A0E9BF00022353 /* 3rd Party Librairies */ = {
 			isa = PBXGroup;
 			children = (
 				6B25770A21D55C9800D419B6 /* Google Firebase */,
 			);
-			path = Librairies;
+			path = "3rd Party Librairies";
 			sourceTree = "<group>";
 		};
 		6BE36E43208528ED0077D848 /* Model */ = {
@@ -1109,6 +1123,7 @@
 				6B82C350201FC838006FA35D /* AppDelegate.swift in Sources */,
 				6BB8FC7E2023830C00AB870F /* ArticleListCell.swift in Sources */,
 				6B828662204A9A7600AB9242 /* ArticleViewController.swift in Sources */,
+				6B25772021DC139E00D419B6 /* ViewControllerAdmob.swift in Sources */,
 				6B25771321D56C6F00D419B6 /* PommeNewsConfig.swift in Sources */,
 				6BEB52A2218DCC7A00C08D81 /* RssArticle+CoreDataClass.swift in Sources */,
 				6BEB52A7218DCC7A00C08D81 /* Theme+CoreDataProperties.swift in Sources */,
@@ -1129,6 +1144,7 @@
 				6BF5A2A220B715D0005E0765 /* PNSideMenuController.swift in Sources */,
 				6BFDC4A221542E5200BE97C4 /* TCArticle.swift in Sources */,
 				6BF1D0AC207A847A005725E7 /* MenuCell.swift in Sources */,
+				6B25771921DA92BD00D419B6 /* InterstitialAd.swift in Sources */,
 				6B2FF8D420FC687D003A91BE /* ArticleTheme.swift in Sources */,
 				6B82C37F201FC963006FA35D /* RSSClient.swift in Sources */,
 				6BE36E422085287E0077D848 /* Database.xcdatamodeld in Sources */,
@@ -1394,6 +1410,7 @@
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Crashlitics",
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Crashlitics",
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Firebase/Admob",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Admob",
 				);
 				INFOPLIST_FILE = "PommeNews - Application//Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1405,7 +1422,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Firebase";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase2";
 			};
 			name = Debug;
 		};
@@ -1431,6 +1448,7 @@
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Crashlitics",
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Crashlitics",
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Firebase/Admob",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Admob",
 				);
 				INFOPLIST_FILE = "PommeNews - Application//Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1442,7 +1460,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Firebase";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase2";
 			};
 			name = Release;
 		};
