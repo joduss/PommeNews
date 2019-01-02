@@ -41,6 +41,12 @@ class FilterVCCell: UICollectionViewCell {
         }
         set {
             label.text = newValue
+            if let text = label.text, text.split(separator: " ").count == 1 {
+                label.numberOfLines = 1
+            }
+            else {
+                label.numberOfLines = 2
+            }
         }
     }
     
