@@ -43,6 +43,10 @@ extension RssArticle: EntityName {
         return "themes"
     }
     
+    static var linkPropertyName: String {
+        return "link"
+    }
+    
 }
 
 extension RssArticle {

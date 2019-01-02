@@ -417,7 +417,6 @@
 			path = "Google Firebase";
 			sourceTree = "<group>";
 		};
-		6B2FF8D020FBBBBB003A91BE /* Others */ = {
 		6B25771621DA91CE00D419B6 /* Ads */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,11 +426,22 @@
 			path = Ads;
 			sourceTree = "<group>";
 		};
+		6B25771721DA91D700D419B6 /* Rss */ = {
+			isa = PBXGroup;
+			children = (
+				6B82C382201FD1C0006FA35D /* RSSFeedsListManager.swift */,
+				6BA21F3B2098F8E50075F4CD /* RSSManager.swift */,
+				6BE36E43208528ED0077D848 /* Model */,
+			);
+			path = Rss;
+			sourceTree = "<group>";
+		};
+		6B2FF8D020FBBBBB003A91BE /* SystemIntegration */ = {
 			isa = PBXGroup;
 			children = (
 				6B2FF8D120FBBBD7003A91BE /* SafariActivity.swift */,
 			);
-			path = Others;
+			path = SystemIntegration;
 			sourceTree = "<group>";
 		};
 		6B37D317205EB95700321701 /* Animator */ = {
@@ -520,18 +530,16 @@
 			isa = PBXGroup;
 			children = (
 				6BD7229C20A0E9BF00022353 /* 3rd Party Librairies */,
+				6B25771721DA91D700D419B6 /* Rss */,
 				6B25771621DA91CE00D419B6 /* Ads */,
 				6B3A5451217361B300EB9637 /* Configuration */,
-				6B2FF8D020FBBBBB003A91BE /* Others */,
+				6B2FF8D020FBBBBB003A91BE /* SystemIntegration */,
 				6BCD760B20885E2B00F584BA /* Resources */,
 				6BCD760820885D3900F584BA /* Application */,
-				6BA21F3A2098F8E50075F4CD /* Managers */,
-				6BE36E43208528ED0077D848 /* Model */,
 				6BA871CB2022222E006CCDD9 /* UI */,
 				6B82C3AB202197EF006FA35D /* Utils */,
 				6B82C37D201FC958006FA35D /* Network */,
 				6B82C35B201FC838006FA35D /* Info.plist */,
-				6B82C382201FD1C0006FA35D /* RSSFeedsListManager.swift */,
 				6BE36E3E208509ED0077D848 /* Localizable.strings */,
 			);
 			path = "PommeNews - Application";
@@ -610,15 +618,6 @@
 			);
 			path = Settings;
 			sourceTree = "<group>";
-		};
-		6BA21F3A2098F8E50075F4CD /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				6BA21F3B2098F8E50075F4CD /* RSSManager.swift */,
-			);
-			name = Managers;
-			path = "PommeNews - Application/Managers";
-			sourceTree = SOURCE_ROOT;
 		};
 		6BA871CB2022222E006CCDD9 /* UI */ = {
 			isa = PBXGroup;

@@ -223,7 +223,8 @@ class RSSManager {
     
     private func exists(article: RssArticlePO) -> Bool {
         let request: NSFetchRequest<RssArticle> = RssArticlesRequest().create()
-        request.predicate = NSPredicate(format: "\(RssArticle.summaryPropertyName) == %@", article.summary)
+        
+        request.predicate = NSPredicate(format: "\(RssArticle.linkPropertyName) == %@", article.link?.absoluteString ?? "")
         
         do {
             return try CoreDataStack.shared.context.count(for: request) != 0
