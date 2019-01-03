@@ -40,9 +40,15 @@ public class RSSClient {
                             continue
                     }
                     
+                    var imagePath = entry.media?.mediaThumbnails?.first?.attributes?.url
+                    
+                    if imagePath == nil && entry.enclosure?.attributes?.type?.contains("image") ?? false {
+                        imagePath = entry.enclosure?.attributes?.url
+                    }
+                    
                     let article = RssArticlePO(titleHtml: title,
                                                summaryHtml: summary.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
-                                               imageUrl: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url ?? ""),
+                                               imageUrl: URL(string: imagePath ?? ""),
                                                date: date,
                                                link: URL(string: link),
                                                creator: entry.author ?? "?")
