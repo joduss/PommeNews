@@ -42,5 +42,13 @@
 		<key>url</key>
 		<string>https://www.cnetfrance.fr/feeds/rss/news/</string>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>ZDNet Smartphones</string>
+		<key>id</key>
+		<string>zdnet_smartphones</string>
+		<key>url</key>
+		<string>https://www.zdnet.fr/feeds/rss/actualites/smartphone-4000002598q.htm</string>
+	</dict>
 </array>
 </plist>
