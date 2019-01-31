@@ -9,9 +9,7 @@
 import UIKit
 
 class Scene {
-    
-    
-    
+
     static var settingsViewController: UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: SettingsViewController.self) + "Container")
     }
