@@ -78,7 +78,8 @@ class FakeRSSClient: RSSClient {
                 assertionFailure("json not supported")
                 break
             case .failure(let error):
-                completion(Result.failure(PError.FeedFetchingError(error)))
+                //completion(Result.failure(PError.SomeFeedFetchingError(error)))
+                exit(1)
             }
             
             

@@ -11,6 +11,8 @@ import FeedKit
 import CoreData
 import WebKit
 
+
+
 class RSSManager {
     
     struct Notifications {
@@ -25,12 +27,16 @@ class RSSManager {
     
     private (set) var feeds: [RssFeed] = []
     
+    private let classifier = ThemeClassifier()
+
+    
     private var lastUpdate = Date()
     private let context = CoreDataStack.shared.context
     
-    private let classifier = ThemeClassifier()
+    private var feedsUpdater: FeedsUpdater! = nil
     
     init(rssClient: RSSClient) {
+        
         self.rssClient = rssClient
         
         //Init Themes
@@ -41,7 +47,7 @@ class RSSManager {
         //Configure classifier
         let supportedThemes = Request<Theme>().execute(context: CoreDataStack.shared.context)
         classifier.validThemes = supportedThemes.map({ArticleTheme(key: $0.key)})
-        
+
         //Init feeds
         var allFeeds: [RssFeed] = []
         for feed in supportedFeeds {
@@ -54,8 +60,11 @@ class RSSManager {
         catch {
             print("\(error)")
         }
+        
+        self.feedsUpdater = FeedsUpdater(rssManager: self, classifier: self.classifier, rssClient: self.rssClient)
     }
     
+
     
     //MARK: - LOCAL
     //===================================================================
@@ -123,117 +132,13 @@ class RSSManager {
     //MARK: - ONLINE
     //===================================================================
     
+    //TODO: move this also in CompletionpubSub ! (FeedUpdater)
+    
     ///Get the articles from all the feeds
-    func updateFeeds(completion: ((Result<Void>) -> ())? = nil) {
-        
-        DispatchQueue(label: "FeedUpdate").async {
-            
-            let group = DispatchGroup()
-            
-            var error: PError? = nil
-            //            var singleError = true
-            
-            for feed in self.feeds {
-                group.enter()
-                
-                self.update(feed: feed, completion: { result in
-                    switch result {
-                    case .success(_): break
-                    case .failure(let failureError):
-                        if error != nil {
-                            //                            singleError = false
-                        }
-                        else {
-                            error = failureError
-                        }
-                    }
-                    
-                    group.leave()
-                })
-                
-            }
-            
-            let timeout = group.wait(timeout: DispatchTime.now() + DispatchTimeInterval.seconds(10))
-            
-            try? CoreDataStack.shared.save()
-            
-            if timeout ==  DispatchTimeoutResult.timedOut {
-                //TODO: show error
-            }
-            else if let error = error  {
-                completion?(.failure(error))
-            }
-            else {
-                completion?(Result.success(()))
-            }
-        }
+    func updateFeeds() {
+        self.feedsUpdater.performUpdate(feedsList: self.feeds)
     }
-    
-    ///Get the new articles for the specified feed
-    func update(feed: RssFeed, completion: ((Result<Void>) -> ())?) {
-        let feedPO = RssPlistFeed(name: feed.name,
-                                  url: feed.url.absoluteString,
-                                  id: feed.id
-        )
-        
-        self.rssClient.fetch(feed: feedPO, completion: { result in
-            switch result {
-            case .success(let articles):
-                //TODO
-                for article in articles {
-                    self.save(article: article, fromFeed: feed)
-                }
-                break
-            case .failure(let error):
-                completion?(.failure(error))
-            }
-        })
-    }
-    
-    private func save(article articlePO: RssArticlePO, fromFeed feed: RssFeed) {
-        
-        DispatchQueue.main.async {
-            
-            guard self.exists(article: articlePO) == false else { return }
-            
-            let article: RssArticle = NSEntityDescription.insertNewObject(forEntityName: RssArticle.entityName, into: CoreDataStack.shared.context) as! RssArticle
-            
-            article.title = articlePO.title
-            article.creator = articlePO.creator
-            article.date = articlePO.date as NSDate
-            article.feed = feed
-            article.imageUrl = articlePO.imageUrl ?? articlePO.extractImageUrlFromSummary()
-            article.link = articlePO.link
-            article.summary = articlePO.summary
-            article.read = false
-            
-            let articleForClassification = TCArticle(title: article.title,
-                                                     summary: article.summary)
-            let classification = self.classifier.classify(article: articleForClassification)
 
-            let themesCD = Request<Theme>().execute(context: CoreDataStack.shared.context)
-            
-            for themeOfClassifier in classification {
-                if let themeCD = themesCD.filter({$0.key == themeOfClassifier.key}).first {
-                    article.addToThemes(themeCD)
-                }
-            }
-        }
-    }
-    
-    private func exists(article: RssArticlePO) -> Bool {
-        let request: NSFetchRequest<RssArticle> = RssArticlesRequest().create()
-        
-        request.predicate = NSPredicate(format: "\(RssArticle.linkPropertyName) == %@", article.link?.absoluteString ?? "")
-        
-        do {
-            return try CoreDataStack.shared.context.count(for: request) != 0
-        } catch {
-            //TODO
-            return false
-        }
-    }
-    
     func cleanCache() {
         let websitesData = WKWebsiteDataStore.allWebsiteDataTypes()
         
@@ -249,5 +154,6 @@ class RSSManager {
         }
     }
     
+
     
 }
