@@ -29,8 +29,7 @@ class ArticlesListVC: ContentViewController {
 
     private var articleDetailsView: ArticleViewController!
     
-    private var bannerView: GADBannerView!
-    private var bannerViewBackgroundView: UIVisualEffectView!
+    private var bannerView: BannerView?
     
     //MARK: Life Cycle
     //==================================================================
@@ -49,37 +48,26 @@ class ArticlesListVC: ContentViewController {
         
         rssManager.updateFeeds()
         
-        self.createBannerView()
+        self.bannerView = BannerView(on: self, adId: PommeNewsConfig.AdUnitBanner)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    private func createBannerView() {
-        
-        self.bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        bannerView.rootViewController = self
-        
-        self.bannerViewBackgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
-        bannerViewBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-        bannerViewBackgroundView.isHidden = true
-        self.view.addSubview(bannerViewBackgroundView)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        rssManager.feedsUpdater.unsubscribeFromArticlesupdate(self)
+    }
 
-        bannerViewBackgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        bannerViewBackgroundView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        bannerViewBackgroundView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-
-        self.bannerViewBackgroundView.contentView.addSubview(bannerView)
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-
-        bannerView.bottomAnchor.constraint(equalTo: bannerViewBackgroundView.bottomAnchor).isActive = true
-        bannerView.centerXAnchor.constraint(equalTo: bannerViewBackgroundView.centerXAnchor).isActive = true
-        bannerView.heightAnchor.constraint(equalTo: bannerViewBackgroundView.heightAnchor).isActive = true
-
-        self.bannerView.delegate = self
-        bannerView.adUnitID = PommeNewsConfig.AdUnitBanner
-        bannerView.load(GADRequest())
+    @objc private func updateFeeds() {
+        tableview.refreshControl?.beginRefreshing()
+        rssManager.feedsUpdater.subscribeToArticlesUpdate(subscriber: self, onPublish: articlesUpdated)
+        rssManager.feedsUpdater.updateAllFeeds()
+    }
+    
+    private func articlesUpdated(result: Result<Void>) {
+        tableview.refreshControl?.endRefreshing()
     }
     
     //MARK: Fetch Request Configuration
