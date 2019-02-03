@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Initialize the Google Mobile Ads SDK.
 //        #if DEBUG
-//            GADMobileAds.configure(withApplicationID: "ca-app-pub-3940256099942544~1458002511") //Test ads
+            GADMobileAds.configure(withApplicationID: PommeNewsConfig.GoogleAppId) //Test ads
 //        #else
             GADMobileAds.configure(withApplicationID: PommeNewsConfig.GoogleAppId)
 //        #endif
