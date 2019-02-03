@@ -33,7 +33,7 @@ class RSSManager {
     private var lastUpdate = Date()
     private let context = CoreDataStack.shared.context
     
-    private var feedsUpdater: FeedsUpdater! = nil
+    public var feedsUpdater: FeedsUpdater! = nil
     
     init(rssClient: RSSClient) {
         
@@ -131,13 +131,6 @@ class RSSManager {
     
     //MARK: - ONLINE
     //===================================================================
-    
-    //TODO: move this also in CompletionpubSub ! (FeedUpdater)
-    
-    ///Get the articles from all the feeds
-    func updateFeeds() {
-        self.feedsUpdater.performUpdate(feedsList: self.feeds)
-    }
 
     func cleanCache() {
         let websitesData = WKWebsiteDataStore.allWebsiteDataTypes()

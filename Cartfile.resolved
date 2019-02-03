@@ -1,5 +1,6 @@
 github "Swinject/Swinject" "2.5.0"
 github "alexaubry/HTMLString" "4.0.2"
-github "kukushi/SideMenu" "be6ef1081c95389e1fa68fd9198a2f6f4bff8a48"
+github "fpillet/NSLogger" "v1.9.7"
+github "kukushi/SideMenu" "8ce835a0d298004066b54aff3ff060273de28574"
 github "nmdias/FeedKit" "7.1.1"
 github "onevcat/Kingfisher" "4.10.1"

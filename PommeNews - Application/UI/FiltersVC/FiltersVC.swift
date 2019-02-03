@@ -22,12 +22,14 @@ class FiltersVC: UICollectionViewController {
         }
     }
     
+    public let themeFilters = ThemeFiltersPreferences()
+    
     public var onSave: (([Theme]) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        supportedThemes = ThemeRequest().execute(context: CoreDataStack.shared.context)
+        supportedThemes = themeFilters.allThemes
         
         clearFiltersButton.title = "filters.clear".localized
         collectionView?.allowsMultipleSelection = true

@@ -30,9 +30,9 @@ class PommeNewsConfig {
         }
     }
     
-    
-    
-    
     public static let MinIntervalForBanner: TimeInterval = 30 //TimeInterval(3600 * 24 * 2) // what's the maximum time between 2 display of interstitial
     public static let InterstitialDisplayRequestsThreshold = 2 //after how many request should we really display the interstitial
+    
+    ///In seconds
+    public static let FeedUpdateTimeout = 30
 }

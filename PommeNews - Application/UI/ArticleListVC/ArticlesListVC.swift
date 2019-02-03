@@ -25,7 +25,7 @@ class ArticlesListVC: ContentViewController {
     private var request: ArticleRequest?
     
     fileprivate var articles: [RssArticle] = []
-    private var activeFilters: [Theme] = []
+    private let filtersPreferences = ThemeFiltersPreferences()
 
     private var articleDetailsView: ArticleViewController!
     
@@ -36,17 +36,18 @@ class ArticlesListVC: ContentViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableview.delegate = self
         tableview.dataSource = self
         tableview.estimatedRowHeight = ArticlesListVC.CellHeight
         tableview.register(UINib.init(nibName: String(describing: ArticleListCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ArticleListCell.self))
+        
         tableview.refreshControl = UIRefreshControl()
-
         tableview.refreshControl?.addTarget(self, action: #selector(updateFeeds), for: .valueChanged)
         
         self.articleDetailsView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: ArticleViewController.self)) as? ArticleViewController
         
-        rssManager.updateFeeds()
+        self.updateFeeds()
         
         self.bannerView = BannerView(on: self, adId: PommeNewsConfig.AdUnitBanner)
     }
@@ -88,6 +89,13 @@ class ArticlesListVC: ContentViewController {
         self.executeArticlesFetchRequest()
     }
     
+    private func filtersByThemes() {
+        let filteringThemes = filtersPreferences.filteringThemes
+        self.request?.filter(themes: filteringThemes)
+        self.request?.update()
+        try! self.fetchResultController.performFetch()
+    }
+    
     //MARK: Nav
     //==================================================================
     
@@ -97,12 +105,7 @@ class ArticlesListVC: ContentViewController {
             super.prepare(for: segue, sender: sender)
         }
         else if let filterVC = segue.destination.childViewControllers.first as? FiltersVC {
-            filterVC.activeFilters = self.activeFilters
             filterVC.onSave = { selectedTheme in
-                self.activeFilters = selectedTheme
-                self.request?.filter(themes: selectedTheme)
-                self.request?.update()
-                try! self.fetchResultController.performFetch()
                 self.tableview.reloadData()
             }
         }

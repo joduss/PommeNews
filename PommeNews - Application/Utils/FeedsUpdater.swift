@@ -8,11 +8,7 @@
 
 import Foundation
 import CoreData
-
-protocol RssManagerChangeListener: class {
-    func updated()
-    func updateFailed(error: PError)
-}
+import NSLoggerSwift
 
 
 ///Handle updates of articles from the feeds
@@ -23,9 +19,9 @@ class FeedsUpdater {
     
     private var performing = false
     private var semaphore = DispatchSemaphore(value: 1)
-    private var listeners: [RssManagerChangeListener] = []
+    private var listeners: [AnyHashable: (Result<Void>) -> ()] = [:]
     
-    private weak var rssManager: RSSManager?
+    private weak var rssManager: RSSManager!
     
     
     init(rssManager: RSSManager, classifier: ThemeClassifier, rssClient: RSSClient) {
@@ -37,35 +33,40 @@ class FeedsUpdater {
     //MARK: - Public Perform Update
     //===================================================================
     
-    public func performUpdate(feedsList: [RssFeed]) {
-        performIfNotStarted(feedsList: feedsList)
+    public func update(feeds: [RssFeed]) {
+        updateIfNotStarted(feeds: feeds)
+    }
+    
+    public func updateAllFeeds() {
+        updateIfNotStarted(feeds: rssManager.feeds)
     }
     
     //MARK: - Fetch the articles
     //===================================================================
     
-    private func performIfNotStarted(feedsList: [RssFeed]) {
+    private func updateIfNotStarted(feeds: [RssFeed]) {
         semaphore.wait()
         guard performing != true else { return }
         performing = true
         
         semaphore.signal()
         
-        self.performAllFeedsUpdate(feedsList: feedsList)
+        self.performUpdate(feeds: feeds)
         
         semaphore.wait()
         performing = false
         semaphore.signal()
     }
     
-    private func performAllFeedsUpdate(feedsList: [RssFeed]) {
-        DispatchQueue(label: "FeedUpdate").async {
+    private func performUpdate(feeds: [RssFeed]) {
+        DispatchQueue(label: "FeedUpdateGroup").async {
             
             let group = DispatchGroup()
             
             var errors: [RssFeed : PError] = [:]
+            var updatedFeeds: [RssFeed] = []
             
-            for feed in feedsList {
+            for feed in feeds {
                 group.enter()
                 
                 self.update(feed: feed, completion: { result in
@@ -74,21 +75,23 @@ class FeedsUpdater {
                     case .failure(let error):
                         errors[feed] = error
                     }
+                    updatedFeeds.append(feed)
                     
                     group.leave()
                 })
-                
             }
             
-            let timeout = group.wait(timeout: DispatchTime.now() + DispatchTimeInterval.seconds(120))
+            let timeout = group.wait(timeout: DispatchTime.now() + DispatchTimeInterval.seconds(PommeNewsConfig.FeedUpdateTimeout))
             
             try? CoreDataStack.shared.save()
             
-            if timeout ==  DispatchTimeoutResult.timedOut {
-                self.notifyFailure(error: PError.HTTPErrorTimeout)
+            guard timeout !=  DispatchTimeoutResult.timedOut else {
+                self.handleTimeout(updatedFeeds: updatedFeeds, feedsToUpdate: feeds)
+                return
             }
-                
-            if feedsList.count == errors.count, let firstError = errors.first?.value {
+            
+            //Handles the results
+            if feeds.count == errors.count, let firstError = errors.first?.value {
                 self.notifyFailure(error: PError.MultiFeedFetchingError(firstError))
             }
             else if let singleError = errors.first?.value  {
@@ -100,7 +103,7 @@ class FeedsUpdater {
         }
     }
     
-    private func update(feed: RssFeed, completion: @escaping (Result<RssArticle>) -> ()) {
+    private func update(feed: RssFeed, completion: @escaping (Result<Void>) -> ()) {
         let feedPO = RssPlistFeed(name: feed.name,
                                   url: feed.url.absoluteString,
                                   id: feed.id
@@ -113,11 +116,23 @@ class FeedsUpdater {
                 for article in articles {
                     self.save(article: article, fromFeed: feed)
                 }
+                completion(.success)
                 break
             case .failure(let error):
                 completion(.failure(error))
             }
         })
+    }
+    
+    private func handleTimeout(updatedFeeds: [RssFeed], feedsToUpdate: [RssFeed]) {
+        var notUpdatedFeeds = Set(feedsToUpdate)
+        updatedFeeds.forEach({notUpdatedFeeds.remove($0)})
+        
+        var message = "The following feeds couldn't be updated:"
+        notUpdatedFeeds.forEach({message += "\n- \($0.name)"})
+        Logger.shared.log(Logger.Domain.service, Logger.Level.info, message)
+        
+        self.notifyFailure(error: PError.MultiFeedFetchingError(PError.HTTPErrorTimeout(message)))
     }
     
     //===================================================================
@@ -176,24 +191,28 @@ class FeedsUpdater {
     //MARK: - PUB/SUB for article updates
     //===================================================================
     
-    public func subscribeToArticlesUpdate(_ newSubscriber: RssManagerChangeListener) {
-        guard listeners.contains(where: { $0 === newSubscriber }) == false else {
-            return
-        }
-        listeners.append(newSubscriber)
+    public func subscribeToArticlesUpdate(subscriber: AnyHashable, onPublish: @escaping (Result<Void>) -> () ) {
+        
+        guard listeners.keys.contains(subscriber) == false else { return }
+        listeners[subscriber] = onPublish
     }
     
-    public func unsubscribeFromArticlesupdate(_ unsubscriber: RssManagerChangeListener) {
-        guard let idx = listeners.firstIndex(where: { $0 === unsubscriber }) else { return }
-        listeners.remove(at: idx)
+    public func unsubscribeFromArticlesupdate(_ unsubscriber: AnyHashable) {
+        listeners.removeValue(forKey: unsubscriber)
     }
     
-    func notifyFailure(error: PError) {
-        listeners.forEach({ $0.updateFailed(error: error) })
+    private func notifyFailure(error: PError) {
+        let result = Result<Void>.failure(error)
+        listeners.forEach({ listener in
+            DispatchQueue.main.async{ listener.value(result) }
+        })
     }
     
-    func notifySuccess() {
-        listeners.forEach({ $0.updated() })
+    private func notifySuccess() {
+        let result: Result<Void> = Result.success
+        listeners.forEach({ listener in
+            DispatchQueue.main.async{ listener.value(result) }
+        })
     }
     
     //===================================================================
