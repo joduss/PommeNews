@@ -192,23 +192,3 @@ extension ArticlesListVC: NSFetchedResultsControllerDelegate {
     }
     
 }
-
-extension ArticlesListVC: GADBannerViewDelegate {
-    
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        
-        bannerViewBackgroundView.isHidden = false
-        
-        let existingInsets = self.tableview.contentInset
-        self.tableview.contentInset = UIEdgeInsets(top: existingInsets.top,
-                                                   left: existingInsets.left,
-                                                   bottom: bannerView.frame.height,
-                                                   right: existingInsets.right)
-        
-        let existingIndicatorInsets = self.tableview.scrollIndicatorInsets
-        self.tableview.scrollIndicatorInsets = UIEdgeInsets(top: existingIndicatorInsets.top,
-                                                            left: existingIndicatorInsets.left,
-                                                            bottom: bannerView.frame.height,
-                                                            right: existingIndicatorInsets.right)
-    }
-}
