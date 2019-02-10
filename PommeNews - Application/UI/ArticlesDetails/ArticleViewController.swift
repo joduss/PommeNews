@@ -85,10 +85,8 @@ class ArticleViewController: ViewControllerAdmob {
     
     @IBAction func shareClicked(_ sender: Any) {
         
-        let safariActivity = SafariActivity()
-        
-        let activityController = UIActivityViewController(activityItems: [self.url], applicationActivities: [safariActivity])
-        present(activityController, animated: true, completion: nil)
+        let activityController = UIActivityViewController(activityItems: [self.url], applicationActivities: [SafariActivity()])
+        present(activityController, animated: true, completion: nil)        
     }
 }
 

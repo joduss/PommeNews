@@ -40,6 +40,16 @@
 		6B5B71AB220390AC00930AAC /* ArticleListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5B71AA220390AC00930AAC /* ArticleListPresenter.swift */; };
 		6B5B71AF220392BA00930AAC /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5B71AE220392BA00930AAC /* BannerView.swift */; };
 		6B62A89E2130590C001EDAD4 /* ThemeClassifierTermsMultiLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B62A89D2130590C001EDAD4 /* ThemeClassifierTermsMultiLocalization.swift */; };
+		6B64ACE7221077E2007D6C86 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B64ACE5221077E1007D6C86 /* Crashlytics.framework */; };
+		6B64ACE8221077E2007D6C86 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B64ACE6221077E2007D6C86 /* Fabric.framework */; };
+		6B64AD032210792A007D6C86 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B64ACFB2210792A007D6C86 /* GoogleAppMeasurement.framework */; };
+		6B64AD042210792A007D6C86 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B64ACFC2210792A007D6C86 /* FirebaseCore.framework */; };
+		6B64AD052210792A007D6C86 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B64ACFD2210792A007D6C86 /* FirebaseAnalytics.framework */; };
+		6B64AD062210792A007D6C86 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B64ACFE2210792A007D6C86 /* GoogleUtilities.framework */; };
+		6B64AD072210792A007D6C86 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B64ACFF2210792A007D6C86 /* nanopb.framework */; };
+		6B64AD082210792A007D6C86 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B64AD002210792A007D6C86 /* FIRAnalyticsConnector.framework */; };
+		6B64AD092210792A007D6C86 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B64AD012210792A007D6C86 /* FirebaseInstanceID.framework */; };
+		6B64AD0A2210792A007D6C86 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B64AD022210792A007D6C86 /* FirebaseCoreDiagnostics.framework */; };
 		6B6C572221FE114B00D7BFE2 /* FeedsUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C572121FE114B00D7BFE2 /* FeedsUpdater.swift */; };
 		6B7F7DFC21384178000AE589 /* ArticlesJsonFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7F7DFB21384178000AE589 /* ArticlesJsonFileIO.swift */; };
 		6B7F7DFE213843CE000AE589 /* NAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7F7DFD213843CE000AE589 /* NAError.swift */; };
@@ -90,14 +100,6 @@
 		6BC9132E203F35D600F969DD /* HTMLString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC9132D203F35D600F969DD /* HTMLString.framework */; };
 		6BCD760A20885D6800F584BA /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCD760920885D6800F584BA /* Inject.swift */; };
 		6BD02D562208E84A00159EF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BD02D552208E84A00159EF3 /* GoogleService-Info.plist */; };
-		6BD02D5F2208E9EB00159EF3 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D572208E9E800159EF3 /* FirebaseAnalytics.framework */; };
-		6BD02D602208E9EB00159EF3 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D582208E9E800159EF3 /* FirebaseCore.framework */; };
-		6BD02D612208E9EB00159EF3 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D592208E9E900159EF3 /* nanopb.framework */; };
-		6BD02D622208E9EB00159EF3 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D5A2208E9E900159EF3 /* GoogleUtilities.framework */; };
-		6BD02D632208E9EB00159EF3 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D5B2208E9EA00159EF3 /* FirebaseInstanceID.framework */; };
-		6BD02D642208E9EB00159EF3 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D5C2208E9EB00159EF3 /* GoogleAppMeasurement.framework */; };
-		6BD02D652208E9EB00159EF3 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D5D2208E9EB00159EF3 /* FirebaseCoreDiagnostics.framework */; };
-		6BD02D662208E9EB00159EF3 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D5E2208E9EB00159EF3 /* FIRAnalyticsConnector.framework */; };
 		6BD2982E2182235200FEF404 /* RssArticlesByThemesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD2982D2182235200FEF404 /* RssArticlesByThemesRequest.swift */; };
 		6BD2985F2182626D00FEF404 /* SimpleArticleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD2985E2182626D00FEF404 /* SimpleArticleRequest.swift */; };
 		6BD5E585214C015D00ACBE64 /* ArticlesJsonFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7F7DFB21384178000AE589 /* ArticlesJsonFileIO.swift */; };
@@ -218,6 +220,16 @@
 		6B62A89D2130590C001EDAD4 /* ThemeClassifierTermsMultiLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeClassifierTermsMultiLocalization.swift; sourceTree = "<group>"; };
 		6B62A8C22130ADC9001EDAD4 /* mac4ever.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mac4ever.xml; sourceTree = "<group>"; };
 		6B62A8C32130ADC9001EDAD4 /* macg.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = macg.xml; sourceTree = "<group>"; };
+		6B64ACE5221077E1007D6C86 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		6B64ACE6221077E2007D6C86 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		6B64ACFB2210792A007D6C86 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppMeasurement.framework; sourceTree = "<group>"; };
+		6B64ACFC2210792A007D6C86 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		6B64ACFD2210792A007D6C86 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		6B64ACFE2210792A007D6C86 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		6B64ACFF2210792A007D6C86 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		6B64AD002210792A007D6C86 /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
+		6B64AD012210792A007D6C86 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		6B64AD022210792A007D6C86 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
 		6B6C572121FE114B00D7BFE2 /* FeedsUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsUpdater.swift; sourceTree = "<group>"; };
 		6B7F7DFB21384178000AE589 /* ArticlesJsonFileIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesJsonFileIO.swift; sourceTree = "<group>"; };
 		6B7F7DFD213843CE000AE589 /* NAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NAError.swift; sourceTree = "<group>"; };
@@ -272,14 +284,6 @@
 		6BC9132D203F35D600F969DD /* HTMLString.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLString.framework; path = Carthage/Build/iOS/HTMLString.framework; sourceTree = "<group>"; };
 		6BCD760920885D6800F584BA /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		6BD02D552208E84A00159EF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		6BD02D572208E9E800159EF3 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		6BD02D582208E9E800159EF3 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
-		6BD02D592208E9E900159EF3 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
-		6BD02D5A2208E9E900159EF3 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
-		6BD02D5B2208E9EA00159EF3 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		6BD02D5C2208E9EB00159EF3 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppMeasurement.framework; sourceTree = "<group>"; };
-		6BD02D5D2208E9EB00159EF3 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
-		6BD02D5E2208E9EB00159EF3 /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
 		6BD2982D2182235200FEF404 /* RssArticlesByThemesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssArticlesByThemesRequest.swift; sourceTree = "<group>"; };
 		6BD2985E2182626D00FEF404 /* SimpleArticleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleArticleRequest.swift; sourceTree = "<group>"; };
 		6BE184682135C82A00DEA4FA /* HTMLString.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = HTMLString.framework.dSYM; path = Carthage/Build/Mac/HTMLString.framework.dSYM; sourceTree = "<group>"; };
@@ -329,21 +333,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BA74E53220612BB00CEC60C /* NSLoggerSwift.framework in Frameworks */,
+				6B64ACE8221077E2007D6C86 /* Fabric.framework in Frameworks */,
+				6B64AD032210792A007D6C86 /* GoogleAppMeasurement.framework in Frameworks */,
+				6B64ACE7221077E2007D6C86 /* Crashlytics.framework in Frameworks */,
 				6B25771121D56BB200D419B6 /* CoreTelephony.framework in Frameworks */,
-				6BD02D612208E9EB00159EF3 /* nanopb.framework in Frameworks */,
-				6BD02D5F2208E9EB00159EF3 /* FirebaseAnalytics.framework in Frameworks */,
-				6BD02D642208E9EB00159EF3 /* GoogleAppMeasurement.framework in Frameworks */,
-				6BD02D632208E9EB00159EF3 /* FirebaseInstanceID.framework in Frameworks */,
 				6BFDC4AA2154391200BE97C4 /* Kingfisher.framework in Frameworks */,
+				6B64AD062210792A007D6C86 /* GoogleUtilities.framework in Frameworks */,
+				6B64AD072210792A007D6C86 /* nanopb.framework in Frameworks */,
 				6BBA09E820B6800C0081D05F /* SideMenu.framework in Frameworks */,
-				6BD02D622208E9EB00159EF3 /* GoogleUtilities.framework in Frameworks */,
 				6BC9132E203F35D600F969DD /* HTMLString.framework in Frameworks */,
-				6BD02D602208E9EB00159EF3 /* FirebaseCore.framework in Frameworks */,
+				6B64AD042210792A007D6C86 /* FirebaseCore.framework in Frameworks */,
 				6B82C3A620212372006FA35D /* FeedKit.framework in Frameworks */,
-				6BD02D652208E9EB00159EF3 /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				6B64AD092210792A007D6C86 /* FirebaseInstanceID.framework in Frameworks */,
 				6B25771E21DBE15900D419B6 /* GoogleMobileAds.framework in Frameworks */,
 				6B0E1666203A00E40035C75B /* Swinject.framework in Frameworks */,
-				6BD02D662208E9EB00159EF3 /* FIRAnalyticsConnector.framework in Frameworks */,
+				6B64AD0A2210792A007D6C86 /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				6B64AD052210792A007D6C86 /* FirebaseAnalytics.framework in Frameworks */,
+				6B64AD082210792A007D6C86 /* FIRAnalyticsConnector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,14 +449,8 @@
 		6B25770421D55C1700D419B6 /* Crashlitics */ = {
 			isa = PBXGroup;
 			children = (
-				6BD02D5E2208E9EB00159EF3 /* FIRAnalyticsConnector.framework */,
-				6BD02D572208E9E800159EF3 /* FirebaseAnalytics.framework */,
-				6BD02D582208E9E800159EF3 /* FirebaseCore.framework */,
-				6BD02D5D2208E9EB00159EF3 /* FirebaseCoreDiagnostics.framework */,
-				6BD02D5B2208E9EA00159EF3 /* FirebaseInstanceID.framework */,
-				6BD02D5C2208E9EB00159EF3 /* GoogleAppMeasurement.framework */,
-				6BD02D5A2208E9E900159EF3 /* GoogleUtilities.framework */,
-				6BD02D592208E9E900159EF3 /* nanopb.framework */,
+				6B64ACE5221077E1007D6C86 /* Crashlytics.framework */,
+				6B64ACE6221077E2007D6C86 /* Fabric.framework */,
 			);
 			path = Crashlitics;
 			sourceTree = "<group>";
@@ -458,6 +458,7 @@
 		6B25770A21D55C9800D419B6 /* Google Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				6B64ACFA2210792A007D6C86 /* Analytics - FirebaseCore */,
 				6B25770C21D55F5600D419B6 /* Firebase.h */,
 				6B25770D21D55F5600D419B6 /* module.modulemap */,
 				6B25770421D55C1700D419B6 /* Crashlitics */,
@@ -566,6 +567,21 @@
 				6B62A8C32130ADC9001EDAD4 /* macg.xml */,
 			);
 			path = "Feeds-Config";
+			sourceTree = "<group>";
+		};
+		6B64ACFA2210792A007D6C86 /* Analytics - FirebaseCore */ = {
+			isa = PBXGroup;
+			children = (
+				6B64ACFB2210792A007D6C86 /* GoogleAppMeasurement.framework */,
+				6B64ACFC2210792A007D6C86 /* FirebaseCore.framework */,
+				6B64ACFD2210792A007D6C86 /* FirebaseAnalytics.framework */,
+				6B64ACFE2210792A007D6C86 /* GoogleUtilities.framework */,
+				6B64ACFF2210792A007D6C86 /* nanopb.framework */,
+				6B64AD002210792A007D6C86 /* FIRAnalyticsConnector.framework */,
+				6B64AD012210792A007D6C86 /* FirebaseInstanceID.framework */,
+				6B64AD022210792A007D6C86 /* FirebaseCoreDiagnostics.framework */,
+			);
+			path = "Analytics - FirebaseCore";
 			sourceTree = "<group>";
 		};
 		6B82C343201FC838006FA35D = {
@@ -888,6 +904,7 @@
 				6B82C349201FC838006FA35D /* Frameworks */,
 				6B82C34A201FC838006FA35D /* Resources */,
 				6B82C3A32021228B006FA35D /* ShellScript */,
+				6B64ACE4221076D4007D6C86 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1108,6 +1125,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		6B64ACE4221076D4007D6C86 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PROJECT_DIR}/PommeNews - Application/3rd Party Librairies/Google Firebase/Crashlitics/Fabric.framework/run\"\n";
 		};
 		6B82C3A32021228B006FA35D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1494,6 +1529,24 @@
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
 				);
 				INFOPLIST_FILE = "PommeNews - Application//Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1540,6 +1593,24 @@
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
 				);
 				INFOPLIST_FILE = "PommeNews - Application//Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
