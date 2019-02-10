@@ -50,6 +50,7 @@
 		6B64AD082210792A007D6C86 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B64AD002210792A007D6C86 /* FIRAnalyticsConnector.framework */; };
 		6B64AD092210792A007D6C86 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B64AD012210792A007D6C86 /* FirebaseInstanceID.framework */; };
 		6B64AD0A2210792A007D6C86 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B64AD022210792A007D6C86 /* FirebaseCoreDiagnostics.framework */; };
+		6B64AD0C2210886E007D6C86 /* BadgeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64AD0B2210886E007D6C86 /* BadgeBarButtonItem.swift */; };
 		6B6C572221FE114B00D7BFE2 /* FeedsUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C572121FE114B00D7BFE2 /* FeedsUpdater.swift */; };
 		6B7F7DFC21384178000AE589 /* ArticlesJsonFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7F7DFB21384178000AE589 /* ArticlesJsonFileIO.swift */; };
 		6B7F7DFE213843CE000AE589 /* NAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7F7DFD213843CE000AE589 /* NAError.swift */; };
@@ -230,6 +231,7 @@
 		6B64AD002210792A007D6C86 /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
 		6B64AD012210792A007D6C86 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		6B64AD022210792A007D6C86 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		6B64AD0B2210886E007D6C86 /* BadgeBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeBarButtonItem.swift; sourceTree = "<group>"; };
 		6B6C572121FE114B00D7BFE2 /* FeedsUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsUpdater.swift; sourceTree = "<group>"; };
 		6B7F7DFB21384178000AE589 /* ArticlesJsonFileIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesJsonFileIO.swift; sourceTree = "<group>"; };
 		6B7F7DFD213843CE000AE589 /* NAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NAError.swift; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 				6BA871CE20222255006CCDD9 /* Cell */,
 				6BB8FC802023B7B600AB870F /* ArticlesListVC.swift */,
 				6B5B71AA220390AC00930AAC /* ArticleListPresenter.swift */,
+				6B64AD0B2210886E007D6C86 /* BadgeBarButtonItem.swift */,
 			);
 			path = ArticleListVC;
 			sourceTree = "<group>";
@@ -1237,6 +1240,7 @@
 				6BEB52A7218DCC7A00C08D81 /* Theme+CoreDataProperties.swift in Sources */,
 				6B82C383201FD1C0006FA35D /* RSSFeedsListManager.swift in Sources */,
 				6BEB52A6218DCC7A00C08D81 /* Theme+CoreDataClass.swift in Sources */,
+				6B64AD0C2210886E007D6C86 /* BadgeBarButtonItem.swift in Sources */,
 				6BAFD2C22085BEBB00BDD0D3 /* NSEntityDescriptionExtension.swift in Sources */,
 				6BD2985F2182626D00FEF404 /* SimpleArticleRequest.swift in Sources */,
 				6B0E1664203748840035C75B /* FakeRSSClient.swift in Sources */,

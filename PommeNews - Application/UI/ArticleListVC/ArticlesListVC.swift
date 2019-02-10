@@ -16,7 +16,7 @@ class ArticlesListVC: ContentViewController {
     private static let CellHeight: CGFloat = 102
     
     @IBOutlet weak var tableview: UITableView!
-    @IBOutlet weak var filterButton: UIBarButtonItem!
+    @IBOutlet weak var filterButton: BadgeBarButtonItem!
     
     private var rssManager: RSSManager = Inject.component(RSSManager.self)
 
@@ -55,6 +55,9 @@ class ArticlesListVC: ContentViewController {
         //AdBannerView initialisation
         self.bannerView = BannerView(on: self, adId: PommeNewsConfig.AdUnitBanner)
         
+        //FilterButton config
+        self.filterButton.badgeRadius = 13
+        
         //Lister to filter change
         filtersPreferences.onChange = { [unowned self] in
             self.filtersChanged()
@@ -86,7 +89,7 @@ class ArticlesListVC: ContentViewController {
     
     private func filtersChanged() {
         self.filtersByThemes()
-        
+        filterButton.badgeNumber = filtersPreferences.filteringThemes.count
         //Update the filter buttons status
         
     }

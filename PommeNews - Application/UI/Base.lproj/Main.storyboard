@@ -212,7 +212,7 @@
                         <viewLayoutGuide key="safeArea" id="sy7-8d-S0a"/>
                     </view>
                     <navigationItem key="navigationItem" id="pJG-KS-emI">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="filter-theme" id="Ptt-7m-Oxj">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="filter-theme" id="Ptt-7m-Oxj" customClass="BadgeBarButtonItem" customModule="PommeNews" customModuleProvider="target">
                             <connections>
                                 <action selector="filterButtonClicked:" destination="BYZ-38-t0r" id="8DH-2c-3X3"/>
                                 <segue destination="KjN-5G-XFl" kind="presentation" id="j2k-nU-usP"/>

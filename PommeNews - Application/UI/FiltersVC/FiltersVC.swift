@@ -61,7 +61,7 @@ class FiltersVC: UICollectionViewController {
         
         let activeFiltersKeys = self.themeFilters.filteringThemes.map({$0.key})
         if activeFiltersKeys.contains(supportedThemes[indexPath.row].key) {
-            self.collectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .top)
+            self.collectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
             cell.isSelected = true
         }
         
