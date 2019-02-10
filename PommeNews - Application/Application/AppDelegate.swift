@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMobileAds
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,11 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
         // Initialize the Google Mobile Ads SDK.
-//        #if DEBUG
+        #if DEBUG
             GADMobileAds.configure(withApplicationID: PommeNewsConfig.GoogleAppId) //Test ads
-//        #else
+        #else
             GADMobileAds.configure(withApplicationID: PommeNewsConfig.GoogleAppId)
-//        #endif
+        #endif
+        
+        // Use Firebase library to configure APIs
+        FirebaseApp.configure()
         
         return true
     }

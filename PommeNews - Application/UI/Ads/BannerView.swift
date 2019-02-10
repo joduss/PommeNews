@@ -9,16 +9,16 @@
 import UIKit
 import GoogleMobileAds
 
-public class BannerView: NSObject, GADBannerViewDelegate {
+class BannerView: NSObject {
     
     private var bannerView: GADBannerView!
     private let controller: UIViewController
-    private let backgroundView: UIView
+    private let backgroundView: UIVisualEffectView
     private let adId: String
     
     public var tableView: UITableView?
     
-    private var view: UIView {
+    private var controllerView: UIView {
         return controller.view
     }
     
@@ -26,56 +26,63 @@ public class BannerView: NSObject, GADBannerViewDelegate {
         self.controller = controller
         self.adId = adId
         self.backgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        super.init()
+        createBannerViewOnBottom()
     }
     
     func createBannerViewOnBottom() {
         
         self.bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         bannerView.rootViewController = controller
-        
+
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.isHidden = true
-        self.view.addSubview(backgroundView)
-        
-        backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        backgroundView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        backgroundView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        
-        
+        self.controllerView.addSubview(backgroundView)
+
+        backgroundView.bottomAnchor.constraint(equalTo: controllerView.bottomAnchor).isActive = true
+        backgroundView.leftAnchor.constraint(equalTo: controllerView.leftAnchor).isActive = true
+        backgroundView.rightAnchor.constraint(equalTo: controllerView.rightAnchor).isActive = true
+
+
         if let visualEffectView = backgroundView as? UIVisualEffectView {
             visualEffectView.contentView.addSubview(bannerView)
         }
         bannerView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         bannerView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor).isActive = true
         bannerView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor).isActive = true
         bannerView.heightAnchor.constraint(equalTo: backgroundView.heightAnchor).isActive = true
-        
-        
+
+
         self.bannerView.delegate = self
         bannerView.adUnitID = adId
         bannerView.load(GADRequest())
-    }
-    
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        backgroundView.isHidden = false
-        self.adaptTableView()
+        
     }
     
     private func adaptTableView() {
         
         guard let tableview = self.tableView else { return }
-        
+
         let existingInsets = tableview.contentInset
         tableview.contentInset = UIEdgeInsets(top: existingInsets.top,
                                               left: existingInsets.left,
                                               bottom: bannerView.frame.height,
                                               right: existingInsets.right)
-        
+
         let existingIndicatorInsets = tableview.scrollIndicatorInsets
         tableview.scrollIndicatorInsets = UIEdgeInsets(top: existingIndicatorInsets.top,
                                                        left: existingIndicatorInsets.left,
                                                        bottom: bannerView.frame.height,
                                                        right: existingIndicatorInsets.right)
     }
+}
+
+extension BannerView: GADBannerViewDelegate {
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        backgroundView.isHidden = false
+        self.adaptTableView()
+    }
+    
 }

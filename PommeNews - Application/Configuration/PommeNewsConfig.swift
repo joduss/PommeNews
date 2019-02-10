@@ -13,7 +13,7 @@ class PommeNewsConfig {
     public static var AdUnitBanner: String { get
     {
         #if DEBUG
-        return "ca-app-pub-3940256099942544/2934735716"
+        return "ca-app-pub-3940256099942544/2934735716" //Test Ads
         #else
         return "ca-app-pub-4180653915602895/9111710711"
         #endif
@@ -23,7 +23,7 @@ class PommeNewsConfig {
     public static var AdUnitInterstitial: String { get
     {
         #if DEBUG
-        return "ca-app-pub-4180653915602895~3091606580"
+        return "ca-app-pub-3940256099942544/4411468910" //Test Ads
         #else
         return "ca-app-pub-4180653915602895/7860743184"
         #endif

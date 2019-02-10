@@ -89,6 +89,15 @@
 		6BC9132C203F290600F969DD /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 6BC9132B203F290500F969DD /* Cartfile */; };
 		6BC9132E203F35D600F969DD /* HTMLString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC9132D203F35D600F969DD /* HTMLString.framework */; };
 		6BCD760A20885D6800F584BA /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCD760920885D6800F584BA /* Inject.swift */; };
+		6BD02D562208E84A00159EF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BD02D552208E84A00159EF3 /* GoogleService-Info.plist */; };
+		6BD02D5F2208E9EB00159EF3 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D572208E9E800159EF3 /* FirebaseAnalytics.framework */; };
+		6BD02D602208E9EB00159EF3 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D582208E9E800159EF3 /* FirebaseCore.framework */; };
+		6BD02D612208E9EB00159EF3 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D592208E9E900159EF3 /* nanopb.framework */; };
+		6BD02D622208E9EB00159EF3 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D5A2208E9E900159EF3 /* GoogleUtilities.framework */; };
+		6BD02D632208E9EB00159EF3 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D5B2208E9EA00159EF3 /* FirebaseInstanceID.framework */; };
+		6BD02D642208E9EB00159EF3 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D5C2208E9EB00159EF3 /* GoogleAppMeasurement.framework */; };
+		6BD02D652208E9EB00159EF3 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D5D2208E9EB00159EF3 /* FirebaseCoreDiagnostics.framework */; };
+		6BD02D662208E9EB00159EF3 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD02D5E2208E9EB00159EF3 /* FIRAnalyticsConnector.framework */; };
 		6BD2982E2182235200FEF404 /* RssArticlesByThemesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD2982D2182235200FEF404 /* RssArticlesByThemesRequest.swift */; };
 		6BD2985F2182626D00FEF404 /* SimpleArticleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD2985E2182626D00FEF404 /* SimpleArticleRequest.swift */; };
 		6BD5E585214C015D00ACBE64 /* ArticlesJsonFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7F7DFB21384178000AE589 /* ArticlesJsonFileIO.swift */; };
@@ -262,6 +271,15 @@
 		6BC9132B203F290500F969DD /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		6BC9132D203F35D600F969DD /* HTMLString.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLString.framework; path = Carthage/Build/iOS/HTMLString.framework; sourceTree = "<group>"; };
 		6BCD760920885D6800F584BA /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
+		6BD02D552208E84A00159EF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6BD02D572208E9E800159EF3 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		6BD02D582208E9E800159EF3 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		6BD02D592208E9E900159EF3 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		6BD02D5A2208E9E900159EF3 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		6BD02D5B2208E9EA00159EF3 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		6BD02D5C2208E9EB00159EF3 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppMeasurement.framework; sourceTree = "<group>"; };
+		6BD02D5D2208E9EB00159EF3 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		6BD02D5E2208E9EB00159EF3 /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
 		6BD2982D2182235200FEF404 /* RssArticlesByThemesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssArticlesByThemesRequest.swift; sourceTree = "<group>"; };
 		6BD2985E2182626D00FEF404 /* SimpleArticleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleArticleRequest.swift; sourceTree = "<group>"; };
 		6BE184682135C82A00DEA4FA /* HTMLString.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = HTMLString.framework.dSYM; path = Carthage/Build/Mac/HTMLString.framework.dSYM; sourceTree = "<group>"; };
@@ -312,12 +330,20 @@
 			files = (
 				6BA74E53220612BB00CEC60C /* NSLoggerSwift.framework in Frameworks */,
 				6B25771121D56BB200D419B6 /* CoreTelephony.framework in Frameworks */,
+				6BD02D612208E9EB00159EF3 /* nanopb.framework in Frameworks */,
+				6BD02D5F2208E9EB00159EF3 /* FirebaseAnalytics.framework in Frameworks */,
+				6BD02D642208E9EB00159EF3 /* GoogleAppMeasurement.framework in Frameworks */,
+				6BD02D632208E9EB00159EF3 /* FirebaseInstanceID.framework in Frameworks */,
 				6BFDC4AA2154391200BE97C4 /* Kingfisher.framework in Frameworks */,
 				6BBA09E820B6800C0081D05F /* SideMenu.framework in Frameworks */,
+				6BD02D622208E9EB00159EF3 /* GoogleUtilities.framework in Frameworks */,
 				6BC9132E203F35D600F969DD /* HTMLString.framework in Frameworks */,
+				6BD02D602208E9EB00159EF3 /* FirebaseCore.framework in Frameworks */,
 				6B82C3A620212372006FA35D /* FeedKit.framework in Frameworks */,
+				6BD02D652208E9EB00159EF3 /* FirebaseCoreDiagnostics.framework in Frameworks */,
 				6B25771E21DBE15900D419B6 /* GoogleMobileAds.framework in Frameworks */,
 				6B0E1666203A00E40035C75B /* Swinject.framework in Frameworks */,
+				6BD02D662208E9EB00159EF3 /* FIRAnalyticsConnector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +443,14 @@
 		6B25770421D55C1700D419B6 /* Crashlitics */ = {
 			isa = PBXGroup;
 			children = (
+				6BD02D5E2208E9EB00159EF3 /* FIRAnalyticsConnector.framework */,
+				6BD02D572208E9E800159EF3 /* FirebaseAnalytics.framework */,
+				6BD02D582208E9E800159EF3 /* FirebaseCore.framework */,
+				6BD02D5D2208E9EB00159EF3 /* FirebaseCoreDiagnostics.framework */,
+				6BD02D5B2208E9EA00159EF3 /* FirebaseInstanceID.framework */,
+				6BD02D5C2208E9EB00159EF3 /* GoogleAppMeasurement.framework */,
+				6BD02D5A2208E9E900159EF3 /* GoogleUtilities.framework */,
+				6BD02D592208E9E900159EF3 /* nanopb.framework */,
 			);
 			path = Crashlitics;
 			sourceTree = "<group>";
@@ -463,6 +497,7 @@
 		6B3A5451217361B300EB9637 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				6BD02D552208E84A00159EF3 /* GoogleService-Info.plist */,
 				6BFDC4A72154321C00BE97C4 /* Supported_Themes.plist */,
 				6B82C380201FD03C006FA35D /* RSSFeeds.plist */,
 				6B25771221D56C6F00D419B6 /* PommeNewsConfig.swift */,
@@ -1016,6 +1051,7 @@
 				6B828660204A977B00AB9242 /* mac4ever.xml in Resources */,
 				6BA871D020222272006CCDD9 /* ArticleListCell.xib in Resources */,
 				6B0E1669203A04C10035C75B /* macg.xml in Resources */,
+				6BD02D562208E84A00159EF3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1450,18 +1486,26 @@
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Crashlitics",
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Firebase/Admob",
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Admob",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
 				);
 				INFOPLIST_FILE = "PommeNews - Application//Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zajo.PommeNews;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.pommenews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/**";
 			};
 			name = Debug;
 		};
@@ -1488,18 +1532,26 @@
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Crashlitics",
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Firebase/Admob",
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Admob",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
 				);
 				INFOPLIST_FILE = "PommeNews - Application//Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zajo.PommeNews;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.pommenews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/**";
 			};
 			name = Release;
 		};
