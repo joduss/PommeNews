@@ -43,6 +43,8 @@ class ThemeFiltersPreferences {
     //==================================================================
     
     private func loadPreviouslySelectedThemes() {
+        _filteringThemes = []
+        
         if let savedThemesString = UserDefaults.standard.value(forKey: ThemeFiltersPreferenceKey) as? [String] {
             for themeString in savedThemesString {
                 if let theme = allThemes.filter({ $0.key == themeString }).first {
@@ -60,8 +62,17 @@ class ThemeFiltersPreferences {
     //==================================================================
     
     @objc private func settingChanged(notification: NSNotification) {
+        let previousThemes = filteringThemes
         loadPreviouslySelectedThemes()
-        onChange?()
+        
+        //Notify of change only if the values did effectively changed
+        if filteringThemesDidChange(old: previousThemes) {
+            onChange?()
+        }
+    }
+    
+    private func filteringThemesDidChange(old: [Theme]) -> Bool {
+        return old.map({$0.key}).isSame(asArray: filteringThemes.map({$0.key}))
     }
     
     //MARK: Saving

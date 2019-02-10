@@ -16,13 +16,7 @@ class FiltersVC: UICollectionViewController {
     private let colors = [#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1),#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1),#colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1),#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1),#colorLiteral(red: 0.9199173373, green: 0.6700194326, blue: 1, alpha: 1),#colorLiteral(red: 0.3923459654, green: 0.9686274529, blue: 0.4062131187, alpha: 1),#colorLiteral(red: 0.5590454867, green: 0.9686274529, blue: 0.9379701674, alpha: 1),#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), #colorLiteral(red: 0.5218945424, green: 0.7424727168, blue: 0.8363196223, alpha: 1), #colorLiteral(red: 0.5234679263, green: 0.7023356541, blue: 0.5174741721, alpha: 1), #colorLiteral(red: 0.7023356541, green: 0.5134964426, blue: 0.6780128468, alpha: 1)]
     private let sideInset: CGFloat = 10
     
-    public var activeFilters: [Theme] = [] {
-        didSet {
-            self.collectionView?.reloadData()
-        }
-    }
-    
-    public let themeFilters = ThemeFiltersPreferences()
+    private let themeFilters = ThemeFiltersPreferences()
     
     public var onSave: (([Theme]) -> ())?
     
@@ -65,8 +59,8 @@ class FiltersVC: UICollectionViewController {
         cell.layer.cornerRadius = 10
         cell.iconBackgroundColor = colors[indexPath.row % colors.count]
         
-        let a = self.activeFilters.map({$0.key})
-        if a.contains(supportedThemes[indexPath.row].key) {
+        let activeFiltersKeys = self.themeFilters.filteringThemes.map({$0.key})
+        if activeFiltersKeys.contains(supportedThemes[indexPath.row].key) {
             self.collectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .top)
             cell.isSelected = true
         }
@@ -75,12 +69,12 @@ class FiltersVC: UICollectionViewController {
     }
     
     @IBAction func saveFilters(_ sender: Any) {
-        
         let selectedIdx = self.collectionView?.indexPathsForSelectedItems ?? []
-
         let selectedThemes: [Theme] = selectedIdx.map({supportedThemes[$0.row]})
         
+        themeFilters.filteringThemes = selectedThemes
         onSave?(selectedThemes)
+        
         self.dismiss(animated: true, completion: nil)
     }
     

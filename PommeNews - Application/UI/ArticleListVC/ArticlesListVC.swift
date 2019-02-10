@@ -37,6 +37,7 @@ class ArticlesListVC: ContentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Setup TableView
         tableview.delegate = self
         tableview.dataSource = self
         tableview.estimatedRowHeight = ArticlesListVC.CellHeight
@@ -45,15 +46,25 @@ class ArticlesListVC: ContentViewController {
         tableview.refreshControl = UIRefreshControl()
         tableview.refreshControl?.addTarget(self, action: #selector(updateFeeds), for: .valueChanged)
         
+        //Preload the ArticleDetailsView
         self.articleDetailsView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: ArticleViewController.self)) as? ArticleViewController
         
+        //Request a Feeds Update
         self.updateFeeds()
         
+        //AdBannerView initialisation
         self.bannerView = BannerView(on: self, adId: PommeNewsConfig.AdUnitBanner)
+        
+        //Lister to filter change
+        filtersPreferences.onChange = { [unowned self] in
+            self.filtersChanged()
+        }
+        filtersChanged()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        rssManager.feedsUpdater.subscribeToArticlesUpdate(subscriber: self, onPublish: articlesUpdated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,9 +72,11 @@ class ArticlesListVC: ContentViewController {
         rssManager.feedsUpdater.unsubscribeFromArticlesupdate(self)
     }
 
+    //MARK: - Data Handling
+    //==================================================================
+    
     @objc private func updateFeeds() {
         tableview.refreshControl?.beginRefreshing()
-        rssManager.feedsUpdater.subscribeToArticlesUpdate(subscriber: self, onPublish: articlesUpdated)
         rssManager.feedsUpdater.updateAllFeeds()
     }
     
@@ -71,7 +84,15 @@ class ArticlesListVC: ContentViewController {
         tableview.refreshControl?.endRefreshing()
     }
     
-    //MARK: Fetch Request Configuration
+    private func filtersChanged() {
+        self.filtersByThemes()
+        
+        //Update the filter buttons status
+        
+    }
+
+    
+    //MARK: - Fetch Request Configuration
     //==================================================================
     
     private func executeArticlesFetchRequest() {
@@ -96,7 +117,7 @@ class ArticlesListVC: ContentViewController {
         try! self.fetchResultController.performFetch()
     }
     
-    //MARK: Nav
+    //MARK: - Navigation
     //==================================================================
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -104,11 +125,11 @@ class ArticlesListVC: ContentViewController {
             menuVC.articleListVC = self
             super.prepare(for: segue, sender: sender)
         }
-        else if let filterVC = segue.destination.childViewControllers.first as? FiltersVC {
-            filterVC.onSave = { selectedTheme in
-                self.tableview.reloadData()
-            }
-        }
+//        else if let filterVC = segue.destination.childViewControllers.first as? FiltersVC {
+//            filterVC.onSave = { selectedTheme in
+//                self.filtersByThemes
+//            }
+//        }
     }
     
     fileprivate func showArticle(_ article: RssArticle) {
@@ -118,7 +139,7 @@ class ArticlesListVC: ContentViewController {
         }
     }
     
-    //MARK: Actions
+    //MARK: - Actions
     //==================================================================
     
     @IBAction func filterButtonClicked(_ sender: Any) {
@@ -127,7 +148,7 @@ class ArticlesListVC: ContentViewController {
     
 }
 
-//MARK: Table View Delegate and Data Source
+//MARK: - Table View Delegate and Data Source
 //==================================================================
 
 extension ArticlesListVC: UITableViewDataSource {
@@ -165,7 +186,7 @@ extension ArticlesListVC: UITableViewDelegate {
     
 }
 
-//MARK: Fetch Results Controller Delegate
+//MARK: - Fetch Results Controller Delegate
 //==================================================================
 
 extension ArticlesListVC: NSFetchedResultsControllerDelegate {

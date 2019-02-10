@@ -11,14 +11,11 @@ import Foundation
 
 class ThemeClassifier {
     
-    let minimumCharacterForWholeTextTermSearch = 4 //To avoid bigmac to be classify as a mac. Splitting is not hurt since search is made on exact match
+    private let classifierTermsGenerator = ThemeClassifierTermsMultiLocalization()
     
-    let classifierTermsGenerator = ThemeClassifierTermsMultiLocalization()
+    private let minimumCharacterForWholeTextTermSearch = 4 //To avoid bigmac to be classify as a mac. Splitting is not hurt since search is made on exact match
     
     var validThemes = ArticleTheme.allThemes
-    
-    
-    //TODO: possibility to limit the themes
     
     
     func classify(article: TCArticle) -> [ArticleTheme] {
