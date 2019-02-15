@@ -62,70 +62,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Notifications" id="QsS-U8-AKQ">
-                                <string key="footerTitle">Voulez-vous recevoir une notification quand de nouveaux articles sont disponibles? Si oui, à quelle fréquence préférez-vous que l'on vérifie si il y a du nouveau?</string>
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LAC-th-CQi">
-                                        <rect key="frame" x="0.0" y="234.66666666666669" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LAC-th-CQi" id="frx-De-PlH">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vs-V5-5DM">
-                                                    <rect key="frame" x="16" y="11.333333333333336" width="97" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wbL-Pi-Ags">
-                                                    <rect key="frame" x="310" y="6" width="49" height="31"/>
-                                                </switch>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="3vs-V5-5DM" firstAttribute="centerY" secondItem="frx-De-PlH" secondAttribute="centerY" id="Q6P-e7-Ypp"/>
-                                                <constraint firstItem="wbL-Pi-Ags" firstAttribute="centerY" secondItem="frx-De-PlH" secondAttribute="centerY" id="XFR-M0-qSb"/>
-                                                <constraint firstItem="3vs-V5-5DM" firstAttribute="leading" secondItem="frx-De-PlH" secondAttribute="leading" constant="16" id="YZo-yI-6J8"/>
-                                                <constraint firstAttribute="trailing" secondItem="wbL-Pi-Ags" secondAttribute="trailing" constant="18" id="tBI-dL-jN3"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kES-Oi-NR0">
-                                        <rect key="frame" x="0.0" y="278.66666666666669" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kES-Oi-NR0" id="WAh-bO-kRC">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interval" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdO-Gl-Px6">
-                                                    <rect key="frame" x="16" y="11.333333333333336" width="57" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qGv-xN-TCY">
-                                                    <rect key="frame" x="267" y="8" width="128" height="29"/>
-                                                    <segments>
-                                                        <segment title="10m"/>
-                                                        <segment title="30m"/>
-                                                        <segment title="1h"/>
-                                                    </segments>
-                                                </segmentedControl>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="XdO-Gl-Px6" firstAttribute="leading" secondItem="WAh-bO-kRC" secondAttribute="leading" constant="16" id="12C-sa-lrH"/>
-                                                <constraint firstItem="XdO-Gl-Px6" firstAttribute="centerY" secondItem="WAh-bO-kRC" secondAttribute="centerY" id="KIR-bn-b8C"/>
-                                                <constraint firstAttribute="trailing" secondItem="qGv-xN-TCY" secondAttribute="trailing" constant="19" id="TXd-rf-8qf"/>
-                                                <constraint firstItem="qGv-xN-TCY" firstAttribute="centerY" secondItem="WAh-bO-kRC" secondAttribute="centerY" id="p3l-xD-9zW"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="Cache" id="0fD-55-xVC">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="l56-ha-X9z" style="IBUITableViewCellStyleDefault" id="6W5-ju-ON4">
-                                        <rect key="frame" x="0.0" y="422.66666666666669" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="227.33333333333334" width="414" height="44.000000000000028"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6W5-ju-ON4" id="yDt-Uo-pcn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -153,7 +93,6 @@
                     <connections>
                         <outlet property="emptyCacheCell" destination="6W5-ju-ON4" id="DSO-vR-uzN"/>
                         <outlet property="hiddenStreamsCell" destination="Q3G-gK-EJ0" id="CF6-hg-MVR"/>
-                        <outlet property="intervalSelector" destination="qGv-xN-TCY" id="ps5-xg-KLU"/>
                         <outlet property="myStreamsCell" destination="9wU-sK-K61" id="jrW-HW-8Ug"/>
                     </connections>
                 </tableViewController>
