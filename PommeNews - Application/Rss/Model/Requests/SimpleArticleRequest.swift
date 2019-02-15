@@ -44,7 +44,7 @@ class ArticleRequest: Request<RssArticle> {
             themesPredicates.append(NSPredicate(format: "ANY themes == %@", theme))
         }
         
-        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: themesPredicates)
+        let compoundPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: themesPredicates)
         self.and(compoundPredicate)
         self.themePredicate = compoundPredicate
     }
