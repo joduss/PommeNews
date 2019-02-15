@@ -66,13 +66,13 @@ class ThemeFiltersPreferences {
         loadPreviouslySelectedThemes()
         
         //Notify of change only if the values did effectively changed
-        if filteringThemesDidChange(old: previousThemes) {
+         if filteringThemesDidChange(old: previousThemes) {
             onChange?()
         }
     }
     
     private func filteringThemesDidChange(old: [Theme]) -> Bool {
-        return old.map({$0.key}).isSame(asArray: filteringThemes.map({$0.key}))
+        return old.map({$0.key}).isSame(asArray: filteringThemes.map({$0.key})) == false
     }
     
     //MARK: Saving

@@ -34,6 +34,10 @@ class ArticleRequest: Request<RssArticle> {
             self.themePredicate = nil
         }
         
+        guard themes.count > 0 else {
+            return
+        }
+        
         var themesPredicates: [NSPredicate] = []
         
         for theme in themes {

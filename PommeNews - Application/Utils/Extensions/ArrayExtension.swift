@@ -14,7 +14,7 @@ extension Array where Element: Comparable {
     
     public func isSame(asArray array: Array) -> Bool {
         
-        guard self.count == 0 && array.count == 0 else { return true }
+        guard self.count + array.count != 0 else { return true }
         guard self.count == array.count else { return false }
         
         let arrayA = self.sorted()

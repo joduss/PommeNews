@@ -90,8 +90,7 @@ class ArticlesListVC: ContentViewController {
     private func filtersChanged() {
         self.filtersByThemes()
         filterButton.badgeNumber = filtersPreferences.filteringThemes.count
-        //Update the filter buttons status
-        
+        filtersByThemes()
     }
 
     
@@ -118,6 +117,7 @@ class ArticlesListVC: ContentViewController {
         self.request?.filter(themes: filteringThemes)
         self.request?.update()
         try! self.fetchResultController.performFetch()
+        tableview.reloadData()
     }
     
     //MARK: - Navigation
