@@ -1553,7 +1553,7 @@
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
 				);
 				INFOPLIST_FILE = "PommeNews - Application//Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.pommenews;
@@ -1617,7 +1617,7 @@
 					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
 				);
 				INFOPLIST_FILE = "PommeNews - Application//Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.pommenews;
@@ -1691,6 +1691,201 @@
 				TEST_TARGET_NAME = PommeNews;
 			};
 			name = Release;
+		};
+		6B84B2F0221B5B3500DFAB8D /* Release Debug Ads */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos11.4;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG_ADS;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release Debug Ads";
+		};
+		6B84B2F1221B5B3500DFAB8D /* Release Debug Ads */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SB56D8K42E;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Analytics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Analytics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Analytics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Analytics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Analytics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Analytics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Analytics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Analytics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/Librairies/Google\\ Firebase/Admob",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Admob",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Crashlitics",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+					"$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/Analytics\\ -\\ FirebaseCore",
+				);
+				INFOPLIST_FILE = "PommeNews - Application//Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.pommenews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PommeNews\\ -\\ Application/3rd\\ Party\\ Librairies/Google\\ Firebase/**";
+			};
+			name = "Release Debug Ads";
+		};
+		6B84B2F2221B5B3500DFAB8D /* Release Debug Ads */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PommeNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PommeNews.app/PommeNews";
+			};
+			name = "Release Debug Ads";
+		};
+		6B84B2F3221B5B3500DFAB8D /* Release Debug Ads */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PommeNewsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PommeNews;
+			};
+			name = "Release Debug Ads";
+		};
+		6B84B2F4221B5B3500DFAB8D /* Release Debug Ads */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac/**",
+				);
+				INFOPLIST_FILE = FetchNewArticleToJson/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = jd.sidemenu.FetchNewArticleToJson;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = "Release Debug Ads";
+		};
+		6B84B2F5221B5B3500DFAB8D /* Release Debug Ads */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = ThemeClassifierEvaluation2/ThemeClassifierEvaluation2.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = ThemeClassifier/ThemeClassifierEvaluation/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = jd.sidemenu.ThemeClassifierEvaluation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.2;
+			};
+			name = "Release Debug Ads";
 		};
 		6BB51C4A2134735A005772A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1797,6 +1992,7 @@
 			buildConfigurations = (
 				6B82C372201FC838006FA35D /* Debug */,
 				6B82C373201FC838006FA35D /* Release */,
+				6B84B2F0221B5B3500DFAB8D /* Release Debug Ads */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1806,6 +2002,7 @@
 			buildConfigurations = (
 				6B82C375201FC838006FA35D /* Debug */,
 				6B82C376201FC838006FA35D /* Release */,
+				6B84B2F1221B5B3500DFAB8D /* Release Debug Ads */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1815,6 +2012,7 @@
 			buildConfigurations = (
 				6B82C378201FC838006FA35D /* Debug */,
 				6B82C379201FC838006FA35D /* Release */,
+				6B84B2F2221B5B3500DFAB8D /* Release Debug Ads */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1824,6 +2022,7 @@
 			buildConfigurations = (
 				6B82C37B201FC838006FA35D /* Debug */,
 				6B82C37C201FC838006FA35D /* Release */,
+				6B84B2F3221B5B3500DFAB8D /* Release Debug Ads */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1833,6 +2032,7 @@
 			buildConfigurations = (
 				6BB51C4A2134735A005772A0 /* Debug */,
 				6BB51C4B2134735A005772A0 /* Release */,
+				6B84B2F4221B5B3500DFAB8D /* Release Debug Ads */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1842,6 +2042,7 @@
 			buildConfigurations = (
 				6BFC31DD213F1C190030431F /* Debug */,
 				6BFC31DE213F1C190030431F /* Release */,
+				6B84B2F5221B5B3500DFAB8D /* Release Debug Ads */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
