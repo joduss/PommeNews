@@ -83,6 +83,14 @@ class ArticleListCell: UITableViewCell {
         feedLabel.text = article.feed.name
         feedImageView.image = article.feed.logo
         
+        if article.read {
+        titleLabel.alpha = 0.5
+        titleLabel.font = UIFont.systemFont(ofSize: titleLabel.font!.pointSize, weight: .regular)
+        }
+        else {
+            titleLabel.alpha = 1
+            titleLabel.font = UIFont.systemFont(ofSize: titleLabel.font!.pointSize, weight: .medium)
+        }
         
         //Image
         

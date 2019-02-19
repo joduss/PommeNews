@@ -31,5 +31,9 @@ func dprint(message: String, level: Level = .debug) {
         type = OSLogType.default
     }
     
-    os_log(type, "%@", message)
+    if #available(iOS 12.0, *) {
+        os_log(type, "%@", message)
+    } else {
+        // Fallback on earlier versions
+    }
 }
