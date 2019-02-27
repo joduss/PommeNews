@@ -18,15 +18,17 @@ class ArticleFetcher {
         
         DispatchQueue(label: "fetchArticles").async {
             var fetchedArticles: [TCArticle] = []
-            
+                        
             for feed in feeds {
                 let articles = self.fetchArticle(of: feed)
-                fetchedArticles = articles
+                fetchedArticles.append(contentsOf: articles)
                 DispatchQueue.main.async {
                     let idx = feeds.index(where: {$0.url == feed.url}) as Int? ?? 0
                     onProgress(Double(idx + 1 / feeds.count))
                 }
             }
+            
+            
             DispatchQueue.main.async {
                 completion(fetchedArticles)
             }
