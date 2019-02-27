@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ArticleFetcher/Articles/ArticlesFetcher.swift"
+            timestampString = "572995637.700851"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "fetchArticle(of:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ArticleFetcher.ArticleFetcher.(fetchArticle in _64D7D96DA83A03F735AFD74A18DDC756)(of: RssClient.RssPlistFeed) -&gt; Swift.Array&lt;ArticleClassifierCore.TCArticle&gt;"
+                  moduleName = "ArticleFetcher"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathanduss/jo_dev/PommeNews/PommeNews/ArticleFetcher/ArticleFetcher/Articles/ArticlesFetcher.swift"
+                  timestampString = "572995258.808628"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "1019">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (RssClient.RssArticlePO) -&gt; ArticleClassifierCore.TCArticle in ArticleFetcher.ArticleFetcher.(fetchArticle in _64D7D96DA83A03F735AFD74A18DDC756)(of: RssClient.RssPlistFeed) -&gt; Swift.Array&lt;ArticleClassifierCore.TCArticle&gt;"
+                  moduleName = "ArticleFetcher"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathanduss/jo_dev/PommeNews/PommeNews/ArticleFetcher/ArticleFetcher/Articles/ArticlesFetcher.swift"
+                  timestampString = "572995258.810086"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ArticleFetcher/ViewController.swift"
+            timestampString = "572995637.701206"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "fetchNewArticles(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ArticleFetcher/ViewController.swift"
+            timestampString = "572995637.701463"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "mergeArticles(mergeInto:from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ArticleFetcher/ViewController.swift"
+            timestampString = "572995637.7016799"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "mergeArticles(mergeInto:from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum NAError: Error {
+public enum NAError: Error {
     case error(message: String)
 }

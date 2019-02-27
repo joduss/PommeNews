@@ -3,37 +3,39 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B01DF18221DEFE700D0FE0A /* ArticleTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DF11221DEFE700D0FE0A /* ArticleTheme.swift */; };
-		6B01DF19221DEFE700D0FE0A /* ArticleClassifierCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B01DF12221DEFE700D0FE0A /* ArticleClassifierCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6B01DF1A221DEFE700D0FE0A /* ArticleJsonConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DF14221DEFE700D0FE0A /* ArticleJsonConverter.swift */; };
-		6B01DF1B221DEFE700D0FE0A /* TCArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DF15221DEFE700D0FE0A /* TCArticle.swift */; };
-		6B01DF1C221DEFE700D0FE0A /* ArticlesJsonFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DF16221DEFE700D0FE0A /* ArticlesJsonFileIO.swift */; };
-		6B01DF20221DF00400D0FE0A /* NAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DF1F221DF00400D0FE0A /* NAError.swift */; };
-		6B01DF3B221DF62A00D0FE0A /* ZaJoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B01DF36221DF57B00D0FE0A /* ZaJoLibrary.framework */; };
-		6B01DF3C221DF62E00D0FE0A /* ZaJoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B01DF34221DF57B00D0FE0A /* ZaJoLibrary.framework */; };
-		6B01DF48221DF70200D0FE0A /* ArticleClassifierCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B01DF12221DEFE700D0FE0A /* ArticleClassifierCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6BEF6573221E12E600E45278 /* ArticleTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DF11221DEFE700D0FE0A /* ArticleTheme.swift */; };
-		6BEF6574221E12E900E45278 /* NAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DF1F221DF00400D0FE0A /* NAError.swift */; };
-		6BEF6575221E12EF00E45278 /* ArticleJsonConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DF14221DEFE700D0FE0A /* ArticleJsonConverter.swift */; };
-		6BEF6576221E12F100E45278 /* TCArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DF15221DEFE700D0FE0A /* TCArticle.swift */; };
-		6BEF6577221E12F300E45278 /* ArticlesJsonFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DF16221DEFE700D0FE0A /* ArticlesJsonFileIO.swift */; };
+		6B3123BB222498C700BE48F0 /* RssClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B3123AD222498C700BE48F0 /* RssClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B3123D1222499CD00BE48F0 /* RssClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B3123AD222498C700BE48F0 /* RssClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B3123D922249AC900BE48F0 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3123D822249AC800BE48F0 /* FeedKit.framework */; };
+		6B3123DB22249AD300BE48F0 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3123DA22249AD300BE48F0 /* FeedKit.framework */; };
+		6B3123DD22249B7200BE48F0 /* HTMLString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3123DC22249B7100BE48F0 /* HTMLString.framework */; };
+		6B3123DF22249B8100BE48F0 /* HTMLString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3123DE22249B8100BE48F0 /* HTMLString.framework */; };
+		6BA9D89C22272DE1008D91C7 /* PError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA9D89922272DE1008D91C7 /* PError.swift */; };
+		6BA9D89D22272DE1008D91C7 /* PError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA9D89922272DE1008D91C7 /* PError.swift */; };
+		6BE5F0C12225F0C7000368C6 /* RSSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F0BF2225F0C6000368C6 /* RSSClient.swift */; };
+		6BE5F0C22225F0C7000368C6 /* RSSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F0BF2225F0C6000368C6 /* RSSClient.swift */; };
+		6BE5F0C32225F0C7000368C6 /* RssArticlePO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F0C02225F0C7000368C6 /* RssArticlePO.swift */; };
+		6BE5F0C42225F0C7000368C6 /* RssArticlePO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F0C02225F0C7000368C6 /* RssArticlePO.swift */; };
+		6BE5F0D22225F1FC000368C6 /* ZaJoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE5F0CF2225F1EF000368C6 /* ZaJoLibrary.framework */; };
+		6BE5F0D32225F20B000368C6 /* ZaJoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE5F0D12225F1EF000368C6 /* ZaJoLibrary.framework */; };
+		6BE5F0D52225F242000368C6 /* RssPlistFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F0D42225F242000368C6 /* RssPlistFeed.swift */; };
+		6BE5F0D62225F242000368C6 /* RssPlistFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F0D42225F242000368C6 /* RssPlistFeed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6B01DF33221DF57B00D0FE0A /* PBXContainerItemProxy */ = {
+		6BE5F0CE2225F1EF000368C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6B01DF2E221DF57A00D0FE0A /* ZaJoLibrary.xcodeproj */;
+			containerPortal = 6BE5F0C92225F1EF000368C6 /* ZaJoLibrary.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6B01DE35221DD5E300D0FE0A;
 			remoteInfo = "ZaJoLibrary-iOS";
 		};
-		6B01DF35221DF57B00D0FE0A /* PBXContainerItemProxy */ = {
+		6BE5F0D02225F1EF000368C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6B01DF2E221DF57A00D0FE0A /* ZaJoLibrary.xcodeproj */;
+			containerPortal = 6BE5F0C92225F1EF000368C6 /* ZaJoLibrary.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6B01DE42221DD64F00D0FE0A;
 			remoteInfo = "ZaJoLibrary-macOS";
@@ -41,99 +43,109 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6B01DEAC221DEAE100D0FE0A /* ArticleClassifierCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ArticleClassifierCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B01DEC9221DEAF600D0FE0A /* ArticleClassifierCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ArticleClassifierCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B01DECC221DEAF700D0FE0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B01DF11221DEFE700D0FE0A /* ArticleTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTheme.swift; sourceTree = "<group>"; };
-		6B01DF12221DEFE700D0FE0A /* ArticleClassifierCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleClassifierCore.h; sourceTree = "<group>"; };
-		6B01DF14221DEFE700D0FE0A /* ArticleJsonConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleJsonConverter.swift; sourceTree = "<group>"; };
-		6B01DF15221DEFE700D0FE0A /* TCArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCArticle.swift; sourceTree = "<group>"; };
-		6B01DF16221DEFE700D0FE0A /* ArticlesJsonFileIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesJsonFileIO.swift; sourceTree = "<group>"; };
-		6B01DF1F221DF00400D0FE0A /* NAError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NAError.swift; sourceTree = "<group>"; };
-		6B01DF2E221DF57A00D0FE0A /* ZaJoLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZaJoLibrary.xcodeproj; path = ../ZaJoLibrary/ZaJoLibrary.xcodeproj; sourceTree = "<group>"; };
+		6B3123AA222498C700BE48F0 /* RssClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RssClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B3123AD222498C700BE48F0 /* RssClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssClient.h; sourceTree = "<group>"; };
+		6B3123AE222498C700BE48F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B3123C7222498EC00BE48F0 /* RssClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RssClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B3123D822249AC800BE48F0 /* FeedKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FeedKit.framework; path = Carthage/Build/iOS/FeedKit.framework; sourceTree = "<group>"; };
+		6B3123DA22249AD300BE48F0 /* FeedKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FeedKit.framework; path = Carthage/Build/Mac/FeedKit.framework; sourceTree = "<group>"; };
+		6B3123DC22249B7100BE48F0 /* HTMLString.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLString.framework; path = Carthage/Build/iOS/HTMLString.framework; sourceTree = "<group>"; };
+		6B3123DE22249B8100BE48F0 /* HTMLString.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLString.framework; path = Carthage/Build/Mac/HTMLString.framework; sourceTree = "<group>"; };
+		6BA9D89922272DE1008D91C7 /* PError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PError.swift; sourceTree = "<group>"; };
+		6BE5F0BF2225F0C6000368C6 /* RSSClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSClient.swift; sourceTree = "<group>"; };
+		6BE5F0C02225F0C7000368C6 /* RssArticlePO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssArticlePO.swift; sourceTree = "<group>"; };
+		6BE5F0C92225F1EF000368C6 /* ZaJoLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZaJoLibrary.xcodeproj; path = ../../ZaJoLibrary/ZaJoLibrary.xcodeproj; sourceTree = "<group>"; };
+		6BE5F0D42225F242000368C6 /* RssPlistFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssPlistFeed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6B01DEA9221DEAE100D0FE0A /* Frameworks */ = {
+		6B3123A7222498C700BE48F0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B01DF3B221DF62A00D0FE0A /* ZaJoLibrary.framework in Frameworks */,
+				6BE5F0D22225F1FC000368C6 /* ZaJoLibrary.framework in Frameworks */,
+				6B3123DD22249B7200BE48F0 /* HTMLString.framework in Frameworks */,
+				6B3123D922249AC900BE48F0 /* FeedKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6B01DEC6221DEAF600D0FE0A /* Frameworks */ = {
+		6B3123C4222498EC00BE48F0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B01DF3C221DF62E00D0FE0A /* ZaJoLibrary.framework in Frameworks */,
+				6BE5F0D32225F20B000368C6 /* ZaJoLibrary.framework in Frameworks */,
+				6B3123DF22249B8100BE48F0 /* HTMLString.framework in Frameworks */,
+				6B3123DB22249AD300BE48F0 /* FeedKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6B01DEA0221DEACB00D0FE0A = {
+		6B31239E2224989D00BE48F0 = {
 			isa = PBXGroup;
 			children = (
-				6B01DF2E221DF57A00D0FE0A /* ZaJoLibrary.xcodeproj */,
-				6B01DED1221DEB0500D0FE0A /* ArticleClassifierCore */,
-				6B01DEAD221DEAE100D0FE0A /* Products */,
-				6B01DEF7221DECF600D0FE0A /* Frameworks */,
+				6B3123D2222499F100BE48F0 /* Libraries */,
+				6B3123AC222498C700BE48F0 /* RssClient */,
+				6B3123AB222498C700BE48F0 /* Products */,
+				6B3123D722249AC800BE48F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		6B01DEAD221DEAE100D0FE0A /* Products */ = {
+		6B3123AB222498C700BE48F0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6B01DEAC221DEAE100D0FE0A /* ArticleClassifierCore.framework */,
-				6B01DEC9221DEAF600D0FE0A /* ArticleClassifierCore.framework */,
+				6B3123AA222498C700BE48F0 /* RssClient.framework */,
+				6B3123C7222498EC00BE48F0 /* RssClient.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6B01DED1221DEB0500D0FE0A /* ArticleClassifierCore */ = {
+		6B3123AC222498C700BE48F0 /* RssClient */ = {
 			isa = PBXGroup;
 			children = (
-				6B01DF13221DEFE700D0FE0A /* Articles */,
-				6B01DF11221DEFE700D0FE0A /* ArticleTheme.swift */,
-				6B01DF1F221DF00400D0FE0A /* NAError.swift */,
-				6B01DF1E221DEFEB00D0FE0A /* Supporting Files */,
+				6BA9D89922272DE1008D91C7 /* PError.swift */,
+				6BE5F0D42225F242000368C6 /* RssPlistFeed.swift */,
+				6BE5F0C02225F0C7000368C6 /* RssArticlePO.swift */,
+				6BE5F0BF2225F0C6000368C6 /* RSSClient.swift */,
+				6B3123D02224992A00BE48F0 /* Supporting files */,
 			);
-			path = ArticleClassifierCore;
+			path = RssClient;
 			sourceTree = "<group>";
 		};
-		6B01DEF7221DECF600D0FE0A /* Frameworks */ = {
+		6B3123D02224992A00BE48F0 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				6B3123AD222498C700BE48F0 /* RssClient.h */,
+				6B3123AE222498C700BE48F0 /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		6B3123D2222499F100BE48F0 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				6BE5F0C92225F1EF000368C6 /* ZaJoLibrary.xcodeproj */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		6B3123D722249AC800BE48F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B3123DC22249B7100BE48F0 /* HTMLString.framework */,
+				6B3123DE22249B8100BE48F0 /* HTMLString.framework */,
+				6B3123DA22249AD300BE48F0 /* FeedKit.framework */,
+				6B3123D822249AC800BE48F0 /* FeedKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6B01DF13221DEFE700D0FE0A /* Articles */ = {
+		6BE5F0CA2225F1EF000368C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6B01DF14221DEFE700D0FE0A /* ArticleJsonConverter.swift */,
-				6B01DF15221DEFE700D0FE0A /* TCArticle.swift */,
-				6B01DF16221DEFE700D0FE0A /* ArticlesJsonFileIO.swift */,
-			);
-			path = Articles;
-			sourceTree = "<group>";
-		};
-		6B01DF1E221DEFEB00D0FE0A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				6B01DECC221DEAF700D0FE0A /* Info.plist */,
-				6B01DF12221DEFE700D0FE0A /* ArticleClassifierCore.h */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		6B01DF2F221DF57A00D0FE0A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6B01DF34221DF57B00D0FE0A /* ZaJoLibrary.framework */,
-				6B01DF36221DF57B00D0FE0A /* ZaJoLibrary.framework */,
+				6BE5F0CF2225F1EF000368C6 /* ZaJoLibrary.framework */,
+				6BE5F0D12225F1EF000368C6 /* ZaJoLibrary.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,130 +153,132 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6B01DEA7221DEAE100D0FE0A /* Headers */ = {
+		6B3123A5222498C700BE48F0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B01DF19221DEFE700D0FE0A /* ArticleClassifierCore.h in Headers */,
+				6B3123BB222498C700BE48F0 /* RssClient.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6B01DEC4221DEAF600D0FE0A /* Headers */ = {
+		6B3123C2222498EC00BE48F0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B01DF48221DF70200D0FE0A /* ArticleClassifierCore.h in Headers */,
+				6B3123D1222499CD00BE48F0 /* RssClient.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		6B01DEAB221DEAE100D0FE0A /* ArticleClassifierCore-macos */ = {
+		6B3123A9222498C700BE48F0 /* RssClient-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6B01DEBE221DEAE100D0FE0A /* Build configuration list for PBXNativeTarget "ArticleClassifierCore-macos" */;
+			buildConfigurationList = 6B3123BC222498C700BE48F0 /* Build configuration list for PBXNativeTarget "RssClient-ios" */;
 			buildPhases = (
-				6B01DEA7221DEAE100D0FE0A /* Headers */,
-				6B01DEA8221DEAE100D0FE0A /* Sources */,
-				6B01DEA9221DEAE100D0FE0A /* Frameworks */,
-				6B01DEAA221DEAE100D0FE0A /* Resources */,
+				6B3123A5222498C700BE48F0 /* Headers */,
+				6B3123A6222498C700BE48F0 /* Sources */,
+				6B3123A7222498C700BE48F0 /* Frameworks */,
+				6B3123A8222498C700BE48F0 /* Resources */,
+				6B3123D622249A5900BE48F0 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "ArticleClassifierCore-macos";
-			productName = "ArticlesClassifierCore-macos";
-			productReference = 6B01DEAC221DEAE100D0FE0A /* ArticleClassifierCore.framework */;
+			name = "RssClient-ios";
+			productName = "RssCore-ios";
+			productReference = 6B3123AA222498C700BE48F0 /* RssClient.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6B01DEC8221DEAF600D0FE0A /* ArticleClassifierCore-ios */ = {
+		6B3123C6222498EC00BE48F0 /* RssClient-macos */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6B01DECE221DEAF700D0FE0A /* Build configuration list for PBXNativeTarget "ArticleClassifierCore-ios" */;
+			buildConfigurationList = 6B3123CC222498EC00BE48F0 /* Build configuration list for PBXNativeTarget "RssClient-macos" */;
 			buildPhases = (
-				6B01DEC4221DEAF600D0FE0A /* Headers */,
-				6B01DEC5221DEAF600D0FE0A /* Sources */,
-				6B01DEC6221DEAF600D0FE0A /* Frameworks */,
-				6B01DEC7221DEAF600D0FE0A /* Resources */,
+				6B3123C2222498EC00BE48F0 /* Headers */,
+				6B3123C3222498EC00BE48F0 /* Sources */,
+				6B3123C4222498EC00BE48F0 /* Frameworks */,
+				6B3123C5222498EC00BE48F0 /* Resources */,
+				6BA9D8A6222733AE008D91C7 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "ArticleClassifierCore-ios";
-			productName = "ArticlesClassifierCore-ios";
-			productReference = 6B01DEC9221DEAF600D0FE0A /* ArticleClassifierCore.framework */;
+			name = "RssClient-macos";
+			productName = "RssCore-macos";
+			productReference = 6B3123C7222498EC00BE48F0 /* RssClient.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6B01DEA1221DEACB00D0FE0A /* Project object */ = {
+		6B31239F2224989D00BE48F0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
 				TargetAttributes = {
-					6B01DEAB221DEAE100D0FE0A = {
-						CreatedOnToolsVersion = 10.1;
+					6B3123A9222498C700BE48F0 = {
+						CreatedOnToolsVersion = 10.2;
 						LastSwiftMigration = 1010;
 					};
-					6B01DEC8221DEAF600D0FE0A = {
-						CreatedOnToolsVersion = 10.1;
+					6B3123C6222498EC00BE48F0 = {
+						CreatedOnToolsVersion = 10.2;
 						LastSwiftMigration = 1010;
 					};
 				};
 			};
-			buildConfigurationList = 6B01DEA4221DEACB00D0FE0A /* Build configuration list for PBXProject "ArticleClassifierCore" */;
-			compatibilityVersion = "Xcode 10.0";
+			buildConfigurationList = 6B3123A22224989D00BE48F0 /* Build configuration list for PBXProject "RssClient" */;
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 6B01DEA0221DEACB00D0FE0A;
-			productRefGroup = 6B01DEAD221DEAE100D0FE0A /* Products */;
+			mainGroup = 6B31239E2224989D00BE48F0;
+			productRefGroup = 6B3123AB222498C700BE48F0 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 6B01DF2F221DF57A00D0FE0A /* Products */;
-					ProjectRef = 6B01DF2E221DF57A00D0FE0A /* ZaJoLibrary.xcodeproj */;
+					ProductGroup = 6BE5F0CA2225F1EF000368C6 /* Products */;
+					ProjectRef = 6BE5F0C92225F1EF000368C6 /* ZaJoLibrary.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				6B01DEAB221DEAE100D0FE0A /* ArticleClassifierCore-macos */,
-				6B01DEC8221DEAF600D0FE0A /* ArticleClassifierCore-ios */,
+				6B3123A9222498C700BE48F0 /* RssClient-ios */,
+				6B3123C6222498EC00BE48F0 /* RssClient-macos */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		6B01DF34221DF57B00D0FE0A /* ZaJoLibrary.framework */ = {
+		6BE5F0CF2225F1EF000368C6 /* ZaJoLibrary.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ZaJoLibrary.framework;
-			remoteRef = 6B01DF33221DF57B00D0FE0A /* PBXContainerItemProxy */;
+			remoteRef = 6BE5F0CE2225F1EF000368C6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6B01DF36221DF57B00D0FE0A /* ZaJoLibrary.framework */ = {
+		6BE5F0D12225F1EF000368C6 /* ZaJoLibrary.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ZaJoLibrary.framework;
-			remoteRef = 6B01DF35221DF57B00D0FE0A /* PBXContainerItemProxy */;
+			remoteRef = 6BE5F0D02225F1EF000368C6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6B01DEAA221DEAE100D0FE0A /* Resources */ = {
+		6B3123A8222498C700BE48F0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6B01DEC7221DEAF600D0FE0A /* Resources */ = {
+		6B3123C5222498EC00BE48F0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,208 +287,90 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6B3123D622249A5900BE48F0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/FeedKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/HTMLString.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FeedKit.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/HTMLString.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		6BA9D8A6222733AE008D91C7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/FeedKit.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/HTMLString.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/HTMLString.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FeedKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		6B01DEA8221DEAE100D0FE0A /* Sources */ = {
+		6B3123A6222498C700BE48F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B01DF1C221DEFE700D0FE0A /* ArticlesJsonFileIO.swift in Sources */,
-				6B01DF20221DF00400D0FE0A /* NAError.swift in Sources */,
-				6B01DF18221DEFE700D0FE0A /* ArticleTheme.swift in Sources */,
-				6B01DF1B221DEFE700D0FE0A /* TCArticle.swift in Sources */,
-				6B01DF1A221DEFE700D0FE0A /* ArticleJsonConverter.swift in Sources */,
+				6BE5F0C32225F0C7000368C6 /* RssArticlePO.swift in Sources */,
+				6BA9D89C22272DE1008D91C7 /* PError.swift in Sources */,
+				6BE5F0D52225F242000368C6 /* RssPlistFeed.swift in Sources */,
+				6BE5F0C12225F0C7000368C6 /* RSSClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6B01DEC5221DEAF600D0FE0A /* Sources */ = {
+		6B3123C3222498EC00BE48F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BEF6575221E12EF00E45278 /* ArticleJsonConverter.swift in Sources */,
-				6BEF6576221E12F100E45278 /* TCArticle.swift in Sources */,
-				6BEF6573221E12E600E45278 /* ArticleTheme.swift in Sources */,
-				6BEF6577221E12F300E45278 /* ArticlesJsonFileIO.swift in Sources */,
-				6BEF6574221E12E900E45278 /* NAError.swift in Sources */,
+				6BE5F0C42225F0C7000368C6 /* RssArticlePO.swift in Sources */,
+				6BA9D89D22272DE1008D91C7 /* PError.swift in Sources */,
+				6BE5F0D62225F242000368C6 /* RssPlistFeed.swift in Sources */,
+				6BE5F0C22225F0C7000368C6 /* RSSClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		6B01DEA5221DEACB00D0FE0A /* Debug */ = {
+		6B3123A32224989D00BE48F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		6B01DEA6221DEACB00D0FE0A /* Release */ = {
+		6B3123A42224989D00BE48F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Release;
 		};
-		6B01DEBF221DEAE100D0FE0A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = SB56D8K42E;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ArticleClassifierCore/Supporting Files/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticleClassifierCore;
-				PRODUCT_MODULE_NAME = ArticleClassifierCore;
-				PRODUCT_NAME = ArticleClassifierCore;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		6B01DEC0221DEAE100D0FE0A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = SB56D8K42E;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ArticleClassifierCore/Supporting Files/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticleClassifierCore;
-				PRODUCT_MODULE_NAME = ArticleClassifierCore;
-				PRODUCT_NAME = ArticleClassifierCore;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		6B01DECF221DEAF700D0FE0A /* Debug */ = {
+		6B3123BD222498C700BE48F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -518,6 +414,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -532,7 +432,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ArticleClassifierCore/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "RssClient/Supporting files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -543,8 +443,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticleClassifierCore;
-				PRODUCT_NAME = ArticleClassifierCore;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.RssClient;
+				PRODUCT_NAME = RssClient;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -556,7 +456,7 @@
 			};
 			name = Debug;
 		};
-		6B01DED0221DEAF700D0FE0A /* Release */ = {
+		6B3123BE222498C700BE48F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -600,6 +500,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -608,7 +512,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ArticleClassifierCore/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "RssClient/Supporting files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -618,8 +522,8 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticleClassifierCore;
-				PRODUCT_NAME = ArticleClassifierCore;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.RssClient;
+				PRODUCT_NAME = RssClient;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -632,37 +536,204 @@
 			};
 			name = Release;
 		};
+		6B3123CD222498EC00BE48F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = SB56D8K42E;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "RssClient/Supporting files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.RssClient;
+				PRODUCT_NAME = RssClient;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6B3123CE222498EC00BE48F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = SB56D8K42E;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "RssClient/Supporting files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.RssClient;
+				PRODUCT_NAME = RssClient;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6B01DEA4221DEACB00D0FE0A /* Build configuration list for PBXProject "ArticleClassifierCore" */ = {
+		6B3123A22224989D00BE48F0 /* Build configuration list for PBXProject "RssClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6B01DEA5221DEACB00D0FE0A /* Debug */,
-				6B01DEA6221DEACB00D0FE0A /* Release */,
+				6B3123A32224989D00BE48F0 /* Debug */,
+				6B3123A42224989D00BE48F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6B01DEBE221DEAE100D0FE0A /* Build configuration list for PBXNativeTarget "ArticleClassifierCore-macos" */ = {
+		6B3123BC222498C700BE48F0 /* Build configuration list for PBXNativeTarget "RssClient-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6B01DEBF221DEAE100D0FE0A /* Debug */,
-				6B01DEC0221DEAE100D0FE0A /* Release */,
+				6B3123BD222498C700BE48F0 /* Debug */,
+				6B3123BE222498C700BE48F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6B01DECE221DEAF700D0FE0A /* Build configuration list for PBXNativeTarget "ArticleClassifierCore-ios" */ = {
+		6B3123CC222498EC00BE48F0 /* Build configuration list for PBXNativeTarget "RssClient-macos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6B01DECF221DEAF700D0FE0A /* Debug */,
-				6B01DED0221DEAF700D0FE0A /* Release */,
+				6B3123CD222498EC00BE48F0 /* Debug */,
+				6B3123CE222498EC00BE48F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6B01DEA1221DEACB00D0FE0A /* Project object */;
+	rootObject = 6B31239F2224989D00BE48F0 /* Project object */;
 }

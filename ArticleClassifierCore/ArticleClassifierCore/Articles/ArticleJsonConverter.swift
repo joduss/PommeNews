@@ -8,9 +8,11 @@
 
 import Foundation
 
-class ArticleJsonConverter {
+public class ArticleJsonConverter {
     
-    func convertToJson(articles: [TCArticle]) -> String? {
+    public init() { }
+    
+    public func convertToJson(articles: [TCArticle]) -> String? {
         let encoder = JSONEncoder()
         
         do {

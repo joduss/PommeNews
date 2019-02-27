@@ -9,10 +9,11 @@
 import Foundation
 
 
-class ArticlesJsonFileIO {
+public class ArticlesJsonFileIO {
     
     private let converter = ArticleJsonConverter()
     
+    public init() { }
 
     public func loadArticlesFrom(fileLocation: String) throws -> [TCArticle] {
         let fileManager = FileManager.default
