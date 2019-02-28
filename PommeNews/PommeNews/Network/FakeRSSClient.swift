@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import ZaJoLibrary
+import RssClient
 import FeedKit
-
 
 class FakeRSSClient: RSSClient {
     
-    override func fetch(feed: RssPlistFeed,  completion:@escaping (Result<[RssArticlePO]>) -> ()) {
+    override func fetch(feed: RssPlistFeed,  completion:@escaping (ZaJoLibrary.Result<[RssArticlePO], PError>) -> ()) {
         
         let data = try! Data(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: feed.id, ofType: ".xml")!))
         
@@ -63,8 +64,8 @@ class FakeRSSClient: RSSClient {
                     
                     let article = RssArticlePO(titleHtml: title,
                                              summaryHtml: summary.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
-                                             imageUrl: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url),
                                              date: date,
+                                             imageUrl: URL(string: entry.media?.mediaThumbnails?.first?.attributes?.url),
                                              link: URL(string: entry.link),
                                              creator: entry.author
                                              )

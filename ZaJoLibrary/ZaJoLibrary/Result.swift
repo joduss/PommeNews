@@ -9,7 +9,7 @@
 import Foundation
 
 
-public enum Result<T, E> {
+public enum Result<T, E> where E: Error {
     case failure(E)
     case success(T)
 }
@@ -19,3 +19,5 @@ public extension Result where T == Void {
         return .success(())
     }
 }
+
+

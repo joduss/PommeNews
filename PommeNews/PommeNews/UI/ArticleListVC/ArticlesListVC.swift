@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import SideMenu
 import GoogleMobileAds
+import ZaJoLibrary
+import RssClient
 
 class ArticlesListVC: ContentViewController {
     
@@ -83,7 +85,7 @@ class ArticlesListVC: ContentViewController {
         rssManager.feedsUpdater.updateAllFeeds()
     }
     
-    private func articlesUpdated(result: Result<Void>) {
+    private func articlesUpdated(result: Result<Void, PError>) {
         tableview.refreshControl?.endRefreshing()
     }
     

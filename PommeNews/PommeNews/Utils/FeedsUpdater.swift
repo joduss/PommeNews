@@ -11,6 +11,8 @@ import CoreData
 import NSLoggerSwift
 import ArticleClassifier
 import ArticleClassifierCore
+import ZaJoLibrary
+import RssClient
 
 ///Handle updates of articles from the feeds
 class FeedsUpdater {
@@ -20,7 +22,7 @@ class FeedsUpdater {
     
     private var performing = false
     private var semaphore = DispatchSemaphore(value: 1)
-    private var listeners: [AnyHashable: (Result<Void>) -> ()] = [:]
+    private var listeners: [AnyHashable: (Result<Void, PError>) -> ()] = [:]
     
     private weak var rssManager: RSSManager!
     
@@ -93,7 +95,7 @@ class FeedsUpdater {
             
             //Handles the results
             if feeds.count == errors.count, let firstError = errors.first?.value {
-                self.notifyFailure(error: PError.MultiFeedFetchingError(firstError))
+                self.notifyFailure(error: PError.MultiFetchingError(firstError))
             }
             else if let singleError = errors.first?.value  {
                 self.notifyFailure(error: singleError)
@@ -104,7 +106,7 @@ class FeedsUpdater {
         }
     }
     
-    private func update(feed: RssFeed, completion: @escaping (Result<Void>) -> ()) {
+    private func update(feed: RssFeed, completion: @escaping (Result<Void, PError>) -> ()) {
         let feedPO = RssPlistFeed(name: feed.name,
                                   url: feed.url.absoluteString,
                                   id: feed.id
@@ -120,7 +122,7 @@ class FeedsUpdater {
                 completion(.success)
                 break
             case .failure(let error):
-                completion(.failure(error))
+                completion(Result<Void, PError>.failure(error))
             }
         })
     }
@@ -133,7 +135,7 @@ class FeedsUpdater {
         notUpdatedFeeds.forEach({message += "\n- \($0.name)"})
         Logger.shared.log(Logger.Domain.service, Logger.Level.info, message)
         
-        self.notifyFailure(error: PError.MultiFeedFetchingError(PError.HTTPErrorTimeout(message)))
+        self.notifyFailure(error: PError.MultiFetchingError(PError.HTTPErrorTimeout(message)))
     }
     
     //===================================================================
@@ -192,7 +194,7 @@ class FeedsUpdater {
     //MARK: - PUB/SUB for article updates
     //===================================================================
     
-    public func subscribeToArticlesUpdate(subscriber: AnyHashable, onPublish: @escaping (Result<Void>) -> () ) {
+    public func subscribeToArticlesUpdate(subscriber: AnyHashable, onPublish: @escaping (Result<Void, PError>) -> () ) {
         
         guard listeners.keys.contains(subscriber) == false else { return }
         listeners[subscriber] = onPublish
@@ -203,14 +205,14 @@ class FeedsUpdater {
     }
     
     private func notifyFailure(error: PError) {
-        let result = Result<Void>.failure(error)
+        let result = Result<Void, PError>.failure(error)
         listeners.forEach({ listener in
             DispatchQueue.main.async{ listener.value(result) }
         })
     }
     
     private func notifySuccess() {
-        let result: Result<Void> = Result.success
+        let result: Result<Void, PError> = Result.success
         listeners.forEach({ listener in
             DispatchQueue.main.async{ listener.value(result) }
         })

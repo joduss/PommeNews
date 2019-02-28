@@ -11,6 +11,8 @@
 		6B01DE4C221DD71E00D0FE0A /* ZaJoLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B01DE37221DD5E300D0FE0A /* ZaJoLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6B01DE4F221DD75C00D0FE0A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DE4D221DD75C00D0FE0A /* StringExtension.swift */; };
 		6B01DE50221DD75C00D0FE0A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DE4D221DD75C00D0FE0A /* StringExtension.swift */; };
+		6B5CA2BD222892CD00F0409F /* PError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5CA2BC222892CD00F0409F /* PError.swift */; };
+		6B5CA2BE222892CD00F0409F /* PError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5CA2BC222892CD00F0409F /* PError.swift */; };
 		6BE5F0E52225F3D4000368C6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F0E42225F3D4000368C6 /* Result.swift */; };
 		6BE5F0E62225F3D4000368C6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F0E42225F3D4000368C6 /* Result.swift */; };
 /* End PBXBuildFile section */
@@ -21,6 +23,7 @@
 		6B01DE38221DD5E300D0FE0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B01DE42221DD64F00D0FE0A /* ZaJoLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZaJoLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B01DE4D221DD75C00D0FE0A /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		6B5CA2BC222892CD00F0409F /* PError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PError.swift; sourceTree = "<group>"; };
 		6BE5F0E42225F3D4000368C6 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +65,7 @@
 		6B01DE4A221DD66200D0FE0A /* ZaJoLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				6B5CA2BC222892CD00F0409F /* PError.swift */,
 				6BE5F0E42225F3D4000368C6 /* Result.swift */,
 				6B01DE4D221DD75C00D0FE0A /* StringExtension.swift */,
 				6B01DE37221DD5E300D0FE0A /* ZaJoLibrary.h */,
@@ -186,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B5CA2BD222892CD00F0409F /* PError.swift in Sources */,
 				6BE5F0E52225F3D4000368C6 /* Result.swift in Sources */,
 				6B01DE4F221DD75C00D0FE0A /* StringExtension.swift in Sources */,
 			);
@@ -195,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B5CA2BE222892CD00F0409F /* PError.swift in Sources */,
 				6BE5F0E62225F3D4000368C6 /* Result.swift in Sources */,
 				6B01DE50221DD75C00D0FE0A /* StringExtension.swift in Sources */,
 			);

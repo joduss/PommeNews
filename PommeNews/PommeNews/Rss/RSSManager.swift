@@ -12,7 +12,8 @@ import CoreData
 import WebKit
 import ArticleClassifier
 import ArticleClassifierCore
-
+import RssClient
+import ZaJoLibrary
 
 class RSSManager {
     

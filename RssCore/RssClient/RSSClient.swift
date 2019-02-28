@@ -9,10 +9,9 @@
 import Foundation
 import FeedKit
 import ZaJoLibrary
-typealias FResult = FeedKit.Result
-typealias ZJResult = FeedKit.Result
 
-public class RSSClient {
+
+open class RSSClient {
     
     let session = URLSession(configuration: .default)
     
@@ -20,7 +19,7 @@ public class RSSClient {
     
     public init() { }
     
-    public func fetch(feed: RssPlistFeed, completion:@escaping (ZaJoLibrary.Result<[RssArticlePO], PError>) -> ()) {
+    open func fetch(feed: RssPlistFeed, completion:@escaping (ZaJoLibrary.Result<[RssArticlePO], PError>) -> ()) {
         
         let parser = FeedParser(URL: URL(string: feed.url)!)
                 
@@ -40,7 +39,7 @@ public class RSSClient {
                 assertionFailure("Json not supported")
                 break
             case .failure(let error):
-                completion(Result.failure(PError.FeedFetchingError(error)))
+                completion(Result.failure(PError.FetchingError(error)))
             }
         })
     }
@@ -72,8 +71,8 @@ public class RSSClient {
             
             let article = RssArticlePO(titleHtml: title,
                                        summaryHtml: summary.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
-                                       imageUrl: URL(string: imagePath ?? ""),
                                        date: date,
+                                       imageUrl: URL(string: imagePath ?? ""),
                                        link: URL(string: link),
                                        creator: entry.author ?? "?")
             articles.append(article)

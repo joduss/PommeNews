@@ -8,7 +8,7 @@
 
 import Foundation
 import Swinject
-
+import RssClient
 
 class Inject {
     

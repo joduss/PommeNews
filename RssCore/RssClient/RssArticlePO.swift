@@ -22,6 +22,15 @@ public struct RssArticlePO: Codable {
     
     public let creator: String?
     
+    public init(titleHtml: String, summaryHtml: String, date: Date, imageUrl: URL?, link: URL?, creator: String?) {
+        self.titleHtml = titleHtml
+        self.summaryHtml = summaryHtml
+        self.date = date
+        self.imageUrl = imageUrl
+        self.link = link
+        self.creator = creator
+    }
+    
     
     public var summary: String {
         let summary = self.summaryHtml.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)

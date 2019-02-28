@@ -1,5 +1,5 @@
 //
-//  PError.swift
+//  RCrror.swift
 //  PommeNews
 //
 //  Created by Jonathan Duss on 31.01.18.
@@ -9,12 +9,17 @@
 import Foundation
 
 public indirect enum PError: Error {
+    
     case HTTPErrorTimeout(String)
     case HTTPErrorCode(String, Int)
     case HTTPErrorInvalidFormat
-    case FeedFetchingError(NSError)
-    case MultiFeedFetchingError(PError)
+    
+    case FetchingError(NSError)
+    case MultiFetchingError(PError)
+    
     case inconsistency(String)
+    case dbIssue(String)
+
+    
     case unsupported
-    case dbIssue(String) 
 }

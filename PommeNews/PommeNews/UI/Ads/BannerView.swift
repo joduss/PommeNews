@@ -44,9 +44,7 @@ class BannerView: NSObject {
         backgroundView.rightAnchor.constraint(equalTo: controllerView.rightAnchor).isActive = true
 
 
-        if let visualEffectView = backgroundView as? UIVisualEffectView {
-            visualEffectView.contentView.addSubview(bannerView)
-        }
+        backgroundView.contentView.addSubview(bannerView)
         bannerView.translatesAutoresizingMaskIntoConstraints = false
 
         bannerView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor).isActive = true

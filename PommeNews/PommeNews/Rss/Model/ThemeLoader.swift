@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import ArticleClassifierCore
+import ZaJoLibrary
 
 /// Initial Theme Loader
 /// Linked to CoreData
