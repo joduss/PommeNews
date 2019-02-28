@@ -12,8 +12,8 @@ class SafariActivity: UIActivity {
     
     private var url: URL!
     
-    public override var activityType: UIActivityType {
-        return UIActivityType("SafariActivity")
+    public override var activityType: UIActivity.ActivityType {
+        return UIActivity.ActivityType("SafariActivity")
     }
     
     public override var activityTitle: String? {
@@ -24,7 +24,7 @@ class SafariActivity: UIActivity {
         return #imageLiteral(resourceName: "safari-icon.png")
     }
     
-    override class var activityCategory: UIActivityCategory {
+    override class var activityCategory: UIActivity.Category {
         return .action
     }
     

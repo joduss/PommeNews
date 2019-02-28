@@ -33,6 +33,8 @@
 		6B5CA2AC222889CD00F0409F /* RssClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5CA2A8222889BA00F0409F /* RssClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B5CA2B0222889CD00F0409F /* ArticleClassifier.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF6595221E13B500E45278 /* ArticleClassifier.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B5CA2B4222889CD00F0409F /* ZaJoLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF6589221E13AE00E45278 /* ZaJoLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B5CA2C1222896CF00F0409F /* ArticleClassifierCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF659A221E13C100E45278 /* ArticleClassifierCore.framework */; };
+		6B5CA2C2222896CF00F0409F /* ArticleClassifierCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEF659A221E13C100E45278 /* ArticleClassifierCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B64AD0C2210886E007D6C86 /* BadgeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64AD0B2210886E007D6C86 /* BadgeBarButtonItem.swift */; };
 		6B6C572221FE114B00D7BFE2 /* FeedsUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C572121FE114B00D7BFE2 /* FeedsUpdater.swift */; };
 		6B828660204A977B00AB9242 /* mac4ever.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6B82865F204A977A00AB9242 /* mac4ever.xml */; };
@@ -203,6 +205,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6B5CA2B4222889CD00F0409F /* ZaJoLibrary.framework in Embed Frameworks */,
+				6B5CA2C2222896CF00F0409F /* ArticleClassifierCore.framework in Embed Frameworks */,
 				6B5CA2B0222889CD00F0409F /* ArticleClassifier.framework in Embed Frameworks */,
 				6B5CA2AC222889CD00F0409F /* RssClient.framework in Embed Frameworks */,
 			);
@@ -342,6 +345,7 @@
 				6BEF65BD221E16F600E45278 /* Crashlytics.framework in Frameworks */,
 				6BEF65BA221E163D00E45278 /* GoogleUtilities.framework in Frameworks */,
 				6BA74E53220612BB00CEC60C /* NSLoggerSwift.framework in Frameworks */,
+				6B5CA2C1222896CF00F0409F /* ArticleClassifierCore.framework in Frameworks */,
 				6B25771121D56BB200D419B6 /* CoreTelephony.framework in Frameworks */,
 				6B5CA2AB222889CD00F0409F /* RssClient.framework in Frameworks */,
 				6BEF65B4221E163D00E45278 /* nanopb.framework in Frameworks */,
@@ -878,7 +882,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Swizapp;
 				TargetAttributes = {
 					6B82C34B201FC838006FA35D = {
@@ -1265,7 +1269,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos11.4;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1318,7 +1322,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos11.4;
+				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1395,7 +1399,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PommeNews/3rd\\ Party\\ Librairies/Google\\ Firebase/**";
 			};
@@ -1472,7 +1476,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PommeNews/3rd\\ Party\\ Librairies/Google\\ Firebase/**";
 			};
@@ -1488,7 +1492,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PommeNews.app/PommeNews";
 			};
@@ -1504,7 +1508,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PommeNews.app/PommeNews";
 			};
@@ -1519,7 +1523,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PommeNews;
 			};
@@ -1534,7 +1538,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PommeNews;
 			};
@@ -1577,6 +1581,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1587,7 +1592,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos11.4;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG_ADS;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -1665,7 +1671,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PommeNews/3rd\\ Party\\ Librairies/Google\\ Firebase/**";
 			};
@@ -1681,7 +1687,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PommeNews.app/PommeNews";
 			};
@@ -1696,7 +1702,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PommeNews;
 			};

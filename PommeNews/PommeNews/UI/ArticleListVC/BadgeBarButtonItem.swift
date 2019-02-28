@@ -47,7 +47,7 @@ public class BadgeBarButtonItem: UIBarButtonItem {
         button.setImage(image.withRenderingMode(.alwaysTemplate), for: .normal)
         
         if let action = self.action {
-            button.addTarget(self.target, action: action, for: UIControlEvents.allEvents)
+            button.addTarget(self.target, action: action, for: UIControl.Event.allEvents)
         }
         
         button.translatesAutoresizingMaskIntoConstraints = false
