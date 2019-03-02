@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import WebKit
 
 class PrivacyPolicyVC: UIViewController {
 
+    @IBOutlet weak var webview: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        var policyFileUrl = Bundle.main.url(forResource: "Privacy Policy", withExtension: "html")!
+        
+        self.webview.loadFileURL(policyFileUrl, allowingReadAccessTo: policyFileUrl)
     }
     
 
