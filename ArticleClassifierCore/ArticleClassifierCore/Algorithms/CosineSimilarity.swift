@@ -1,0 +1,31 @@
+//
+//  CosineSimilarity.swift
+//  ArticleClassifierCore-macos
+//
+//  Created by Jonathan Duss on 03.03.19.
+//
+
+import Foundation
+
+public class CosineSimilarity {
+    public static func computer(vector1: [Double], vector2: [Double]) -> Double {
+        
+        guard vector1.count == vector2.count else {
+            fatalError("Both vector should be of the same size!")
+        }
+        
+        var dotProduct = 0.0
+        for idx in 0..<vector1.endIndex {
+            dotProduct += vector1[idx] * vector2[idx]
+        }
+        
+        var normSquaredV1 = 0.0
+        var normSquaredV2 = 0.0
+        for idx in 0..<vector1.endIndex {
+            normSquaredV1 += pow(vector1[idx], 2)
+            normSquaredV2 += pow(vector2[idx], 2)
+        }
+
+        return dotProduct / (sqrt(normSquaredV1) * normSquaredV2)
+    }
+}

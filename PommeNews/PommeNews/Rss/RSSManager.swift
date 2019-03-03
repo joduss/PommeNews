@@ -30,6 +30,7 @@ class RSSManager {
     private (set) var feeds: [RssFeed] = []
     
     private let classifier = ThemeClassifier()
+    private lazy var tfIdf: TfIdf = self.initializeTfIdf()
 
     
     private var lastUpdate = Date()
@@ -149,6 +150,29 @@ class RSSManager {
         }
     }
     
-
+    func markRead(article: RssArticle) {
+        let articleTfIdf = tfIdf.tfIdfVector(text: article.title + " - " + (article.summary ?? ""))
+        
+        let articles = ArticleRequest.init().execute(context: CoreDataStack.shared.context)
+        
+        for secondArticle in articles {
+            let secondArticleTfIdf = tfIdf.tfIdfVector(text: secondArticle.title + " - " + (secondArticle.summary ?? ""))
+            
+            let sim = CosineSimilarity.computer(vector1: articleTfIdf, vector2: secondArticleTfIdf)
+            print("Sim: \(sim)")
+        }
+    }
+    
+    private func initializeTfIdf() -> TfIdf {
+        var texts: [String] = []
+        let articles = ArticleRequest.init().execute(context: CoreDataStack.shared.context)
+        
+        for article in articles {
+            texts.append(article.title + " - " + (article.summary ?? ""))
+        }
+        
+        
+        return TfIdf(texts: texts)
+    }
     
 }

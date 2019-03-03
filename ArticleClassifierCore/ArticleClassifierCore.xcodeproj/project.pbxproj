@@ -30,6 +30,8 @@
 		6B33468E222C3CBE0013149F /* ZaJoLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B01DF34221DF57B00D0FE0A /* ZaJoLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B334699222C3E540013149F /* ArticleClassifierCoreTests_ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B334698222C3E540013149F /* ArticleClassifierCoreTests_ios.swift */; };
 		6B3346A0222C3E960013149F /* TfIdfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDC7AD9222BD46F0061DB71 /* TfIdfTests.swift */; };
+		6B3346BC222C6B0C0013149F /* CosineSimilarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3346BB222C6B0C0013149F /* CosineSimilarity.swift */; };
+		6B3346BE222C6D0F0013149F /* CosineSimilarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3346BB222C6B0C0013149F /* CosineSimilarity.swift */; };
 		6BDC7AC0222AEC2E0061DB71 /* SimilarArticleClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDC7ABF222AEC2E0061DB71 /* SimilarArticleClassifier.swift */; };
 		6BDC7AC5222AF57A0061DB71 /* TfIdf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDC7AC4222AF57A0061DB71 /* TfIdf.swift */; };
 		6BDC7AC6222B3D050061DB71 /* TfIdf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDC7AC4222AF57A0061DB71 /* TfIdf.swift */; };
@@ -133,6 +135,7 @@
 		6B334696222C3E540013149F /* ArticleClassifierCoreTests-ios.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ArticleClassifierCoreTests-ios.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B334698222C3E540013149F /* ArticleClassifierCoreTests_ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleClassifierCoreTests_ios.swift; sourceTree = "<group>"; };
 		6B33469A222C3E540013149F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B3346BB222C6B0C0013149F /* CosineSimilarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CosineSimilarity.swift; sourceTree = "<group>"; };
 		6BDC7ABF222AEC2E0061DB71 /* SimilarArticleClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarArticleClassifier.swift; sourceTree = "<group>"; };
 		6BDC7AC4222AF57A0061DB71 /* TfIdf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TfIdf.swift; sourceTree = "<group>"; };
 		6BDC7ACC222BD4070061DB71 /* ArticleClassifierCoreTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ArticleClassifierCoreTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,6 +290,7 @@
 			children = (
 				6BDC7AC4222AF57A0061DB71 /* TfIdf.swift */,
 				6BDC7ADC222C077C0061DB71 /* ArrayVectorExtention.swift */,
+				6B3346BB222C6B0C0013149F /* CosineSimilarity.swift */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -538,6 +542,7 @@
 			files = (
 				6BDC7AC5222AF57A0061DB71 /* TfIdf.swift in Sources */,
 				6B01DF1C221DEFE700D0FE0A /* ArticlesJsonFileIO.swift in Sources */,
+				6B3346BC222C6B0C0013149F /* CosineSimilarity.swift in Sources */,
 				6B01DF20221DF00400D0FE0A /* NAError.swift in Sources */,
 				6B01DF18221DEFE700D0FE0A /* ArticleTheme.swift in Sources */,
 				6BDC7AC0222AEC2E0061DB71 /* SimilarArticleClassifier.swift in Sources */,
@@ -552,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BEF6575221E12EF00E45278 /* ArticleJsonConverter.swift in Sources */,
+				6B3346BE222C6D0F0013149F /* CosineSimilarity.swift in Sources */,
 				6BEF6576221E12F100E45278 /* TCArticle.swift in Sources */,
 				6BEF6573221E12E600E45278 /* ArticleTheme.swift in Sources */,
 				6B1596B2222C38F100471710 /* ArrayVectorExtention.swift in Sources */,

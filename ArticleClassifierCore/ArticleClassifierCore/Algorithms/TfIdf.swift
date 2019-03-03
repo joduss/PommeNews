@@ -10,7 +10,7 @@ import ZaJoLibrary
 
 
 
-public class TfIdf {
+public class TfIdf: Codable {
     
     //======================================================================
     // MARK: - Caching
@@ -45,10 +45,14 @@ public class TfIdf {
         return Set(termsDocumentFrequency.keys)
     }
     
+    private var termCount: Int {
+        return termsDocumentFrequency.count
+    }
+    
     //======================================================================
     // MARK: - Initialization
     
-    init(texts: [String]) {
+    public init(texts: [String]) {
         self.texts = texts
         textsHashCode = texts.map({$0.hashValue})
     }
@@ -81,12 +85,12 @@ public class TfIdf {
     // MARK: - TF IDF
 
     public func termFrequencyVector(text: String) -> [Int] {
-        let tokenizedText = termsIn(text: text)
-        
         var vector: [Int] = []
+        vector.reserveCapacity(termCount)
+        let termFreqInText = termFrequencyInText(text: text)
         
         for term in allTermsVector {
-            vector.append(tokenizedText.filter({$0 == term}).count)
+            vector.append(termFreqInText[term] ?? 0)
         }
         
         return vector
@@ -95,6 +99,7 @@ public class TfIdf {
     public func invertedDocumentFrequencyVector() -> [Double] {
         let numberOfTerms = texts.count
         var idfVector: [Double] = []
+        idfVector.reserveCapacity(termCount)
         
         for term in allTermsVector {
             let termDocumentFrequency = termsDocumentFrequency[term]!
@@ -125,8 +130,26 @@ public class TfIdf {
         return tokens
     }
     
+    public func termFrequencyInText(text: String) -> [String: Int] {
+        var tokens: [String: Int] = [:]
+        tokens.reserveCapacity(text.count / 4)
+        
+        text.enumerateSubstrings(
+            in: text.startIndex..<text.endIndex,
+            options: .byWords,
+            { (term, _, _, _) in
+                guard let term = term else { return }
+                tokens[term] = 1 + (tokens[term] ?? 0)
+        }
+        )
+    
+    return tokens
+    }
+    
     public func termsIn(text: String) -> Set<String> {
         var tokens: Set<String> = []
+        tokens.reserveCapacity(text.count / 4)
+
         text.enumerateSubstrings(
             in: text.startIndex..<text.endIndex,
             options: .byWords,
@@ -141,5 +164,8 @@ public class TfIdf {
     public func termVector(from text: String) -> [String] {
         return termsIn(text: text).sorted()
     }
+    
+    
+    
     
 }
