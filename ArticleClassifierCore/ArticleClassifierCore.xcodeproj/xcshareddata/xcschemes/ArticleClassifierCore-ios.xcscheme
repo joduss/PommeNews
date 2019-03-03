@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B01DEAB221DEAE100D0FE0A"
+               BlueprintIdentifier = "6B01DEC8221DEAF600D0FE0A"
                BuildableName = "ArticleClassifierCore.framework"
-               BlueprintName = "ArticleClassifierCore-macos"
+               BlueprintName = "ArticleClassifierCore-ios"
                ReferencedContainer = "container:ArticleClassifierCore.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,42 +29,22 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES"
-            testExecutionOrdering = "random"
-            useTestSelectionWhitelist = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6BDC7ACB222BD4070061DB71"
-               BuildableName = "ArticleClassifierCoreTests-macOS.xctest"
-               BlueprintName = "ArticleClassifierCoreTests-macOS"
+               BlueprintIdentifier = "6B4BED4F222C3AAF00CF5A8D"
+               BuildableName = "ArticleClassifierCoreTests-ios.xctest"
+               BlueprintName = "ArticleClassifierCoreTests-ios"
                ReferencedContainer = "container:ArticleClassifierCore.xcodeproj">
             </BuildableReference>
-            <SelectedTests>
-               <Test
-                  Identifier = "ArticleClassifierCoreTests_macOS/testExample()">
-               </Test>
-               <Test
-                  Identifier = "ArticleClassifierCoreTests_macOS/testPerformanceExample()">
-               </Test>
-               <Test
-                  Identifier = "TfIdfTests/testBasicTextProcessors()">
-               </Test>
-               <Test
-                  Identifier = "TfIdfTests/testFrequency()">
-               </Test>
-               <Test
-                  Identifier = "TfIdfTests/testPerformanceExample()">
-               </Test>
-            </SelectedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B01DEAB221DEAE100D0FE0A"
+            BlueprintIdentifier = "6B01DEC8221DEAF600D0FE0A"
             BuildableName = "ArticleClassifierCore.framework"
-            BlueprintName = "ArticleClassifierCore-macos"
+            BlueprintName = "ArticleClassifierCore-ios"
             ReferencedContainer = "container:ArticleClassifierCore.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B01DEAB221DEAE100D0FE0A"
+            BlueprintIdentifier = "6B01DEC8221DEAF600D0FE0A"
             BuildableName = "ArticleClassifierCore.framework"
-            BlueprintName = "ArticleClassifierCore-macos"
+            BlueprintName = "ArticleClassifierCore-ios"
             ReferencedContainer = "container:ArticleClassifierCore.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -102,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B01DEAB221DEAE100D0FE0A"
+            BlueprintIdentifier = "6B01DEC8221DEAF600D0FE0A"
             BuildableName = "ArticleClassifierCore.framework"
-            BlueprintName = "ArticleClassifierCore-macos"
+            BlueprintName = "ArticleClassifierCore-ios"
             ReferencedContainer = "container:ArticleClassifierCore.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

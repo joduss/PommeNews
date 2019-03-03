@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B01DEAB221DEAE100D0FE0A"
-               BuildableName = "ArticleClassifierCore.framework"
-               BlueprintName = "ArticleClassifierCore-macos"
+               BlueprintIdentifier = "6B334670222C3C760013149F"
+               BuildableName = "TestHostApplication-ios.app"
+               BlueprintName = "TestHostApplication-ios"
                ReferencedContainer = "container:ArticleClassifierCore.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,42 +29,22 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES"
-            testExecutionOrdering = "random"
-            useTestSelectionWhitelist = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6BDC7ACB222BD4070061DB71"
-               BuildableName = "ArticleClassifierCoreTests-macOS.xctest"
-               BlueprintName = "ArticleClassifierCoreTests-macOS"
+               BlueprintIdentifier = "6B334695222C3E540013149F"
+               BuildableName = "ArticleClassifierCoreTests-ios.xctest"
+               BlueprintName = "ArticleClassifierCoreTests-ios"
                ReferencedContainer = "container:ArticleClassifierCore.xcodeproj">
             </BuildableReference>
-            <SelectedTests>
-               <Test
-                  Identifier = "ArticleClassifierCoreTests_macOS/testExample()">
-               </Test>
-               <Test
-                  Identifier = "ArticleClassifierCoreTests_macOS/testPerformanceExample()">
-               </Test>
-               <Test
-                  Identifier = "TfIdfTests/testBasicTextProcessors()">
-               </Test>
-               <Test
-                  Identifier = "TfIdfTests/testFrequency()">
-               </Test>
-               <Test
-                  Identifier = "TfIdfTests/testPerformanceExample()">
-               </Test>
-            </SelectedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B01DEAB221DEAE100D0FE0A"
-            BuildableName = "ArticleClassifierCore.framework"
-            BlueprintName = "ArticleClassifierCore-macos"
+            BlueprintIdentifier = "6B334670222C3C760013149F"
+            BuildableName = "TestHostApplication-ios.app"
+            BlueprintName = "TestHostApplication-ios"
             ReferencedContainer = "container:ArticleClassifierCore.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -81,15 +61,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B01DEAB221DEAE100D0FE0A"
-            BuildableName = "ArticleClassifierCore.framework"
-            BlueprintName = "ArticleClassifierCore-macos"
+            BlueprintIdentifier = "6B334670222C3C760013149F"
+            BuildableName = "TestHostApplication-ios.app"
+            BlueprintName = "TestHostApplication-ios"
             ReferencedContainer = "container:ArticleClassifierCore.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -99,15 +80,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B01DEAB221DEAE100D0FE0A"
-            BuildableName = "ArticleClassifierCore.framework"
-            BlueprintName = "ArticleClassifierCore-macos"
+            BlueprintIdentifier = "6B334670222C3C760013149F"
+            BuildableName = "TestHostApplication-ios.app"
+            BlueprintName = "TestHostApplication-ios"
             ReferencedContainer = "container:ArticleClassifierCore.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

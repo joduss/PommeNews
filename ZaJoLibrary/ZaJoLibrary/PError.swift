@@ -20,6 +20,6 @@ public indirect enum PError: Error {
     case inconsistency(String)
     case dbIssue(String)
 
-    
+    case illegalOperation(String)
     case unsupported
 }

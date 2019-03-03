@@ -12,92 +12,104 @@ import ZaJoLibrary
 
 public class TfIdf {
     
-    //cache
-    private var _termsTextContainingTerm: [String: Int] = [:]
-
+    //======================================================================
+    // MARK: - Caching
     
-    private(set) public var termsTextContainingTerm: [String: Int] {
+    //Cache for Dictionary of terms associated with the number of document that contains them.
+    private var _termsDocumentFrequency: [String: Int] = [:]
+
+    //======================================================================
+    // MARK: - Properties
+    
+    ///Dictionary of terms associated with the number of document that contains them.
+    private(set) public var termsDocumentFrequency: [String: Int] {
         get {
-            if (_termsTextContainingTerm.isEmpty) {
+            if (_termsDocumentFrequency.isEmpty) {
                 computeTermAndTextContainingTerm()
             }
-            return _termsTextContainingTerm
+            return _termsDocumentFrequency
         }
         set {
-            _termsTextContainingTerm = newValue
+            _termsDocumentFrequency = newValue
         }
     }
 
+    private var textsHashCode: [Int]
+    private(set) public var texts: [String]
     
     public var allTermsVector: [String] {
-        return termsTextContainingTerm.keys.sorted()
+        return termsDocumentFrequency.keys.sorted()
     }
     
     public var allTerms: Set<String> {
-        return Set(termsTextContainingTerm.keys)
+        return Set(termsDocumentFrequency.keys)
     }
-
     
-    private(set) public var texts: [String]
-    let textsHashCode: [Int]
-    
+    //======================================================================
+    // MARK: - Initialization
     
     init(texts: [String]) {
         self.texts = texts
         textsHashCode = texts.map({$0.hashValue})
     }
     
-    public func getTfIdfVector(text: String) ->[Int] {
-//        var terms = extractAllTerms(text: text)
-//        
-//        var vector: [Int] = []
-//        
-//        for term in terms {
-//            
-//        }
-        return [0]
-    }
+    //======================================================================
+    // MARK: - Perform computation for caching
     
     private func computeTermAndTextContainingTerm() {
-        guard _termsTextContainingTerm.isEmpty else {
+        guard _termsDocumentFrequency.isEmpty else {
             return
         }
         
         for text in texts {
             for term in self.termsIn(text: text) {
                 
-                if let textContainingTerm = self._termsTextContainingTerm[term] {
-                    self._termsTextContainingTerm[term] = textContainingTerm + 1
+                if let textContainingTerm = self._termsDocumentFrequency[term] {
+                    self._termsDocumentFrequency[term] = textContainingTerm + 1
                 }
                 else {
-                    self._termsTextContainingTerm[term] = 1;
+                    self._termsDocumentFrequency[term] = 1;
                 }
             }
         }
     }
-        
-        
-    public func getTerms() -> Set<String> {
-        guard termsTextContainingTerm.isEmpty else {
-            return Set(termsTextContainingTerm.keys)
-        }
-        
-        computeTermAndTextContainingTerm()
-        
-        return Set(termsTextContainingTerm.keys)
-    }
     
-    public func frequencyVector(text: String) -> [Int] {
+    //======================================================================
+    // MARK: - Modification operations on this tfIdf
+    
+    //======================================================================
+    // MARK: - TF IDF
+
+    public func termFrequencyVector(text: String) -> [Int] {
         let tokenizedText = termsIn(text: text)
         
         var vector: [Int] = []
         
-        for term in getTerms() {
+        for term in allTermsVector {
             vector.append(tokenizedText.filter({$0 == term}).count)
         }
         
         return vector
     }
+    
+    public func invertedDocumentFrequencyVector() -> [Double] {
+        let numberOfTerms = texts.count
+        var idfVector: [Double] = []
+        
+        for term in allTermsVector {
+            let termDocumentFrequency = termsDocumentFrequency[term]!
+            let idf = log(Double(numberOfTerms) / Double(termDocumentFrequency)) //no risk of division by 0. A term is always included in at least 1 text.
+            idfVector.append(idf)
+        }
+        return idfVector
+    }
+    
+    public func tfIdfVector(text: String) ->  [Double] {
+        return termFrequencyVector(text: text).HadamarProduct(secondArray: invertedDocumentFrequencyVector())
+    }
+    
+    //======================================================================
+    // MARK: - String Utility
     
     public func tokenize(_ text: String) -> [String] {
         var tokens: [String] = []
@@ -107,7 +119,7 @@ public class TfIdf {
             { (term, _, _, _) in
                 guard let term = term else { return }
                 tokens.append(term.lowercased())
-            }
+        }
         )
         
         return tokens
@@ -121,19 +133,13 @@ public class TfIdf {
             { (term, _, _, _) in
                 guard let term = term else { return }
                 tokens.insert(term.lowercased())
-            }
+        }
         )
-        
         return tokens
     }
     
-    public func termsVector(from text: String) -> [String] {
+    public func termVector(from text: String) -> [String] {
         return termsIn(text: text).sorted()
     }
-
     
-    public func frequencyOf(term: String, in tokenizedText: [String]) {
-        
-    }
-
 }
