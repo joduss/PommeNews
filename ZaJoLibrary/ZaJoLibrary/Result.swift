@@ -14,6 +14,7 @@ public enum Result<T, E> where E: Error {
     case success(T)
 }
 
+///Extension created to allow writing "Result.success"
 public extension Result where T == Void {
     public static var success: Result {
         return .success(())
