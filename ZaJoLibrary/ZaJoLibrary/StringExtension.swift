@@ -41,7 +41,14 @@ extension String {
         }
     }
     
+    public func truncate(length: Int) -> String {
+        if self.count > length {
+            return self.substring(start: 0, end: length - 1)
+        }
+        return self
+    }
 }
+
 
 extension String {
     public subscript(index: Int) -> Character {

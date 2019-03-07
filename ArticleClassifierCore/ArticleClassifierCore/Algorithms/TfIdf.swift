@@ -17,6 +17,9 @@ public class TfIdf: Codable {
     
     //Cache for Dictionary of terms associated with the number of document that contains them.
     private var _termsDocumentFrequency: [String: Int] = [:]
+    private var _idf: [Double]?
+    
+    public var importantTerms: [String] = []
 
     //======================================================================
     // MARK: - Properties
@@ -67,7 +70,6 @@ public class TfIdf: Codable {
         
         for text in texts {
             for term in self.termsIn(text: text) {
-                
                 if let textContainingTerm = self._termsDocumentFrequency[term] {
                     self._termsDocumentFrequency[term] = textContainingTerm + 1
                 }
@@ -97,20 +99,43 @@ public class TfIdf: Codable {
     }
     
     public func invertedDocumentFrequencyVector() -> [Double] {
+        
+        if let idf = self._idf {
+            return idf
+        }
+        
         let numberOfTerms = texts.count
         var idfVector: [Double] = []
         idfVector.reserveCapacity(termCount)
         
         for term in allTermsVector {
+            if importantTerms.contains(term) {
+                idfVector.append(1)
+                continue
+            }
             let termDocumentFrequency = termsDocumentFrequency[term]!
             let idf = log(Double(numberOfTerms) / Double(termDocumentFrequency)) //no risk of division by 0. A term is always included in at least 1 text.
             idfVector.append(idf)
         }
+        self._idf = idfVector
         return idfVector
     }
     
     public func tfIdfVector(text: String) ->  [Double] {
-        return termFrequencyVector(text: text).HadamarProduct(secondArray: invertedDocumentFrequencyVector())
+        var tf: [Int]!
+        var idf: [Double]!
+        var results: [Double]!
+
+        Performance.measure(title: "tf") {
+            tf = termFrequencyVector(text: text)
+        }
+        Performance.measure(title: "idf") {
+            idf = invertedDocumentFrequencyVector()
+        }
+        Performance.measure(title: "tf*idf") {
+//            results = tf.HadamarProduct(secondArray: idf)
+        }
+        return [0,1]
     }
     
     //======================================================================
@@ -132,7 +157,7 @@ public class TfIdf: Codable {
     
     public func termFrequencyInText(text: String) -> [String: Int] {
         var tokens: [String: Int] = [:]
-        tokens.reserveCapacity(text.count / 4)
+        tokens.reserveCapacity(text.count / 3)
         
         text.enumerateSubstrings(
             in: text.startIndex..<text.endIndex,
@@ -142,8 +167,7 @@ public class TfIdf: Codable {
                 tokens[term] = 1 + (tokens[term] ?? 0)
         }
         )
-    
-    return tokens
+        return tokens
     }
     
     public func termsIn(text: String) -> Set<String> {

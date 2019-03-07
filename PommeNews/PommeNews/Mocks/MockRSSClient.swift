@@ -11,7 +11,7 @@ import ZaJoLibrary
 import RssClient
 import FeedKit
 
-class FakeRSSClient: RSSClient {
+class MockRSSClient: RSSClient {
     
     override func fetch(feed: RssPlistFeed,  completion:@escaping (ZaJoLibrary.Result<[RssArticlePO], PError>) -> ()) {
         
