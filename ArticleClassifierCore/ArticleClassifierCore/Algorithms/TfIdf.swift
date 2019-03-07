@@ -133,9 +133,9 @@ public class TfIdf: Codable {
             idf = invertedDocumentFrequencyVector()
         }
         Performance.measure(title: "tf*idf") {
-//            results = tf.HadamarProduct(secondArray: idf)
+            results = tf.HadamarProduct(secondArray: idf)
         }
-        return [0,1]
+        return results
     }
     
     //======================================================================
