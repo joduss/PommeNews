@@ -26,6 +26,6 @@ public class CosineSimilarity {
             normSquaredV2 += pow(vector2[idx], 2)
         }
 
-        return dotProduct / (sqrt(normSquaredV1) * normSquaredV2)
+        return dotProduct / (sqrt(normSquaredV1) * sqrt(normSquaredV2))
     }
 }
