@@ -50,3 +50,19 @@ extension Array where Element: Numeric {
         return result
     }
 }
+
+extension ContiguousArray where Element: Numeric {
+    
+    func HadamarProduct<E>(secondArray: ContiguousArray<E>) -> ContiguousArray<Double> where E: Numeric{
+        guard self.count == secondArray.count else {
+            fatalError("The Hadamar product require both array to be the same size.")
+        }
+        var result = ContiguousArray<Double>(repeating: 0, count: self.count)
+        for  idx in 0..<self.count {
+            
+            result[idx] = self[idx].toDouble() * secondArray[idx].toDouble()
+        }
+        
+        return result
+    }
+}

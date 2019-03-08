@@ -10,14 +10,15 @@ import ZaJoLibrary
 
 
 
-public class TfIdf: Codable {
+public class TfIdf {
     
     //======================================================================
     // MARK: - Caching
     
     //Cache for Dictionary of terms associated with the number of document that contains them.
     private var _termsDocumentFrequency: [String: Int] = [:]
-    private var _idf: [Double]?
+    private var _idf: ContiguousArray<Double>?
+    private var _allTermsVectorCached: ContiguousArray<String>?
     
     public var importantTerms: [String] = []
 
@@ -40,8 +41,13 @@ public class TfIdf: Codable {
     private var textsHashCode: [Int]
     private(set) public var texts: [String]
     
-    public var allTermsVector: [String] {
-        return termsDocumentFrequency.keys.sorted()
+    
+    
+    public var allTermsVector: ContiguousArray<String> {
+        if _allTermsVectorCached == nil {
+            _allTermsVectorCached = ContiguousArray(termsDocumentFrequency.keys.sorted())
+        }
+        return _allTermsVectorCached!
     }
     
     public var allTerms: Set<String> {
@@ -86,26 +92,30 @@ public class TfIdf: Codable {
     //======================================================================
     // MARK: - TF IDF
 
-    public func termFrequencyVector(text: String) -> [Int] {
-        var vector: [Int] = []
-        vector.reserveCapacity(termCount)
-        let termFreqInText = termFrequencyInText(text: text)
+    public func termFrequencyVector(text: String) -> ContiguousArray<Int> {
+        var vector = ContiguousArray<Int>()
         
-        for term in allTermsVector {
-            vector.append(termFreqInText[term] ?? 0)
+        var termFreqInText: [String : Int] = termFrequencyInText(text: text)
+        
+        Performance.measure(title: "append terms") {
+            vector = []
+            vector.reserveCapacity(termCount / 3)
+            for term in allTermsVector {
+                vector.append(termFreqInText[term] ?? 0)
+            }
         }
-        
+
         return vector
     }
     
-    public func invertedDocumentFrequencyVector() -> [Double] {
+    public func invertedDocumentFrequencyVector() -> ContiguousArray<Double> {
         
         if let idf = self._idf {
             return idf
         }
         
         let numberOfTerms = texts.count
-        var idfVector: [Double] = []
+        var idfVector: ContiguousArray<Double> = []
         idfVector.reserveCapacity(termCount)
         
         for term in allTermsVector {
@@ -121,10 +131,10 @@ public class TfIdf: Codable {
         return idfVector
     }
     
-    public func tfIdfVector(text: String) ->  [Double] {
-        var tf: [Int]!
-        var idf: [Double]!
-        var results: [Double]!
+    public func tfIdfVector(text: String) ->  ContiguousArray<Double> {
+        var tf: ContiguousArray<Int>!
+        var idf: ContiguousArray<Double>!
+        var results: ContiguousArray<Double>!
 
         Performance.measure(title: "tf") {
             tf = termFrequencyVector(text: text)
