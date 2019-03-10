@@ -12,6 +12,7 @@ import HTMLString
 class ArticleListCell: UITableViewCell {
     
     
+    @IBOutlet weak var badge: UIView!
     @IBOutlet weak var feedImageView: UIImageView!
     @IBOutlet weak var feedLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -43,7 +44,9 @@ class ArticleListCell: UITableViewCell {
         
         pictureView.layer.cornerRadius = 5
         pictureView.layer.borderWidth = 1
-        pictureView.layer.borderColor = UIColor.lightGray.cgColor
+        pictureView.layer.borderColor = UIColor.black.withAlphaComponent(0.2).cgColor
+        
+        badge.layer.cornerRadius = 10
     }
     
     override func prepareForReuse() {
@@ -91,6 +94,9 @@ class ArticleListCell: UITableViewCell {
             titleLabel.alpha = 1
             titleLabel.font = UIFont.systemFont(ofSize: titleLabel.font!.pointSize, weight: .medium)
         }
+        
+        //Read badge
+        badge.backgroundColor = article.read ? UIColor.clear : UIColor.orange
         
         //Image
         
