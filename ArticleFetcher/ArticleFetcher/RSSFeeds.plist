@@ -9,8 +9,12 @@
 		<string>macbidouille</string>
 		<key>url</key>
 		<string>http://macbidouille.com/rss</string>
+		<key>language</key>
+		<string>fr</string>
 	</dict>
 	<dict>
+		<key>language</key>
+		<string>fr</string>
 		<key>name</key>
 		<string>Consomac</string>
 		<key>id</key>
@@ -19,6 +23,8 @@
 		<string>https://consomac.fr/rss/consomac.xml</string>
 	</dict>
 	<dict>
+		<key>language</key>
+		<string>fr</string>
 		<key>name</key>
 		<string>iPhone Addict</string>
 		<key>id</key>
@@ -27,6 +33,8 @@
 		<string>https://feeds.feedburner.com/Iphoneaddictfr?format=xml</string>
 	</dict>
 	<dict>
+		<key>language</key>
+		<string>fr</string>
 		<key>name</key>
 		<string>Mac4Ever</string>
 		<key>id</key>
@@ -35,6 +43,8 @@
 		<string>https://www.mac4ever.com/rss/actu</string>
 	</dict>
 	<dict>
+		<key>language</key>
+		<string>fr</string>
 		<key>name</key>
 		<string>Macg</string>
 		<key>id</key>
@@ -43,6 +53,8 @@
 		<string>https://megaflux.macg.co/</string>
 	</dict>
 	<dict>
+		<key>language</key>
+		<string>fr</string>
 		<key>name</key>
 		<string>CNET</string>
 		<key>id</key>
@@ -51,6 +63,8 @@
 		<string>https://www.cnetfrance.fr/feeds/rss/news/</string>
 	</dict>
 	<dict>
+		<key>language</key>
+		<string>fr</string>
 		<key>name</key>
 		<string>ZDNet Smartphones</string>
 		<key>id</key>
@@ -59,6 +73,8 @@
 		<string>https://www.zdnet.fr/feeds/rss/actualites/smartphone-4000002598q.htm</string>
 	</dict>
 	<dict>
+		<key>language</key>
+		<string>fr</string>
 		<key>name</key>
 		<string>PhonAndroid</string>
 		<key>id</key>
