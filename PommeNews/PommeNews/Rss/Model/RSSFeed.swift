@@ -40,6 +40,10 @@ extension RssFeed: EntityName {
     static var hiddenPropertyName: String {
         return "hidden"
     }
+    
+    static var languagePropertyName: String {
+        return "language"
+    }
 
     
     //MARK: - Helpers

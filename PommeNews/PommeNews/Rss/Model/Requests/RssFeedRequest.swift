@@ -12,20 +12,35 @@ import CoreData
 
 class RssFeedRequest {
     
-    private var showHidden = true
+    private var showHidden: Bool = false
+    private var addedByUser: Bool? = nil
     
     func showHidden(_ value: Bool) -> RssFeedRequest {
         showHidden = value
         return self
     }
     
+    func addedByUser(_ value: Bool?) -> RssFeedRequest {
+        addedByUser = value
+        return self
+    }
+    
     func create() -> NSFetchRequest<RssFeed> {
         let request: NSFetchRequest<RssFeed> = RssFeed.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: RssFeed.namePropertyName, ascending: true)]
-        if showHidden == false {
-            request.predicate = NSPredicate(format: "hidden=%@", NSNumber(value: false))
-        }
+        request.predicate = createPredicate()
         return request
+    }
+    
+    private func createPredicate() -> NSPredicate {
+        var predicates : [NSPredicate] = []
+        if showHidden == false {
+            predicates.append(NSPredicate(format: "hidden=%@", NSNumber(value: false)))
+        }
+        if let addedByUser = self.addedByUser {
+            predicates.append(NSPredicate(format: "addedByUser=%@", NSNumber(value: addedByUser)))
+        }
+        return NSCompoundPredicate.init(andPredicateWithSubpredicates: predicates)
     }
     
 }

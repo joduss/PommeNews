@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1010"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,7 +16,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B4BED4F222C3AAF00CF5A8D"
+               BlueprintIdentifier = "6B334695222C3E540013149F"
                BuildableName = "ArticleClassifierCoreTests-ios.xctest"
                BlueprintName = "ArticleClassifierCoreTests-ios"
                ReferencedContainer = "container:ArticleClassifierCore.xcodeproj">

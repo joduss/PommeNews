@@ -21,6 +21,8 @@
 		6B5CA28F222886F700F0409F /* ZaJoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B31237A2224951100BE48F0 /* ZaJoLibrary.framework */; };
 		6B5CA290222886F700F0409F /* ZaJoLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B31237A2224951100BE48F0 /* ZaJoLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B5CA294222886F700F0409F /* ArticleClassifierCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B31236F222494E500BE48F0 /* ArticleClassifierCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B646F07224ACF9D0045989C /* HTMLString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B646F06224ACF9D0045989C /* HTMLString.framework */; };
+		6B646F08224ACF9D0045989C /* HTMLString.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B646F06224ACF9D0045989C /* HTMLString.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6BA9D8B0222734AD008D91C7 /* RSSFeeds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9D8A9222734AD008D91C7 /* RSSFeeds.plist */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,41 @@
 			remoteGlobalIDString = 6B01DEAB221DEAE100D0FE0A;
 			remoteInfo = "ArticleClassifierCore-macos";
 		};
+		6B646F0D224ACF9D0045989C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B312369222494E500BE48F0 /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BDC7ACC222BD4070061DB71;
+			remoteInfo = "ArticleClassifierCoreTests-macOS";
+		};
+		6B646F0F224ACF9D0045989C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B312369222494E500BE48F0 /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B334671222C3C760013149F;
+			remoteInfo = "TestHostApplication-ios";
+		};
+		6B646F11224ACF9D0045989C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B312369222494E500BE48F0 /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B334696222C3E540013149F;
+			remoteInfo = "ArticleClassifierCoreTests-ios";
+		};
+		6B646F16224ACF9D0045989C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BE5F0AE2225F03A000368C6 /* RssClient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B5CA30D2228A30100F0409F;
+			remoteInfo = "RssClient-ios";
+		};
+		6B646F18224ACF9D0045989C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BE5F0AE2225F03A000368C6 /* RssClient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BDC7AB6222AE4950061DB71;
+			remoteInfo = "RssClient-macos Dev";
+		};
 		6BE5F0B52225F03A000368C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6BE5F0AE2225F03A000368C6 /* RssClient.xcodeproj */;
@@ -104,6 +141,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6B646F08224ACF9D0045989C /* HTMLString.framework in Embed Frameworks */,
 				6B5CA290222886F700F0409F /* ZaJoLibrary.framework in Embed Frameworks */,
 				6B5CA294222886F700F0409F /* ArticleClassifierCore.framework in Embed Frameworks */,
 				6B5CA28C222886F700F0409F /* RssClient.framework in Embed Frameworks */,
@@ -129,6 +167,7 @@
 		6B31238B2224974100BE48F0 /* FeedSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSupport.swift; sourceTree = "<group>"; };
 		6B31238C2224974100BE48F0 /* ArticlesFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesFetcher.swift; sourceTree = "<group>"; };
 		6B31238D2224974100BE48F0 /* FeedForManualTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedForManualTag.swift; sourceTree = "<group>"; };
+		6B646F06224ACF9D0045989C /* HTMLString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HTMLString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA9D8A9222734AD008D91C7 /* RSSFeeds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RSSFeeds.plist; sourceTree = "<group>"; };
 		6BE5F0AE2225F03A000368C6 /* RssClient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RssClient.xcodeproj; path = ../RssCore/RssClient.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B646F07224ACF9D0045989C /* HTMLString.framework in Frameworks */,
 				6B5CA28F222886F700F0409F /* ZaJoLibrary.framework in Frameworks */,
 				6B5CA28B222886F700F0409F /* RssClient.framework in Frameworks */,
 				6B3123832224955700BE48F0 /* ArticleClassifierCore.framework in Frameworks */,
@@ -157,6 +197,7 @@
 		6B31233A2224949A00BE48F0 = {
 			isa = PBXGroup;
 			children = (
+				6B646F06224ACF9D0045989C /* HTMLString.framework */,
 				6B312364222494C800BE48F0 /* Libraries */,
 				6B3123452224949A00BE48F0 /* ArticleFetcher */,
 				6B3123582224949B00BE48F0 /* ArticleFetcherTests */,
@@ -214,6 +255,9 @@
 			children = (
 				6B31236F222494E500BE48F0 /* ArticleClassifierCore.framework */,
 				6B312371222494E500BE48F0 /* ArticleClassifierCore.framework */,
+				6B646F0E224ACF9D0045989C /* ArticleClassifierCoreTests-macOS.xctest */,
+				6B646F10224ACF9D0045989C /* TestHostApplication-ios.app */,
+				6B646F12224ACF9D0045989C /* ArticleClassifierCoreTests-ios.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,6 +292,8 @@
 			children = (
 				6BE5F0B62225F03A000368C6 /* RssClient.framework */,
 				6BE5F0B82225F03A000368C6 /* RssClient.framework */,
+				6B646F17224ACF9D0045989C /* RssClient.framework */,
+				6B646F19224ACF9D0045989C /* RssClient-Dev.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -375,10 +421,45 @@
 			remoteRef = 6B3123792224951100BE48F0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6BE5F0B62225F03A000368C6 /* RssClient.framework */ = {
+		6B646F0E224ACF9D0045989C /* ArticleClassifierCoreTests-macOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ArticleClassifierCoreTests-macOS.xctest";
+			remoteRef = 6B646F0D224ACF9D0045989C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B646F10224ACF9D0045989C /* TestHostApplication-ios.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "TestHostApplication-ios.app";
+			remoteRef = 6B646F0F224ACF9D0045989C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B646F12224ACF9D0045989C /* ArticleClassifierCoreTests-ios.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ArticleClassifierCoreTests-ios.xctest";
+			remoteRef = 6B646F11224ACF9D0045989C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B646F17224ACF9D0045989C /* RssClient.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = RssClient.framework;
+			remoteRef = 6B646F16224ACF9D0045989C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B646F19224ACF9D0045989C /* RssClient-Dev.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = "RssClient-Dev.framework";
+			remoteRef = 6B646F18224ACF9D0045989C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BE5F0B62225F03A000368C6 /* RssClient.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = "RssClient-Dev.framework";
 			remoteRef = 6BE5F0B52225F03A000368C6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};

@@ -50,6 +50,27 @@
 			remoteGlobalIDString = 6B01DEC8221DEAF600D0FE0A;
 			remoteInfo = "ArticleClassifierCore-ios";
 		};
+		6BCB05B5224BF17000400EE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B01DEEE221DEC9700D0FE0A /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BDC7ACC222BD4070061DB71;
+			remoteInfo = "ArticleClassifierCoreTests-macOS";
+		};
+		6BCB05B7224BF17000400EE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B01DEEE221DEC9700D0FE0A /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B334671222C3C760013149F;
+			remoteInfo = "TestHostApplication-ios";
+		};
+		6BCB05B9224BF17000400EE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B01DEEE221DEC9700D0FE0A /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B334696222C3E540013149F;
+			remoteInfo = "ArticleClassifierCoreTests-ios";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +168,9 @@
 			children = (
 				6B01DEF4221DEC9700D0FE0A /* ArticleClassifierCore.framework */,
 				6B01DEF6221DEC9700D0FE0A /* ArticleClassifierCore.framework */,
+				6BCB05B6224BF17000400EE1 /* ArticleClassifierCoreTests-macOS.xctest */,
+				6BCB05B8224BF17000400EE1 /* TestHostApplication-ios.app */,
+				6BCB05BA224BF17000400EE1 /* ArticleClassifierCoreTests-ios.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -295,6 +319,27 @@
 			fileType = wrapper.framework;
 			path = ArticleClassifierCore.framework;
 			remoteRef = 6B01DEF5221DEC9700D0FE0A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BCB05B6224BF17000400EE1 /* ArticleClassifierCoreTests-macOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ArticleClassifierCoreTests-macOS.xctest";
+			remoteRef = 6BCB05B5224BF17000400EE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BCB05B8224BF17000400EE1 /* TestHostApplication-ios.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "TestHostApplication-ios.app";
+			remoteRef = 6BCB05B7224BF17000400EE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BCB05BA224BF17000400EE1 /* ArticleClassifierCoreTests-ios.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ArticleClassifierCoreTests-ios.xctest";
+			remoteRef = 6BCB05B9224BF17000400EE1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -456,7 +501,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -532,7 +577,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -617,7 +662,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -693,7 +738,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -769,7 +814,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -836,7 +881,7 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

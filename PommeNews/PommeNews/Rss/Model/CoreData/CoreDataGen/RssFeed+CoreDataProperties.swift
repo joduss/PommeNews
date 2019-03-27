@@ -18,9 +18,11 @@ extension RssFeed {
     }
 
     @NSManaged public var favorite: Bool
+    @NSManaged public var addedByUser: Bool
     @NSManaged public var hidden: Bool
     @NSManaged public var id: String
     @NSManaged public var name: String
+    @NSManaged public var language: String
     @NSManaged public var url: URL
     @NSManaged public var articles: NSSet?
 

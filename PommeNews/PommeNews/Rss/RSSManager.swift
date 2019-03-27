@@ -27,8 +27,6 @@ class RSSManager {
     
     private let rssClient: RSSClient
     
-    private (set) var feeds: [RssFeed] = []
-    
     private let classifier = ThemeClassifier()
     private lazy var tfIdf: TfIdf = self.initializeTfIdf()
 
@@ -37,6 +35,7 @@ class RSSManager {
     private let context = CoreDataStack.shared.context
     
     public var feedsUpdater: FeedsUpdater! = nil
+    public var rssFeedStore: RssFeedStore = RssFeedStore()
     
     init(rssClient: RSSClient) {
         
@@ -51,86 +50,9 @@ class RSSManager {
         let supportedThemes = Request<Theme>().execute(context: CoreDataStack.shared.context)
         classifier.validThemes = supportedThemes.map({ArticleTheme(key: $0.key)})
 
-        //Init feeds
-        var allFeeds: [RssFeed] = []
-        for feed in supportedFeeds {
-            allFeeds += [insertFeedInCoreData(feed)]
-        }
-        self.feeds = allFeeds
-        do {
-            try CoreDataStack.shared.save()
-        }
-        catch {
-            print("\(error)")
-        }
-        
         self.feedsUpdater = FeedsUpdater(rssManager: self, classifier: self.classifier, rssClient: self.rssClient)
     }
-    
 
-    
-    //MARK: - LOCAL
-    //===================================================================
-    var supportedFeeds: [RssPlistFeed] {
-        let decoder = PropertyListDecoder()
-        let sitesPlistPath = Bundle.main.url(forResource: "RSSFeeds", withExtension: "plist")!
-        do {
-            let sitesPlist = try Data(contentsOf: sitesPlistPath)
-            let sites = try decoder.decode([RssPlistFeed].self, from: sitesPlist)
-            return sites
-        }
-        catch {
-            return []
-        }
-    }
-    
-    private func insertFeedInCoreData(_ feed: RssPlistFeed) -> RssFeed {
-        
-        var coreDataFeed: RssFeed!
-        
-        if let existingFeed = fetchFeedWith(id: feed.id) {
-            coreDataFeed = existingFeed
-        }
-        else {
-            let newFeed = NSEntityDescription.insertNewObject(forEntityName: "RssFeed", into: CoreDataStack.shared.context) as! RssFeed            
-            coreDataFeed = newFeed
-            coreDataFeed.favorite = true
-            coreDataFeed.hidden = false
-        }
-        coreDataFeed.id = feed.id
-        coreDataFeed.name = feed.name
-        coreDataFeed.url = URL(string: feed.url)!
-        
-        return coreDataFeed
-    }
-    
-    private func fetchFeedWith(id: String) -> RssFeed? {
-        
-        let request: NSFetchRequest<RssFeed> = RssFeed.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: RssFeed.namePropertyName, ascending: true)]
-        request.predicate = NSPredicate(format: "\(RssFeed.idPropertyName) == %@", id)
-        
-        //Add fetch in CoreDataStack
-        do {
-            let entitiesFetchResult = try context?.fetch(request)
-            guard let entities = entitiesFetchResult else {
-                return nil
-            }
-            
-            if entities.count == 0 {
-                return nil
-            }
-            else if entities.count == 1 {
-                return entities.first!
-            }
-            else {
-                throw PError.inconsistency("Entity should be UNIQUE")
-            }
-        } catch {
-            return nil
-        }
-        
-    }
     
     //MARK: - ONLINE
     //===================================================================
@@ -150,17 +72,19 @@ class RSSManager {
         }
     }
     
+    lazy var operationQueue: OperationQueue = {
+        var queue = OperationQueue()
+        queue.name = "SimilarArticlesQueue"
+        return queue
+    }()
+    
     func markRead(article: RssArticle) {
-        let articleTfIdf = tfIdf.tfIdfVector(text: article.title + " - " + (article.summary ?? ""))
-        
-        let articles = ArticleRequest.init().execute(context: CoreDataStack.shared.context)
-        
-        for secondArticle in articles {
-            let secondArticleTfIdf = tfIdf.tfIdfVector(text: secondArticle.title + " - " + (secondArticle.summary ?? ""))
-            
-            let sim = CosineSimilarity.computer(vector1: articleTfIdf, vector2: secondArticleTfIdf)
-            print("Sim: \(sim)")
+        let newMarkSimilarArticleReadOperation = MarkSimilarArticleReadOperation(article: article, tfIdf: tfIdf)
+        if let lastOperation = operationQueue.operations.last {
+            newMarkSimilarArticleReadOperation.addDependency(lastOperation)
         }
+        
+        operationQueue.addOperation(newMarkSimilarArticleReadOperation)
     }
     
     private func initializeTfIdf() -> TfIdf {
@@ -170,7 +94,6 @@ class RSSManager {
         for article in articles {
             texts.append(article.title + " - " + (article.summary ?? ""))
         }
-        
         
         return TfIdf(texts: texts)
     }
