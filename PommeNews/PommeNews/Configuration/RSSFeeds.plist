@@ -3,7 +3,7 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>langauge</key>
+		<key>language</key>
 		<string>fr</string>
 		<key>name</key>
 		<string>Mac Bidouille</string>
@@ -13,7 +13,7 @@
 		<string>http://macbidouille.com/rss</string>
 	</dict>
 	<dict>
-		<key>langauge</key>
+		<key>language</key>
 		<string>fr</string>
 		<key>name</key>
 		<string>Consomac</string>
@@ -23,7 +23,7 @@
 		<string>https://consomac.fr/rss/consomac.xml</string>
 	</dict>
 	<dict>
-		<key>langauge</key>
+		<key>language</key>
 		<string>fr</string>
 		<key>name</key>
 		<string>iPhone Addict</string>
@@ -33,7 +33,7 @@
 		<string>https://feeds.feedburner.com/Iphoneaddictfr?format=xml</string>
 	</dict>
 	<dict>
-		<key>langauge</key>
+		<key>language</key>
 		<string>fr</string>
 		<key>name</key>
 		<string>Mac4Ever</string>
@@ -43,7 +43,7 @@
 		<string>https://www.mac4ever.com/rss/actu</string>
 	</dict>
 	<dict>
-		<key>langauge</key>
+		<key>language</key>
 		<string>fr</string>
 		<key>name</key>
 		<string>Macg</string>
@@ -53,7 +53,7 @@
 		<string>https://megaflux.macg.co/</string>
 	</dict>
 	<dict>
-		<key>langauge</key>
+		<key>language</key>
 		<string>fr</string>
 		<key>name</key>
 		<string>CNET</string>
@@ -63,7 +63,7 @@
 		<string>https://www.cnetfrance.fr/feeds/rss/news/</string>
 	</dict>
 	<dict>
-		<key>langauge</key>
+		<key>language</key>
 		<string>fr</string>
 		<key>name</key>
 		<string>ZDNet Smartphones</string>
@@ -73,7 +73,7 @@
 		<string>https://www.zdnet.fr/feeds/rss/actualites/smartphone-4000002598q.htm</string>
 	</dict>
 	<dict>
-		<key>langauge</key>
+		<key>language</key>
 		<string>fr</string>
 		<key>name</key>
 		<string>PhonAndroid</string>
@@ -83,7 +83,7 @@
 		<string>https://www.phonandroid.com/feed</string>
 	</dict>
 	<dict>
-		<key>langauge</key>
+		<key>language</key>
 		<string>en</string>
 		<key>name</key>
 		<string>MacRumors</string>
