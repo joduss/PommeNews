@@ -20,7 +20,7 @@ class Inject {
         
         container.register(RSSClient.self, factory: { _ in
             if withFakeServices {
-                return FakeRSSClient()
+                return MockRSSClient()
             }
             else {
                 return RSSClient()
