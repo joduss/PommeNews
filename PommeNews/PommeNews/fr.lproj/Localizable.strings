@@ -6,6 +6,9 @@
   Copyright © 2018 Swizapp. All rights reserved.
 */
 
+// GENERAL
+"popup.cancel" = "Annuler";
+"popup.ok" = "Ok";
 
 //DATA
 "rssarticle.unknownAuthor" = "Inconnu";
@@ -18,6 +21,11 @@
 
 "settings.stream_management.hidden" = "Flux visibles";
 "settings.stream_management.favorites" = "Flux préférés";
+
+"settings.new_feed.popup.title" = "Nouveau flux";
+"settings.new_feed.popup.message" = "Veuillez entrer les informations pour ajouter un nouveau flux RSS.";
+"settings.new_feed.popup.input.name.placeholder" = "Nom";
+"settings.new_feed.popup.input.url.placeholder" = "Url";
 
 //MENU
 "menu.settings" = "Paramètres";

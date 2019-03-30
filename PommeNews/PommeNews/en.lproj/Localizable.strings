@@ -6,6 +6,9 @@
   Copyright © 2018 Swizapp. All rights reserved.
 */
 
+// GENERAL
+"popup.cancel" = "Cancel";
+"popup.ok" = "Ok";
 
 //DATA
 "rssarticle.unknownAuthor" = "Unknown";
@@ -19,6 +22,11 @@
 
 "settings.stream_management.hidden" = "Visible news feeds";
 "settings.stream_management.favorites" = "Favorite news feeds";
+
+"settings.new_feed.popup.title" = "New Feed";
+"settings.new_feed.popup.message" = "Please enter the requested information to add a new RSS feed.";
+"settings.new_feed.popup.input.name.placeholder" = "Name";
+"settings.new_feed.popup.input.url.placeholder" = "Url";
 
 //MENU
 "menu.settings" = "Settings";
