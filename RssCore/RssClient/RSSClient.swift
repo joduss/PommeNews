@@ -19,7 +19,7 @@ open class RSSClient {
     
     public init() { }
     
-    open func fetch(feed: RssPlistFeed, completion:@escaping (ZaJoLibrary.Result<[RssArticlePO], PError>) -> ()) {
+    open func fetch(feed: RssPlistFeed, completion:@escaping (Swift.Result<[RssArticlePO], PError>) -> ()) {
         
         let parser = FeedParser(URL: URL(string: feed.url)!)
                 
@@ -27,7 +27,7 @@ open class RSSClient {
             
             switch result {
             case .atom(_):
-                completion(Result.failure(PError.unsupported))
+                completion(.failure(PError.unsupported))
                 assertionFailure("Atom not supported")
                 
             case .rss(let rssFeed):
@@ -35,19 +35,19 @@ open class RSSClient {
                 
                 break
             case .json(_):
-                completion(Result.failure(PError.unsupported))
+                completion(.failure(PError.unsupported))
                 assertionFailure("Json not supported")
                 break
             case .failure(let error):
-                completion(Result.failure(PError.FetchingError(error)))
+                completion(.failure(PError.FetchingError(error)))
             }
         })
     }
     
     
-    private func process(rssFeed: RSSFeed, completion:@escaping (ZaJoLibrary.Result<[RssArticlePO], PError>) -> ()) {
+    private func process(rssFeed: RSSFeed, completion:@escaping (Swift.Result<[RssArticlePO], PError>) -> ()) {
         guard let entries = rssFeed.items else {
-            completion(Result.success([]))
+            completion(.success([]))
             return
         }
         

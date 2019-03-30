@@ -125,7 +125,7 @@ class FeedsUpdater {
                 completion(.success)
                 break
             case .failure(let error):
-                completion(Result<Void, PError>.failure(error))
+                completion(.failure(error))
             }
         })
     }

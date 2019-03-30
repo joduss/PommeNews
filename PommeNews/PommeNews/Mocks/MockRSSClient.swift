@@ -13,7 +13,7 @@ import FeedKit
 
 class MockRSSClient: RSSClient {
     
-    override func fetch(feed: RssPlistFeed,  completion:@escaping (ZaJoLibrary.Result<[RssArticlePO], PError>) -> ()) {
+    override func fetch(feed: RssPlistFeed,  completion:@escaping (Swift.Result<[RssArticlePO], PError>) -> ()) {
         
         let data = try! Data(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: feed.id, ofType: ".xml")!))
         
@@ -73,7 +73,7 @@ class MockRSSClient: RSSClient {
                     
                     articles.append(article)
                 }
-                completion(Result.success(articles))
+                completion(.success(articles))
                 break
             case .json(_):
                 assertionFailure("json not supported")
