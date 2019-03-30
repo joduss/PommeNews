@@ -30,7 +30,7 @@ class DevCenterHomeVC: UITableViewController {
         articles = ArticleRequest().execute(context: CoreDataStack.shared.context)
         tfIdf = TfIdf(texts: articles.map({$0.summary?.truncate(length: 400) ?? ""}))
         tfIdf.importantTerms = ["iphone", "android", "ios", "microsoft", "apple", "samsung", "google",
-        "ipad", "mac", "imac", "macbook", "macos", "windows", "watch", "pay", "netflix"]
+        "ipad", "mac", "imac", "macbook", "macos", "windows", "watch", "pay", "netflix", "oneplus", "twitter", "huawei", "xaomi", "mozilla", "chrome", "pixel", "htc"]
         
         guard let selectedArticle = self.selectedArticle else {
             return
@@ -38,12 +38,12 @@ class DevCenterHomeVC: UITableViewController {
         
         var sorted: [(Double, RssArticle)] = []
         
-        let tfIdfSelected = tfIdf.tfIdfVector(text: selectedArticle.summary?.truncate(length: 400) ?? "")
+        let tfIdfSelected = tfIdf.tfIdfVector(text: selectedArticle.title + (selectedArticle.summary?.truncate(length: 400) ?? ""))
         
         for article in articles {
             var sim = 0.0
             if (article.date.timeIntervalSinceReferenceDate - selectedArticle.date.timeIntervalSinceReferenceDate).magnitude < 24 * 3600 {
-                let tfIdfArticle = tfIdf.tfIdfVector(text: article.summary?.truncate(length: 400) ?? "")
+                let tfIdfArticle = tfIdf.tfIdfVector(text: selectedArticle.title + (article.summary?.truncate(length: 400) ?? ""))
                 sim = CosineSimilarity.computer(vector1: tfIdfSelected, vector2: tfIdfArticle)
             }
             sorted.append((sim, article))
