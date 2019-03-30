@@ -11,6 +11,8 @@ import RssClient
 import ZaJoLibrary
 import CoreData
 
+/// Manages the Rss feeds
+/// For fetching, use RssFeedRequest.
 class RssFeedStore {
     
     private(set) var feeds: [RssFeed] = []
@@ -31,6 +33,7 @@ class RssFeedStore {
         }
     }
     
+    /// The list of feeds supported by default.
     var supportedFeeds: [RssPlistFeed] {
         let decoder = PropertyListDecoder()
         let sitesPlistPath = Bundle.main.url(forResource: "RSSFeeds", withExtension: "plist")!
@@ -44,6 +47,8 @@ class RssFeedStore {
         }
     }
     
+    /// Add the feed coming from the configuration plist file if it is
+    /// not already added.
     private func addPlistFeed(feed: RssPlistFeed) -> RssFeed {
         
         var coreDataFeed: RssFeed!
@@ -66,6 +71,7 @@ class RssFeedStore {
         return coreDataFeed
     }
     
+    ///Returns the feed with the specified id
     private func feed(with id: String) -> RssFeed? {
         
         let request: NSFetchRequest<RssFeed> = RssFeed.fetchRequest()
@@ -93,6 +99,7 @@ class RssFeedStore {
         }
     }
     
+    /// Remove the specified feed
     public func remove(feed: RssFeed) {
         CoreDataStack.shared.context.delete(feed)
     }
@@ -106,21 +113,19 @@ class RssFeedStore {
     /// - Parameters:
     ///   - name: The display name
     ///   - url: the url
-    public func addNewFeed(name: String, url: URL) {
+    public func addNewUserFeed(name: String, url: URL) {
         
         if self.feed(with: url.absoluteString) == nil {
             let newFeed = NSEntityDescription.insertNewObject(forEntityName: RssFeed.entityName, into: CoreDataStack.shared.context) as! RssFeed
             newFeed.favorite = true
             newFeed.hidden = false
-            newFeed.id = url.absoluteString
+            newFeed.id = "\(url.absoluteString.hashValue)"
             newFeed.name = name
             newFeed.url = url
             newFeed.addedByUser = true
         }
-    }
-    
-    var userFeeds: [RssFeed] {
-        return feeds.filter({ $0.addedByUser == true })
+        
+        try? CoreDataStack.shared.save()
     }
     
 }

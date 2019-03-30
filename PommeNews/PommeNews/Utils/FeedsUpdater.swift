@@ -25,12 +25,14 @@ class FeedsUpdater {
     private var listeners: [AnyHashable: (Result<Void, PError>) -> ()] = [:]
     
     private weak var rssManager: RSSManager!
+    private var rssFeedStore: RssFeedStore!
     
     
     init(rssManager: RSSManager, classifier: ThemeClassifier, rssClient: RSSClient) {
         self.rssManager = rssManager
         self.classifier = classifier
         self.rssClient = rssClient
+        self.rssFeedStore = rssManager.rssFeedStore
     }
     
     //MARK: - Public Perform Update
@@ -41,7 +43,7 @@ class FeedsUpdater {
     }
     
     public func updateAllFeeds() {
-        updateIfNotStarted(feeds: rssManager.feeds)
+        updateIfNotStarted(feeds: rssFeedStore.feeds)
     }
     
     //MARK: - Fetch the articles
@@ -109,6 +111,7 @@ class FeedsUpdater {
     private func update(feed: RssFeed, completion: @escaping (Result<Void, PError>) -> ()) {
         let feedPO = RssPlistFeed(name: feed.name,
                                   url: feed.url.absoluteString,
+                                  language: feed.language,
                                   id: feed.id
         )
         

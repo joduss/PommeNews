@@ -44,6 +44,10 @@ extension RssFeed: EntityName {
     static var languagePropertyName: String {
         return "language"
     }
+    
+    static var addedByUserPropertyName: String {
+        return "addedByUser"
+    }
 
     
     //MARK: - Helpers

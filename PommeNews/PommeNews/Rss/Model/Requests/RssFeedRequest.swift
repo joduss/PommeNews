@@ -38,7 +38,7 @@ class RssFeedRequest {
             predicates.append(NSPredicate(format: "hidden=%@", NSNumber(value: false)))
         }
         if let addedByUser = self.addedByUser {
-            predicates.append(NSPredicate(format: "addedByUser=%@", NSNumber(value: addedByUser)))
+            predicates.append(NSPredicate(format: "\(RssFeed.addedByUserPropertyName)=%@", NSNumber(value: addedByUser)))
         }
         return NSCompoundPredicate.init(andPredicateWithSubpredicates: predicates)
     }
