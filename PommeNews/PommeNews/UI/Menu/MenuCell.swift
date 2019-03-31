@@ -35,7 +35,7 @@ class MenuCell: UITableViewCell {
     
     func setup(with feed: RssFeed, numberUnreadArticles: Int) {
         self.titleLabel.text = feed.name
-        self.iconImageView.image = feed.logo
+        self.iconImageView.image = feed.logo ?? UIImage(named: "feedplaceholder")
         
         self.unreadLabel.isHidden = (numberUnreadArticles < 0)
         self.unreadLabelBackground.isHidden = (numberUnreadArticles < 0)

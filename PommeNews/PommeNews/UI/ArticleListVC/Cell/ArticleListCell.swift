@@ -84,7 +84,7 @@ class ArticleListCell: UITableViewCell {
 
         //Feed information
         feedLabel.text = article.feed.name
-        feedImageView.image = article.feed.logo
+        feedImageView.image = article.feed.logo ?? UIImage(named: "feedplaceholder")
         
         if article.read {
         titleLabel.alpha = 0.5
