@@ -22,9 +22,9 @@ class StreamManagementViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: String(describing: MenuFeedCell.self),
+        tableView.register(UINib(nibName: String(describing: FeedManagementCell.self),
                                  bundle: nil),
-                           forCellReuseIdentifier: String(describing: MenuFeedCell.self))
+                           forCellReuseIdentifier: String(describing: FeedManagementCell.self))
         
         
         let request: NSFetchRequest<RssFeed> = RssFeed.fetchRequest()
@@ -69,7 +69,7 @@ extension StreamManagementViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MenuFeedCell.self)) as! MenuFeedCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FeedManagementCell.self)) as! FeedManagementCell
         cell.setup(with: self.feeds[indexPath.row], mode: self.mode)
         return cell
     }

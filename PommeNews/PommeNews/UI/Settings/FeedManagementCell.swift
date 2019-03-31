@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuFeedCell: UITableViewCell {
+class FeedManagementCell: UITableViewCell {
     
     @IBOutlet private weak var label: UILabel!
     @IBOutlet private var cellImageView: UIImageView!
@@ -38,8 +38,8 @@ class MenuFeedCell: UITableViewCell {
         self.feed = feed;
         self.mode = mode
         
-        label.text = feed.name
-        imageView?.image = feed.logo
+        label.text = "\(feed.name) \(Language.from(feed.language).emoji())"
+        imageView?.image = feed.logo ?? UIImage(named: "feedplaceholder")
         
         switch mode {
         case .favorite:
