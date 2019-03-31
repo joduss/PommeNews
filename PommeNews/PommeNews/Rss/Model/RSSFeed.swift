@@ -56,5 +56,9 @@ extension RssFeed: EntityName {
     var logo: UIImage? {
         return UIImage(named: id)
     }
+    
+    var minilogo: UIImage? {
+        return UIImage(named: id + "_mini")
+    }
 
 }
