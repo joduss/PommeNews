@@ -67,6 +67,7 @@ class RssFeedStore {
         coreDataFeed.id = feed.id
         coreDataFeed.name = feed.name
         coreDataFeed.url = URL(string: feed.url)!
+        coreDataFeed.language = feed.language
         
         return coreDataFeed
     }
