@@ -88,7 +88,7 @@
 		<key>name</key>
 		<string>MacRumors</string>
 		<key>id</key>
-		<string>macrumor</string>
+		<string>macrumors</string>
 		<key>url</key>
 		<string>http://feeds.macrumors.com/MacRumors-All</string>
 	</dict>
@@ -100,17 +100,27 @@
 		<key>id</key>
 		<string>appleinsider</string>
 		<key>url</key>
-		<string>https://appleinsider.com/</string>
+		<string>https://appleinsider.com/rss/news/</string>
 	</dict>
 	<dict>
 		<key>language</key>
 		<string>en</string>
 		<key>name</key>
-		<string>MacRumors</string>
+		<string>Macworld</string>
 		<key>id</key>
-		<string>macrumor</string>
+		<string>macworld</string>
 		<key>url</key>
-		<string>http://feeds.macrumors.com/MacRumors-All</string>
+		<string>https://www.macworld.com/news/index.rss</string>
+	</dict>
+	<dict>
+		<key>language</key>
+		<string>en</string>
+		<key>name</key>
+		<string>9to5mac</string>
+		<key>id</key>
+		<string>9to5mac</string>
+		<key>url</key>
+		<string>https://9to5mac.com/feed</string>
 	</dict>
 </array>
 </plist>

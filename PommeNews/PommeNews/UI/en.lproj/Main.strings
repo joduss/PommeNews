@@ -3,37 +3,43 @@
 "0fD-55-xVC.headerTitle" = "Cache";
 
 /* Class = "UITableViewSection"; headerTitle = "A propos"; ObjectID = "1am-xw-Lww"; */
-"1am-xw-Lww.headerTitle" = "A propos";
+"1am-xw-Lww.headerTitle" = "About";
 
 /* Class = "UIBarButtonItem"; title = "Ok"; ObjectID = "3KK-kM-fuD"; */
 "3KK-kM-fuD.title" = "Ok";
 
-/* Class = "UITableViewSection"; headerTitle = "Dévelopeur mais public quand même"; ObjectID = "4OW-ML-8i4"; */
-"4OW-ML-8i4.headerTitle" = "Dévelopeur mais public quand même";
+/* Class = "UITableViewSection"; headerTitle = "Dev Tools / Curiosity :-)"; ObjectID = "4OW-ML-8i4"; */
+"4OW-ML-8i4.headerTitle" = "Dev Tools / Curiosity :-)";
 
-/* Class = "UILabel"; text = "Articles similaires"; ObjectID = "6pO-ft-FUg"; */
-"6pO-ft-FUg.text" = "Articles similaires";
+/* Class = "UILabel"; text = "Similar Articles"; ObjectID = "6pO-ft-FUg"; */
+"6pO-ft-FUg.text" = "Similar Articles";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Ptt-7m-Oxj"; */
 "Ptt-7m-Oxj.title" = "Item";
 
-/* Class = "UILabel"; text = "Flux  visibles/cachés"; ObjectID = "dQM-Wp-dEh"; */
-"dQM-Wp-dEh.text" = "Flux  visibles/cachés";
+/* Class = "UILabel"; text = "Hidden/Visible Feeds"; ObjectID = "dQM-Wp-dEh"; */
+"dQM-Wp-dEh.text" = "Hidden/Visible Feeds";
 
-/* Class = "UILabel"; text = "Politique de confidentialité"; ObjectID = "h0z-g3-ajn"; */
-"h0z-g3-ajn.text" = "Politique de confidentialité";
+/* Class = "UILabel"; text = "Privacy Policy"; ObjectID = "h0z-g3-ajn"; */
+"h0z-g3-ajn.text" = "Privacy Policy";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "hdF-jY-4Mf"; */
 "hdF-jY-4Mf.text" = "Label";
 
-/* Class = "UILabel"; text = "Vider le cache"; ObjectID = "l56-ha-X9z"; */
-"l56-ha-X9z.text" = "Vider le cache";
+/* Class = "UILabel"; text = "Additional Feeds"; ObjectID = "jWE-Cs-GZV"; */
+"jWE-Cs-GZV.text" = "Additional Feeds";
 
-/* Class = "UILabel"; text = "Mes flux favoris"; ObjectID = "lbx-NO-CjV"; */
-"lbx-NO-CjV.text" = "Mes flux favoris";
+/* Class = "UILabel"; text = "Empty Cache"; ObjectID = "l56-ha-X9z"; */
+"l56-ha-X9z.text" = "Empty Cache";
+
+/* Class = "UILabel"; text = "My Favorite Feeds"; ObjectID = "lbx-NO-CjV"; */
+"lbx-NO-CjV.text" = "My Favorite Feeds";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "oAB-VD-gB3"; */
 "oAB-VD-gB3.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Additional Feeds"; ObjectID = "pRV-HL-8Nx"; */
+"pRV-HL-8Nx.title" = "User Feeds";
 
 /* Class = "UIBarButtonItem"; title = "Clear"; ObjectID = "qOn-cy-442"; */
 "qOn-cy-442.title" = "Clear";
@@ -41,11 +47,11 @@
 /* Class = "UINavigationItem"; title = "Title"; ObjectID = "stB-ir-i5R"; */
 "stB-ir-i5R.title" = "Title";
 
-/* Class = "UITableViewSection"; footerTitle = "Cachez les informations des sites que vous n'aimez pas, ou selectionnez vos sites préférez."; ObjectID = "tln-KE-quP"; */
-"tln-KE-quP.footerTitle" = "Cachez les informations des sites que vous n'aimez pas, ou selectionnez vos sites préférez.";
+/* Class = "UITableViewSection"; footerTitle = "Hide feeds you have or setup which your favorite that should be shown in \"My News\" section"; ObjectID = "tln-KE-quP"; */
+"tln-KE-quP.footerTitle" = "Hide feeds you have or setup which your favorite that should be shown in \"My News\" section";
 
-/* Class = "UITableViewSection"; headerTitle = "Gestion des flux"; ObjectID = "tln-KE-quP"; */
-"tln-KE-quP.headerTitle" = "Gestion des flux";
+/* Class = "UITableViewSection"; headerTitle = "Feeds"; ObjectID = "tln-KE-quP"; */
+"tln-KE-quP.headerTitle" = "Feeds";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "wXQ-DS-Go8"; */
 "wXQ-DS-Go8.text" = "Label";
