@@ -27,6 +27,7 @@ class ViewController: NSViewController {
     //MARK: - outlets
     //===================================================================
     
+    @IBOutlet weak var segmentedControl: NSSegmentedControl!
     @IBOutlet var textView: NSTextView!
     @IBOutlet weak var articlesCountTF: NSTextField!
     
@@ -36,7 +37,7 @@ class ViewController: NSViewController {
     
     @IBAction func save(_ sender: Any) {
         let dialog = NSSavePanel();
-        
+                
         dialog.title                   = "Choose a .json file";
         dialog.showsResizeIndicator    = true;
         dialog.showsHiddenFiles        = false;
@@ -92,7 +93,9 @@ class ViewController: NSViewController {
     
     @IBAction func fetchNewArticles(_ sender: Any) {
         
-        articlesFetcher.fetchArticles(of: feedSupport.getFeedPO(), onProgress: {
+        let feeds = feedSupport.getFeedPO().filter({$0.language == segmentedControl.label(forSegment: segmentedControl.selectedSegment)})
+        
+        articlesFetcher.fetchArticles(of: feeds, onProgress: {
             self.textView.string = "Fetching (\($0))"}, completion: { newArticles in
                 self.articles = self.mergeArticles(mergeInto: self.articles, from: newArticles)
                 let json = self.converter.convertToJson(articles: self.articles)
