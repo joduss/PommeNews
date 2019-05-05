@@ -54,8 +54,10 @@ class BannerView: NSObject {
 
         self.bannerView.delegate = self
         bannerView.adUnitID = adId
-        bannerView.load(GADRequest())
         
+        AdmobRequest(viewController: controller).createGADRequest(completion: { request in
+            self.bannerView.load(request)
+        })
     }
     
     private func adaptTableView() {
