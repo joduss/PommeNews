@@ -329,7 +329,6 @@
 				6B5CA3002228A30100F0409F /* Sources */,
 				6B5CA3042228A30100F0409F /* Frameworks */,
 				6B5CA3082228A30100F0409F /* Resources */,
-				6BCB05B0224BF0DE00400EE1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -543,25 +542,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		6BCB05B0224BF0DE00400EE1 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/FeedKit.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FeedKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
 		};
 		6BDC7AB2222AE4950061DB71 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

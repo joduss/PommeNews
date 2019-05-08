@@ -189,7 +189,7 @@
 		6B01DEA0221DEACB00D0FE0A = {
 			isa = PBXGroup;
 			children = (
-				6B01DF2E221DF57A00D0FE0A /* ZaJoLibrary.xcodeproj */,
+				6BABC5F42280C9D2001B1EF4 /* Libraries */,
 				6B01DED1221DEB0500D0FE0A /* ArticleClassifierCore */,
 				6BDC7ACD222BD4070061DB71 /* ArticleClassifierCoreTests */,
 				6B334672222C3C760013149F /* TestHostApplication-ios */,
@@ -279,6 +279,14 @@
 				6B33469A222C3E540013149F /* Info.plist */,
 			);
 			path = "ArticleClassifierCoreTests-ios";
+			sourceTree = "<group>";
+		};
+		6BABC5F42280C9D2001B1EF4 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				6B01DF2E221DF57A00D0FE0A /* ZaJoLibrary.xcodeproj */,
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 		6BDC7AC3222AF5690061DB71 /* Algorithms */ = {

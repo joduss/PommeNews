@@ -1,5 +1,5 @@
 github "Swinject/Swinject" "2.6.0"
 github "fpillet/NSLogger" "v1.9.7"
-github "kukushi/SideMenu" "df7552166ea1aeb6d72df0d01ae9f2e5d7fa4217"
+github "kukushi/SideMenu" "ae33a018abf4669bd4af04c3d4f3108bc894a3ed"
 github "nmdias/FeedKit" "7.1.1"
 github "onevcat/Kingfisher" "4.10.1"
