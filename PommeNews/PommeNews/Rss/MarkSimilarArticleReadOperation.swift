@@ -13,10 +13,12 @@ import ArticleClassifierCore
 class MarkSimilarArticleReadOperation: Operation {
 
     private let tfIdf: TfIdf
-    let article: RssArticle
+    let articleLowercasedTitle: String
+    let articleDate: Date
     
     init(article: RssArticle, tfIdf: TfIdf) {
-        self.article = article
+        self.articleLowercasedTitle = article.title.lowercased()
+        self.articleDate = article.date as Date
         self.tfIdf = tfIdf
     }
     
@@ -25,19 +27,29 @@ class MarkSimilarArticleReadOperation: Operation {
     }
     
     private func markRead() {
-        let articleTfIdf = tfIdf.tfIdfVector(text: article.title + " - " + (article.summary ?? ""))
         
-        let articles = ArticleRequest.init().execute(context: CoreDataStack.shared.context)
+        /// This is called by another thread! So we must ask the container to give us a context for background task!
+        CoreDataStack.shared.persistentContainer.performBackgroundTask {
+            context in
         
-        //Not to scan all the articles, we limit a time period of 72 hours.
-        //It is meaning full. Usually, same articles are published within a very short time. Less than 48h.
-        
-        for secondArticle in articles.filter({$0.date.timeIntervalSince(article.date as Date).magnitude < 3600 * 48}) {
-            let secondArticleTfIdf = tfIdf.tfIdfVector(text: secondArticle.title + " - " + (secondArticle.summary ?? ""))
+            let articleTfIdf = self.tfIdf.tfIdfVector(text: self.articleLowercasedTitle)
             
-            let sim = CosineSimilarity.computer(vector1: articleTfIdf, vector2: secondArticleTfIdf)
-            print("Sim: \(sim)")
+            let articles = ArticleRequest.init().execute(context: context)
+            
+            //Not to scan all the articles, we limit a time period of +/- 48 hours.
+            //It is meaning full. Usually, same articles are published within a very short time. Less than 48h.
+            
+            for secondArticle in articles.filter({$0.date.timeIntervalSince(self.articleDate).magnitude < 3600 * 48}) {
+                
+                let secondArticleTfIdf = self.tfIdf.tfIdfVector(text: secondArticle.title.lowercased())
+                let sim = CosineSimilarity.compute(vector1: articleTfIdf, vector2: secondArticleTfIdf)
+                
+                if sim > 0.5 {
+                    OperationQueue.main.addOperation {
+                        secondArticle.readLikelihood = Float(sim)
+                    }
+                }
+            }
         }
     }
-    
 }
