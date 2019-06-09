@@ -28,7 +28,7 @@ class DevCenterHomeVC: UITableViewController {
     
     private func loadArticles() {
         articles = ArticleRequest().execute(context: CoreDataStack.shared.context)
-        tfIdf = TfIdf(texts: articles.map({$0.summary?.truncate(length: 400) ?? ""}))
+        tfIdf = TfIdf(texts: articles.map({$0.title.lowercased()}))
         tfIdf.importantTerms = ["iphone", "android", "ios", "microsoft", "apple", "samsung", "google",
         "ipad", "mac", "imac", "macbook", "macos", "windows", "watch", "pay", "netflix", "oneplus", "twitter", "huawei", "xaomi", "mozilla", "chrome", "pixel", "htc"]
         
@@ -36,15 +36,14 @@ class DevCenterHomeVC: UITableViewController {
             return
         }
         
+        let tfIdfSelected = tfIdf.tfIdfVector(text: selectedArticle.title.lowercased())
+        
         var sorted: [(Double, RssArticle)] = []
-        
-        let tfIdfSelected = tfIdf.tfIdfVector(text: selectedArticle.title + (selectedArticle.summary?.truncate(length: 400) ?? ""))
-        
         for article in articles {
             var sim = 0.0
             if (article.date.timeIntervalSinceReferenceDate - selectedArticle.date.timeIntervalSinceReferenceDate).magnitude < 24 * 3600 {
-                let tfIdfArticle = tfIdf.tfIdfVector(text: selectedArticle.title + (article.summary?.truncate(length: 400) ?? ""))
-                sim = CosineSimilarity.computer(vector1: tfIdfSelected, vector2: tfIdfArticle)
+                let tfIdfArticle = tfIdf.tfIdfVector(text: article.title.lowercased())
+                sim = CosineSimilarity.compute(vector1: tfIdfSelected, vector2: tfIdfArticle)
             }
             sorted.append((sim, article))
         }
@@ -66,10 +65,7 @@ class DevCenterHomeVC: UITableViewController {
         let summaryLabel = cell.viewWithTag(1001) as! UILabel
         let tfIdfLabel = cell.viewWithTag(1002) as! UILabel
         
-        
-
-        
-        if let selectedArticle = self.selectedArticle, let similarities = self.similarities {
+        if self.selectedArticle != nil, let similarities = self.similarities {
             let simArticle = similarities[indexPath.row]
             let article = simArticle.1
             titleLabel.text = article.title
@@ -82,7 +78,6 @@ class DevCenterHomeVC: UITableViewController {
             summaryLabel.text = article.summary
             tfIdfLabel.text = nil
         }
-        
         
         return cell
     }
