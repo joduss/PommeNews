@@ -11,7 +11,7 @@
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RssFeed" inverseName="articles" inverseEntity="RssFeed" syncable="YES"/>
-        <relationship name="similarsArticles" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="RssArticle" inverseName="similarsArticles" inverseEntity="RssArticle" syncable="YES"/>
+        <relationship name="similarsArticles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RssArticle" inverseName="similarsArticles" inverseEntity="RssArticle" syncable="YES"/>
         <relationship name="themes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Theme" inverseName="articles" inverseEntity="Theme" syncable="YES"/>
     </entity>
     <entity name="RssFeed" representedClassName="RssFeed" syncable="YES">
@@ -22,7 +22,7 @@
         <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="url" attributeType="URI" syncable="YES"/>
-        <relationship name="articles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RssArticle" inverseName="feed" inverseEntity="RssArticle" syncable="YES"/>
+        <relationship name="articles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RssArticle" inverseName="feed" inverseEntity="RssArticle" syncable="YES"/>
     </entity>
     <entity name="Theme" representedClassName="Theme" syncable="YES">
         <attribute name="key" attributeType="String" syncable="YES"/>
