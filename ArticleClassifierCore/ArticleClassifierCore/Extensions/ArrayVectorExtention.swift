@@ -9,15 +9,13 @@ import Foundation
 import ZaJoLibrary
 
 fileprivate extension Numeric {
-    fileprivate func toDouble() -> Double {
+    func toDouble() -> Double {
         switch self {
         case let n as Double:
             return n
         case let n as Int:
             return Double(n)
         case let n as Float:
-            return Double(n)
-        case let n as Float32:
             return Double(n)
         case let n as Float64:
             return Double(n)

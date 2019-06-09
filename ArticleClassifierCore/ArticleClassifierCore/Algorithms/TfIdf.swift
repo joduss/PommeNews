@@ -19,6 +19,7 @@ public class TfIdf {
     private var _termsDocumentFrequency: [String: Int] = [:]
     private var _idf: ContiguousArray<Double>?
     private var _allTermsVectorCached: ContiguousArray<String>?
+    private let lemmatizer = ACLemmaTokenizer()
     
     public var importantTerms: [String] = []
 
@@ -83,7 +84,7 @@ public class TfIdf {
         }
         
         for text in texts {
-            for term in self.termsIn(text: text) {
+            for term in self.lemmasIn(text: text) {
                 if let textContainingTerm = self._termsDocumentFrequency[term] {
                     self._termsDocumentFrequency[term] = textContainingTerm + 1
                 }
@@ -164,131 +165,18 @@ public class TfIdf {
     //======================================================================
     // MARK: - String Utility
     
-    /// Tokenizes. Expects lowercased text!
-    public func tokenize(_ text: String) -> [String] {
-        let tokenizer = NLTokenizer(unit: .word)
-        tokenizer.string = text
-        
-        var tokens: [String] = []
-        tokens.reserveCapacity(text.count / 3)
-        
-        tokenizer.enumerateTokens(in: text.startIndex..<text.endIndex, using: { (range, _) in
-            let term = String(text[range])
-            
-            if (tokens.last == "ios") {
-                tokens.append("ios \(term)")
-            }
-            else {
-                tokens.append(term)
-            }
-
-            return true
-        })
-        
-        return tokens
-    }
-    
-    private var lemmatizerHelper: [String] = ["ios", "android", "windows", "iphone", "pixel"]
     
     /// Returns a dictionary of word along with their frequency. Expect lowercased text!
     public func termFrequencyInText(text: String) -> [String: Int] {
-        
-        var mutableText = text
-        
-        var tokens: [String: Int] = [:]
-        tokens.reserveCapacity(mutableText.count / 3)
-        
-//        let tokenizer = NLTokenizer(unit: .word)
-//        tokenizer.string = text
-        
-        let tagger = NLTagger(tagSchemes: [.lemma])
-        
-        var previous = ""
-        
-        
-//        tokenizer.enumerateTokens(in: text.startIndex..<text.endIndex, using: { (range, attribute) in
-//            let term = String(text[range])
-//            if attribute == .numeric && lemmatizerHelper.contains(previous) {
-//                let concatenedTerm = "\(previous) \(term)"
-//                tokens[concatenedTerm] = 1 + (tokens[concatenedTerm] ?? 0)
-//            }
-//            else {
-//                tokens[term] = 1 + (tokens[term] ?? 0)
-//            }
-//            previous = term
-//            return true
-//        })
-        
-//        text.enumerateSubstrings(
-//            in: text.startIndex..<text.endIndex,
-//            options: .byWords,
-//            { (term, _, _, _) in
-//                guard let term = term else { return }
-//                tokens[term] = 1 + (tokens[term] ?? 0)
-//        }
-//        )
-        
-        let otherLemma: [String : String] = ["apps" : "application",
-                                             "app" : "app"]
-        
-        let togethers: [(String, String)] = [("mac app store", "macappstore store"),
-                                             ("app store", "appstore store"),
-                                             ("itunes store", "itunesstore store"),
-                                             ("iphone xs", "iphonexs iphone"),
-                                             ("iphone xr", "iphonexr iphone"),
-                                             ("iphone x", "iphonex iphone"),
-                                             ("pixel 3a", "pixel3a pixel"),
-                                             ("galaxy s9", "galaxys9"),
-                                              ("galaxy s10", "galaxy s10")]
-                                                
-        for together in togethers {
-            mutableText = mutableText.replacingOccurrences(of: together.0, with: together.1)
-        }
-        
-        tagger.string = mutableText
-        tagger.enumerateTags(in: mutableText.startIndex..<mutableText.endIndex,
-                             unit: .word,
-                             scheme: .lemma,
-                             options: [.omitPunctuation, .omitWhitespace],
-                             using: { tag, range in
-                                let normal = String(mutableText[range])
-                                let term = tag?.rawValue.lowercased() ?? otherLemma[normal] ?? normal
-
-                                if term.count == 0 {
-                                    return true
-                                }
-
-                                if Double(term) ?? 0 > 0 && lemmatizerHelper.contains(previous) {
-                                    let concatenedTerm = "\(previous) \(term)"
-                                    tokens[concatenedTerm] = 1 + (tokens[concatenedTerm] ?? 0)
-                                }
-                                else {
-                                    tokens[term] = 1 + (tokens[term] ?? 0)
-                                }
-                                previous = term
-                                return true
-        })
-        
-        return tokens
+        return lemmatizer.lemmaFrequencies(text: text)
     }
     
-    public func termsIn(text: String) -> Set<String> {
-        var tokens: Set<String> = []
-        tokens.reserveCapacity(text.count / 4)
-
-        text.enumerateSubstrings(
-            in: text.startIndex..<text.endIndex,
-            options: .byWords,
-            { (term, _, _, _) in
-                guard let term = term else { return }
-                tokens.insert(term.lowercased())
-        }
-        )
-        return tokens
+    func lemmasIn(text: String) -> Set<String> {
+        return Set(lemmatizer.lemmaFrequencies(text: text).keys)
     }
     
-    public func termVector(from text: String) -> [String] {
-        return termsIn(text: text).sorted()
+    func lemmaVector(from text: String) -> [String] {
+        return lemmatizer.lemmaFrequencies(text: text).keys.sorted()
     }
     
     
