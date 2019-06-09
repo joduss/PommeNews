@@ -25,6 +25,8 @@
 		6B2FF8D220FBBBD7003A91BE /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2FF8D120FBBBD7003A91BE /* SafariActivity.swift */; };
 		6B31603E22384B3500609CD4 /* MarkSimilarArticleReadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31603D22384B3500609CD4 /* MarkSimilarArticleReadOperation.swift */; };
 		6B3346BA222C68090013149F /* TfIdfLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3346B9222C68090013149F /* TfIdfLoader.swift */; };
+		6B37D4CF227F617300554B64 /* PersonalizedAdConsent.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6BDDEAE4227F0E580081B0F8 /* PersonalizedAdConsent.bundle */; };
+		6B37D4D0227F61D500554B64 /* AdmobRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDDEB13227F16570081B0F8 /* AdmobRequest.swift */; };
 		6B391F8822352EA00044A5BA /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B391F8722352EA00044A5BA /* Language.swift */; };
 		6B3A5459217369C300EB9637 /* FilterVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A5457217369C300EB9637 /* FilterVCCell.swift */; };
 		6B3A545A217369C300EB9637 /* FilterVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B3A5458217369C300EB9637 /* FilterVCCell.xib */; };
@@ -141,6 +143,13 @@
 			remoteGlobalIDString = 6B334696222C3E540013149F;
 			remoteInfo = "ArticleClassifierCoreTests-ios";
 		};
+		6B37D4BB227F610000554B64 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BDDEAEB227F0E580081B0F8 /* PersonalizedAdConsent.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A92D29E2076961800FFE51D;
+			remoteInfo = PersonalizedAdConsent;
+		};
 		6B5CA2A7222889BA00F0409F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6B5CA2A1222889B900F0409F /* RssClient.xcodeproj */;
@@ -246,7 +255,12 @@
 			remoteGlobalIDString = 6BDC7AB6222AE4950061DB71;
 			remoteInfo = "RssClient-macos Dev";
 		};
+		6BDDEAFE227F0E580081B0F8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
+			containerPortal = 6BDDEAEB227F0E580081B0F8 /* PersonalizedAdConsent.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5A92D29F2076961800FFE51D;
+			remoteInfo = PersonalizedAdConsent;
 		};
 		6BEF6588221E13AE00E45278 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -395,6 +409,24 @@
 		6BDC7A98222AC7340061DB71 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
 		6BDC7A99222AC7340061DB71 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
 		6BDC7AA2222AC7560061DB71 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		6BDDEADF227F0E580081B0F8 /* PACPersonalizedAdConsent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PACPersonalizedAdConsent.h; sourceTree = "<group>"; };
+		6BDDEAE0227F0E580081B0F8 /* PersonalizedAdConsent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalizedAdConsent.h; sourceTree = "<group>"; };
+		6BDDEAE1227F0E580081B0F8 /* PACConsentForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PACConsentForm.h; sourceTree = "<group>"; };
+		6BDDEAE2227F0E580081B0F8 /* PACView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PACView.h; sourceTree = "<group>"; };
+		6BDDEAE3227F0E580081B0F8 /* PACError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PACError.h; sourceTree = "<group>"; };
+		6BDDEAE4227F0E580081B0F8 /* PersonalizedAdConsent.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PersonalizedAdConsent.bundle; sourceTree = "<group>"; };
+		6BDDEAE5227F0E580081B0F8 /* PACConsentForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PACConsentForm.m; sourceTree = "<group>"; };
+		6BDDEAE6227F0E580081B0F8 /* PACPersonalizedAdConsent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PACPersonalizedAdConsent.m; sourceTree = "<group>"; };
+		6BDDEAE7227F0E580081B0F8 /* PACView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PACView.m; sourceTree = "<group>"; };
+		6BDDEAE8227F0E580081B0F8 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		6BDDEAE9227F0E580081B0F8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BDDEAEA227F0E580081B0F8 /* PACError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PACError.m; sourceTree = "<group>"; };
+		6BDDEAEB227F0E580081B0F8 /* PersonalizedAdConsent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = PersonalizedAdConsent.xcodeproj; sourceTree = "<group>"; };
+		6BDDEAEE227F0E580081B0F8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		6BDDEAEF227F0E580081B0F8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6BDDEAF0227F0E580081B0F8 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		6BDDEB0D227F0E7D0081B0F8 /* Version */ = {isa = PBXFileReference; lastKnownFileType = text; path = Version; sourceTree = "<group>"; };
+		6BDDEB13227F16570081B0F8 /* AdmobRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmobRequest.swift; sourceTree = "<group>"; };
 		6BE184682135C82A00DEA4FA /* HTMLString.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = HTMLString.framework.dSYM; path = Carthage/Build/Mac/HTMLString.framework.dSYM; sourceTree = "<group>"; };
 		6BE184692135C82B00DEA4FA /* FeedKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = FeedKit.framework.dSYM; path = Carthage/Build/Mac/FeedKit.framework.dSYM; sourceTree = "<group>"; };
 		6BE1846D2135CAC700DEA4FA /* HTMLString.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLString.framework; path = Carthage/Build/Mac/HTMLString.framework; sourceTree = "<group>"; };
@@ -538,7 +570,7 @@
 			isa = PBXGroup;
 			children = (
 				6B25771821DA92BD00D419B6 /* InterstitialAd.swift */,
-				6B25771F21DC139E00D419B6 /* ViewControllerAdmob.swift */,
+				6BDDEB13227F16570081B0F8 /* AdmobRequest.swift */,
 			);
 			path = Ads;
 			sourceTree = "<group>";
@@ -547,6 +579,7 @@
 			isa = PBXGroup;
 			children = (
 				6BE36E43208528ED0077D848 /* Model */,
+				6B6C572121FE114B00D7BFE2 /* FeedsUpdater.swift */,
 				6BA21F3B2098F8E50075F4CD /* RSSManager.swift */,
 				6B3346B9222C68090013149F /* TfIdfLoader.swift */,
 				6B31603D22384B3500609CD4 /* MarkSimilarArticleReadOperation.swift */,
@@ -606,6 +639,7 @@
 		6B5B71AD220392A300930AAC /* Ads */ = {
 			isa = PBXGroup;
 			children = (
+				6B25771F21DC139E00D419B6 /* ViewControllerAdmob.swift */,
 				6B5B71AE220392BA00930AAC /* BannerView.swift */,
 			);
 			path = Ads;
@@ -763,7 +797,6 @@
 			children = (
 				6BFC31B3213F14D20030431F /* Extensions */,
 				6B25772321DC16F400D419B6 /* dprint.swift */,
-				6B6C572121FE114B00D7BFE2 /* FeedsUpdater.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -864,6 +897,7 @@
 		6BD7229C20A0E9BF00022353 /* 3rd Party Librairies */ = {
 			isa = PBXGroup;
 			children = (
+				6BDDEADC227F0E580081B0F8 /* Google Consent SDK */,
 				6B25770A21D55C9800D419B6 /* Google Firebase */,
 			);
 			path = "3rd Party Librairies";
@@ -884,6 +918,54 @@
 				6BDC7A90222ABCFF0061DB71 /* PrivacyPolicyVC.swift */,
 			);
 			path = ApplicationInfo;
+			sourceTree = "<group>";
+		};
+		6BDDEADC227F0E580081B0F8 /* Google Consent SDK */ = {
+			isa = PBXGroup;
+			children = (
+				6BDDEADD227F0E580081B0F8 /* PersonalizedAdConsent */,
+				6BDDEAF0227F0E580081B0F8 /* CONTRIBUTING.md */,
+				6BDDEAEE227F0E580081B0F8 /* LICENSE */,
+				6BDDEAEF227F0E580081B0F8 /* README.md */,
+				6BDDEB0D227F0E7D0081B0F8 /* Version */,
+			);
+			path = "Google Consent SDK";
+			sourceTree = "<group>";
+		};
+		6BDDEADD227F0E580081B0F8 /* PersonalizedAdConsent */ = {
+			isa = PBXGroup;
+			children = (
+				6BDDEADE227F0E580081B0F8 /* PersonalizedAdConsent */,
+				6BDDEAEB227F0E580081B0F8 /* PersonalizedAdConsent.xcodeproj */,
+			);
+			path = PersonalizedAdConsent;
+			sourceTree = "<group>";
+		};
+		6BDDEADE227F0E580081B0F8 /* PersonalizedAdConsent */ = {
+			isa = PBXGroup;
+			children = (
+				6BDDEADF227F0E580081B0F8 /* PACPersonalizedAdConsent.h */,
+				6BDDEAE0227F0E580081B0F8 /* PersonalizedAdConsent.h */,
+				6BDDEAE1227F0E580081B0F8 /* PACConsentForm.h */,
+				6BDDEAE2227F0E580081B0F8 /* PACView.h */,
+				6BDDEAE3227F0E580081B0F8 /* PACError.h */,
+				6BDDEAE4227F0E580081B0F8 /* PersonalizedAdConsent.bundle */,
+				6BDDEAE5227F0E580081B0F8 /* PACConsentForm.m */,
+				6BDDEAE6227F0E580081B0F8 /* PACPersonalizedAdConsent.m */,
+				6BDDEAE7227F0E580081B0F8 /* PACView.m */,
+				6BDDEAE8227F0E580081B0F8 /* module.modulemap */,
+				6BDDEAE9227F0E580081B0F8 /* Info.plist */,
+				6BDDEAEA227F0E580081B0F8 /* PACError.m */,
+			);
+			path = PersonalizedAdConsent;
+			sourceTree = "<group>";
+		};
+		6BDDEAEC227F0E580081B0F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BDDEAFF227F0E580081B0F8 /* PersonalizedAdConsent.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		6BE36E43208528ED0077D848 /* Model */ = {
@@ -1106,6 +1188,10 @@
 					ProjectRef = 6BCB05D3224C0DC900400EE1 /* HTMLString.xcodeproj */;
 				},
 				{
+					ProductGroup = 6BDDEAEC227F0E580081B0F8 /* Products */;
+					ProjectRef = 6BDDEAEB227F0E580081B0F8 /* PersonalizedAdConsent.xcodeproj */;
+				},
+				{
 					ProductGroup = 6B5CA2A2222889B900F0409F /* Products */;
 					ProjectRef = 6B5CA2A1222889B900F0409F /* RssClient.xcodeproj */;
 				},
@@ -1236,6 +1322,13 @@
 			remoteRef = 6BDC7AB9222AE4EE0061DB71 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		6BDDEAFF227F0E580081B0F8 /* PersonalizedAdConsent.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PersonalizedAdConsent.framework;
+			remoteRef = 6BDDEAFE227F0E580081B0F8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		6BEF6589221E13AE00E45278 /* ZaJoLibrary.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1278,6 +1371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B37D4CF227F617300554B64 /* PersonalizedAdConsent.bundle in Resources */,
 				6BC9132C203F290600F969DD /* Cartfile in Resources */,
 				6B82C35A201FC838006FA35D /* LaunchScreen.storyboard in Resources */,
 				6B82C357201FC838006FA35D /* Assets.xcassets in Resources */,
@@ -1401,6 +1495,7 @@
 				6BEB5299218CCF5F00C08D81 /* Request.swift in Sources */,
 				6B82C350201FC838006FA35D /* AppDelegate.swift in Sources */,
 				6BB8FC7E2023830C00AB870F /* ArticleListCell.swift in Sources */,
+				6B37D4D0227F61D500554B64 /* AdmobRequest.swift in Sources */,
 				6B828662204A9A7600AB9242 /* ArticleViewController.swift in Sources */,
 				6B25772021DC139E00D419B6 /* ViewControllerAdmob.swift in Sources */,
 				6B25771321D56C6F00D419B6 /* PommeNewsConfig.swift in Sources */,
@@ -1466,15 +1561,9 @@
 			target = 6B82C34B201FC838006FA35D /* PommeNews */;
 			targetProxy = 6B82C36C201FC838006FA35D /* PBXContainerItemProxy */;
 		};
-		6BCB065E224C14AA00400EE1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "HTMLString-iOS";
-			targetProxy = 6BCB065D224C14AA00400EE1 /* PBXContainerItemProxy */;
-		};
 		6BDC7ABE222AE5660061DB71 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "RssClient-ios";
-			targetProxy = 6BDC7ABD222AE5660061DB71 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

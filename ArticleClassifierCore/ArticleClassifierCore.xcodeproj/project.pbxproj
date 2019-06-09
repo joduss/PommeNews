@@ -42,6 +42,82 @@
 		6BEF6575221E12EF00E45278 /* ArticleJsonConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DF14221DEFE700D0FE0A /* ArticleJsonConverter.swift */; };
 		6BEF6576221E12F100E45278 /* TCArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DF15221DEFE700D0FE0A /* TCArticle.swift */; };
 		6BEF6577221E12F300E45278 /* ArticlesJsonFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01DF16221DEFE700D0FE0A /* ArticlesJsonFileIO.swift */; };
+		6BF777842257C66F001B7B20 /* LSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777832257C66F001B7B20 /* LSA.swift */; };
+		6BF777972257C76C001B7B20 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777882257C76B001B7B20 /* Random.swift */; };
+		6BF777982257C76C001B7B20 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777882257C76B001B7B20 /* Random.swift */; };
+		6BF777992257C76C001B7B20 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777882257C76B001B7B20 /* Random.swift */; };
+		6BF7779A2257C76C001B7B20 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777882257C76B001B7B20 /* Random.swift */; };
+		6BF7779B2257C76C001B7B20 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777882257C76B001B7B20 /* Random.swift */; };
+		6BF7779C2257C76C001B7B20 /* VectorStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777892257C76B001B7B20 /* VectorStatistics.swift */; };
+		6BF7779D2257C76C001B7B20 /* VectorStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777892257C76B001B7B20 /* VectorStatistics.swift */; };
+		6BF7779E2257C76C001B7B20 /* VectorStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777892257C76B001B7B20 /* VectorStatistics.swift */; };
+		6BF7779F2257C76C001B7B20 /* VectorStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777892257C76B001B7B20 /* VectorStatistics.swift */; };
+		6BF777A02257C76C001B7B20 /* VectorStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777892257C76B001B7B20 /* VectorStatistics.swift */; };
+		6BF777A12257C76C001B7B20 /* VectorArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778A2257C76B001B7B20 /* VectorArithmetic.swift */; };
+		6BF777A22257C76C001B7B20 /* VectorArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778A2257C76B001B7B20 /* VectorArithmetic.swift */; };
+		6BF777A32257C76C001B7B20 /* VectorArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778A2257C76B001B7B20 /* VectorArithmetic.swift */; };
+		6BF777A42257C76C001B7B20 /* VectorArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778A2257C76B001B7B20 /* VectorArithmetic.swift */; };
+		6BF777A52257C76C001B7B20 /* VectorArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778A2257C76B001B7B20 /* VectorArithmetic.swift */; };
+		6BF777A62257C76C001B7B20 /* MatrixTrigonometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778B2257C76B001B7B20 /* MatrixTrigonometry.swift */; };
+		6BF777A72257C76C001B7B20 /* MatrixTrigonometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778B2257C76B001B7B20 /* MatrixTrigonometry.swift */; };
+		6BF777A82257C76C001B7B20 /* MatrixTrigonometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778B2257C76B001B7B20 /* MatrixTrigonometry.swift */; };
+		6BF777A92257C76C001B7B20 /* MatrixTrigonometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778B2257C76B001B7B20 /* MatrixTrigonometry.swift */; };
+		6BF777AA2257C76C001B7B20 /* MatrixTrigonometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778B2257C76B001B7B20 /* MatrixTrigonometry.swift */; };
+		6BF777AB2257C76C001B7B20 /* MatrixStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778C2257C76B001B7B20 /* MatrixStatistics.swift */; };
+		6BF777AC2257C76C001B7B20 /* MatrixStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778C2257C76B001B7B20 /* MatrixStatistics.swift */; };
+		6BF777AD2257C76C001B7B20 /* MatrixStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778C2257C76B001B7B20 /* MatrixStatistics.swift */; };
+		6BF777AE2257C76C001B7B20 /* MatrixStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778C2257C76B001B7B20 /* MatrixStatistics.swift */; };
+		6BF777AF2257C76C001B7B20 /* MatrixStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778C2257C76B001B7B20 /* MatrixStatistics.swift */; };
+		6BF777B02257C76C001B7B20 /* VectorExponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778D2257C76B001B7B20 /* VectorExponent.swift */; };
+		6BF777B12257C76C001B7B20 /* VectorExponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778D2257C76B001B7B20 /* VectorExponent.swift */; };
+		6BF777B22257C76C001B7B20 /* VectorExponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778D2257C76B001B7B20 /* VectorExponent.swift */; };
+		6BF777B32257C76C001B7B20 /* VectorExponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778D2257C76B001B7B20 /* VectorExponent.swift */; };
+		6BF777B42257C76C001B7B20 /* VectorExponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778D2257C76B001B7B20 /* VectorExponent.swift */; };
+		6BF777B52257C76C001B7B20 /* MatrixExponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778E2257C76B001B7B20 /* MatrixExponent.swift */; };
+		6BF777B62257C76C001B7B20 /* MatrixExponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778E2257C76B001B7B20 /* MatrixExponent.swift */; };
+		6BF777B72257C76C001B7B20 /* MatrixExponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778E2257C76B001B7B20 /* MatrixExponent.swift */; };
+		6BF777B82257C76C001B7B20 /* MatrixExponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778E2257C76B001B7B20 /* MatrixExponent.swift */; };
+		6BF777B92257C76C001B7B20 /* MatrixExponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778E2257C76B001B7B20 /* MatrixExponent.swift */; };
+		6BF777BA2257C76C001B7B20 /* MatrixArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778F2257C76B001B7B20 /* MatrixArithmetic.swift */; };
+		6BF777BB2257C76C001B7B20 /* MatrixArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778F2257C76B001B7B20 /* MatrixArithmetic.swift */; };
+		6BF777BC2257C76C001B7B20 /* MatrixArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778F2257C76B001B7B20 /* MatrixArithmetic.swift */; };
+		6BF777BD2257C76C001B7B20 /* MatrixArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778F2257C76B001B7B20 /* MatrixArithmetic.swift */; };
+		6BF777BE2257C76C001B7B20 /* MatrixArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7778F2257C76B001B7B20 /* MatrixArithmetic.swift */; };
+		6BF777BF2257C76C001B7B20 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777902257C76B001B7B20 /* Operators.swift */; };
+		6BF777C02257C76C001B7B20 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777902257C76B001B7B20 /* Operators.swift */; };
+		6BF777C12257C76C001B7B20 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777902257C76B001B7B20 /* Operators.swift */; };
+		6BF777C22257C76C001B7B20 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777902257C76B001B7B20 /* Operators.swift */; };
+		6BF777C32257C76C001B7B20 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777902257C76B001B7B20 /* Operators.swift */; };
+		6BF777C42257C76C001B7B20 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777912257C76B001B7B20 /* Vector.swift */; };
+		6BF777C52257C76C001B7B20 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777912257C76B001B7B20 /* Vector.swift */; };
+		6BF777C62257C76C001B7B20 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777912257C76B001B7B20 /* Vector.swift */; };
+		6BF777C72257C76C001B7B20 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777912257C76B001B7B20 /* Vector.swift */; };
+		6BF777C82257C76C001B7B20 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777912257C76B001B7B20 /* Vector.swift */; };
+		6BF777C92257C76C001B7B20 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777922257C76C001B7B20 /* Util.swift */; };
+		6BF777CA2257C76C001B7B20 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777922257C76C001B7B20 /* Util.swift */; };
+		6BF777CB2257C76C001B7B20 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777922257C76C001B7B20 /* Util.swift */; };
+		6BF777CC2257C76C001B7B20 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777922257C76C001B7B20 /* Util.swift */; };
+		6BF777CD2257C76C001B7B20 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777922257C76C001B7B20 /* Util.swift */; };
+		6BF777CE2257C76C001B7B20 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777932257C76C001B7B20 /* Matrix.swift */; };
+		6BF777CF2257C76C001B7B20 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777932257C76C001B7B20 /* Matrix.swift */; };
+		6BF777D02257C76C001B7B20 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777932257C76C001B7B20 /* Matrix.swift */; };
+		6BF777D12257C76C001B7B20 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777932257C76C001B7B20 /* Matrix.swift */; };
+		6BF777D22257C76C001B7B20 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777932257C76C001B7B20 /* Matrix.swift */; };
+		6BF777D32257C76C001B7B20 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777942257C76C001B7B20 /* Numeric.swift */; };
+		6BF777D42257C76C001B7B20 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777942257C76C001B7B20 /* Numeric.swift */; };
+		6BF777D52257C76C001B7B20 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777942257C76C001B7B20 /* Numeric.swift */; };
+		6BF777D62257C76C001B7B20 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777942257C76C001B7B20 /* Numeric.swift */; };
+		6BF777D72257C76C001B7B20 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777942257C76C001B7B20 /* Numeric.swift */; };
+		6BF777D82257C76C001B7B20 /* VectorTrigonometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777952257C76C001B7B20 /* VectorTrigonometry.swift */; };
+		6BF777D92257C76C001B7B20 /* VectorTrigonometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777952257C76C001B7B20 /* VectorTrigonometry.swift */; };
+		6BF777DA2257C76C001B7B20 /* VectorTrigonometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777952257C76C001B7B20 /* VectorTrigonometry.swift */; };
+		6BF777DB2257C76C001B7B20 /* VectorTrigonometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777952257C76C001B7B20 /* VectorTrigonometry.swift */; };
+		6BF777DC2257C76C001B7B20 /* VectorTrigonometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777952257C76C001B7B20 /* VectorTrigonometry.swift */; };
+		6BF777DD2257C76C001B7B20 /* MatrixAlgebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777962257C76C001B7B20 /* MatrixAlgebra.swift */; };
+		6BF777DE2257C76C001B7B20 /* MatrixAlgebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777962257C76C001B7B20 /* MatrixAlgebra.swift */; };
+		6BF777DF2257C76C001B7B20 /* MatrixAlgebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777962257C76C001B7B20 /* MatrixAlgebra.swift */; };
+		6BF777E02257C76C001B7B20 /* MatrixAlgebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777962257C76C001B7B20 /* MatrixAlgebra.swift */; };
+		6BF777E12257C76C001B7B20 /* MatrixAlgebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF777962257C76C001B7B20 /* MatrixAlgebra.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +216,22 @@
 		6BDC7AD0222BD4070061DB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BDC7AD9222BD46F0061DB71 /* TfIdfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TfIdfTests.swift; sourceTree = "<group>"; };
 		6BDC7ADC222C077C0061DB71 /* ArrayVectorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayVectorExtention.swift; sourceTree = "<group>"; };
+		6BF777832257C66F001B7B20 /* LSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSA.swift; sourceTree = "<group>"; };
+		6BF777882257C76B001B7B20 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		6BF777892257C76B001B7B20 /* VectorStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorStatistics.swift; sourceTree = "<group>"; };
+		6BF7778A2257C76B001B7B20 /* VectorArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorArithmetic.swift; sourceTree = "<group>"; };
+		6BF7778B2257C76B001B7B20 /* MatrixTrigonometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixTrigonometry.swift; sourceTree = "<group>"; };
+		6BF7778C2257C76B001B7B20 /* MatrixStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixStatistics.swift; sourceTree = "<group>"; };
+		6BF7778D2257C76B001B7B20 /* VectorExponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorExponent.swift; sourceTree = "<group>"; };
+		6BF7778E2257C76B001B7B20 /* MatrixExponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixExponent.swift; sourceTree = "<group>"; };
+		6BF7778F2257C76B001B7B20 /* MatrixArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixArithmetic.swift; sourceTree = "<group>"; };
+		6BF777902257C76B001B7B20 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		6BF777912257C76B001B7B20 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		6BF777922257C76C001B7B20 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		6BF777932257C76C001B7B20 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		6BF777942257C76C001B7B20 /* Numeric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
+		6BF777952257C76C001B7B20 /* VectorTrigonometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorTrigonometry.swift; sourceTree = "<group>"; };
+		6BF777962257C76C001B7B20 /* MatrixAlgebra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixAlgebra.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +306,7 @@
 		6B01DED1221DEB0500D0FE0A /* ArticleClassifierCore */ = {
 			isa = PBXGroup;
 			children = (
+				6BF777862257C756001B7B20 /* Third Party */,
 				6BDC7AC3222AF5690061DB71 /* Algorithms */,
 				6B01DF13221DEFE700D0FE0A /* Articles */,
 				6B01DF11221DEFE700D0FE0A /* ArticleTheme.swift */,
@@ -295,6 +388,7 @@
 				6BDC7AC4222AF57A0061DB71 /* TfIdf.swift */,
 				6BDC7ADC222C077C0061DB71 /* ArrayVectorExtention.swift */,
 				6B3346BB222C6B0C0013149F /* CosineSimilarity.swift */,
+				6BF777832257C66F001B7B20 /* LSA.swift */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -307,6 +401,36 @@
 				6BDC7AD9222BD46F0061DB71 /* TfIdfTests.swift */,
 			);
 			path = ArticleClassifierCoreTests;
+			sourceTree = "<group>";
+		};
+		6BF777862257C756001B7B20 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				6BF777872257C76B001B7B20 /* MatrixLib */,
+			);
+			path = "Third Party";
+			sourceTree = "<group>";
+		};
+		6BF777872257C76B001B7B20 /* MatrixLib */ = {
+			isa = PBXGroup;
+			children = (
+				6BF777882257C76B001B7B20 /* Random.swift */,
+				6BF777892257C76B001B7B20 /* VectorStatistics.swift */,
+				6BF7778A2257C76B001B7B20 /* VectorArithmetic.swift */,
+				6BF7778B2257C76B001B7B20 /* MatrixTrigonometry.swift */,
+				6BF7778C2257C76B001B7B20 /* MatrixStatistics.swift */,
+				6BF7778D2257C76B001B7B20 /* VectorExponent.swift */,
+				6BF7778E2257C76B001B7B20 /* MatrixExponent.swift */,
+				6BF7778F2257C76B001B7B20 /* MatrixArithmetic.swift */,
+				6BF777902257C76B001B7B20 /* Operators.swift */,
+				6BF777912257C76B001B7B20 /* Vector.swift */,
+				6BF777922257C76C001B7B20 /* Util.swift */,
+				6BF777932257C76C001B7B20 /* Matrix.swift */,
+				6BF777942257C76C001B7B20 /* Numeric.swift */,
+				6BF777952257C76C001B7B20 /* VectorTrigonometry.swift */,
+				6BF777962257C76C001B7B20 /* MatrixAlgebra.swift */,
+			);
+			path = MatrixLib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -546,13 +670,29 @@
 			files = (
 				6BDC7AC5222AF57A0061DB71 /* TfIdf.swift in Sources */,
 				6B01DF1C221DEFE700D0FE0A /* ArticlesJsonFileIO.swift in Sources */,
+				6BF777C42257C76C001B7B20 /* Vector.swift in Sources */,
 				6B3346BC222C6B0C0013149F /* CosineSimilarity.swift in Sources */,
+				6BF777C92257C76C001B7B20 /* Util.swift in Sources */,
+				6BF777B02257C76C001B7B20 /* VectorExponent.swift in Sources */,
+				6BF777BA2257C76C001B7B20 /* MatrixArithmetic.swift in Sources */,
+				6BF777AB2257C76C001B7B20 /* MatrixStatistics.swift in Sources */,
+				6BF777BF2257C76C001B7B20 /* Operators.swift in Sources */,
+				6BF777DD2257C76C001B7B20 /* MatrixAlgebra.swift in Sources */,
+				6BF777A62257C76C001B7B20 /* MatrixTrigonometry.swift in Sources */,
 				6B01DF20221DF00400D0FE0A /* NAError.swift in Sources */,
 				6B01DF18221DEFE700D0FE0A /* ArticleTheme.swift in Sources */,
+				6BF777B52257C76C001B7B20 /* MatrixExponent.swift in Sources */,
 				6BDC7AC0222AEC2E0061DB71 /* SimilarArticleFinder.swift in Sources */,
 				6BDC7ADD222C077C0061DB71 /* ArrayVectorExtention.swift in Sources */,
+				6BF7779C2257C76C001B7B20 /* VectorStatistics.swift in Sources */,
+				6BF777D32257C76C001B7B20 /* Numeric.swift in Sources */,
+				6BF777D82257C76C001B7B20 /* VectorTrigonometry.swift in Sources */,
+				6BF777CE2257C76C001B7B20 /* Matrix.swift in Sources */,
 				6B01DF1B221DEFE700D0FE0A /* TCArticle.swift in Sources */,
+				6BF777842257C66F001B7B20 /* LSA.swift in Sources */,
 				6B01DF1A221DEFE700D0FE0A /* ArticleJsonConverter.swift in Sources */,
+				6BF777A12257C76C001B7B20 /* VectorArithmetic.swift in Sources */,
+				6BF777972257C76C001B7B20 /* Random.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,14 +700,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BF777BB2257C76C001B7B20 /* MatrixArithmetic.swift in Sources */,
+				6BF777D92257C76C001B7B20 /* VectorTrigonometry.swift in Sources */,
 				6BEF6575221E12EF00E45278 /* ArticleJsonConverter.swift in Sources */,
 				6B3346BE222C6D0F0013149F /* CosineSimilarity.swift in Sources */,
+				6BF777DE2257C76C001B7B20 /* MatrixAlgebra.swift in Sources */,
 				6BEF6576221E12F100E45278 /* TCArticle.swift in Sources */,
+				6BF777D42257C76C001B7B20 /* Numeric.swift in Sources */,
+				6BF777AC2257C76C001B7B20 /* MatrixStatistics.swift in Sources */,
+				6BF777A72257C76C001B7B20 /* MatrixTrigonometry.swift in Sources */,
 				6BEF6573221E12E600E45278 /* ArticleTheme.swift in Sources */,
 				6B1596B2222C38F100471710 /* ArrayVectorExtention.swift in Sources */,
 				6BDC7AC6222B3D050061DB71 /* TfIdf.swift in Sources */,
+				6BF777B62257C76C001B7B20 /* MatrixExponent.swift in Sources */,
 				6BEF6577221E12F300E45278 /* ArticlesJsonFileIO.swift in Sources */,
+				6BF777A22257C76C001B7B20 /* VectorArithmetic.swift in Sources */,
+				6BF777CA2257C76C001B7B20 /* Util.swift in Sources */,
+				6BF777C02257C76C001B7B20 /* Operators.swift in Sources */,
+				6BF7779D2257C76C001B7B20 /* VectorStatistics.swift in Sources */,
 				6BEF6574221E12E900E45278 /* NAError.swift in Sources */,
+				6BF777CF2257C76C001B7B20 /* Matrix.swift in Sources */,
+				6BF777982257C76C001B7B20 /* Random.swift in Sources */,
+				6BF777C52257C76C001B7B20 /* Vector.swift in Sources */,
+				6BF777B12257C76C001B7B20 /* VectorExponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,8 +730,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BF777D12257C76C001B7B20 /* Matrix.swift in Sources */,
+				6BF777D62257C76C001B7B20 /* Numeric.swift in Sources */,
+				6BF777BD2257C76C001B7B20 /* MatrixArithmetic.swift in Sources */,
+				6BF777A42257C76C001B7B20 /* VectorArithmetic.swift in Sources */,
 				6B334676222C3C760013149F /* ViewController.swift in Sources */,
 				6B334674222C3C760013149F /* AppDelegate.swift in Sources */,
+				6BF777B32257C76C001B7B20 /* VectorExponent.swift in Sources */,
+				6BF777E02257C76C001B7B20 /* MatrixAlgebra.swift in Sources */,
+				6BF777A92257C76C001B7B20 /* MatrixTrigonometry.swift in Sources */,
+				6BF777C22257C76C001B7B20 /* Operators.swift in Sources */,
+				6BF777DB2257C76C001B7B20 /* VectorTrigonometry.swift in Sources */,
+				6BF777CC2257C76C001B7B20 /* Util.swift in Sources */,
+				6BF7779A2257C76C001B7B20 /* Random.swift in Sources */,
+				6BF7779F2257C76C001B7B20 /* VectorStatistics.swift in Sources */,
+				6BF777AE2257C76C001B7B20 /* MatrixStatistics.swift in Sources */,
+				6BF777C72257C76C001B7B20 /* Vector.swift in Sources */,
+				6BF777B82257C76C001B7B20 /* MatrixExponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,8 +754,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BF777D22257C76C001B7B20 /* Matrix.swift in Sources */,
+				6BF777D72257C76C001B7B20 /* Numeric.swift in Sources */,
+				6BF777BE2257C76C001B7B20 /* MatrixArithmetic.swift in Sources */,
+				6BF777A52257C76C001B7B20 /* VectorArithmetic.swift in Sources */,
 				6B334699222C3E540013149F /* ArticleClassifierCoreTests_ios.swift in Sources */,
 				6B3346A0222C3E960013149F /* TfIdfTests.swift in Sources */,
+				6BF777B42257C76C001B7B20 /* VectorExponent.swift in Sources */,
+				6BF777E12257C76C001B7B20 /* MatrixAlgebra.swift in Sources */,
+				6BF777AA2257C76C001B7B20 /* MatrixTrigonometry.swift in Sources */,
+				6BF777C32257C76C001B7B20 /* Operators.swift in Sources */,
+				6BF777DC2257C76C001B7B20 /* VectorTrigonometry.swift in Sources */,
+				6BF777CD2257C76C001B7B20 /* Util.swift in Sources */,
+				6BF7779B2257C76C001B7B20 /* Random.swift in Sources */,
+				6BF777A02257C76C001B7B20 /* VectorStatistics.swift in Sources */,
+				6BF777AF2257C76C001B7B20 /* MatrixStatistics.swift in Sources */,
+				6BF777C82257C76C001B7B20 /* Vector.swift in Sources */,
+				6BF777B92257C76C001B7B20 /* MatrixExponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,8 +778,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BF777D02257C76C001B7B20 /* Matrix.swift in Sources */,
+				6BF777D52257C76C001B7B20 /* Numeric.swift in Sources */,
+				6BF777BC2257C76C001B7B20 /* MatrixArithmetic.swift in Sources */,
+				6BF777A32257C76C001B7B20 /* VectorArithmetic.swift in Sources */,
 				6BDC7ACF222BD4070061DB71 /* ArticleClassifierCoreTests.swift in Sources */,
 				6BDC7ADA222BD46F0061DB71 /* TfIdfTests.swift in Sources */,
+				6BF777B22257C76C001B7B20 /* VectorExponent.swift in Sources */,
+				6BF777DF2257C76C001B7B20 /* MatrixAlgebra.swift in Sources */,
+				6BF777A82257C76C001B7B20 /* MatrixTrigonometry.swift in Sources */,
+				6BF777C12257C76C001B7B20 /* Operators.swift in Sources */,
+				6BF777DA2257C76C001B7B20 /* VectorTrigonometry.swift in Sources */,
+				6BF777CB2257C76C001B7B20 /* Util.swift in Sources */,
+				6BF777992257C76C001B7B20 /* Random.swift in Sources */,
+				6BF7779E2257C76C001B7B20 /* VectorStatistics.swift in Sources */,
+				6BF777AD2257C76C001B7B20 /* MatrixStatistics.swift in Sources */,
+				6BF777C62257C76C001B7B20 /* Vector.swift in Sources */,
+				6BF777B72257C76C001B7B20 /* MatrixExponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

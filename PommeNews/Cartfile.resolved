@@ -1,4 +1,4 @@
-github "Swinject/Swinject" "2.6.0"
+github "Swinject/Swinject" "2.6.1"
 github "fpillet/NSLogger" "v1.9.7"
 github "kukushi/SideMenu" "ae33a018abf4669bd4af04c3d4f3108bc894a3ed"
 github "nmdias/FeedKit" "7.1.1"
