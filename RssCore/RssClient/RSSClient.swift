@@ -62,7 +62,7 @@ open class RSSClient {
                 else {
                     continue
             }
-             
+            
             var imagePath = entry.media?.mediaThumbnails?.first?.attributes?.url
             
             if imagePath == nil && entry.enclosure?.attributes?.type?.contains("image") ?? false {

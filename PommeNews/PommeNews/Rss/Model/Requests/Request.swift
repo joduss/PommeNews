@@ -70,4 +70,7 @@ public class Request<T> where T: NSManagedObject & EntityName {
         }
     }
     
+    static func objectWithId(id: NSManagedObjectID, context: NSManagedObjectContext) -> T {
+        return context.object(with: id) as! T
+    }
 }

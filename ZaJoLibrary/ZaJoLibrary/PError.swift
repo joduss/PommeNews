@@ -19,6 +19,9 @@ public indirect enum PError: Error {
     
     case inconsistency(String)
     case dbIssue(String)
+    
+    case unknownError(String)
+    case operationFailed
 
     case illegalOperation(String)
     case unsupported

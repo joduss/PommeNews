@@ -23,6 +23,7 @@ class CoreDataStack {
             //TODO when error
             print("\(description), ERROR: \(error)")
             self.context = self.persistentContainer.viewContext
+            self.context.automaticallyMergesChangesFromParent = true
         })
         
     }

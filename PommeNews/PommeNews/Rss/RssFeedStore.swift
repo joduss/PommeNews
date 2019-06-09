@@ -10,15 +10,20 @@ import Foundation
 import RssClient
 import ZaJoLibrary
 import CoreData
+import NSLoggerSwift
+import NaturalLanguage
 
 /// Manages the Rss feeds
 /// For fetching, use RssFeedRequest.
-class RssFeedStore {
+class RssFeedStore: Hashable {
     
     private(set) var feeds: [RssFeed] = []
-
+    private weak var rssManager: RSSManager!
+    private let instanceId = UUID.init()
     
-    public init() {
+    public init(rssManager: RSSManager) {
+        self.rssManager = rssManager
+        
         //Init feeds
         var allFeeds: [RssFeed] = []
         for feed in supportedFeeds {
@@ -124,9 +129,68 @@ class RssFeedStore {
             newFeed.name = name
             newFeed.url = url
             newFeed.addedByUser = true
+            
+            detectLanguage(feed: newFeed)
         }
+        
         
         try? CoreDataStack.shared.save()
     }
     
+    private func detectLanguage(attempt: Int = 0, feed: RssFeed) {
+        
+        if attempt >= 2 {
+            Logger.shared.log(Logger.Domain.app, .important, "Couldn't detect the language: fetching articles failed.")
+        }
+        
+        DispatchQueue(label: "Language Detection").async {
+            
+            let semaphore = DispatchSemaphore(value: 1)
+            
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
+                self.rssManager.feedsUpdater.subscribeToArticlesUpdate(subscriber: self, onPublish: { _ in
+                    semaphore.signal()
+                })
+                self.rssManager.feedsUpdater.update(feeds: [feed])
+            }
+            
+            let waited = semaphore.wait(timeout: DispatchTime.now() + DispatchTimeInterval.seconds(30))
+            
+            guard waited != DispatchTimeoutResult.timedOut else {
+                self.detectLanguage(attempt: 1, feed: feed)
+                return
+            }
+            
+            guard let article = feed.articles.first else {
+                self.detectLanguage(attempt: 1, feed: feed)
+                return
+            }
+            
+            guard let languageCode = self.language(of: article) else {
+                self.detectLanguage(attempt: 1, feed: feed)
+                return
+            }
+            
+            feed.language = languageCode
+        }
+    }
+    
+    /// Returns the language iso code.
+    private func language(of article: RssArticle) -> String? {
+        let text = article.summary ?? article.title
+        
+        guard let languageCode = NLLanguageRecognizer.dominantLanguage(for: text)?.rawValue else  {
+            return nil
+        }
+        
+        return languageCode
+    }
+    
+    static func == (lhs: RssFeedStore, rhs: RssFeedStore) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(instanceId)
+    }
 }

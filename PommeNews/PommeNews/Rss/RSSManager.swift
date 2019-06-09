@@ -35,7 +35,10 @@ class RSSManager {
     private let context = CoreDataStack.shared.context
     
     public var feedsUpdater: FeedsUpdater! = nil
-    public var rssFeedStore: RssFeedStore = RssFeedStore()
+    
+    public lazy var rssFeedStore: RssFeedStore = {
+        return RssFeedStore(rssManager: self)
+    }()
     
     init(rssClient: RSSClient) {
         
