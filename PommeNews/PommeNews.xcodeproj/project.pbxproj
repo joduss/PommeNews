@@ -44,8 +44,6 @@
 		6B82C355201FC838006FA35D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B82C353201FC838006FA35D /* Main.storyboard */; };
 		6B82C357201FC838006FA35D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B82C356201FC838006FA35D /* Assets.xcassets */; };
 		6B82C35A201FC838006FA35D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B82C358201FC838006FA35D /* LaunchScreen.storyboard */; };
-		6B82C365201FC838006FA35D /* PommeNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82C364201FC838006FA35D /* PommeNewsTests.swift */; };
-		6B82C370201FC838006FA35D /* PommeNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82C36F201FC838006FA35D /* PommeNewsUITests.swift */; };
 		6B82C3A8202197C9006FA35D /* RSSFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82C3A7202197C9006FA35D /* RSSFeedType.swift */; };
 		6B82C3AA202197E2006FA35D /* RSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82C3A9202197E2006FA35D /* RSSFeed.swift */; };
 		6B870AC1209F60AF004EC529 /* StreamManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B870AC0209F60AF004EC529 /* StreamManagementViewController.swift */; };
@@ -184,20 +182,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 6B5CA30D2228A30100F0409F;
 			remoteInfo = "RssClient-ios FW";
-		};
-		6B82C361201FC838006FA35D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B82C344201FC838006FA35D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6B82C34B201FC838006FA35D;
-			remoteInfo = PommeNews;
-		};
-		6B82C36C201FC838006FA35D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B82C344201FC838006FA35D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6B82C34B201FC838006FA35D;
-			remoteInfo = PommeNews;
 		};
 		6BCB05DD224C0DC900400EE1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -360,12 +344,6 @@
 		6B82C356201FC838006FA35D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B82C359201FC838006FA35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B82C35B201FC838006FA35D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B82C360201FC838006FA35D /* PommeNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PommeNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B82C364201FC838006FA35D /* PommeNewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PommeNewsTests.swift; sourceTree = "<group>"; };
-		6B82C366201FC838006FA35D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B82C36B201FC838006FA35D /* PommeNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PommeNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B82C36F201FC838006FA35D /* PommeNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PommeNewsUITests.swift; sourceTree = "<group>"; };
-		6B82C371201FC838006FA35D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B82C380201FD03C006FA35D /* RSSFeeds.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RSSFeeds.plist; sourceTree = "<group>"; };
 		6B82C3A520212371006FA35D /* FeedKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FeedKit.framework; path = Carthage/Build/iOS/FeedKit.framework; sourceTree = "<group>"; };
 		6B82C3A7202197C9006FA35D /* RSSFeedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedType.swift; sourceTree = "<group>"; };
@@ -492,20 +470,6 @@
 				6BDC7A9A222AC7340061DB71 /* FirebaseCoreDiagnostics.framework in Frameworks */,
 				6BDC7A9B222AC7340061DB71 /* GoogleAppMeasurement.framework in Frameworks */,
 				6B0E1666203A00E40035C75B /* Swinject.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6B82C35D201FC838006FA35D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6B82C368201FC838006FA35D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,8 +674,6 @@
 		6B82C34D201FC838006FA35D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6B82C360201FC838006FA35D /* PommeNewsTests.xctest */,
-				6B82C36B201FC838006FA35D /* PommeNewsUITests.xctest */,
 				6B37D494227F60DD00554B64 /* PommeNews.app */,
 			);
 			name = Products;
@@ -739,25 +701,6 @@
 			path = PommeNews;
 			sourceTree = "<group>";
 		};
-		6B82C363201FC838006FA35D /* PommeNewsTests */ = {
-			isa = PBXGroup;
-			children = (
-				6B82C3A220212026006FA35D /* mockData */,
-				6B82C364201FC838006FA35D /* PommeNewsTests.swift */,
-				6B82C366201FC838006FA35D /* Info.plist */,
-			);
-			path = PommeNewsTests;
-			sourceTree = "<group>";
-		};
-		6B82C36E201FC838006FA35D /* PommeNewsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				6B82C36F201FC838006FA35D /* PommeNewsUITests.swift */,
-				6B82C371201FC838006FA35D /* Info.plist */,
-			);
-			path = PommeNewsUITests;
-			sourceTree = "<group>";
-		};
 		6B82C37D201FC958006FA35D /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -765,13 +708,6 @@
 				6B413AE2210A2D3300A0AC69 /* ImageFetcherKF.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		6B82C3A220212026006FA35D /* mockData */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = mockData;
 			sourceTree = "<group>";
 		};
 		6B82C3A420212371006FA35D /* Frameworks */ = {
@@ -1053,8 +989,6 @@
 		6BFC31A7213F133F0030431F /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6B82C363201FC838006FA35D /* PommeNewsTests */,
-				6B82C36E201FC838006FA35D /* PommeNewsUITests */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -1095,42 +1029,6 @@
 			productReference = 6B37D494227F60DD00554B64 /* PommeNews.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6B82C35F201FC838006FA35D /* PommeNewsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6B82C377201FC838006FA35D /* Build configuration list for PBXNativeTarget "PommeNewsTests" */;
-			buildPhases = (
-				6B82C35C201FC838006FA35D /* Sources */,
-				6B82C35D201FC838006FA35D /* Frameworks */,
-				6B82C35E201FC838006FA35D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6B82C362201FC838006FA35D /* PBXTargetDependency */,
-			);
-			name = PommeNewsTests;
-			productName = PommeNewsTests;
-			productReference = 6B82C360201FC838006FA35D /* PommeNewsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		6B82C36A201FC838006FA35D /* PommeNewsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6B82C37A201FC838006FA35D /* Build configuration list for PBXNativeTarget "PommeNewsUITests" */;
-			buildPhases = (
-				6B82C367201FC838006FA35D /* Sources */,
-				6B82C368201FC838006FA35D /* Frameworks */,
-				6B82C369201FC838006FA35D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6B82C36D201FC838006FA35D /* PBXTargetDependency */,
-			);
-			name = PommeNewsUITests;
-			productName = PommeNewsUITests;
-			productReference = 6B82C36B201FC838006FA35D /* PommeNewsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1149,16 +1047,6 @@
 								enabled = 0;
 							};
 						};
-					};
-					6B82C35F201FC838006FA35D = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 6B82C34B201FC838006FA35D;
-					};
-					6B82C36A201FC838006FA35D = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 6B82C34B201FC838006FA35D;
 					};
 				};
 			};
@@ -1203,8 +1091,6 @@
 			projectRoot = "";
 			targets = (
 				6B82C34B201FC838006FA35D /* PommeNews */,
-				6B82C35F201FC838006FA35D /* PommeNewsTests */,
-				6B82C36A201FC838006FA35D /* PommeNewsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1392,20 +1278,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6B82C35E201FC838006FA35D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6B82C369201FC838006FA35D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1527,22 +1399,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6B82C35C201FC838006FA35D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6B82C365201FC838006FA35D /* PommeNewsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6B82C367201FC838006FA35D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6B82C370201FC838006FA35D /* PommeNewsUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1550,16 +1406,6 @@
 			isa = PBXTargetDependency;
 			name = PersonalizedAdConsent;
 			targetProxy = 6B37D4BB227F610000554B64 /* PBXContainerItemProxy */;
-		};
-		6B82C362201FC838006FA35D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6B82C34B201FC838006FA35D /* PommeNews */;
-			targetProxy = 6B82C361201FC838006FA35D /* PBXContainerItemProxy */;
-		};
-		6B82C36D201FC838006FA35D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6B82C34B201FC838006FA35D /* PommeNews */;
-			targetProxy = 6B82C36C201FC838006FA35D /* PBXContainerItemProxy */;
 		};
 		6BDC7ABE222AE5660061DB71 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1891,68 +1737,6 @@
 			};
 			name = Release;
 		};
-		6B82C378201FC838006FA35D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PommeNewsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PommeNews.app/PommeNews";
-			};
-			name = Debug;
-		};
-		6B82C379201FC838006FA35D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PommeNewsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PommeNews.app/PommeNews";
-			};
-			name = Release;
-		};
-		6B82C37B201FC838006FA35D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PommeNewsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PommeNews;
-			};
-			name = Debug;
-		};
-		6B82C37C201FC838006FA35D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PommeNewsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PommeNews;
-			};
-			name = Release;
-		};
 		6B84B2F0221B5B3500DFAB8D /* Release Debug Ads */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2094,37 +1878,6 @@
 			};
 			name = "Release Debug Ads";
 		};
-		6B84B2F2221B5B3500DFAB8D /* Release Debug Ads */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PommeNewsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PommeNews.app/PommeNews";
-			};
-			name = "Release Debug Ads";
-		};
-		6B84B2F3221B5B3500DFAB8D /* Release Debug Ads */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PommeNewsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.swizapp.PommeNewsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PommeNews;
-			};
-			name = "Release Debug Ads";
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2144,26 +1897,6 @@
 				6B82C375201FC838006FA35D /* Debug */,
 				6B82C376201FC838006FA35D /* Release */,
 				6B84B2F1221B5B3500DFAB8D /* Release Debug Ads */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6B82C377201FC838006FA35D /* Build configuration list for PBXNativeTarget "PommeNewsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6B82C378201FC838006FA35D /* Debug */,
-				6B82C379201FC838006FA35D /* Release */,
-				6B84B2F2221B5B3500DFAB8D /* Release Debug Ads */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6B82C37A201FC838006FA35D /* Build configuration list for PBXNativeTarget "PommeNewsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6B82C37B201FC838006FA35D /* Debug */,
-				6B82C37C201FC838006FA35D /* Release */,
-				6B84B2F3221B5B3500DFAB8D /* Release Debug Ads */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
