@@ -23,12 +23,12 @@ extension RssArticle {
     @NSManaged public var imageUrl: URL?
     @NSManaged public var link: URL?
     @NSManaged public var read: Bool
+    @NSManaged public var readLikelihood: Float
     @NSManaged public var summary: String?
     @NSManaged public var title: String
     @NSManaged public var feed: RssFeed
     @NSManaged public var similarsArticles: NSSet?
     @NSManaged public var themes: NSSet?
-
 }
 
 // MARK: Generated accessors for similarsArticles
@@ -45,7 +45,6 @@ extension RssArticle {
 
     @objc(removeSimilarsArticles:)
     @NSManaged public func removeFromSimilarsArticles(_ values: NSSet)
-
 }
 
 // MARK: Generated accessors for themes

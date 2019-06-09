@@ -24,7 +24,7 @@ extension RssFeed {
     @NSManaged public var name: String
     @NSManaged public var language: String
     @NSManaged public var url: URL
-    @NSManaged public var articles: NSSet?
+    @NSManaged public var articles: Set<RssArticle>
 
 }
 

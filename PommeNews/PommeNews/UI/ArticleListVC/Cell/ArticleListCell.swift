@@ -87,8 +87,8 @@ class ArticleListCell: UITableViewCell {
         feedImageView.image = article.feed.minilogo ?? UIImage(named: "feedplaceholder_mini")
         
         if article.read {
-        titleLabel.alpha = 0.5
-        titleLabel.font = UIFont.systemFont(ofSize: titleLabel.font!.pointSize, weight: .regular)
+            titleLabel.alpha = 0.5
+            titleLabel.font = UIFont.systemFont(ofSize: titleLabel.font!.pointSize, weight: .regular)
         }
         else {
             titleLabel.alpha = 1
@@ -96,7 +96,8 @@ class ArticleListCell: UITableViewCell {
         }
         
         //Read badge
-        badge.backgroundColor = article.read ? UIColor.clear : UIColor.orange
+        configureReadBadge(read: article.read, readLikelihood: article.readLikelihood)
+        
         
         //Image
         
@@ -135,6 +136,27 @@ class ArticleListCell: UITableViewCell {
             self.updateConstraints()
             self.subtitleLabel.layoutIfNeeded()
         }
+    }
+    
+    private func configureReadBadge(read: Bool, readLikelihood: Float) {
+        
+        if read {
+            badge.backgroundColor = UIColor.clear
+            return
+        }
+        
+        switch readLikelihood {
+        case let x where x > 0.8:
+            badge.backgroundColor = UIColor.clear
+        case let x where x > 0.65:
+            badge.backgroundColor = UIColor.yellow
+        case let x where x > 0.5:
+            badge.backgroundColor = UIColor.orange
+        default:
+            badge.backgroundColor = UIColor.red
+        }
+
+        
     }
     
     
