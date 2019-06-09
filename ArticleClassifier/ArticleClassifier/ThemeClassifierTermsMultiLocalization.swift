@@ -17,7 +17,7 @@ class ThemeClassifierTermsMultiLocalization {
         
         var allTheme = ArticleTheme.allThemes
         
-        let otherIdx = allTheme.index(where: {$0.key == "other"})!
+        let otherIdx = allTheme.firstIndex(where: {$0.key == "other"})!
         allTheme.remove(at: otherIdx)
         
         var dictionaryTerms = Dictionary<ArticleTheme, [String]>()
