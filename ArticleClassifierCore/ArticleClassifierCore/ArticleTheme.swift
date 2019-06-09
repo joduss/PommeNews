@@ -38,6 +38,9 @@ public struct ArticleTheme: Hashable, Equatable {
     public static let google = ArticleTheme(key: "google")
     public static let samsung = ArticleTheme(key: "samsung")
     public static let amazon = ArticleTheme(key: "amazon")
+    public static let spotify = ArticleTheme(key: "spotify")
+    public static let netflix = ArticleTheme(key: "netflix")
+    public static let facebook = ArticleTheme(key: "facebook")
 
     
     public static let rumor = ArticleTheme(key: "rumor")
