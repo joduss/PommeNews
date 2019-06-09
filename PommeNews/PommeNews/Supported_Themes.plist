@@ -20,5 +20,8 @@
 	<string>ipad</string>
 	<string>macos</string>
 	<string>appleWatch</string>
+	<string>facebook</string>
+	<string>netflix</string>
+	<string>spotify</string>
 </array>
 </plist>

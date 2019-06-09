@@ -60,7 +60,7 @@ class ThemeClassifierTermsMultiLocalization {
             case ArticleTheme.appleMusic.key:
                 dictionaryTerms[theme] = ["apple music"]
             case ArticleTheme.music.key:
-                dictionaryTerms[theme] = ["apple music", "streaming", "music", "musique", "chansons", "songs", "spotify", "deezer", "casque", "enceinte", "ue boom", "megaboom", "akg", "sennheiser", "ampli", "airpods", "écouteurs", "homepod"]
+                dictionaryTerms[theme] = ["apple music", "streaming", "music", "musique", "chansons", "songs", "spotify", "deezer", "casque", "enceinte", "ue boom", "megaboom", "akg", "sennheiser", "ampli", "airpods", "écouteurs", "homepod", "tidal"]
 
             case ArticleTheme.apple.key:
                 dictionaryTerms[theme] = ["airPods", "airport", "siri", "apple", "apple music", "ipad", "iphone", "ios", "macos", "osx", "apple TV", "macbook", "mac", "apple watch", "mac mini", "icloud", "watchos", "xcode", "itunes"]
@@ -78,7 +78,16 @@ class ThemeClassifierTermsMultiLocalization {
                 dictionaryTerms[theme] = ["game", "jeu"]
                 
             case ArticleTheme.video.key:
-                dictionaryTerms[theme] = ["netflix", "amazon prime", "youtube"]
+                dictionaryTerms[theme] = ["netflix", "amazon prime", "youtube", "hulu"]
+                
+            case ArticleTheme.spotify.key:
+                dictionaryTerms[theme] = ["spotify"]
+
+            case ArticleTheme.facebook.key:
+                dictionaryTerms[theme] = ["facebook"]
+                
+            case ArticleTheme.netflix.key:
+                dictionaryTerms[theme] = ["netflix"]
                 
 
                 
