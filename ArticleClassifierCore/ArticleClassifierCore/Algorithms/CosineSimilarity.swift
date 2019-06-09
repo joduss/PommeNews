@@ -8,7 +8,15 @@
 import Foundation
 
 public class CosineSimilarity {
-    public static func computer(vector1: [Double], vector2: [Double]) -> Double {
+    
+    
+    /// Compute the cosine similarity between 2 vectors
+    ///
+    /// - Parameters:
+    ///   - vector1: first vector
+    ///   - vector2: second vector
+    /// - Returns: cosine similarity
+    public static func compute(vector1: [Double], vector2: [Double]) -> Double {
         
         guard vector1.count == vector2.count else {
             fatalError("Both vector should be of the same size!")
@@ -29,7 +37,8 @@ public class CosineSimilarity {
         return dotProduct / (sqrt(normSquaredV1) * sqrt(normSquaredV2))
     }
     
-    public static func computer(vector1: ContiguousArray<Double>, vector2: ContiguousArray<Double>) -> Double {
+    
+    public static func compute(vector1: ContiguousArray<Double>, vector2: ContiguousArray<Double>) -> Double {
         
         guard vector1.count == vector2.count else {
             fatalError("Both vector should be of the same size!")
