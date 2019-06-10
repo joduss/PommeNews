@@ -14,11 +14,11 @@ import NaturalLanguage
 class ACLemmaTokenizer {
     
     //List of word that might be followed by a version (such as ios 10)
-    private var wordWithVersion: [String] = ["ios", "android", "windows", "iphone", "pixel"]
+    private var wordWithVersion: [String] = ["ios", "tvos", "macos", "android", "windows", "iphone", "pixel"]
     
     let otherLemma: [String : String] = ["apps" : "application",
-                                         "app" : "app"]
-    
+                                         "app" : "application"]
+    /// Multi words terms to be merge in one
     let expressions: [(String, String)] = [("mac app store", "macappstore"),
                                          ("app store", "appstore"),
                                          ("itunes store", "itunesstore"),
@@ -27,7 +27,11 @@ class ACLemmaTokenizer {
                                          ("iphone x", "iphonex"),
                                          ("pixel 3a", "pixel3a"),
                                          ("galaxy s9", "galaxys9"),
-                                         ("galaxy s10", "galaxys10")]
+                                         ("galaxy s10", "galaxys10"),
+                                         ("macbook pro", "macbookpro"),
+                                         ("mac pro", "macpro"),
+                                         ("galaxy s10", "galaxys10")
+    ]
 
     
     /// Compute the frequency of each lemma in a text.
