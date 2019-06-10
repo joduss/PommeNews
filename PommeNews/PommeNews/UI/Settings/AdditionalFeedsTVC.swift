@@ -44,7 +44,7 @@ class AdditionalFeedsTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let feed: RssFeed = resultsController.object(at: indexPath)
-        cell.textLabel?.text = feed.name
+        cell.textLabel?.text = "\(feed.name)  \(Language.from(feed.language).emoji())"
         return cell
     }
     
@@ -81,7 +81,6 @@ class AdditionalFeedsTVC: UITableViewController {
                 self.rssFeedStore.addNewUserFeed(name: name, url: url)
             }
         }))
-        
         self.present(alert, animated: true, completion: nil)
     }
 }

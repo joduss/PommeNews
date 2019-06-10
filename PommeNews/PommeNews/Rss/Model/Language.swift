@@ -25,6 +25,8 @@ enum Language: String {
             return "🇬🇧"
         case .german:
             return "🇩🇪"
+        default:
+            return ""
         }
     }
     

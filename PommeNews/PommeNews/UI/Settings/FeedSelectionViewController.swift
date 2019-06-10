@@ -14,7 +14,7 @@ enum StreamManagementMode {
     case favorite
 }
 
-class StreamManagementViewController: UITableViewController {
+class FeedSelectionViewController: UITableViewController {
     
     private var feeds : [RssFeed] = []
     public var mode: StreamManagementMode = .favorite
@@ -57,7 +57,7 @@ class StreamManagementViewController: UITableViewController {
     
 }
 
-extension StreamManagementViewController {
+extension FeedSelectionViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

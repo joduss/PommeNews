@@ -46,7 +46,7 @@
 		6B82C35A201FC838006FA35D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B82C358201FC838006FA35D /* LaunchScreen.storyboard */; };
 		6B82C3A8202197C9006FA35D /* RSSFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82C3A7202197C9006FA35D /* RSSFeedType.swift */; };
 		6B82C3AA202197E2006FA35D /* RSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82C3A9202197E2006FA35D /* RSSFeed.swift */; };
-		6B870AC1209F60AF004EC529 /* StreamManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B870AC0209F60AF004EC529 /* StreamManagementViewController.swift */; };
+		6B870AC1209F60AF004EC529 /* FeedSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B870AC0209F60AF004EC529 /* FeedSelectionViewController.swift */; };
 		6B870AC3209F623B004EC529 /* FeedManagementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B870AC2209F623B004EC529 /* FeedManagementCell.swift */; };
 		6B870AC5209F6258004EC529 /* FeedManagementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B870AC4209F6258004EC529 /* FeedManagementCell.xib */; };
 		6BA21F3C2098F8E60075F4CD /* RSSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA21F3B2098F8E50075F4CD /* RSSManager.swift */; };
@@ -348,7 +348,7 @@
 		6B82C3A520212371006FA35D /* FeedKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FeedKit.framework; path = Carthage/Build/iOS/FeedKit.framework; sourceTree = "<group>"; };
 		6B82C3A7202197C9006FA35D /* RSSFeedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedType.swift; sourceTree = "<group>"; };
 		6B82C3A9202197E2006FA35D /* RSSFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeed.swift; sourceTree = "<group>"; };
-		6B870AC0209F60AF004EC529 /* StreamManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamManagementViewController.swift; sourceTree = "<group>"; };
+		6B870AC0209F60AF004EC529 /* FeedSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSelectionViewController.swift; sourceTree = "<group>"; };
 		6B870AC2209F623B004EC529 /* FeedManagementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManagementCell.swift; sourceTree = "<group>"; };
 		6B870AC4209F6258004EC529 /* FeedManagementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedManagementCell.xib; sourceTree = "<group>"; };
 		6BA21F3B2098F8E50075F4CD /* RSSManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSManager.swift; sourceTree = "<group>"; };
@@ -743,7 +743,7 @@
 				6B870AC2209F623B004EC529 /* FeedManagementCell.swift */,
 				6B870AC4209F6258004EC529 /* FeedManagementCell.xib */,
 				6BA21F3D209AD3110075F4CD /* SettingsViewController.swift */,
-				6B870AC0209F60AF004EC529 /* StreamManagementViewController.swift */,
+				6B870AC0209F60AF004EC529 /* FeedSelectionViewController.swift */,
 				6B45113122495D0C00380D8B /* AdditionalFeedsTVC.swift */,
 			);
 			path = Settings;
@@ -1336,7 +1336,7 @@
 				6B1C3C322207839100C03D75 /* ArrayExtension.swift in Sources */,
 				6B0C2A7C20ED362300813EA6 /* ContentTableViewController.swift in Sources */,
 				6B25772421DC16F400D419B6 /* dprint.swift in Sources */,
-				6B870AC1209F60AF004EC529 /* StreamManagementViewController.swift in Sources */,
+				6B870AC1209F60AF004EC529 /* FeedSelectionViewController.swift in Sources */,
 				6B0E1662203741510035C75B /* URLExtension.swift in Sources */,
 				6B870AC3209F623B004EC529 /* FeedManagementCell.swift in Sources */,
 				6BF08B0620CA47800002E3CE /* RssArticlesByProviderRequest.swift in Sources */,

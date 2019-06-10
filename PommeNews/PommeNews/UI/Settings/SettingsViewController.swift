@@ -50,10 +50,10 @@ class SettingsViewController: ContentTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier  {
         case "MyStreams":
-            let vc = segue.destination as! StreamManagementViewController
+            let vc = segue.destination as! FeedSelectionViewController
             vc.mode = .favorite
         case "HiddenStreams":
-            let vc = segue.destination as! StreamManagementViewController
+            let vc = segue.destination as! FeedSelectionViewController
             vc.mode = .hidden
         default:
             break

@@ -38,7 +38,7 @@ class FeedManagementCell: UITableViewCell {
         self.feed = feed;
         self.mode = mode
         
-        label.text = "\(feed.name) \(Language.from(feed.language).emoji())"
+        label.text = "\(feed.name)  \(Language.from(feed.language).emoji())"
         imageView?.image = feed.logo ?? UIImage(named: "feedplaceholder")
         
         switch mode {
