@@ -33,4 +33,18 @@ class CoreDataStack {
     }
     
     
+    func executeInNewQueueWith<T>(object: T, block: @escaping (T) -> ()) where T:NSManagedObject {
+        
+        let objectId = object.objectID
+        
+        DispatchQueue(label: "CoreDataStack" + Date().description).async {
+            let backgroundContext = self.persistentContainer.newBackgroundContext()
+            
+            let objectInBackgroundCtx = backgroundContext.object(with: objectId) as! T
+            
+            block(objectInBackgroundCtx)
+            
+            try? backgroundContext.save()
+        }
+    }
 }

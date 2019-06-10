@@ -130,29 +130,29 @@ class RssFeedStore: Hashable {
             newFeed.url = url
             newFeed.addedByUser = true
             
+            try? CoreDataStack.shared.save()
+
             detectLanguage(feed: newFeed)
         }
         
         
-        try? CoreDataStack.shared.save()
     }
     
-    private func detectLanguage(attempt: Int = 0, feed: RssFeed) {
+    private func detectLanguage(attempt: Int = 0, feed feedOnMainThread: RssFeed) {
         
         if attempt >= 2 {
             Logger.shared.log(Logger.Domain.app, .important, "Couldn't detect the language: fetching articles failed.")
         }
         
-        DispatchQueue(label: "Language Detection").async {
+        CoreDataStack.shared.executeInNewQueueWith(object: feedOnMainThread) {
+            feed in
             
-            let semaphore = DispatchSemaphore(value: 1)
+            let semaphore = DispatchSemaphore(value: 0)
             
-            DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
-                self.rssManager.feedsUpdater.subscribeToArticlesUpdate(subscriber: self, onPublish: { _ in
-                    semaphore.signal()
-                })
-                self.rssManager.feedsUpdater.update(feeds: [feed])
-            }
+            self.rssManager.feedsUpdater.subscribeToArticlesUpdate(subscriber: self, onPublish: { _ in
+                semaphore.signal()
+            })
+            self.rssManager.feedsUpdater.update(feeds: [feed])
             
             let waited = semaphore.wait(timeout: DispatchTime.now() + DispatchTimeInterval.seconds(30))
             
