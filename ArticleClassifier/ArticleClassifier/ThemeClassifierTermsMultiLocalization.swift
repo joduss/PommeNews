@@ -39,9 +39,9 @@ class ThemeClassifierTermsMultiLocalization {
                 dictionaryTerms[theme] = ["microsoft surface", "surface book", "surface pro", "surface go", "surface laptop"]
                 
             case ArticleTheme.macos.key:
-                dictionaryTerms[theme] = ["macos", "osx", "nextstep", "mojave", "macos 10."]
+                dictionaryTerms[theme] = ["macos", "osx", "nextstep", "mojave", "macos 10.", "mac os"]
             case ArticleTheme.ios.key:
-                dictionaryTerms[theme] = ["ios", "siri", "watchos"]
+                dictionaryTerms[theme] = ["ios", "siri", "watchos", "ipados", "watch os", "ipad os"]
                 
             case ArticleTheme.apps.key:
                 dictionaryTerms[theme] = ["application", "apps", "the app", "safari"]
@@ -69,7 +69,7 @@ class ThemeClassifierTermsMultiLocalization {
                 dictionaryTerms[theme] = ["microsoft", "microsoft surface", "azure", "surface book", "surface pro", "surface go", "windows 10", "visual studio"]
                 
             case ArticleTheme.amazon.key:
-                dictionaryTerms[theme] = ["amazon", "AWS", "alexa"]
+                dictionaryTerms[theme] = ["amazon", "aws", "alexa"]
                 
             case ArticleTheme.apps.key:
                 dictionaryTerms[theme] = ["photoshop", "itunes", "application", "apps"]
@@ -78,7 +78,7 @@ class ThemeClassifierTermsMultiLocalization {
                 dictionaryTerms[theme] = ["game", "jeu"]
                 
             case ArticleTheme.video.key:
-                dictionaryTerms[theme] = ["netflix", "amazon prime", "youtube", "hulu"]
+                dictionaryTerms[theme] = ["netflix", "amazon prime", "youtube", "hulu", "apple tv plus"]
                 
             case ArticleTheme.spotify.key:
                 dictionaryTerms[theme] = ["spotify"]
@@ -88,7 +88,9 @@ class ThemeClassifierTermsMultiLocalization {
                 
             case ArticleTheme.netflix.key:
                 dictionaryTerms[theme] = ["netflix"]
-                
+              
+            case ArticleTheme.patent.key:
+                dictionaryTerms[theme] = ["patent", "brevet"]
 
                 
             default:
