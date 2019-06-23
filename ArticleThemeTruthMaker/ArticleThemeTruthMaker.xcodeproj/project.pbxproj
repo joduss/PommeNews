@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6B2448AE22BE7F62007FF4EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448AD22BE7F62007FF4EE /* AppDelegate.swift */; };
+		6B2448B022BE7F62007FF4EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448AF22BE7F62007FF4EE /* ViewController.swift */; };
+		6B2448B222BE7F64007FF4EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B2448B122BE7F64007FF4EE /* Assets.xcassets */; };
+		6B2448B522BE7F64007FF4EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B2448B322BE7F64007FF4EE /* Main.storyboard */; };
+		6B2448E822BE8043007FF4EE /* ArticleClassifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448E422BE802C007FF4EE /* ArticleClassifier.framework */; };
+		6B2448E922BE8043007FF4EE /* ArticleClassifierCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448D122BE8026007FF4EE /* ArticleClassifierCore.framework */; };
+		6B2448EA22BE8043007FF4EE /* ZaJoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448C622BE801B007FF4EE /* ZaJoLibrary.framework */; };
+		6B2448F622BE82CB007FF4EE /* SupportedThemeFilterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448F522BE82CB007FF4EE /* SupportedThemeFilterLoader.swift */; };
+		6B2448F822BE86D2007FF4EE /* Supported_Themes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B2448F722BE86D2007FF4EE /* Supported_Themes.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6B2448C322BE801B007FF4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2448BE22BE801B007FF4EE /* ZaJoLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DE35221DD5E300D0FE0A;
+			remoteInfo = "ZaJoLibrary-iOS";
+		};
+		6B2448C522BE801B007FF4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2448BE22BE801B007FF4EE /* ZaJoLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DE42221DD64F00D0FE0A;
+			remoteInfo = "ZaJoLibrary-macOS";
+		};
+		6B2448D022BE8026007FF4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DEAC221DEAE100D0FE0A;
+			remoteInfo = "ArticleClassifierCore-macos";
+		};
+		6B2448D222BE8026007FF4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DEC9221DEAF600D0FE0A;
+			remoteInfo = "ArticleClassifierCore-ios";
+		};
+		6B2448D422BE8026007FF4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BDC7ACC222BD4070061DB71;
+			remoteInfo = "ArticleClassifierCoreTests-macOS";
+		};
+		6B2448D622BE8026007FF4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B334671222C3C760013149F;
+			remoteInfo = "TestHostApplication-ios";
+		};
+		6B2448D822BE8026007FF4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B334696222C3E540013149F;
+			remoteInfo = "ArticleClassifierCoreTests-ios";
+		};
+		6B2448E122BE802C007FF4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DE5D221DD84D00D0FE0A;
+			remoteInfo = "ArticleClassifier-ios";
+		};
+		6B2448E322BE802C007FF4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DE7A221DD87E00D0FE0A;
+			remoteInfo = "ArticleClassifier-macos";
+		};
+		6B2448E522BE802C007FF4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DE82221DD87E00D0FE0A;
+			remoteInfo = "ArticleClassifier-macosTests";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6B2448AA22BE7F62007FF4EE /* ArticleThemeTruthMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArticleThemeTruthMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B2448AD22BE7F62007FF4EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6B2448AF22BE7F62007FF4EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6B2448B122BE7F64007FF4EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6B2448B422BE7F64007FF4EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6B2448B622BE7F64007FF4EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B2448B722BE7F64007FF4EE /* ArticleThemeTruthMaker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ArticleThemeTruthMaker.entitlements; sourceTree = "<group>"; };
+		6B2448BE22BE801B007FF4EE /* ZaJoLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZaJoLibrary.xcodeproj; path = ../ZaJoLibrary/ZaJoLibrary.xcodeproj; sourceTree = "<group>"; };
+		6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ArticleClassifierCore.xcodeproj; path = ../ArticleClassifierCore/ArticleClassifierCore.xcodeproj; sourceTree = "<group>"; };
+		6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ArticleClassifier.xcodeproj; path = ../ArticleClassifier/ArticleClassifier.xcodeproj; sourceTree = "<group>"; };
+		6B2448F522BE82CB007FF4EE /* SupportedThemeFilterLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedThemeFilterLoader.swift; sourceTree = "<group>"; };
+		6B2448F722BE86D2007FF4EE /* Supported_Themes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Supported_Themes.plist; path = ../../PommeNews/PommeNews/Supported_Themes.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6B2448A722BE7F62007FF4EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B2448E822BE8043007FF4EE /* ArticleClassifier.framework in Frameworks */,
+				6B2448E922BE8043007FF4EE /* ArticleClassifierCore.framework in Frameworks */,
+				6B2448EA22BE8043007FF4EE /* ZaJoLibrary.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6B2448A122BE7F62007FF4EE = {
+			isa = PBXGroup;
+			children = (
+				6B2448BD22BE7FF9007FF4EE /* Libraries */,
+				6B2448AC22BE7F62007FF4EE /* ArticleThemeTruthMaker */,
+				6B2448AB22BE7F62007FF4EE /* Products */,
+				6B2448E722BE8043007FF4EE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6B2448AB22BE7F62007FF4EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B2448AA22BE7F62007FF4EE /* ArticleThemeTruthMaker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B2448AC22BE7F62007FF4EE /* ArticleThemeTruthMaker */ = {
+			isa = PBXGroup;
+			children = (
+				6B2448AD22BE7F62007FF4EE /* AppDelegate.swift */,
+				6B2448AF22BE7F62007FF4EE /* ViewController.swift */,
+				6B2448B122BE7F64007FF4EE /* Assets.xcassets */,
+				6B2448B322BE7F64007FF4EE /* Main.storyboard */,
+				6B2448B622BE7F64007FF4EE /* Info.plist */,
+				6B2448F722BE86D2007FF4EE /* Supported_Themes.plist */,
+				6B2448B722BE7F64007FF4EE /* ArticleThemeTruthMaker.entitlements */,
+				6B2448F522BE82CB007FF4EE /* SupportedThemeFilterLoader.swift */,
+			);
+			path = ArticleThemeTruthMaker;
+			sourceTree = "<group>";
+		};
+		6B2448BD22BE7FF9007FF4EE /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */,
+				6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */,
+				6B2448BE22BE801B007FF4EE /* ZaJoLibrary.xcodeproj */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		6B2448BF22BE801B007FF4EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B2448C422BE801B007FF4EE /* ZaJoLibrary.framework */,
+				6B2448C622BE801B007FF4EE /* ZaJoLibrary.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B2448C822BE8025007FF4EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B2448D122BE8026007FF4EE /* ArticleClassifierCore.framework */,
+				6B2448D322BE8026007FF4EE /* ArticleClassifierCore.framework */,
+				6B2448D522BE8026007FF4EE /* ArticleClassifierCoreTests-macOS.xctest */,
+				6B2448D722BE8026007FF4EE /* TestHostApplication-ios.app */,
+				6B2448D922BE8026007FF4EE /* ArticleClassifierCoreTests-ios.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B2448DB22BE802C007FF4EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B2448E222BE802C007FF4EE /* ArticleClassifier.framework */,
+				6B2448E422BE802C007FF4EE /* ArticleClassifier.framework */,
+				6B2448E622BE802C007FF4EE /* ArticleClassifier-macosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B2448E722BE8043007FF4EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6B2448A922BE7F62007FF4EE /* ArticleThemeTruthMaker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B2448BA22BE7F64007FF4EE /* Build configuration list for PBXNativeTarget "ArticleThemeTruthMaker" */;
+			buildPhases = (
+				6B2448A622BE7F62007FF4EE /* Sources */,
+				6B2448A722BE7F62007FF4EE /* Frameworks */,
+				6B2448A822BE7F62007FF4EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArticleThemeTruthMaker;
+			productName = ArticleThemeTruthMaker;
+			productReference = 6B2448AA22BE7F62007FF4EE /* ArticleThemeTruthMaker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6B2448A222BE7F62007FF4EE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = ZaJo;
+				TargetAttributes = {
+					6B2448A922BE7F62007FF4EE = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 6B2448A522BE7F62007FF4EE /* Build configuration list for PBXProject "ArticleThemeTruthMaker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6B2448A122BE7F62007FF4EE;
+			productRefGroup = 6B2448AB22BE7F62007FF4EE /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6B2448DB22BE802C007FF4EE /* Products */;
+					ProjectRef = 6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */;
+				},
+				{
+					ProductGroup = 6B2448C822BE8025007FF4EE /* Products */;
+					ProjectRef = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
+				},
+				{
+					ProductGroup = 6B2448BF22BE801B007FF4EE /* Products */;
+					ProjectRef = 6B2448BE22BE801B007FF4EE /* ZaJoLibrary.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				6B2448A922BE7F62007FF4EE /* ArticleThemeTruthMaker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6B2448C422BE801B007FF4EE /* ZaJoLibrary.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZaJoLibrary.framework;
+			remoteRef = 6B2448C322BE801B007FF4EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B2448C622BE801B007FF4EE /* ZaJoLibrary.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZaJoLibrary.framework;
+			remoteRef = 6B2448C522BE801B007FF4EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B2448D122BE8026007FF4EE /* ArticleClassifierCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ArticleClassifierCore.framework;
+			remoteRef = 6B2448D022BE8026007FF4EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B2448D322BE8026007FF4EE /* ArticleClassifierCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ArticleClassifierCore.framework;
+			remoteRef = 6B2448D222BE8026007FF4EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B2448D522BE8026007FF4EE /* ArticleClassifierCoreTests-macOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ArticleClassifierCoreTests-macOS.xctest";
+			remoteRef = 6B2448D422BE8026007FF4EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B2448D722BE8026007FF4EE /* TestHostApplication-ios.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "TestHostApplication-ios.app";
+			remoteRef = 6B2448D622BE8026007FF4EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B2448D922BE8026007FF4EE /* ArticleClassifierCoreTests-ios.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ArticleClassifierCoreTests-ios.xctest";
+			remoteRef = 6B2448D822BE8026007FF4EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B2448E222BE802C007FF4EE /* ArticleClassifier.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ArticleClassifier.framework;
+			remoteRef = 6B2448E122BE802C007FF4EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B2448E422BE802C007FF4EE /* ArticleClassifier.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ArticleClassifier.framework;
+			remoteRef = 6B2448E322BE802C007FF4EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B2448E622BE802C007FF4EE /* ArticleClassifier-macosTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ArticleClassifier-macosTests.xctest";
+			remoteRef = 6B2448E522BE802C007FF4EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6B2448A822BE7F62007FF4EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B2448F822BE86D2007FF4EE /* Supported_Themes.plist in Resources */,
+				6B2448B222BE7F64007FF4EE /* Assets.xcassets in Resources */,
+				6B2448B522BE7F64007FF4EE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6B2448A622BE7F62007FF4EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B2448F622BE82CB007FF4EE /* SupportedThemeFilterLoader.swift in Sources */,
+				6B2448B022BE7F62007FF4EE /* ViewController.swift in Sources */,
+				6B2448AE22BE7F62007FF4EE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6B2448B322BE7F64007FF4EE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6B2448B422BE7F64007FF4EE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6B2448B822BE7F64007FF4EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6B2448B922BE7F64007FF4EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		6B2448BB22BE7F64007FF4EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = SB56D8K42E;
+				INFOPLIST_FILE = ArticleThemeTruthMaker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticleThemeTruthMaker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6B2448BC22BE7F64007FF4EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = SB56D8K42E;
+				INFOPLIST_FILE = ArticleThemeTruthMaker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticleThemeTruthMaker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6B2448A522BE7F62007FF4EE /* Build configuration list for PBXProject "ArticleThemeTruthMaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B2448B822BE7F64007FF4EE /* Debug */,
+				6B2448B922BE7F64007FF4EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6B2448BA22BE7F64007FF4EE /* Build configuration list for PBXNativeTarget "ArticleThemeTruthMaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B2448BB22BE7F64007FF4EE /* Debug */,
+				6B2448BC22BE7F64007FF4EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6B2448A222BE7F62007FF4EE /* Project object */;
+}
