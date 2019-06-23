@@ -11,11 +11,14 @@
 		6B2448B022BE7F62007FF4EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448AF22BE7F62007FF4EE /* ViewController.swift */; };
 		6B2448B222BE7F64007FF4EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B2448B122BE7F64007FF4EE /* Assets.xcassets */; };
 		6B2448B522BE7F64007FF4EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B2448B322BE7F64007FF4EE /* Main.storyboard */; };
-		6B2448E822BE8043007FF4EE /* ArticleClassifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448E422BE802C007FF4EE /* ArticleClassifier.framework */; };
-		6B2448E922BE8043007FF4EE /* ArticleClassifierCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448D122BE8026007FF4EE /* ArticleClassifierCore.framework */; };
-		6B2448EA22BE8043007FF4EE /* ZaJoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448C622BE801B007FF4EE /* ZaJoLibrary.framework */; };
 		6B2448F622BE82CB007FF4EE /* SupportedThemeFilterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448F522BE82CB007FF4EE /* SupportedThemeFilterLoader.swift */; };
 		6B2448F822BE86D2007FF4EE /* Supported_Themes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B2448F722BE86D2007FF4EE /* Supported_Themes.plist */; };
+		6B24490422BFB45A007FF4EE /* ZaJoLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448C622BE801B007FF4EE /* ZaJoLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B24490822BFB45A007FF4EE /* ArticleClassifierCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448D122BE8026007FF4EE /* ArticleClassifierCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B24490C22BFB45A007FF4EE /* ArticleClassifier.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448E422BE802C007FF4EE /* ArticleClassifier.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B24491022BFB4D6007FF4EE /* ArticleClassifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448E422BE802C007FF4EE /* ArticleClassifier.framework */; };
+		6B24491122BFB4E8007FF4EE /* ArticleClassifierCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448D122BE8026007FF4EE /* ArticleClassifierCore.framework */; };
+		6B24491222BFB4F1007FF4EE /* ZaJoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448C622BE801B007FF4EE /* ZaJoLibrary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,7 +92,44 @@
 			remoteGlobalIDString = 6B01DE82221DD87E00D0FE0A;
 			remoteInfo = "ArticleClassifier-macosTests";
 		};
+		6B24490522BFB45A007FF4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2448BE22BE801B007FF4EE /* ZaJoLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B01DE41221DD64F00D0FE0A;
+			remoteInfo = "ZaJoLibrary-macOS";
+		};
+		6B24490922BFB45A007FF4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B01DEAB221DEAE100D0FE0A;
+			remoteInfo = "ArticleClassifierCore-macos";
+		};
+		6B24490D22BFB45A007FF4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B01DE79221DD87E00D0FE0A;
+			remoteInfo = "ArticleClassifier-macos";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6B24490F22BFB45A007FF4EE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6B24490C22BFB45A007FF4EE /* ArticleClassifier.framework in Embed Frameworks */,
+				6B24490422BFB45A007FF4EE /* ZaJoLibrary.framework in Embed Frameworks */,
+				6B24490822BFB45A007FF4EE /* ArticleClassifierCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6B2448AA22BE7F62007FF4EE /* ArticleThemeTruthMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArticleThemeTruthMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,9 +151,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B2448E822BE8043007FF4EE /* ArticleClassifier.framework in Frameworks */,
-				6B2448E922BE8043007FF4EE /* ArticleClassifierCore.framework in Frameworks */,
-				6B2448EA22BE8043007FF4EE /* ZaJoLibrary.framework in Frameworks */,
+				6B24491022BFB4D6007FF4EE /* ArticleClassifier.framework in Frameworks */,
+				6B24491122BFB4E8007FF4EE /* ArticleClassifierCore.framework in Frameworks */,
+				6B24491222BFB4F1007FF4EE /* ZaJoLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,10 +251,14 @@
 				6B2448A622BE7F62007FF4EE /* Sources */,
 				6B2448A722BE7F62007FF4EE /* Frameworks */,
 				6B2448A822BE7F62007FF4EE /* Resources */,
+				6B24490F22BFB45A007FF4EE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6B24490622BFB45A007FF4EE /* PBXTargetDependency */,
+				6B24490A22BFB45A007FF4EE /* PBXTargetDependency */,
+				6B24490E22BFB45A007FF4EE /* PBXTargetDependency */,
 			);
 			name = ArticleThemeTruthMaker;
 			productName = ArticleThemeTruthMaker;
@@ -367,6 +411,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		6B24490622BFB45A007FF4EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ZaJoLibrary-macOS";
+			targetProxy = 6B24490522BFB45A007FF4EE /* PBXContainerItemProxy */;
+		};
+		6B24490A22BFB45A007FF4EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ArticleClassifierCore-macos";
+			targetProxy = 6B24490922BFB45A007FF4EE /* PBXContainerItemProxy */;
+		};
+		6B24490E22BFB45A007FF4EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ArticleClassifier-macos";
+			targetProxy = 6B24490D22BFB45A007FF4EE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		6B2448B322BE7F64007FF4EE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -497,6 +559,7 @@
 		6B2448BB22BE7F64007FF4EE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -506,6 +569,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticleThemeTruthMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -515,6 +579,7 @@
 		6B2448BC22BE7F64007FF4EE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -524,6 +589,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticleThemeTruthMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
