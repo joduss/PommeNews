@@ -7,7 +7,8 @@
 //
 
 import Foundation
-
+import ArticleClassifierCore
+import ArticleClassifier
 
 class Evaluator {
     
@@ -17,7 +18,16 @@ class Evaluator {
     
     
     
-    public func startEvaluation(articleLocation: String, themes: [ArticleTheme] = ArticleTheme.allThemes) {
+    public func startEvaluation(articlesFile: String, themes: [ArticleTheme] = ArticleTheme.allThemes) {
+        
+        let tempClassificationFilePath = NSTemporaryDirectory() + "a.txt"
+        do {
+        try FileManager.default.removeItem(at: URL(fileURLWithPath: tempClassificationFilePath))
+        } catch { }
+        FileManager.default.createFile(atPath: tempClassificationFilePath, contents: nil)
+        let tempClassificationFile = FileHandle(forWritingAtPath: tempClassificationFilePath)
+        print("Classification can be found at \(tempClassificationFilePath)")
+        
         
         var usedThemes = themes
         
@@ -25,11 +35,10 @@ class Evaluator {
             usedThemes.append(ArticleTheme.other)
         }
         
-        let articlesAllThemes = try! articlesIO.loadArticlesFrom(fileLocation: articleLocation)
+        let articlesAllThemes = try! articlesIO.loadArticlesFrom(fileLocation: articlesFile)
         let articles = removeUnusedThemes(articlesAllThemes, usedThemes: themes)
         
-        let classifier = ThemeClassifier()
-        classifier.validThemes = themes
+        let classifier = ThemeClassifier(validThemes: themes)
         
         var nbArticleCorrect: Double = 0
         var nbArticle100Correct: Double = 0
@@ -88,9 +97,17 @@ class Evaluator {
             
             processed += 1
             print("Processed \(Int(processed)) (\(Int(Double(processed / nbArticles) * 100.0))%)")
+            
+            var summary = article.summary
+            summary = summary.replacingOccurrences(of: "\n", with: "\\n")
+            let outputClassificationFile = "\n========================\n\(article.title) \n\n\(summary) \n\n\(predictedThemes.map({$0.key}))"
+            tempClassificationFile?.write(outputClassificationFile.data(using: String.Encoding.utf8) ?? Data())
         }
         
-        print("Classifier Evaluation")
+        tempClassificationFile?.closeFile()
+        
+        print("=====================")
+        print("** Classifier Evaluation")
         print("=====================")
         
         print("Number of articles: \(nbArticles)")
@@ -107,8 +124,6 @@ class Evaluator {
         print("Ratios")
         print("Theme Found(correct) / Truth in avg. \(ratioThemeFoundVsNotFoundAvg) [1 Is best]")
         print("Theme incorrect / correct in avg. \(ratioThemeIncorrectVsCorrectAvg) [0 is best]")
-        
-        exit(0)
     }
     
     
@@ -116,14 +131,13 @@ class Evaluator {
         
         var predictions: [TCArticle: [ArticleTheme]] = [:]
         
-        let classifier = ThemeClassifier()
-        classifier.validThemes = themes
+        let classifier = ThemeClassifier(validThemes: themes)
         
         let themesWithOther = themes + [ArticleTheme.other]
         
         let articlesAllThemes = try! articlesIO.loadArticlesFrom(fileLocation: articleLocation)
         
-        //We still keep article with other (these should not be classify as something else than other
+        //We still keep all articles (these should not be classify as something else than other)
         let articles = removeUnusedThemes(articlesAllThemes, usedThemes: themesWithOther)
         
         
@@ -131,20 +145,20 @@ class Evaluator {
             predictions[article] = classifier.classify(article: article)
             
             if verbose {
-                var themesBag = article.themes
+                var trueThemes = article.themes
                 var truePositiveThemes = ""
                 var falsePositiveThemes = ""
                 var falseNegativeThemes = ""
                 for theme in predictions[article]! {
-                    if themesBag.contains(theme.key) {
+                    if trueThemes.contains(theme.key) {
                         truePositiveThemes += ", " + theme.key
-                        themesBag.remove(at: themesBag.firstIndex(of: theme.key)!)
+                        trueThemes.remove(at: trueThemes.firstIndex(of: theme.key)!)
                     }
                     else {
                         falsePositiveThemes += ", " + theme.key
                     }
                 }
-                for unpredictedTheme in themesBag {
+                for unpredictedTheme in trueThemes {
                     falseNegativeThemes += ", " + unpredictedTheme
                 }
                 
@@ -192,7 +206,7 @@ class Evaluator {
             precision[theme] = Double(truePositives[theme]!) / Double(truePositives[theme]! + falsePositives[theme]!)
             recall[theme] = Double(truePositives[theme]!) / Double(truePositives[theme]! + falseNegative[theme]!)
             
-            print("THEME \(theme.key): Precision is \(nf.string(from: precision[theme]! as NSNumber)!) - Recall is \(nf.string(from: recall[theme]! as NSNumber)!)")
+            print("THEME \(theme.key): Precision is \(nf.string(from: precision[theme]! as NSNumber)!) - Recall is \(nf.string(from: recall[theme]! as NSNumber)!)    // TP:\(truePositives[theme]!), FP:\(falsePositives[theme]!) FN: \(falseNegative[theme]!)")
         }
     }
     
@@ -263,7 +277,7 @@ class Evaluator {
     private func removeUnusedThemes(_ articles: [TCArticle], usedThemes: [ArticleTheme]) -> [TCArticle] {
         var filteredArticles: [TCArticle] = []
         
-        var usedThemesKeys: [String] = usedThemes.map({$0.key})
+        let usedThemesKeys: [String] = usedThemes.map({$0.key})
         
         for article in articles {
             var articleUsedThemeKeys: [String] = []

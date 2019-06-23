@@ -1,0 +1,519 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6BC8B42722AE826B00CADE7A /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC8B42622AE826B00CADE7A /* Evaluator.swift */; };
+		6BC8B47022AE835D00CADE7A /* ArticleClassifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC8B46622AE831800CADE7A /* ArticleClassifier.framework */; };
+		6BC8B47122AE835D00CADE7A /* ArticleClassifierCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC8B45322AE831400CADE7A /* ArticleClassifierCore.framework */; };
+		6BC8B47222AE835D00CADE7A /* ZaJoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC8B43522AE830000CADE7A /* ZaJoLibrary.framework */; };
+		6BC8B47422AE83A400CADE7A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC8B47322AE83A400CADE7A /* main.swift */; };
+		6BC8B47522AE84B400CADE7A /* articles-evaluation_en.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6BC8B42922AE827200CADE7A /* articles-evaluation_en.json */; };
+		6BC8B47622AE84B700CADE7A /* articles-evaluation_fr.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6BC8B42822AE827200CADE7A /* articles-evaluation_fr.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6BC8B43222AE830000CADE7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC8B42D22AE830000CADE7A /* ZaJoLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DE35221DD5E300D0FE0A;
+			remoteInfo = "ZaJoLibrary-iOS";
+		};
+		6BC8B43422AE830000CADE7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC8B42D22AE830000CADE7A /* ZaJoLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DE42221DD64F00D0FE0A;
+			remoteInfo = "ZaJoLibrary-macOS";
+		};
+		6BC8B45222AE831400CADE7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC8B44922AE831400CADE7A /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DEAC221DEAE100D0FE0A;
+			remoteInfo = "ArticleClassifierCore-macos";
+		};
+		6BC8B45422AE831400CADE7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC8B44922AE831400CADE7A /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DEC9221DEAF600D0FE0A;
+			remoteInfo = "ArticleClassifierCore-ios";
+		};
+		6BC8B45622AE831400CADE7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC8B44922AE831400CADE7A /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BDC7ACC222BD4070061DB71;
+			remoteInfo = "ArticleClassifierCoreTests-macOS";
+		};
+		6BC8B45822AE831400CADE7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC8B44922AE831400CADE7A /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B334671222C3C760013149F;
+			remoteInfo = "TestHostApplication-ios";
+		};
+		6BC8B45A22AE831400CADE7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC8B44922AE831400CADE7A /* ArticleClassifierCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B334696222C3E540013149F;
+			remoteInfo = "ArticleClassifierCoreTests-ios";
+		};
+		6BC8B46322AE831800CADE7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC8B45C22AE831800CADE7A /* ArticleClassifier.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DE5D221DD84D00D0FE0A;
+			remoteInfo = "ArticleClassifier-ios";
+		};
+		6BC8B46522AE831800CADE7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC8B45C22AE831800CADE7A /* ArticleClassifier.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DE7A221DD87E00D0FE0A;
+			remoteInfo = "ArticleClassifier-macos";
+		};
+		6BC8B46722AE831800CADE7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC8B45C22AE831800CADE7A /* ArticleClassifier.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B01DE82221DD87E00D0FE0A;
+			remoteInfo = "ArticleClassifier-macosTests";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6BC8B41A22AE821800CADE7A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				6BC8B47522AE84B400CADE7A /* articles-evaluation_en.json in CopyFiles */,
+				6BC8B47622AE84B700CADE7A /* articles-evaluation_fr.json in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6BC8B41C22AE821800CADE7A /* ArticleClassifierEvaluator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ArticleClassifierEvaluator; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BC8B42622AE826B00CADE7A /* Evaluator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = SOURCE_ROOT; };
+		6BC8B42822AE827200CADE7A /* articles-evaluation_fr.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "articles-evaluation_fr.json"; sourceTree = SOURCE_ROOT; };
+		6BC8B42922AE827200CADE7A /* articles-evaluation_en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "articles-evaluation_en.json"; sourceTree = SOURCE_ROOT; };
+		6BC8B42D22AE830000CADE7A /* ZaJoLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZaJoLibrary.xcodeproj; path = ../ZaJoLibrary/ZaJoLibrary.xcodeproj; sourceTree = "<group>"; };
+		6BC8B44922AE831400CADE7A /* ArticleClassifierCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ArticleClassifierCore.xcodeproj; path = ../ArticleClassifierCore/ArticleClassifierCore.xcodeproj; sourceTree = "<group>"; };
+		6BC8B45C22AE831800CADE7A /* ArticleClassifier.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ArticleClassifier.xcodeproj; path = ../ArticleClassifier/ArticleClassifier.xcodeproj; sourceTree = "<group>"; };
+		6BC8B47322AE83A400CADE7A /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6BC8B41922AE821800CADE7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BC8B47022AE835D00CADE7A /* ArticleClassifier.framework in Frameworks */,
+				6BC8B47122AE835D00CADE7A /* ArticleClassifierCore.framework in Frameworks */,
+				6BC8B47222AE835D00CADE7A /* ZaJoLibrary.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6BC8B41322AE821800CADE7A = {
+			isa = PBXGroup;
+			children = (
+				6BC8B42C22AE82EE00CADE7A /* Libraries */,
+				6BC8B41E22AE821800CADE7A /* ArticleClassifierEvaluator */,
+				6BC8B41D22AE821800CADE7A /* Products */,
+				6BC8B46F22AE835D00CADE7A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6BC8B41D22AE821800CADE7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BC8B41C22AE821800CADE7A /* ArticleClassifierEvaluator */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6BC8B41E22AE821800CADE7A /* ArticleClassifierEvaluator */ = {
+			isa = PBXGroup;
+			children = (
+				6BC8B47322AE83A400CADE7A /* main.swift */,
+				6BC8B42622AE826B00CADE7A /* Evaluator.swift */,
+				6BC8B42922AE827200CADE7A /* articles-evaluation_en.json */,
+				6BC8B42822AE827200CADE7A /* articles-evaluation_fr.json */,
+			);
+			path = ArticleClassifierEvaluator;
+			sourceTree = "<group>";
+		};
+		6BC8B42C22AE82EE00CADE7A /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				6BC8B45C22AE831800CADE7A /* ArticleClassifier.xcodeproj */,
+				6BC8B44922AE831400CADE7A /* ArticleClassifierCore.xcodeproj */,
+				6BC8B42D22AE830000CADE7A /* ZaJoLibrary.xcodeproj */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		6BC8B42E22AE830000CADE7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BC8B43322AE830000CADE7A /* ZaJoLibrary.framework */,
+				6BC8B43522AE830000CADE7A /* ZaJoLibrary.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6BC8B44A22AE831400CADE7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BC8B45322AE831400CADE7A /* ArticleClassifierCore.framework */,
+				6BC8B45522AE831400CADE7A /* ArticleClassifierCore.framework */,
+				6BC8B45722AE831400CADE7A /* ArticleClassifierCoreTests-macOS.xctest */,
+				6BC8B45922AE831400CADE7A /* TestHostApplication-ios.app */,
+				6BC8B45B22AE831400CADE7A /* ArticleClassifierCoreTests-ios.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6BC8B45D22AE831800CADE7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BC8B46422AE831800CADE7A /* ArticleClassifier.framework */,
+				6BC8B46622AE831800CADE7A /* ArticleClassifier.framework */,
+				6BC8B46822AE831800CADE7A /* ArticleClassifier-macosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6BC8B46F22AE835D00CADE7A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6BC8B41B22AE821800CADE7A /* ArticleClassifierEvaluator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BC8B42322AE821800CADE7A /* Build configuration list for PBXNativeTarget "ArticleClassifierEvaluator" */;
+			buildPhases = (
+				6BC8B41822AE821800CADE7A /* Sources */,
+				6BC8B41922AE821800CADE7A /* Frameworks */,
+				6BC8B41A22AE821800CADE7A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArticleClassifierEvaluator;
+			productName = ArticleClassifierEvaluator;
+			productReference = 6BC8B41C22AE821800CADE7A /* ArticleClassifierEvaluator */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6BC8B41422AE821800CADE7A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = ZaJo;
+				TargetAttributes = {
+					6BC8B41B22AE821800CADE7A = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 6BC8B41722AE821800CADE7A /* Build configuration list for PBXProject "ArticleClassifierEvaluator" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6BC8B41322AE821800CADE7A;
+			productRefGroup = 6BC8B41D22AE821800CADE7A /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6BC8B45D22AE831800CADE7A /* Products */;
+					ProjectRef = 6BC8B45C22AE831800CADE7A /* ArticleClassifier.xcodeproj */;
+				},
+				{
+					ProductGroup = 6BC8B44A22AE831400CADE7A /* Products */;
+					ProjectRef = 6BC8B44922AE831400CADE7A /* ArticleClassifierCore.xcodeproj */;
+				},
+				{
+					ProductGroup = 6BC8B42E22AE830000CADE7A /* Products */;
+					ProjectRef = 6BC8B42D22AE830000CADE7A /* ZaJoLibrary.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				6BC8B41B22AE821800CADE7A /* ArticleClassifierEvaluator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6BC8B43322AE830000CADE7A /* ZaJoLibrary.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZaJoLibrary.framework;
+			remoteRef = 6BC8B43222AE830000CADE7A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BC8B43522AE830000CADE7A /* ZaJoLibrary.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZaJoLibrary.framework;
+			remoteRef = 6BC8B43422AE830000CADE7A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BC8B45322AE831400CADE7A /* ArticleClassifierCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ArticleClassifierCore.framework;
+			remoteRef = 6BC8B45222AE831400CADE7A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BC8B45522AE831400CADE7A /* ArticleClassifierCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ArticleClassifierCore.framework;
+			remoteRef = 6BC8B45422AE831400CADE7A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BC8B45722AE831400CADE7A /* ArticleClassifierCoreTests-macOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ArticleClassifierCoreTests-macOS.xctest";
+			remoteRef = 6BC8B45622AE831400CADE7A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BC8B45922AE831400CADE7A /* TestHostApplication-ios.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "TestHostApplication-ios.app";
+			remoteRef = 6BC8B45822AE831400CADE7A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BC8B45B22AE831400CADE7A /* ArticleClassifierCoreTests-ios.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ArticleClassifierCoreTests-ios.xctest";
+			remoteRef = 6BC8B45A22AE831400CADE7A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BC8B46422AE831800CADE7A /* ArticleClassifier.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ArticleClassifier.framework;
+			remoteRef = 6BC8B46322AE831800CADE7A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BC8B46622AE831800CADE7A /* ArticleClassifier.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ArticleClassifier.framework;
+			remoteRef = 6BC8B46522AE831800CADE7A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BC8B46822AE831800CADE7A /* ArticleClassifier-macosTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ArticleClassifier-macosTests.xctest";
+			remoteRef = 6BC8B46722AE831800CADE7A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6BC8B41822AE821800CADE7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BC8B47422AE83A400CADE7A /* main.swift in Sources */,
+				6BC8B42722AE826B00CADE7A /* Evaluator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6BC8B42122AE821800CADE7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6BC8B42222AE821800CADE7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		6BC8B42422AE821800CADE7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PAX794G4ZM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6BC8B42522AE821800CADE7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PAX794G4ZM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6BC8B41722AE821800CADE7A /* Build configuration list for PBXProject "ArticleClassifierEvaluator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BC8B42122AE821800CADE7A /* Debug */,
+				6BC8B42222AE821800CADE7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6BC8B42322AE821800CADE7A /* Build configuration list for PBXNativeTarget "ArticleClassifierEvaluator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BC8B42422AE821800CADE7A /* Debug */,
+				6BC8B42522AE821800CADE7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6BC8B41422AE821800CADE7A /* Project object */;
+}
