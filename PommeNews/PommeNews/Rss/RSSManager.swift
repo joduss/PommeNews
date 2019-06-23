@@ -27,7 +27,7 @@ class RSSManager {
     
     private let rssClient: RSSClient
     
-    private let classifier = ThemeClassifier()
+    private let classifier: ThemeClassifier
     private lazy var tfIdf: TfIdf = self.initializeTfIdf()
 
     
@@ -51,7 +51,7 @@ class RSSManager {
         
         //Configure classifier
         let supportedThemes = Request<Theme>().execute(context: CoreDataStack.shared.context)
-        classifier.validThemes = supportedThemes.map({ArticleTheme(key: $0.key)})
+        classifier = ThemeClassifier(validThemes: supportedThemes.map({ArticleTheme(key: $0.key)}))
 
         self.feedsUpdater = FeedsUpdater(rssManager: self, classifier: self.classifier, rssClient: self.rssClient)
     }
