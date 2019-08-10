@@ -32,7 +32,8 @@ public struct ArticleTheme: Hashable, Equatable {
     public static let smartphone = ArticleTheme(key: "smartphone")
     public static let tablet = ArticleTheme(key: "tablet")
     public static let watch = ArticleTheme(key: "watch")
-    
+    public static let otherProduct = ArticleTheme(key: "otherProduct")
+
     public static let apple = ArticleTheme(key: "apple")
     public static let microsoft = ArticleTheme(key: "microsoft")
     public static let google = ArticleTheme(key: "google")
@@ -48,7 +49,6 @@ public struct ArticleTheme: Hashable, Equatable {
     public static let appleNews = ArticleTheme(key: "appleNews")
     public static let icloud = ArticleTheme(key: "icloud")
     public static let appleServices = ArticleTheme(key: "appleServices")
-    public static let keynote = ArticleTheme(key: "keynote")
 
     
     public static let music = ArticleTheme(key: "music")
@@ -61,15 +61,24 @@ public struct ArticleTheme: Hashable, Equatable {
     public static let security = ArticleTheme(key: "security")
     public static let privacy = ArticleTheme(key: "privacy")
     public static let patent = ArticleTheme(key: "patent")
+    public static let technology = ArticleTheme(key: "technology")
     public static let beta = ArticleTheme(key: "beta")
+    public static let economyPolitic = ArticleTheme(key: "economyPolitic")
+    public static let test = ArticleTheme(key: "test")
+
+    public static let accessory = ArticleTheme(key: "accessory")
+    public static let component = ArticleTheme(key: "component")
+    public static let keynote = ArticleTheme(key: "keynote")
+
+    public static let otherSerious = ArticleTheme(key: "otherSerious")
 
     public static let other = ArticleTheme(key: "other")
     
     public static var allThemes: [ArticleTheme] = [
         ArticleTheme.iPhone,
         ArticleTheme.iPad,
-        ArticleTheme.appleWatch,
         ArticleTheme.appleTV,
+        ArticleTheme.appleWatch,
         ArticleTheme.mac,
         ArticleTheme.otherAppleProduct,
         ArticleTheme.pc,
@@ -77,8 +86,8 @@ public struct ArticleTheme: Hashable, Equatable {
         
         ArticleTheme.android,
         ArticleTheme.ios,
-        ArticleTheme.windows,
         ArticleTheme.macos,
+        ArticleTheme.windows,
         
         ArticleTheme.apps,
         ArticleTheme.game,
@@ -87,14 +96,15 @@ public struct ArticleTheme: Hashable, Equatable {
         ArticleTheme.smartphone,
         ArticleTheme.tablet,
         ArticleTheme.watch,
+        ArticleTheme.otherProduct,
         
-        ArticleTheme.apple,
-        ArticleTheme.microsoft,
-        ArticleTheme.google,
-        ArticleTheme.samsung,
         ArticleTheme.amazon,
-        ArticleTheme.netflix,
+        ArticleTheme.apple,
         ArticleTheme.facebook,
+        ArticleTheme.google,
+        ArticleTheme.microsoft,
+        ArticleTheme.netflix,
+        ArticleTheme.samsung,
         ArticleTheme.spotify,
         
         ArticleTheme.appleMusic,
@@ -111,8 +121,19 @@ public struct ArticleTheme: Hashable, Equatable {
         ArticleTheme.promo,
         ArticleTheme.rumor,
         ArticleTheme.security,
+        ArticleTheme.privacy,
+        ArticleTheme.technology,
         ArticleTheme.patent,
+        ArticleTheme.economyPolitic,
+        ArticleTheme.test,
+        ArticleTheme.beta,
 
+
+        ArticleTheme.component,
+        ArticleTheme.accessory,
+        ArticleTheme.keynote,
+        
+        ArticleTheme.otherSerious,
         ArticleTheme.other]
     
     public let key: String
