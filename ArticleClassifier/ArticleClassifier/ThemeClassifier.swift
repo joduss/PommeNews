@@ -16,13 +16,19 @@ public class ThemeClassifier {
     
     private let minimumCharacterForWholeTextTermSearch = 4 //To avoid bigmac to be classify as a mac. Splitting is not hurt since search is made on exact match
     
-    public var validThemes = ArticleTheme.allThemes
+    private var validThemes = ArticleTheme.allThemes
+    
+    private var themesClassifiers: [ArticleTheme : [String]] = [:]
+
     
     public init(validThemes: [ArticleTheme]) {
         self.validThemes = validThemes
+        themesClassifiers = buildClassifiers(allThemes: classifierTermsGenerator.generateClassifierTerms())
     }
     
-    public init() { }
+    public init() {
+        themesClassifiers = buildClassifiers(allThemes: classifierTermsGenerator.generateClassifierTerms())
+    }
     
     public func classify(article: TCArticle) -> [ArticleTheme] {
         
@@ -35,28 +41,20 @@ public class ThemeClassifier {
         let classificationByBreakingTitle = self.classifyBreakingInSeparateWord(text: title)
         let classificationByBreakingSummary = self.classifyBreakingInSeparateWord(text: summary)
         
-        var themes = [ArticleTheme]()
-        themes.append(contentsOf: fullTextClassificationTitle)
-        themes.append(contentsOf: fullTextClassificationSummary)
-        themes.append(contentsOf: classificationByBreakingTitle)
-        themes.append(contentsOf: classificationByBreakingSummary)
-
-        var alreadyAdded: [ArticleTheme : Bool] = [:]
+        var themes = Set<ArticleTheme>()
+        themes = themes.union(fullTextClassificationTitle)
+        themes = themes.union(fullTextClassificationSummary)
+        themes = themes.union(classificationByBreakingTitle)
+        themes = themes.union(classificationByBreakingSummary)
         
-        //Return uniques
-        var allThemes = themes.filter({ theme in alreadyAdded.updateValue(true, forKey: theme) ?? false})
-        
-        if allThemes.isEmpty {
-            allThemes.append(ArticleTheme.other)
+        if themes.isEmpty {
+            themes.insert(ArticleTheme.other)
         }
         
-        return allThemes
+        return Array(themes)
     }
     
     private func classifyAsFullText(text: String) -> [ArticleTheme] {
-        
-        let themesClassifiers = limitThemes(allThemes: classifierTermsGenerator.generateClassifierTerms())
-        
 
         var themesFound: [ArticleTheme] = []
         
@@ -71,8 +69,7 @@ public class ThemeClassifier {
     
     private func classifyBreakingInSeparateWord(text: String) -> [ArticleTheme] {
         
-        let themesClassifiers = limitThemes(allThemes: classifierTermsGenerator.generateClassifierTerms())
-        let textComponents = text.lowercased().components(separatedBy: CharacterSet.punctuationCharacters)
+        let textComponents = text.lowercased().components(separatedBy: CharacterSet.punctuationCharacters.union(CharacterSet.whitespacesAndNewlines))
         
         var themesFound: [ArticleTheme] = []
 
@@ -86,13 +83,14 @@ public class ThemeClassifier {
     
     private func hasAComponentOf(textComponents: [String], partOfClassifierTerms terms: [String]) -> Bool {
         for classifierTerm in terms {
-            if textComponents.contains(classifierTerm) {
+            if textComponents.filter({!$0.isEmpty}).contains(classifierTerm) {
                 return true
             }
         }
         return false
     }
     
+    /// Check if the text contains one classifier term
     private func containsText(_ text: String, partOfClassifierTerms terms: [String]) -> Bool {
         
         for classifierTerm in terms {
@@ -105,21 +103,23 @@ public class ThemeClassifier {
     
     private func processedText(_ text: String) -> String {
         var processText = text.lowercased()
-        processText = processText.replacingOccurrences(of: " d'", with: "")
-        processText = processText.replacingOccurrences(of: " l'", with: " ")
+        processText = processText.replacingOccurrences(of: "d'", with: " ")
+        processText = processText.replacingOccurrences(of: "l'", with: " ")
         processText = processText.replacingOccurrences(of: " the ", with: " ")
         processText = processText.replacingOccurrences(of: " le ", with: " ")
         processText = processText.replacingOccurrences(of: " la ", with: " ")
         processText = processText.replacingOccurrences(of: " of ", with: " ")
         processText = processText.replacingOccurrences(of: " de ", with: " ")
-        processText = processText.replacingOccurrences(of: ".", with: " ")
-        processText = processText.replacingOccurrences(of: ",", with: " ")
-        processText = processText.replacingOccurrences(of: ";", with: " ")
+        processText = processText.replacingOccurrences(of: " les ", with: " ")
+        processText = processText.replacingOccurrences(of: " des ", with: " ")
+        processText = processText.replacingOccurrences(of: " a ", with: " ")
+        processText = processText.replacingOccurrences(of: " on ", with: " ")
+        processText = processText.replacingOccurrences(of: " from ", with: " ")
         
         return processText
     }
     
-    private func limitThemes(allThemes: [ArticleTheme : [String]]) -> [ArticleTheme : [String]] {
+    private func buildClassifiers(allThemes: [ArticleTheme : [String]]) -> [ArticleTheme : [String]] {
         var themesLeft:[ArticleTheme : [String]] = [:]
         
         for theme in validThemes {

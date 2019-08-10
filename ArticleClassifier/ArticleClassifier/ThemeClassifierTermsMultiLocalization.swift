@@ -55,6 +55,9 @@ class ThemeClassifierTermsMultiLocalization {
             case ArticleTheme.tablet.key:
             dictionaryTerms[theme] = ["tablet", "ipad", "galaxy note", "tablette", "surface pro", "surface go"]
 
+            case ArticleTheme.keynote.key:
+                dictionaryTerms[theme] = ["keynote", "wwdc"]
+                
             case ArticleTheme.appleWatch.key:
                 dictionaryTerms[theme] = ["rumor", "rumeur", "pourrait"]
             case ArticleTheme.appleMusic.key:
