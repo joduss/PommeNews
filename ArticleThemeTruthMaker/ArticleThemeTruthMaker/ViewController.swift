@@ -24,6 +24,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var statsLabel: NSTextField!
     @IBOutlet weak var goToTF: NSTextField!
     
+    private let rowCount = 13.0
     
     private var articleFilePath: String? = nil
     private var articles: [TCArticle] = []
@@ -51,6 +52,8 @@ class ViewController: NSViewController {
             """
             goToTF.stringValue = "\(articles.firstIndex(of: currentArticle!)!)"
             updateCheckboxes()
+            
+            updateStats()
         }
     }
     
@@ -91,8 +94,8 @@ class ViewController: NSViewController {
             var col = 0.0
             
             if currentPosition != 0 {
-                col = floor(currentPosition / 10.0)
-                row = currentPosition - col * 10
+                col = floor(currentPosition / rowCount)
+                row = currentPosition - col * rowCount
             }
             
             let view = gridview.cell(atColumnIndex: Int(col), rowIndex: Int(row))
