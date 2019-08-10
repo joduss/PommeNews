@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6ee2c1ed-e9eb-4f76-a6f5-b1ef6fb049ec" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles_fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/articles_fr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ArticlePreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArticlePreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KerasPommeNews.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/KerasPommeNews.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Setup Script" />
+        <option value="Python Unit Test" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1OppDxKxckYjnwt9B32iQULcPzL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Sandbox" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.KerasPommeNews">
+    <configuration name="KerasBinaryClassification" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="TensorflowEnv" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Sandbox/KerasBinaryClassification.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="KerasMulticlassClassification" type="PythonConfigurationType" factoryName="Python">
+      <module name="TensorflowEnv" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Sandbox/KerasMulticlassClassification.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="KerasPommeNews" type="PythonConfigurationType" factoryName="Python">
+      <module name="TensorflowEnv" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/KerasPommeNews.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Sandbox" type="PythonConfigurationType" factoryName="Python">
+      <module name="TensorflowEnv" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Sandbox/Sandbox.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="TensorflowEnv" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kerasTest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in UtilityTest.py" type="tests" factoryName="Unittests" nameIsGenerated="true">
+      <module name="TensorflowEnv" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_pattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/src/UtilityTest.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.KerasBinaryClassification" />
+      <item itemvalue="Python.KerasMulticlassClassification" />
+      <item itemvalue="Python.KerasPommeNews" />
+      <item itemvalue="Python.Sandbox" />
+      <item itemvalue="Python tests.Unittests in UtilityTest.py" />
+    </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ee2c1ed-e9eb-4f76-a6f5-b1ef6fb049ec" name="Default Changelist" comment="" />
+      <created>1564684276298</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1564684276298</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="534" y="192" key="#General" timestamp="1580242270120">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="534" y="192" key="#General/0.0.1680.1050@0.0.1680.1050" timestamp="1580242270120" />
+    <state x="535" y="335" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578141135068">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="535" y="335" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1578141135068" />
+    <state x="455" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1580242005726">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="455" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1580242005726" />
+    <state width="1659" height="353" key="GridCell.Tab.0.bottom" timestamp="1580316442686">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="2539" height="449" key="GridCell.Tab.0.bottom/-1680.277.1680.1027/0.23.2560.1363@0.23.2560.1363" timestamp="1580112862027" />
+    <state width="1659" height="353" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1580316442686" />
+    <state width="1659" height="343" key="GridCell.Tab.0.bottom/0.23.1680.973@0.23.1680.973" timestamp="1578229066853" />
+    <state width="1659" height="353" key="GridCell.Tab.0.center" timestamp="1580316442686">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="2539" height="449" key="GridCell.Tab.0.center/-1680.277.1680.1027/0.23.2560.1363@0.23.2560.1363" timestamp="1580112862026" />
+    <state width="1659" height="353" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1580316442686" />
+    <state width="1659" height="424" key="GridCell.Tab.0.center/0.0.1680.996@0.0.1680.1050" timestamp="1580162108880" />
+    <state width="1659" height="343" key="GridCell.Tab.0.center/0.23.1680.973@0.23.1680.973" timestamp="1578229066852" />
+    <state width="1659" height="353" key="GridCell.Tab.0.left" timestamp="1580316442685">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="2539" height="449" key="GridCell.Tab.0.left/-1680.277.1680.1027/0.23.2560.1363@0.23.2560.1363" timestamp="1580112862025" />
+    <state width="1659" height="353" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1580316442685" />
+    <state width="1659" height="424" key="GridCell.Tab.0.left/0.23.1680.973@0.23.1680.973" timestamp="1580162108856" />
+    <state width="1659" height="353" key="GridCell.Tab.0.right" timestamp="1580316442686">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="2539" height="449" key="GridCell.Tab.0.right/-1680.277.1680.1027/0.23.2560.1363@0.23.2560.1363" timestamp="1580112862026" />
+    <state width="1659" height="353" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1580316442686" />
+    <state width="1659" height="343" key="GridCell.Tab.0.right/0.23.1680.973@0.23.1680.973" timestamp="1578229066853" />
+    <state width="1659" height="353" key="GridCell.Tab.1.bottom" timestamp="1580316442597">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="2539" height="449" key="GridCell.Tab.1.bottom/-1680.277.1680.1027/0.23.2560.1363@0.23.2560.1363" timestamp="1580112862034" />
+    <state width="1659" height="353" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1580316442597" />
+    <state width="1659" height="320" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1580231325874" />
+    <state width="1659" height="353" key="GridCell.Tab.1.bottom/0.23.1680.973@0.23.1680.973" timestamp="1580316351374" />
+    <state width="1659" height="353" key="GridCell.Tab.1.center" timestamp="1580316442596">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="2539" height="449" key="GridCell.Tab.1.center/-1680.277.1680.1027/0.23.2560.1363@0.23.2560.1363" timestamp="1580112862033" />
+    <state width="1659" height="353" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1580316442596" />
+    <state width="1659" height="320" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1580231325873" />
+    <state width="1659" height="353" key="GridCell.Tab.1.center/0.23.1680.973@0.23.1680.973" timestamp="1580316351373" />
+    <state width="1659" height="353" key="GridCell.Tab.1.left" timestamp="1580316442596">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="2539" height="449" key="GridCell.Tab.1.left/-1680.277.1680.1027/0.23.2560.1363@0.23.2560.1363" timestamp="1580112862027" />
+    <state width="1659" height="353" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1580316442596" />
+    <state width="1659" height="320" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1580231325872" />
+    <state width="1659" height="353" key="GridCell.Tab.1.left/0.23.1680.973@0.23.1680.973" timestamp="1580316351372" />
+    <state width="1659" height="353" key="GridCell.Tab.1.right" timestamp="1580316442597">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="2539" height="449" key="GridCell.Tab.1.right/-1680.277.1680.1027/0.23.2560.1363@0.23.2560.1363" timestamp="1580112862034" />
+    <state width="1659" height="353" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1580316442597" />
+    <state width="1659" height="320" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1580231325873" />
+    <state width="1659" height="353" key="GridCell.Tab.1.right/0.23.1680.973@0.23.1680.973" timestamp="1580316351374" />
+    <state x="349" y="164" width="1171" height="722" key="SettingsEditor" timestamp="1580242271203">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="349" y="164" width="1171" height="722" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1580242271203" />
+    <state x="629" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580065519023">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="629" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1580065519023" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/Sandbox/KerasBinaryClassification.py</url>
+          <line>267</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/Sandbox/KerasBinaryClassification.py</url>
+          <line>162</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/Sandbox/KerasMulticlassClassification.py</url>
+          <line>261</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/Sandbox/KerasMulticlassClassification.py</url>
+          <line>285</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/Sandbox/KerasMulticlassClassification.py</url>
+          <line>218</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/Sandbox/KerasMulticlassClassification.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/Sandbox/KerasBinaryClassification.py</url>
+          <line>212</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/Sandbox/Sandbox.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/KerasPommeNews.py</url>
+          <line>401</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/KerasPommeNews.py</url>
+          <line>391</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="articleJson[&quot;title&quot;] + &quot;. &quot; + articleJson[&quot;summary&quot;]" language="Python" />
+        <watch expression="doPredictionForOutput(articleJson[&quot;title&quot;] + &quot;. &quot; + articleJson[&quot;summary&quot;], unverifiedThemes)" language="Python" />
+        <watch expression="themeTokenizer.index_word" language="Python" />
+        <watch expression="predictions[idxTheme]" language="Python" />
+        <watch expression="predictions" language="Python" />
+        <watch expression="predictions[0][idxTheme]" language="Python" />
+        <watch expression="outfile" language="Python" />
+        <watch expression="unverifiedThemes" language="Python" />
+        <watch expression="articleVerifiedThemes" language="Python" />
+        <watch expression="articleVerifiedThemes = []" language="Python" />
+        <watch expression="json" language="Python" />
+        <watch expression="articleJson" language="Python" />
+        <watch expression="articleJson[KEY_VERIFIED_THEMES]" language="Python" />
+        <watch expression="articleVerifiedThemes" language="Python" />
+        <watch expression="requireClassification(supportedThemes, articleJson)" language="Python" />
+        <watch expression="articleJson[self.KEY_VERIFIED_THEMES]" language="Python" />
+        <watch expression="processedArticle" language="Python" />
+        <watch expression="processedArticles[i]" language="Python" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
