@@ -30,6 +30,9 @@ class ArticleViewController: ViewControllerAdmob {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.webview.translatesAutoresizingMaskIntoConstraints = false
+//        self.navigationController?.hidesBarsOnSwipe = true
+//        self.navigationController?.hidesBarsOnTap = true
+//        self.navigationController.bar
         
         webviewContainer.addSubview(webview)
         let contraintsVertical = NSLayoutConstraint.constraints(withVisualFormat: "V:|[webview]|", options: .alignAllCenterY, metrics: nil, views: ["webview": webview])
