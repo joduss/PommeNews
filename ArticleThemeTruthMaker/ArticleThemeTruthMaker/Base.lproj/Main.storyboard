@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -710,7 +711,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6K-8D-RTE">
-                                <rect key="frame" x="20" y="210" width="415" height="270"/>
+                                <rect key="frame" x="20" y="210" width="400" height="270"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="aGX-vA-HAI">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="270"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -722,6 +723,15 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <size key="minSize" width="400" height="270"/>
                                             <size key="maxSize" width="630" height="10000000"/>
+                                            <attributedString key="textStorage">
+                                                <fragment content="j">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>
@@ -734,7 +744,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="mgH-kY-b02">
-                                    <rect key="frame" x="400" y="0.0" width="15" height="270"/>
+                                    <rect key="frame" x="384" y="0.0" width="16" height="270"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -832,7 +842,7 @@
                                 </constraints>
                             </customView>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="EEe-e2-YHI">
-                                <rect key="frame" x="17" y="607" width="406" height="46"/>
+                                <rect key="frame" x="17" y="606" width="406" height="46"/>
                                 <view key="contentView" id="oQR-hf-qyc">
                                     <rect key="frame" x="3" y="3" width="400" height="40"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -870,7 +880,7 @@
                                 </constraints>
                             </box>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="1ky-xT-J8i">
-                                <rect key="frame" x="17" y="558" width="406" height="46"/>
+                                <rect key="frame" x="17" y="557" width="406" height="46"/>
                                 <view key="contentView" id="cTP-RV-dhi">
                                     <rect key="frame" x="3" y="3" width="400" height="40"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -913,7 +923,7 @@
                                             </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dwn-le-dmm">
-                                            <rect key="frame" x="202" y="9" width="40" height="22"/>
+                                            <rect key="frame" x="202" y="10" width="40" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="Jiz-l0-ZpJ"/>
                                             </constraints>
@@ -940,13 +950,13 @@
                                 </constraints>
                             </box>
                             <box title="Stats" translatesAutoresizingMaskIntoConstraints="NO" id="14m-rE-AKI">
-                                <rect key="frame" x="17" y="496" width="406" height="55"/>
+                                <rect key="frame" x="17" y="496" width="406" height="54"/>
                                 <view key="contentView" id="Aa3-T6-1BJ">
-                                    <rect key="frame" x="3" y="3" width="400" height="37"/>
+                                    <rect key="frame" x="3" y="3" width="400" height="36"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0R8-DE-M9c">
-                                            <rect key="frame" x="18" y="10" width="364" height="17"/>
+                                            <rect key="frame" x="18" y="10" width="364" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="MYh-3c-xS2">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>

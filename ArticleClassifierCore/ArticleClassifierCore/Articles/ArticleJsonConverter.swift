@@ -7,20 +7,20 @@
 //
 
 import Foundation
-//
-//public class ArticleJsonConverter {
-//
-//    public init() { }
-//
-//    public func convertToJson(articles: [TCArticle]) -> String? {
-//        let encoder = JSONEncoder()
-//
-//        do {
-//            let json = try encoder.encode(articles)
-//            return String(data: json, encoding: String.Encoding.utf8)
-//        }
-//        catch {}
-//        return nil
-//    }
-//
-//}
+
+public class ArticleJsonConverter {
+
+    public init() { }
+
+    public func convertToJson(articles: [TCArticle]) -> String? {
+        let encoder = JSONEncoder()
+
+        do {
+            let json = try encoder.encode(articles)
+            return String(data: json, encoding: String.Encoding.utf8)
+        }
+        catch {}
+        return nil
+    }
+
+}

@@ -121,6 +121,87 @@ class ViewController: NSViewController {
         }
     }
 
+    override func keyUp(with event: NSEvent) {
+        print(event.keyCode)
+    
+        if let specialKey = event.specialKey {
+            if specialKey == NSEvent.SpecialKey.leftArrow {
+                previous()
+            }
+            else if specialKey == NSEvent.SpecialKey.rightArrow {
+                next(self)
+            }
+            
+            return
+        }
+        
+        guard let character = event.characters?.first, let article = currentArticle else {
+            return
+        }
+        
+        var themeFromKey: ArticleTheme?
+        
+        switch event.characters {
+        case "a":
+            themeFromKey = ArticleTheme.apple
+        case "t":
+            themeFromKey = ArticleTheme.tablet
+        case "f":
+            themeFromKey = ArticleTheme.facebook
+        case "m":
+            themeFromKey = ArticleTheme.mac
+        case "g":
+            themeFromKey = ArticleTheme.google
+        case "i":
+            themeFromKey = ArticleTheme.iPhone
+        case "r":
+            themeFromKey = ArticleTheme.rumor
+        case "k":
+            themeFromKey = ArticleTheme.keynote
+        case "p":
+            themeFromKey = ArticleTheme.iPad
+        case "e":
+            themeFromKey = ArticleTheme.economyPolitic
+        case "c":
+            themeFromKey = ArticleTheme.computer
+        case "w":
+            themeFromKey = ArticleTheme.watch
+        case "n":
+            themeFromKey = ArticleTheme.netflix
+        case "b":
+            themeFromKey = ArticleTheme.beta
+        case "v":
+            themeFromKey = ArticleTheme.video
+        case "z":
+            themeFromKey = ArticleTheme.ios
+        case "u":
+            themeFromKey = ArticleTheme.macos
+        default:
+            break
+        }
+        
+        guard let theme = themeFromKey else {
+            return
+        }
+        
+        var themes = article.themes
+
+        if let themeIdx = themes.firstIndex(of: theme.key) {
+            themes.remove(at: themeIdx)
+        }
+        else {
+            themes.append(theme.key)
+        }
+        
+        let mutatedArticle = TCArticle(title: article.title,
+                                       summary: article.summary,
+                                       themes: themes)
+        
+        articles[articles.firstIndex(of: article)!] = mutatedArticle
+        currentArticle = mutatedArticle
+        
+        updateCheckboxes()
+    }
     
     @IBAction func load(_ sender: Any) {
         let dialog = NSOpenPanel();
@@ -186,6 +267,17 @@ class ViewController: NSViewController {
         }
         
         updateCheckboxes()
+    }
+    
+    private func previous() {
+        var idx = Int(goToTF.stringValue) ?? 0
+        idx -= 1
+        guard idx < articles.count else {
+            textView.string = "Index out of bound!"
+            return
+        }
+        
+        currentArticle = articles[idx]
     }
 
     @IBAction func GoTo(_ sender: Any) {
