@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -132,7 +132,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6B2448AA22BE7F62007FF4EE /* ArticleThemeTruthMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArticleThemeTruthMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B2448AA22BE7F62007FF4EE /* ArticleThemeTagger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArticleThemeTagger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B2448AD22BE7F62007FF4EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B2448AF22BE7F62007FF4EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6B2448B122BE7F64007FF4EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				6B2448BD22BE7FF9007FF4EE /* Libraries */,
-				6B2448AC22BE7F62007FF4EE /* ArticleThemeTruthMaker */,
+				6B2448AC22BE7F62007FF4EE /* ArticleThemeTagger */,
 				6B2448AB22BE7F62007FF4EE /* Products */,
 				6B2448E722BE8043007FF4EE /* Frameworks */,
 			);
@@ -173,12 +173,12 @@
 		6B2448AB22BE7F62007FF4EE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6B2448AA22BE7F62007FF4EE /* ArticleThemeTruthMaker.app */,
+				6B2448AA22BE7F62007FF4EE /* ArticleThemeTagger.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6B2448AC22BE7F62007FF4EE /* ArticleThemeTruthMaker */ = {
+		6B2448AC22BE7F62007FF4EE /* ArticleThemeTagger */ = {
 			isa = PBXGroup;
 			children = (
 				6B2448AD22BE7F62007FF4EE /* AppDelegate.swift */,
@@ -190,7 +190,7 @@
 				6B2448B722BE7F64007FF4EE /* ArticleThemeTruthMaker.entitlements */,
 				6B2448F522BE82CB007FF4EE /* SupportedThemeFilterLoader.swift */,
 			);
-			path = ArticleThemeTruthMaker;
+			path = ArticleThemeTagger;
 			sourceTree = "<group>";
 		};
 		6B2448BD22BE7FF9007FF4EE /* Libraries */ = {
@@ -244,9 +244,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6B2448A922BE7F62007FF4EE /* ArticleThemeTruthMaker */ = {
+		6B2448A922BE7F62007FF4EE /* ArticleThemeTagger */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6B2448BA22BE7F64007FF4EE /* Build configuration list for PBXNativeTarget "ArticleThemeTruthMaker" */;
+			buildConfigurationList = 6B2448BA22BE7F64007FF4EE /* Build configuration list for PBXNativeTarget "ArticleThemeTagger" */;
 			buildPhases = (
 				6B2448A622BE7F62007FF4EE /* Sources */,
 				6B2448A722BE7F62007FF4EE /* Frameworks */,
@@ -260,9 +260,9 @@
 				6B24490A22BFB45A007FF4EE /* PBXTargetDependency */,
 				6B24490E22BFB45A007FF4EE /* PBXTargetDependency */,
 			);
-			name = ArticleThemeTruthMaker;
+			name = ArticleThemeTagger;
 			productName = ArticleThemeTruthMaker;
-			productReference = 6B2448AA22BE7F62007FF4EE /* ArticleThemeTruthMaker.app */;
+			productReference = 6B2448AA22BE7F62007FF4EE /* ArticleThemeTagger.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -280,8 +280,8 @@
 					};
 				};
 			};
-			buildConfigurationList = 6B2448A522BE7F62007FF4EE /* Build configuration list for PBXProject "ArticleThemeTruthMaker" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = 6B2448A522BE7F62007FF4EE /* Build configuration list for PBXProject "ArticleThemeTagger" */;
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -307,7 +307,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				6B2448A922BE7F62007FF4EE /* ArticleThemeTruthMaker */,
+				6B2448A922BE7F62007FF4EE /* ArticleThemeTagger */,
 			);
 		};
 /* End PBXProject section */
@@ -564,13 +564,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = SB56D8K42E;
-				INFOPLIST_FILE = ArticleThemeTruthMaker/Info.plist;
+				INFOPLIST_FILE = ArticleThemeTagger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticleThemeTruthMaker;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticleThemeTagger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -584,13 +584,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = SB56D8K42E;
-				INFOPLIST_FILE = ArticleThemeTruthMaker/Info.plist;
+				INFOPLIST_FILE = ArticleThemeTagger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticleThemeTruthMaker;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticleThemeTagger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -599,7 +599,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6B2448A522BE7F62007FF4EE /* Build configuration list for PBXProject "ArticleThemeTruthMaker" */ = {
+		6B2448A522BE7F62007FF4EE /* Build configuration list for PBXProject "ArticleThemeTagger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6B2448B822BE7F64007FF4EE /* Debug */,
@@ -608,7 +608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6B2448BA22BE7F64007FF4EE /* Build configuration list for PBXNativeTarget "ArticleThemeTruthMaker" */ = {
+		6B2448BA22BE7F64007FF4EE /* Build configuration list for PBXNativeTarget "ArticleThemeTagger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6B2448BB22BE7F64007FF4EE /* Debug */,

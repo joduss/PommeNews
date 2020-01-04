@@ -176,6 +176,8 @@ class ViewController: NSViewController {
             themeFromKey = ArticleTheme.ios
         case "u":
             themeFromKey = ArticleTheme.macos
+        case "s":
+            themeFromKey = ArticleTheme.smartphone
         default:
             break
         }
