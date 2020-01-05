@@ -23,23 +23,26 @@ open class RSSClient {
         
         let parser = FeedParser(URL: URL(string: feed.url)!)
                 
-        parser?.parseAsync(result: { result in
+        parser.parseAsync(result: { result in
             
             switch result {
-            case .atom(_):
-                completion(.failure(PError.unsupported))
-                assertionFailure("Atom not supported")
-                
-            case .rss(let rssFeed):
-                self.process(rssFeed: rssFeed, completion: completion)
-                
-                break
-            case .json(_):
-                completion(.failure(PError.unsupported))
-                assertionFailure("Json not supported")
-                break
             case .failure(let error):
                 completion(.failure(PError.FetchingError(error)))
+            case .success(let feedParsed):
+                switch feedParsed {
+                case .atom(_):
+                    completion(.failure(PError.unsupported))
+                    assertionFailure("Atom not supported")
+                case .rss(let rssFeed):
+                    self.process(rssFeed: rssFeed, completion: completion)
+                    
+                    break
+                case .json(_):
+                    completion(.failure(PError.unsupported))
+                    assertionFailure("Json not supported")
+                    break
+                }
+                
             }
         })
     }

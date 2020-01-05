@@ -24,7 +24,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var statsLabel: NSTextField!
     @IBOutlet weak var goToTF: NSTextField!
     
-    private let rowCount = 13.0
+    private let rowCount = 16.0
     
     private var articleFilePath: String? = nil
     private var articles: [TCArticle] = []
@@ -170,14 +170,20 @@ class ViewController: NSViewController {
             themeFromKey = ArticleTheme.netflix
         case "b":
             themeFromKey = ArticleTheme.beta
-        case "v":
-            themeFromKey = ArticleTheme.video
+        case "d":
+            themeFromKey = ArticleTheme.disneyPlus
         case "z":
             themeFromKey = ArticleTheme.ios
         case "u":
             themeFromKey = ArticleTheme.macos
         case "s":
             themeFromKey = ArticleTheme.smartphone
+        case "h":
+            themeFromKey = ArticleTheme.health
+        case "l":
+            themeFromKey = ArticleTheme.lawsuitLegal
+        case "z":
+            themeFromKey = ArticleTheme.amazon
         default:
             break
         }

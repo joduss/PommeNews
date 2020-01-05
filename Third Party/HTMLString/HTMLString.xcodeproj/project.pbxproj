@@ -370,7 +370,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					5E441EAF1E525FB70041CF34 = {
 						CreatedOnToolsVersion = 8.2;
@@ -411,11 +411,11 @@
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "HTMLString" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
+				Base,
 			);
 			mainGroup = OBJ_5;
 			productRefGroup = OBJ_17 /* Products */;
@@ -694,7 +694,6 @@
 				PRODUCT_NAME = HTMLString;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
@@ -1054,7 +1053,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HTMLString.HTMLString-macOS";
 				PRODUCT_NAME = HTMLString;
 				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1451,7 +1449,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				USE_HEADERMAP = NO;

@@ -1,8 +1,8 @@
 
 
-github "Swinject/Swinject" ~> 2.2.0
+github "Swinject/Swinject"
 github "kukushi/SideMenu" "master"
-github "onevcat/Kingfisher" ~> 4.0
+github "onevcat/Kingfisher"
 github "fpillet/NSLogger"
-github "nmdias/FeedKit" ~> 7.0
+github "nmdias/FeedKit"
 

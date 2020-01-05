@@ -14,7 +14,7 @@ public indirect enum PError: Error {
     case HTTPErrorCode(String, Int)
     case HTTPErrorInvalidFormat
     
-    case FetchingError(NSError)
+    case FetchingError(Error)
     case MultiFetchingError(PError)
     
     case inconsistency(String)

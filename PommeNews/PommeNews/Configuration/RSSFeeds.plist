@@ -76,6 +76,46 @@
 		<key>language</key>
 		<string>fr</string>
 		<key>name</key>
+		<string>ZDNet News</string>
+		<key>id</key>
+		<string>zdnet_news</string>
+		<key>url</key>
+		<string>https://www.zdnet.fr/feeds/rss/actualites/</string>
+	</dict>
+	<dict>
+		<key>language</key>
+		<string>fr</string>
+		<key>name</key>
+		<string>ZDNet Internet</string>
+		<key>id</key>
+		<string>zdnet_internet</string>
+		<key>url</key>
+		<string>https://www.zdnet.fr/feeds/rss/actualites/internet/</string>
+	</dict>
+	<dict>
+		<key>language</key>
+		<string>fr</string>
+		<key>name</key>
+		<string>ZDNet Informatique</string>
+		<key>id</key>
+		<string>zdnet_informatique</string>
+		<key>url</key>
+		<string>https://www.zdnet.fr/feeds/rss/actualites/informatique/</string>
+	</dict>
+	<dict>
+		<key>language</key>
+		<string>fr</string>
+		<key>name</key>
+		<string>01Net</string>
+		<key>id</key>
+		<string>01net</string>
+		<key>url</key>
+		<string>https://www.01net.com/rss/actualites/</string>
+	</dict>
+	<dict>
+		<key>language</key>
+		<string>fr</string>
+		<key>name</key>
 		<string>PhonAndroid</string>
 		<key>id</key>
 		<string>phonandroid</string>
