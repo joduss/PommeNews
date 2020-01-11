@@ -67,7 +67,7 @@ public struct ArticleTheme: Hashable, Equatable {
     public static let paymentService = ArticleTheme(key: "paymentService")
     public static let cloudService = ArticleTheme(key: "cloudService")
 
-    public static let audioVisualCulture = ArticleTheme(key: "photo")
+    public static let audioVisualCulture = ArticleTheme(key: "audioVisualCulture")
     
     public static let audioDeviceTech = ArticleTheme(key: "musicDeviceTech")
     public static let videoDeviceTech = ArticleTheme(key: "videoDeviceTech")
@@ -127,6 +127,7 @@ public struct ArticleTheme: Hashable, Equatable {
         ArticleTheme.macos,
         ArticleTheme.windows,
         ArticleTheme.beta,
+        ArticleTheme.otherOS,
 
         ArticleTheme.apps,
         ArticleTheme.game,
@@ -135,32 +136,18 @@ public struct ArticleTheme: Hashable, Equatable {
         ArticleTheme.smartphone,
         ArticleTheme.tablet,
         ArticleTheme.watch,
-        ArticleTheme.otherProduct,
         ArticleTheme.smartCar,
         ArticleTheme.smartHome,
         ArticleTheme.speaker,
-        
+        ArticleTheme.otherProduct,
+
         ArticleTheme.amazon,
         ArticleTheme.apple,
         ArticleTheme.facebook,
         ArticleTheme.google,
         ArticleTheme.microsoft,
-        ArticleTheme.netflix,
-        ArticleTheme.hbo,
-        ArticleTheme.amazonPrime,
-        ArticleTheme.disneyPlus,
         ArticleTheme.samsung,
-        ArticleTheme.spotify,
         
-        ArticleTheme.appleMusic,
-        ArticleTheme.appleNews,
-        ArticleTheme.appleTVplus,
-        ArticleTheme.applePay,
-        ArticleTheme.icloud,
-        ArticleTheme.appleServices,
-        ArticleTheme.paymentService,
-        ArticleTheme.services,
-        ArticleTheme.cloudService,
 
         ArticleTheme.audioVisualCulture, //
         
@@ -170,30 +157,48 @@ public struct ArticleTheme: Hashable, Equatable {
 
         ArticleTheme.audioService, //deezer, spotify, etc streaming
         ArticleTheme.videoService, //netflix, prime, etc
+        
+        ArticleTheme.cloudService,
+        ArticleTheme.paymentService,
+        ArticleTheme.services,
 
+        ArticleTheme.appleMusic,
+        ArticleTheme.appleNews,
+        ArticleTheme.appleTVplus,
+        ArticleTheme.applePay,
+        ArticleTheme.icloud,
+        ArticleTheme.appleServices,
+        
+        ArticleTheme.spotify,
+        ArticleTheme.netflix,
+        ArticleTheme.hbo,
+        ArticleTheme.amazonPrime,
+        ArticleTheme.disneyPlus,
+        
         
         ArticleTheme.promo,
         ArticleTheme.advertisement,
         ArticleTheme.rumor,
+        ArticleTheme.keynote,
+        ArticleTheme.test, // Tests or comparison
+        ArticleTheme.future,
+        ArticleTheme.study,
+
         ArticleTheme.security,
         ArticleTheme.privacy,
         ArticleTheme.technology,
         ArticleTheme.patent,
         ArticleTheme.lawsuitLegal,
         ArticleTheme.economyPolitic,
-        ArticleTheme.test, // Tests or comparison
         ArticleTheme.health,
         ArticleTheme.crypto,
         ArticleTheme.AIML, // Machine Learning et cie
         ArticleTheme.IT, // Other IT news
-        ArticleTheme.study,
         ArticleTheme.networkProvider,
-        ArticleTheme.future,
         ArticleTheme.cloudComputing,
 
         ArticleTheme.component, // Any bind of component for tech (ssd, )
         ArticleTheme.accessory, // Accessory for devices (usb cable, color, etc)
-        ArticleTheme.keynote,
         
         ArticleTheme.otherSerious,
         ArticleTheme.other]
