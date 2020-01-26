@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/jonathanduss/jo_dev/PommeNews/PommeNews/ArticleThemeTruthMaker/ArticleThemeTagger.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

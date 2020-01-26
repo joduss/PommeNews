@@ -23,4 +23,14 @@ public class ArticleJsonConverter {
         return nil
     }
 
+    public func convertToJson(articles: [TCVerifiedArticle]) -> String? {
+        let encoder = JSONEncoder()
+
+        do {
+            let json = try encoder.encode(articles)
+            return String(data: json, encoding: String.Encoding.utf8)
+        }
+        catch {}
+        return nil
+    }
 }

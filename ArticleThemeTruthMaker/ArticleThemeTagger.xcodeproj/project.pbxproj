@@ -8,112 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		6B2448AE22BE7F62007FF4EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448AD22BE7F62007FF4EE /* AppDelegate.swift */; };
-		6B2448B022BE7F62007FF4EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448AF22BE7F62007FF4EE /* ViewController.swift */; };
+		6B2448B022BE7F62007FF4EE /* ManualTaggingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448AF22BE7F62007FF4EE /* ManualTaggingVC.swift */; };
 		6B2448B222BE7F64007FF4EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B2448B122BE7F64007FF4EE /* Assets.xcassets */; };
 		6B2448B522BE7F64007FF4EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B2448B322BE7F64007FF4EE /* Main.storyboard */; };
 		6B2448F622BE82CB007FF4EE /* SupportedThemeFilterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448F522BE82CB007FF4EE /* SupportedThemeFilterLoader.swift */; };
 		6B2448F822BE86D2007FF4EE /* Supported_Themes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B2448F722BE86D2007FF4EE /* Supported_Themes.plist */; };
-		6B24490422BFB45A007FF4EE /* ZaJoLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448C622BE801B007FF4EE /* ZaJoLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6B24490822BFB45A007FF4EE /* ArticleClassifierCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448D122BE8026007FF4EE /* ArticleClassifierCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6B24490C22BFB45A007FF4EE /* ArticleClassifier.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448E422BE802C007FF4EE /* ArticleClassifier.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6B24491022BFB4D6007FF4EE /* ArticleClassifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448E422BE802C007FF4EE /* ArticleClassifier.framework */; };
-		6B24491122BFB4E8007FF4EE /* ArticleClassifierCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448D122BE8026007FF4EE /* ArticleClassifierCore.framework */; };
-		6B24491222BFB4F1007FF4EE /* ZaJoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2448C622BE801B007FF4EE /* ZaJoLibrary.framework */; };
+		6B4CFA6D23DDCB7E00D9304A /* ArticleClassifierCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6B4CFA6C23DDCB7E00D9304A /* ArticleClassifierCore */; };
+		6B4CFA6F23DDCB7E00D9304A /* ZaJoLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 6B4CFA6E23DDCB7E00D9304A /* ZaJoLibrary */; };
+		6B4CFA7123DDD36B00D9304A /* DataTransformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4CFA7023DDD36B00D9304A /* DataTransformationVC.swift */; };
+		6B4CFA7423DDD39400D9304A /* ThemeVerifierVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4CFA7323DDD39400D9304A /* ThemeVerifierVC.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		6B2448C322BE801B007FF4EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B2448BE22BE801B007FF4EE /* ZaJoLibrary.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B01DE35221DD5E300D0FE0A;
-			remoteInfo = "ZaJoLibrary-iOS";
-		};
-		6B2448C522BE801B007FF4EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B2448BE22BE801B007FF4EE /* ZaJoLibrary.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B01DE42221DD64F00D0FE0A;
-			remoteInfo = "ZaJoLibrary-macOS";
-		};
-		6B2448D022BE8026007FF4EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B01DEAC221DEAE100D0FE0A;
-			remoteInfo = "ArticleClassifierCore-macos";
-		};
-		6B2448D222BE8026007FF4EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B01DEC9221DEAF600D0FE0A;
-			remoteInfo = "ArticleClassifierCore-ios";
-		};
-		6B2448D422BE8026007FF4EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6BDC7ACC222BD4070061DB71;
-			remoteInfo = "ArticleClassifierCoreTests-macOS";
-		};
-		6B2448D622BE8026007FF4EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B334671222C3C760013149F;
-			remoteInfo = "TestHostApplication-ios";
-		};
-		6B2448D822BE8026007FF4EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B334696222C3E540013149F;
-			remoteInfo = "ArticleClassifierCoreTests-ios";
-		};
-		6B2448E122BE802C007FF4EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B01DE5D221DD84D00D0FE0A;
-			remoteInfo = "ArticleClassifier-ios";
-		};
-		6B2448E322BE802C007FF4EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B01DE7A221DD87E00D0FE0A;
-			remoteInfo = "ArticleClassifier-macos";
-		};
-		6B2448E522BE802C007FF4EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B01DE82221DD87E00D0FE0A;
-			remoteInfo = "ArticleClassifier-macosTests";
-		};
-		6B24490522BFB45A007FF4EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B2448BE22BE801B007FF4EE /* ZaJoLibrary.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6B01DE41221DD64F00D0FE0A;
-			remoteInfo = "ZaJoLibrary-macOS";
-		};
-		6B24490922BFB45A007FF4EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6B01DEAB221DEAE100D0FE0A;
-			remoteInfo = "ArticleClassifierCore-macos";
-		};
-		6B24490D22BFB45A007FF4EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6B01DE79221DD87E00D0FE0A;
-			remoteInfo = "ArticleClassifier-macos";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		6B24490F22BFB45A007FF4EE /* Embed Frameworks */ = {
@@ -122,9 +26,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6B24490C22BFB45A007FF4EE /* ArticleClassifier.framework in Embed Frameworks */,
-				6B24490422BFB45A007FF4EE /* ZaJoLibrary.framework in Embed Frameworks */,
-				6B24490822BFB45A007FF4EE /* ArticleClassifierCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,16 +35,17 @@
 /* Begin PBXFileReference section */
 		6B2448AA22BE7F62007FF4EE /* ArticleThemeTagger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArticleThemeTagger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B2448AD22BE7F62007FF4EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6B2448AF22BE7F62007FF4EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6B2448AF22BE7F62007FF4EE /* ManualTaggingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualTaggingVC.swift; sourceTree = "<group>"; };
 		6B2448B122BE7F64007FF4EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B2448B422BE7F64007FF4EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6B2448B622BE7F64007FF4EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B2448B722BE7F64007FF4EE /* ArticleThemeTruthMaker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ArticleThemeTruthMaker.entitlements; sourceTree = "<group>"; };
-		6B2448BE22BE801B007FF4EE /* ZaJoLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZaJoLibrary.xcodeproj; path = ../ZaJoLibrary/ZaJoLibrary.xcodeproj; sourceTree = "<group>"; };
-		6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ArticleClassifierCore.xcodeproj; path = ../ArticleClassifierCore/ArticleClassifierCore.xcodeproj; sourceTree = "<group>"; };
-		6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ArticleClassifier.xcodeproj; path = ../ArticleClassifier/ArticleClassifier.xcodeproj; sourceTree = "<group>"; };
 		6B2448F522BE82CB007FF4EE /* SupportedThemeFilterLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedThemeFilterLoader.swift; sourceTree = "<group>"; };
 		6B2448F722BE86D2007FF4EE /* Supported_Themes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Supported_Themes.plist; path = ../../PommeNews/PommeNews/Supported_Themes.plist; sourceTree = "<group>"; };
+		6B4CFA6723DDC43200D9304A /* ZaJoLibrary */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZaJoLibrary; path = ../ZaJoLibrary; sourceTree = "<group>"; };
+		6B4CFA6B23DDCAEC00D9304A /* ArticleClassifierCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ArticleClassifierCore; path = ../ArticleClassifierCore; sourceTree = "<group>"; };
+		6B4CFA7023DDD36B00D9304A /* DataTransformationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransformationVC.swift; sourceTree = "<group>"; };
+		6B4CFA7323DDD39400D9304A /* ThemeVerifierVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeVerifierVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,9 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B24491022BFB4D6007FF4EE /* ArticleClassifier.framework in Frameworks */,
-				6B24491122BFB4E8007FF4EE /* ArticleClassifierCore.framework in Frameworks */,
-				6B24491222BFB4F1007FF4EE /* ZaJoLibrary.framework in Frameworks */,
+				6B4CFA6F23DDCB7E00D9304A /* ZaJoLibrary in Frameworks */,
+				6B4CFA6D23DDCB7E00D9304A /* ArticleClassifierCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,8 +82,8 @@
 		6B2448AC22BE7F62007FF4EE /* ArticleThemeTagger */ = {
 			isa = PBXGroup;
 			children = (
+				6B4CFA7223DDD37100D9304A /* UI */,
 				6B2448AD22BE7F62007FF4EE /* AppDelegate.swift */,
-				6B2448AF22BE7F62007FF4EE /* ViewController.swift */,
 				6B2448B122BE7F64007FF4EE /* Assets.xcassets */,
 				6B2448B322BE7F64007FF4EE /* Main.storyboard */,
 				6B2448B622BE7F64007FF4EE /* Info.plist */,
@@ -196,42 +97,10 @@
 		6B2448BD22BE7FF9007FF4EE /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */,
-				6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */,
-				6B2448BE22BE801B007FF4EE /* ZaJoLibrary.xcodeproj */,
+				6B4CFA6B23DDCAEC00D9304A /* ArticleClassifierCore */,
+				6B4CFA6723DDC43200D9304A /* ZaJoLibrary */,
 			);
 			name = Libraries;
-			sourceTree = "<group>";
-		};
-		6B2448BF22BE801B007FF4EE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6B2448C422BE801B007FF4EE /* ZaJoLibrary.framework */,
-				6B2448C622BE801B007FF4EE /* ZaJoLibrary.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		6B2448C822BE8025007FF4EE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6B2448D122BE8026007FF4EE /* ArticleClassifierCore.framework */,
-				6B2448D322BE8026007FF4EE /* ArticleClassifierCore.framework */,
-				6B2448D522BE8026007FF4EE /* ArticleClassifierCoreTests-macOS.xctest */,
-				6B2448D722BE8026007FF4EE /* TestHostApplication-ios.app */,
-				6B2448D922BE8026007FF4EE /* ArticleClassifierCoreTests-ios.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		6B2448DB22BE802C007FF4EE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6B2448E222BE802C007FF4EE /* ArticleClassifier.framework */,
-				6B2448E422BE802C007FF4EE /* ArticleClassifier.framework */,
-				6B2448E622BE802C007FF4EE /* ArticleClassifier-macosTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		6B2448E722BE8043007FF4EE /* Frameworks */ = {
@@ -239,6 +108,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6B4CFA7223DDD37100D9304A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6B2448AF22BE7F62007FF4EE /* ManualTaggingVC.swift */,
+				6B4CFA7023DDD36B00D9304A /* DataTransformationVC.swift */,
+				6B4CFA7323DDD39400D9304A /* ThemeVerifierVC.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,11 +135,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				6B24490622BFB45A007FF4EE /* PBXTargetDependency */,
-				6B24490A22BFB45A007FF4EE /* PBXTargetDependency */,
-				6B24490E22BFB45A007FF4EE /* PBXTargetDependency */,
 			);
 			name = ArticleThemeTagger;
+			packageProductDependencies = (
+				6B4CFA6C23DDCB7E00D9304A /* ArticleClassifierCore */,
+				6B4CFA6E23DDCB7E00D9304A /* ZaJoLibrary */,
+			);
 			productName = ArticleThemeTruthMaker;
 			productReference = 6B2448AA22BE7F62007FF4EE /* ArticleThemeTagger.app */;
 			productType = "com.apple.product-type.application";
@@ -291,99 +171,12 @@
 			mainGroup = 6B2448A122BE7F62007FF4EE;
 			productRefGroup = 6B2448AB22BE7F62007FF4EE /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 6B2448DB22BE802C007FF4EE /* Products */;
-					ProjectRef = 6B2448DA22BE802C007FF4EE /* ArticleClassifier.xcodeproj */;
-				},
-				{
-					ProductGroup = 6B2448C822BE8025007FF4EE /* Products */;
-					ProjectRef = 6B2448C722BE8025007FF4EE /* ArticleClassifierCore.xcodeproj */;
-				},
-				{
-					ProductGroup = 6B2448BF22BE801B007FF4EE /* Products */;
-					ProjectRef = 6B2448BE22BE801B007FF4EE /* ZaJoLibrary.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				6B2448A922BE7F62007FF4EE /* ArticleThemeTagger */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		6B2448C422BE801B007FF4EE /* ZaJoLibrary.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ZaJoLibrary.framework;
-			remoteRef = 6B2448C322BE801B007FF4EE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B2448C622BE801B007FF4EE /* ZaJoLibrary.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ZaJoLibrary.framework;
-			remoteRef = 6B2448C522BE801B007FF4EE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B2448D122BE8026007FF4EE /* ArticleClassifierCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ArticleClassifierCore.framework;
-			remoteRef = 6B2448D022BE8026007FF4EE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B2448D322BE8026007FF4EE /* ArticleClassifierCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ArticleClassifierCore.framework;
-			remoteRef = 6B2448D222BE8026007FF4EE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B2448D522BE8026007FF4EE /* ArticleClassifierCoreTests-macOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "ArticleClassifierCoreTests-macOS.xctest";
-			remoteRef = 6B2448D422BE8026007FF4EE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B2448D722BE8026007FF4EE /* TestHostApplication-ios.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "TestHostApplication-ios.app";
-			remoteRef = 6B2448D622BE8026007FF4EE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B2448D922BE8026007FF4EE /* ArticleClassifierCoreTests-ios.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "ArticleClassifierCoreTests-ios.xctest";
-			remoteRef = 6B2448D822BE8026007FF4EE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B2448E222BE802C007FF4EE /* ArticleClassifier.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ArticleClassifier.framework;
-			remoteRef = 6B2448E122BE802C007FF4EE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B2448E422BE802C007FF4EE /* ArticleClassifier.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ArticleClassifier.framework;
-			remoteRef = 6B2448E322BE802C007FF4EE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B2448E622BE802C007FF4EE /* ArticleClassifier-macosTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "ArticleClassifier-macosTests.xctest";
-			remoteRef = 6B2448E522BE802C007FF4EE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6B2448A822BE7F62007FF4EE /* Resources */ = {
@@ -404,30 +197,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B2448F622BE82CB007FF4EE /* SupportedThemeFilterLoader.swift in Sources */,
-				6B2448B022BE7F62007FF4EE /* ViewController.swift in Sources */,
+				6B2448B022BE7F62007FF4EE /* ManualTaggingVC.swift in Sources */,
 				6B2448AE22BE7F62007FF4EE /* AppDelegate.swift in Sources */,
+				6B4CFA7423DDD39400D9304A /* ThemeVerifierVC.swift in Sources */,
+				6B4CFA7123DDD36B00D9304A /* DataTransformationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6B24490622BFB45A007FF4EE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "ZaJoLibrary-macOS";
-			targetProxy = 6B24490522BFB45A007FF4EE /* PBXContainerItemProxy */;
-		};
-		6B24490A22BFB45A007FF4EE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "ArticleClassifierCore-macos";
-			targetProxy = 6B24490922BFB45A007FF4EE /* PBXContainerItemProxy */;
-		};
-		6B24490E22BFB45A007FF4EE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "ArticleClassifier-macos";
-			targetProxy = 6B24490D22BFB45A007FF4EE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6B2448B322BE7F64007FF4EE /* Main.storyboard */ = {
@@ -618,6 +395,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6B4CFA6C23DDCB7E00D9304A /* ArticleClassifierCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ArticleClassifierCore;
+		};
+		6B4CFA6E23DDCB7E00D9304A /* ZaJoLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ZaJoLibrary;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6B2448A222BE7F62007FF4EE /* Project object */;
 }

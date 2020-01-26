@@ -15,7 +15,7 @@ fileprivate enum NavigationMode {
     case RandomNoTheme
 }
 
-class ViewController: NSViewController {
+class ManualTaggingVC: NSViewController {
 
     @IBOutlet weak var buttonsView: NSView!
     @IBOutlet var textView: NSTextView!
@@ -31,7 +31,6 @@ class ViewController: NSViewController {
     private let themes = ArticleTheme.allThemes
     
     private let jsonArticlesIO = ArticlesJsonFileIO()
-    private let converter = ArticleJsonConverter()
     
     private var countArticleWithoutThemes = 0
     

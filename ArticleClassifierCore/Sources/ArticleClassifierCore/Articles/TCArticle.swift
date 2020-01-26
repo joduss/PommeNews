@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public struct TCArticle: Codable, Hashable {
 
     public let title: String
@@ -45,5 +44,4 @@ public struct TCArticle: Codable, Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(title + summary)
     }
-
 }
