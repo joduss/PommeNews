@@ -37,7 +37,7 @@ class DataTransformationVC: NSViewController {
                 
                 if (result != nil) {
                     let path = result!.path
-                    let verifiedArticleOutputPath = path + "-verified"
+                    let verifiedArticleOutputPath = path.replacingOccurrences(of: ".json", with: "") + "-verified.json"
 
                     let articles: [TCArticle] = try jsonArticlesIO.loadArticlesFrom(fileLocation: path)
                     var verifiedArticles: [TCVerifiedArticle] = []

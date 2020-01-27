@@ -35,10 +35,9 @@ class ThemeVerifierVC: NSViewController {
     }
     
     private func filterUnverifiedArticles(with theme:String, articles: [TCVerifiedArticle]) -> [TCVerifiedArticle]{
-        var a = articles.filter({ article in
-            article.themes.contains(theme) && !article.verifiedThemes.contains(theme)
+        return articles.filter({ article in
+            article.predictedThemes.contains(theme) && !article.verifiedThemes.contains(theme)
         })
-        return a
     }
     
     private func displayCurrentArticle() {
@@ -111,6 +110,7 @@ class ThemeVerifierVC: NSViewController {
         
         guard articlesToVerify.count > 0 else {
             textView.string = "No more article to verify"
+            progressLabel.stringValue = "\(articlesToVerify.count)"
             return
         }
         
@@ -141,7 +141,7 @@ class ThemeVerifierVC: NSViewController {
     override func keyUp(with event: NSEvent) {
         print(event.keyCode)
         
-        var theme = themeDropdown.titleOfSelectedItem!
+        let theme = themeDropdown.titleOfSelectedItem!
         
         if let specialKey = event.specialKey {
             if specialKey == NSEvent.SpecialKey.rightArrow {
@@ -155,9 +155,7 @@ class ThemeVerifierVC: NSViewController {
             textView.string = "No article to verify"
             return
         }
-        
-        var themeFromKey: ArticleTheme?
-        
+                
         switch event.characters {
         case "y":
             if !self.currentArticle!.verifiedThemes.contains(theme) {
