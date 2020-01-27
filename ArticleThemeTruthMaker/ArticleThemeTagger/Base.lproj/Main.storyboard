@@ -1049,7 +1049,7 @@
                                 <rect key="frame" x="18" y="256" width="77" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="es8-eF-2s0" id="KND-An-t98">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="3c8-Vf-WQ9">
                                         <items>
                                             <menuItem title="Item 1" state="on" id="es8-eF-2s0"/>
@@ -1178,12 +1178,12 @@
             <objects>
                 <viewController id="JIb-eL-Hmg" customClass="DataTransformationVC" customModule="ArticleThemeTagger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="5Px-sG-p0U">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="61"/>
+                        <rect key="frame" x="0.0" y="0.0" width="442" height="117"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0rX-hF-PGT">
-                                <rect key="frame" x="14" y="13" width="422" height="32"/>
-                                <buttonCell key="cell" type="push" title="TCArticles to TCVerifiedArticles" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dV3-hj-tDE">
+                                <rect key="frame" x="14" y="13" width="414" height="32"/>
+                                <buttonCell key="cell" type="push" title="TCArticles to TCVerifiedArticles." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dV3-hj-tDE">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1191,18 +1191,32 @@
                                     <action selector="transformArticlesToVerifiedArticles:" target="JIb-eL-Hmg" id="s8O-nv-HBA"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Txk-sU-Loj">
+                                <rect key="frame" x="20" y="65" width="404" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="yiE-hF-Y5j"/>
+                                </constraints>
+                                <textFieldCell key="cell" title="Transform TCArticles to TCVerifiedArticles. And each articles having themes, it marks all existing themes as being verified." id="M5e-r8-WKd">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Txk-sU-Loj" firstAttribute="leading" secondItem="5Px-sG-p0U" secondAttribute="leading" constant="22" id="688-kp-Zdm"/>
                             <constraint firstAttribute="bottom" secondItem="0rX-hF-PGT" secondAttribute="bottom" constant="20" id="Dmx-PI-0pF"/>
                             <constraint firstItem="0rX-hF-PGT" firstAttribute="leading" secondItem="5Px-sG-p0U" secondAttribute="leading" constant="20" id="H6A-VZ-HVI"/>
-                            <constraint firstItem="0rX-hF-PGT" firstAttribute="top" secondItem="5Px-sG-p0U" secondAttribute="top" constant="20" id="HRf-Gw-Xar"/>
+                            <constraint firstItem="Txk-sU-Loj" firstAttribute="top" secondItem="5Px-sG-p0U" secondAttribute="top" constant="20" id="MJg-22-IRB"/>
                             <constraint firstAttribute="trailing" secondItem="0rX-hF-PGT" secondAttribute="trailing" constant="20" id="cFd-lh-l1S"/>
+                            <constraint firstAttribute="trailing" secondItem="Txk-sU-Loj" secondAttribute="trailing" constant="20" id="jms-JQ-Pyn"/>
+                            <constraint firstItem="0rX-hF-PGT" firstAttribute="top" secondItem="Txk-sU-Loj" secondAttribute="bottom" constant="24" id="xt5-ZA-QTx"/>
                         </constraints>
                     </view>
                 </viewController>
                 <customObject id="ltA-Ly-KMj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="-50.5"/>
+            <point key="canvasLocation" x="805" y="-26.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Xm6-Fq-yVM">

@@ -42,9 +42,12 @@ class DataTransformationVC: NSViewController {
                     let articles: [TCArticle] = try jsonArticlesIO.loadArticlesFrom(fileLocation: path)
                     var verifiedArticles: [TCVerifiedArticle] = []
                     
+                    
                     for article in articles {
                         var verifiedArticle = TCVerifiedArticle(title: article.title, summary: article.summary, themes: article.themes)
-                        verifiedArticle.verifiedThemes.append(contentsOf: article.themes)
+                        if (article.themes.count > 0) {
+                            verifiedArticle.verifiedThemes.append(contentsOf: ArticleTheme.allThemes.map({$0.key}))
+                        }
                         verifiedArticles.append(verifiedArticle)
                     }
                     
