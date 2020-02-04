@@ -109,7 +109,7 @@ public class TfIdf {
     public func termFrequencyVector(text: String) -> ContiguousArray<Int> {
         var vector = ContiguousArray<Int>()
         
-        var termFreqInText: [String : Int] = termFrequencyInText(text: text)
+        let termFreqInText: [String : Int] = termFrequencyInText(text: text)
         
         Performance.measure(title: "append terms") {
             vector = []

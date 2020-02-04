@@ -14,10 +14,10 @@ class ArticleFetcher {
     
     func fetchArticles(of feeds: [RssPlistFeed],
                                onProgress: @escaping (Double) -> (),
-                               completion: @escaping ([TCArticle]) -> ()) {
+                               completion: @escaping ([TCVerifiedArticle]) -> ()) {
         
         DispatchQueue(label: "fetchArticles").async {
-            var fetchedArticles: [TCArticle] = []
+            var fetchedArticles: [TCVerifiedArticle] = []
                         
             for feed in feeds {
                 let articles = self.fetchArticle(of: feed)
@@ -35,7 +35,7 @@ class ArticleFetcher {
         }
     }
     
-    private func fetchArticle(of feed:RssPlistFeed) -> [TCArticle] {
+    private func fetchArticle(of feed:RssPlistFeed) -> [TCVerifiedArticle] {
         
         let client = RSSClient()
         let semaphore = DispatchSemaphore(value: 0)
@@ -54,6 +54,6 @@ class ArticleFetcher {
         }
         semaphore.wait()
         
-        return articles.map({TCArticle(title: $0.title, summary: $0.summary)})
+        return articles.map({TCVerifiedArticle(title: $0.title, summary: $0.summary)})
     }
 }

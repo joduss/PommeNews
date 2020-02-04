@@ -16,7 +16,7 @@ class ViewController: NSViewController {
     
     private let feedSupport = FeedSupport(supportedFeedPlist: "RSSFeeds")
 
-    private var articles: [TCArticle] = []
+    private var articles: [TCVerifiedArticle] = []
     
     
     private let articlesFetcher = ArticleFetcher()
@@ -76,7 +76,7 @@ class ViewController: NSViewController {
                 
                 if (result != nil) {
                     let path = result!.path
-                    self.articles = try jsonArticlesIO.loadArticlesFrom(fileLocation: path)
+                    self.articles = try jsonArticlesIO.loadVerifiedArticlesFrom(fileLocation: path)
                     
                     let jsonString = converter.convertToJson(articles: self.articles)
                     self.textView.string = jsonString ?? "error"
@@ -120,21 +120,21 @@ class ViewController: NSViewController {
     }
     
     // Merge article from "from" into "mergeInto" ensuring that article with same summary are added only once.
-    private func mergeArticles(mergeInto: [TCArticle], from: [TCArticle]) -> [TCArticle] {
+    private func mergeArticles(mergeInto: [TCVerifiedArticle], from: [TCVerifiedArticle]) -> [TCVerifiedArticle] {
         
         var mergedArticles = mergeInto
         mergedArticles.reserveCapacity(mergeInto.count + from.count)
         
         
-        var mergedArticlesDictionary: [Int : TCArticle] = [:]
+        var mergedArticlesDictionary: [Int : TCVerifiedArticle] = Dictionary<Int, TCVerifiedArticle>(minimumCapacity: mergeInto.count + from.count)
         
         for article in mergedArticles {
             mergedArticlesDictionary[article.summary.hashValue] = article
         }
         
-        for article in from {
-            if mergedArticlesDictionary.contains(where: {$0.key == article.summary.hashValue}) == false {
-                mergedArticles.append(article)
+        for articleFrom in from {
+            if mergedArticlesDictionary[articleFrom.summary.hashValue] == nil {
+                mergedArticles.append(articleFrom)
             }
         }
         return mergedArticles

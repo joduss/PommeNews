@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,17 +13,12 @@
 		6B31234B2224949B00BE48F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B31234A2224949B00BE48F0 /* Assets.xcassets */; };
 		6B31234E2224949B00BE48F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B31234C2224949B00BE48F0 /* Main.storyboard */; };
 		6B31235A2224949B00BE48F0 /* ArticleFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3123592224949B00BE48F0 /* ArticleFetcherTests.swift */; };
-		6B3123832224955700BE48F0 /* ArticleClassifierCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B31236F222494E500BE48F0 /* ArticleClassifierCore.framework */; };
 		6B31238E2224974100BE48F0 /* FeedSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31238B2224974100BE48F0 /* FeedSupport.swift */; };
 		6B31238F2224974100BE48F0 /* ArticlesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31238C2224974100BE48F0 /* ArticlesFetcher.swift */; };
 		6B3123902224974100BE48F0 /* FeedForManualTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31238D2224974100BE48F0 /* FeedForManualTag.swift */; };
-		6B5CA28B222886F700F0409F /* RssClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE5F0B82225F03A000368C6 /* RssClient.framework */; };
-		6B5CA28C222886F700F0409F /* RssClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE5F0B82225F03A000368C6 /* RssClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6B5CA28F222886F700F0409F /* ZaJoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B31237A2224951100BE48F0 /* ZaJoLibrary.framework */; };
-		6B5CA290222886F700F0409F /* ZaJoLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B31237A2224951100BE48F0 /* ZaJoLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6B5CA294222886F700F0409F /* ArticleClassifierCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B31236F222494E500BE48F0 /* ArticleClassifierCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6B646F07224ACF9D0045989C /* HTMLString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B646F06224ACF9D0045989C /* HTMLString.framework */; };
-		6B646F08224ACF9D0045989C /* HTMLString.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B646F06224ACF9D0045989C /* HTMLString.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B7F5DC923EA19C800B0DD7F /* ArticleClassifierCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6B7F5DC823EA19C800B0DD7F /* ArticleClassifierCore */; };
+		6B7F5DCB23EA19C800B0DD7F /* RssClient in Frameworks */ = {isa = PBXBuildFile; productRef = 6B7F5DCA23EA19C800B0DD7F /* RssClient */; };
+		6B7F5DCD23EA19C800B0DD7F /* ZaJoLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 6B7F5DCC23EA19C800B0DD7F /* ZaJoLibrary */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,104 +29,6 @@
 			remoteGlobalIDString = 6B3123422224949A00BE48F0;
 			remoteInfo = ArticleFetcher;
 		};
-		6B31236E222494E500BE48F0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B312369222494E500BE48F0 /* ArticleClassifierCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B01DEAC221DEAE100D0FE0A;
-			remoteInfo = "ArticleClassifierCore-macos";
-		};
-		6B312370222494E500BE48F0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B312369222494E500BE48F0 /* ArticleClassifierCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B01DEC9221DEAF600D0FE0A;
-			remoteInfo = "ArticleClassifierCore-ios";
-		};
-		6B3123772224951100BE48F0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B3123722224951100BE48F0 /* ZaJoLibrary.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B01DE35221DD5E300D0FE0A;
-			remoteInfo = "ZaJoLibrary-iOS";
-		};
-		6B3123792224951100BE48F0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B3123722224951100BE48F0 /* ZaJoLibrary.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B01DE42221DD64F00D0FE0A;
-			remoteInfo = "ZaJoLibrary-macOS";
-		};
-		6B5CA28D222886F700F0409F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BE5F0AE2225F03A000368C6 /* RssClient.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6B3123C6222498EC00BE48F0;
-			remoteInfo = "RssClient-macos";
-		};
-		6B5CA291222886F700F0409F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B3123722224951100BE48F0 /* ZaJoLibrary.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6B01DE41221DD64F00D0FE0A;
-			remoteInfo = "ZaJoLibrary-macOS";
-		};
-		6B5CA295222886F700F0409F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B312369222494E500BE48F0 /* ArticleClassifierCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6B01DEAB221DEAE100D0FE0A;
-			remoteInfo = "ArticleClassifierCore-macos";
-		};
-		6B646F0D224ACF9D0045989C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B312369222494E500BE48F0 /* ArticleClassifierCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6BDC7ACC222BD4070061DB71;
-			remoteInfo = "ArticleClassifierCoreTests-macOS";
-		};
-		6B646F0F224ACF9D0045989C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B312369222494E500BE48F0 /* ArticleClassifierCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B334671222C3C760013149F;
-			remoteInfo = "TestHostApplication-ios";
-		};
-		6B646F11224ACF9D0045989C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B312369222494E500BE48F0 /* ArticleClassifierCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B334696222C3E540013149F;
-			remoteInfo = "ArticleClassifierCoreTests-ios";
-		};
-		6B646F16224ACF9D0045989C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BE5F0AE2225F03A000368C6 /* RssClient.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B5CA30D2228A30100F0409F;
-			remoteInfo = "RssClient-ios";
-		};
-		6B646F18224ACF9D0045989C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BE5F0AE2225F03A000368C6 /* RssClient.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6BDC7AB6222AE4950061DB71;
-			remoteInfo = "RssClient-macos Dev";
-		};
-		6BE5F0B52225F03A000368C6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BE5F0AE2225F03A000368C6 /* RssClient.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B3123AA222498C700BE48F0;
-			remoteInfo = "RssClient-ios";
-		};
-		6BE5F0B72225F03A000368C6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BE5F0AE2225F03A000368C6 /* RssClient.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B3123C7222498EC00BE48F0;
-			remoteInfo = "RssClient-macos";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -141,10 +38,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6B646F08224ACF9D0045989C /* HTMLString.framework in Embed Frameworks */,
-				6B5CA290222886F700F0409F /* ZaJoLibrary.framework in Embed Frameworks */,
-				6B5CA294222886F700F0409F /* ArticleClassifierCore.framework in Embed Frameworks */,
-				6B5CA28C222886F700F0409F /* RssClient.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,13 +56,12 @@
 		6B3123552224949B00BE48F0 /* ArticleFetcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArticleFetcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B3123592224949B00BE48F0 /* ArticleFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleFetcherTests.swift; sourceTree = "<group>"; };
 		6B31235B2224949B00BE48F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B312369222494E500BE48F0 /* ArticleClassifierCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ArticleClassifierCore.xcodeproj; path = ../ArticleClassifierCore/ArticleClassifierCore.xcodeproj; sourceTree = "<group>"; };
-		6B3123722224951100BE48F0 /* ZaJoLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZaJoLibrary.xcodeproj; path = ../ZaJoLibrary/ZaJoLibrary.xcodeproj; sourceTree = "<group>"; };
 		6B31238B2224974100BE48F0 /* FeedSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSupport.swift; sourceTree = "<group>"; };
 		6B31238C2224974100BE48F0 /* ArticlesFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesFetcher.swift; sourceTree = "<group>"; };
 		6B31238D2224974100BE48F0 /* FeedForManualTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedForManualTag.swift; sourceTree = "<group>"; };
-		6B646F06224ACF9D0045989C /* HTMLString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HTMLString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BE5F0AE2225F03A000368C6 /* RssClient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RssClient.xcodeproj; path = ../RssCore/RssClient.xcodeproj; sourceTree = "<group>"; };
+		6B7F5DC523EA193900B0DD7F /* ZaJoLibrary */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZaJoLibrary; path = ../ZaJoLibrary; sourceTree = "<group>"; };
+		6B7F5DC623EA194800B0DD7F /* RssClient */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RssClient; path = ../RssClient; sourceTree = "<group>"; };
+		6B7F5DC723EA199A00B0DD7F /* ArticleClassifierCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ArticleClassifierCore; path = ../ArticleClassifierCore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,10 +69,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B646F07224ACF9D0045989C /* HTMLString.framework in Frameworks */,
-				6B5CA28F222886F700F0409F /* ZaJoLibrary.framework in Frameworks */,
-				6B5CA28B222886F700F0409F /* RssClient.framework in Frameworks */,
-				6B3123832224955700BE48F0 /* ArticleClassifierCore.framework in Frameworks */,
+				6B7F5DCB23EA19C800B0DD7F /* RssClient in Frameworks */,
+				6B7F5DC923EA19C800B0DD7F /* ArticleClassifierCore in Frameworks */,
+				6B7F5DCD23EA19C800B0DD7F /* ZaJoLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +88,6 @@
 		6B31233A2224949A00BE48F0 = {
 			isa = PBXGroup;
 			children = (
-				6B646F06224ACF9D0045989C /* HTMLString.framework */,
 				6B312364222494C800BE48F0 /* Libraries */,
 				6B3123452224949A00BE48F0 /* ArticleFetcher */,
 				6B3123582224949B00BE48F0 /* ArticleFetcherTests */,
@@ -243,32 +133,11 @@
 		6B312364222494C800BE48F0 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				6BE5F0AE2225F03A000368C6 /* RssClient.xcodeproj */,
-				6B3123722224951100BE48F0 /* ZaJoLibrary.xcodeproj */,
-				6B312369222494E500BE48F0 /* ArticleClassifierCore.xcodeproj */,
+				6B7F5DC723EA199A00B0DD7F /* ArticleClassifierCore */,
+				6B7F5DC623EA194800B0DD7F /* RssClient */,
+				6B7F5DC523EA193900B0DD7F /* ZaJoLibrary */,
 			);
 			name = Libraries;
-			sourceTree = "<group>";
-		};
-		6B31236A222494E500BE48F0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6B31236F222494E500BE48F0 /* ArticleClassifierCore.framework */,
-				6B312371222494E500BE48F0 /* ArticleClassifierCore.framework */,
-				6B646F0E224ACF9D0045989C /* ArticleClassifierCoreTests-macOS.xctest */,
-				6B646F10224ACF9D0045989C /* TestHostApplication-ios.app */,
-				6B646F12224ACF9D0045989C /* ArticleClassifierCoreTests-ios.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		6B3123732224951100BE48F0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6B3123782224951100BE48F0 /* ZaJoLibrary.framework */,
-				6B31237A2224951100BE48F0 /* ZaJoLibrary.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		6B31237E2224955700BE48F0 /* Frameworks */ = {
@@ -287,17 +156,6 @@
 			path = Articles;
 			sourceTree = "<group>";
 		};
-		6BE5F0AF2225F03A000368C6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6BE5F0B62225F03A000368C6 /* RssClient-Dev.framework */,
-				6BE5F0B82225F03A000368C6 /* RssClient.framework */,
-				6B646F17224ACF9D0045989C /* RssClient.framework */,
-				6B646F19224ACF9D0045989C /* RssClient-Dev.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -313,11 +171,13 @@
 			buildRules = (
 			);
 			dependencies = (
-				6B5CA28E222886F700F0409F /* PBXTargetDependency */,
-				6B5CA292222886F700F0409F /* PBXTargetDependency */,
-				6B5CA296222886F700F0409F /* PBXTargetDependency */,
 			);
 			name = ArticleFetcher;
+			packageProductDependencies = (
+				6B7F5DC823EA19C800B0DD7F /* ArticleClassifierCore */,
+				6B7F5DCA23EA19C800B0DD7F /* RssClient */,
+				6B7F5DCC23EA19C800B0DD7F /* ZaJoLibrary */,
+			);
 			productName = ArticleFetcher;
 			productReference = 6B3123432224949A00BE48F0 /* ArticleFetcher.app */;
 			productType = "com.apple.product-type.application";
@@ -370,20 +230,6 @@
 			mainGroup = 6B31233A2224949A00BE48F0;
 			productRefGroup = 6B3123442224949A00BE48F0 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 6B31236A222494E500BE48F0 /* Products */;
-					ProjectRef = 6B312369222494E500BE48F0 /* ArticleClassifierCore.xcodeproj */;
-				},
-				{
-					ProductGroup = 6BE5F0AF2225F03A000368C6 /* Products */;
-					ProjectRef = 6BE5F0AE2225F03A000368C6 /* RssClient.xcodeproj */;
-				},
-				{
-					ProductGroup = 6B3123732224951100BE48F0 /* Products */;
-					ProjectRef = 6B3123722224951100BE48F0 /* ZaJoLibrary.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				6B3123422224949A00BE48F0 /* ArticleFetcher */,
@@ -391,86 +237,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		6B31236F222494E500BE48F0 /* ArticleClassifierCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ArticleClassifierCore.framework;
-			remoteRef = 6B31236E222494E500BE48F0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B312371222494E500BE48F0 /* ArticleClassifierCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ArticleClassifierCore.framework;
-			remoteRef = 6B312370222494E500BE48F0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B3123782224951100BE48F0 /* ZaJoLibrary.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ZaJoLibrary.framework;
-			remoteRef = 6B3123772224951100BE48F0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B31237A2224951100BE48F0 /* ZaJoLibrary.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ZaJoLibrary.framework;
-			remoteRef = 6B3123792224951100BE48F0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B646F0E224ACF9D0045989C /* ArticleClassifierCoreTests-macOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "ArticleClassifierCoreTests-macOS.xctest";
-			remoteRef = 6B646F0D224ACF9D0045989C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B646F10224ACF9D0045989C /* TestHostApplication-ios.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "TestHostApplication-ios.app";
-			remoteRef = 6B646F0F224ACF9D0045989C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B646F12224ACF9D0045989C /* ArticleClassifierCoreTests-ios.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "ArticleClassifierCoreTests-ios.xctest";
-			remoteRef = 6B646F11224ACF9D0045989C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B646F17224ACF9D0045989C /* RssClient.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RssClient.framework;
-			remoteRef = 6B646F16224ACF9D0045989C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6B646F19224ACF9D0045989C /* RssClient-Dev.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = "RssClient-Dev.framework";
-			remoteRef = 6B646F18224ACF9D0045989C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6BE5F0B62225F03A000368C6 /* RssClient-Dev.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = "RssClient-Dev.framework";
-			remoteRef = 6BE5F0B52225F03A000368C6 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6BE5F0B82225F03A000368C6 /* RssClient.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RssClient.framework;
-			remoteRef = 6BE5F0B72225F03A000368C6 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6B3123412224949A00BE48F0 /* Resources */ = {
@@ -520,21 +286,6 @@
 			isa = PBXTargetDependency;
 			target = 6B3123422224949A00BE48F0 /* ArticleFetcher */;
 			targetProxy = 6B3123562224949B00BE48F0 /* PBXContainerItemProxy */;
-		};
-		6B5CA28E222886F700F0409F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "RssClient-macos";
-			targetProxy = 6B5CA28D222886F700F0409F /* PBXContainerItemProxy */;
-		};
-		6B5CA292222886F700F0409F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "ZaJoLibrary-macOS";
-			targetProxy = 6B5CA291222886F700F0409F /* PBXContainerItemProxy */;
-		};
-		6B5CA296222886F700F0409F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "ArticleClassifierCore-macos";
-			targetProxy = 6B5CA295222886F700F0409F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -778,6 +529,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6B7F5DC823EA19C800B0DD7F /* ArticleClassifierCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ArticleClassifierCore;
+		};
+		6B7F5DCA23EA19C800B0DD7F /* RssClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RssClient;
+		};
+		6B7F5DCC23EA19C800B0DD7F /* ZaJoLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ZaJoLibrary;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6B31233B2224949A00BE48F0 /* Project object */;
 }
