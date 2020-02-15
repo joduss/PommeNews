@@ -35,9 +35,13 @@ class JsonArticlePredictor:
 
 
     def predict(self, json):
+
+        numArticleJson = len(json)
+        numProcessedArticle = 0
         for articleJson in json:
             articleThemes = articleJson[self.KEY_THEMES]
             articleVerifiedThemes = articleJson[self.KEY_VERIFIED_THEMES]
+
 
             if self.__requireClassification(self.supportedThemes, articleJson):
 
@@ -47,6 +51,9 @@ class JsonArticlePredictor:
                     continue
                 classifiedThemes = self.__doPrediction(articleJson["title"] + ". " + articleJson["summary"], unverifiedThemes)
                 articleJson[self.KEY_PREDICTED_THEMES] = unverifiedThemes
+
+            numProcessedArticle = numProcessedArticle + 1
+            print("Progress: " + str(numProcessedArticle / numArticleJson))
 
         with open('predictions.json', 'w') as outfile:
             jsonModule.dump(json, outfile)

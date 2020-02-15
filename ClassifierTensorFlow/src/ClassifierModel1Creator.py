@@ -44,8 +44,9 @@ class ClassifierModel1Creator:
                 # keras.layers.Dense(theme_count, activation=tf.nn.softmax)
 
                 # 3
-                keras.layers.Embedding(input_dim=self.voc_size+1, output_dim=embedding_output_dim),
-                keras.layers.Bidirectional(keras.layers.LSTM(intermediate_dim)),
+                keras.layers.Embedding(input_dim=self.voc_size, output_dim=embedding_output_dim),
+                keras.layers.Bidirectional(keras.layers.LSTM(intermediate_dim, return_sequences=True)),
+                keras.layers.Bidirectional(keras.layers.LSTM(last_dim, dropout=0.05, recurrent_dropout=0.05)),
                 keras.layers.Dense(last_dim, activation=tf.nn.relu),
                 keras.layers.Dense(self.theme_count, activation=tf.nn.softmax)
             ]

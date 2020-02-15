@@ -41,7 +41,7 @@ LANG = "french"
 OUT_FILE = "~/out.json"
 
 file = open("articles_fr.json", "r")
-supportedThemes: List[str] = ["google", "apple", "microsoft", "samsung", "amazon", "facebook"]
+supportedThemes: List[str] = ["google", "apple", "microsoft", "samsung", "amazon", "facebook", "netflix", "spotify"]
 
 # Printing config
 # ============================
@@ -67,7 +67,7 @@ json = jsonModule.loads(file.read())
 
 # Only keep articles which have themes.
 # articles = [jsonObject["title"] + ". " + jsonObject["summary"] for jsonObject in json if len(jsonObject["themes"]) > 0]
-all_articles: List[str] = [jsonObject["title"] + ". " + jsonObject["summary"] for jsonObject in json if len(jsonObject["themes"]) > 0]
+all_orig_articles: List[str] = [jsonObject["title"] + ". " + jsonObject["summary"] for jsonObject in json if len(jsonObject["themes"]) > 0]
 all_themes: List[List[str]] = [jsonObject["themes"] for jsonObject in json if len(jsonObject["themes"]) > 0]
 
 
@@ -76,7 +76,7 @@ all_themes: List[List[str]] = [jsonObject["themes"] for jsonObject in json if le
 
 # Lowercasing
 # -----------
-articles = [article.lower() for article in all_articles]
+articles = [article.lower() for article in all_orig_articles]
 
 # Removal of all unsupported themes and keep only articles who have at least one supported theme.
 # -----------
@@ -85,6 +85,7 @@ nbThemesBefore = len(articles)
 
 articlesInFiltering = articles
 themesInFiltering = all_themes
+
 themes = []
 articles = []
 
@@ -94,6 +95,9 @@ for articleThemes in themesInFiltering:
     if len(filteredThemes) > 0:
         themes.append(filteredThemes)
         articles.append(articlesInFiltering[idx])
+    # elif len(articleThemes) > 0:
+    #     themes.append(["none"])
+    #     articles.append(articlesInFiltering[idx])
     idx+=1
 
 nbThemesAfter = len(articles)
@@ -135,7 +139,7 @@ themeWeight = []
 largestThemeArticleCount = 0
 
 # Create ordered list of theme as in tokenizer
-for i in range(1, len(themeTokenizer.word_index) + 1): # word_index start at 1
+for i in range(1, len(themeTokenizer.word_index) + 1): # word_index start at 1, 0 is reserved.
     theme = themeTokenizer.index_word[i]
     orderedThemes.append(themeTokenizer.index_word[i])
     nbWithTheme = len([currentThemes for currentThemes in themes if theme in currentThemes])
@@ -148,7 +152,7 @@ for i in range(1, len(themeTokenizer.word_index) + 1): # word_index start at 1
 # Class weight is computed based on 1.0 = weight of the most likely class.
 
 for i in range(0,len(themeWeight)):
-    themeWeight[i] = themeWeight[i] / largestThemeArticleCount
+    themeWeight[i] = 1 / (themeWeight[i] / largestThemeArticleCount)
 
 
 print("\n\nData Analysis")
@@ -296,7 +300,7 @@ modelCreator: ClassifierModel1Creator = ClassifierModel1Creator(
     validationData=validationData,
     validation_batch_count=validation_batch_count)
 
-model = modelCreator.create_model(64, 256, 32, 5)
+model = modelCreator.create_model(embedding_output_dim=128, intermediate_dim=256, last_dim=64, epochs=8)
 
 print("\nPerform evaluation---")
 modelEvaluationResults = model.evaluate(testData, steps=test_batch_count)
@@ -400,3 +404,5 @@ predictor = JsonArticlePredictor(model,
                                  KEY_PREDICTED_THEMES)
 
 predictor.predict(json)
+
+print("DONE!!!")
