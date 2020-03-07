@@ -49,11 +49,11 @@ class JsonArticlePredictor:
                 unverifiedThemes = self.__findUnverifiedThemes(self.supportedThemes, articleVerifiedThemes)
                 if len(unverifiedThemes) == 0:
                     continue
-                classifiedThemes = self.__doPrediction(articleJson["title"] + ". " + articleJson["summary"], unverifiedThemes)
-                articleJson[self.KEY_PREDICTED_THEMES] = unverifiedThemes
+                predictedThemes = self.__doPrediction(articleJson["title"] + ". " + articleJson["summary"], unverifiedThemes)
+                articleJson[self.KEY_PREDICTED_THEMES] = predictedThemes
 
             numProcessedArticle = numProcessedArticle + 1
-            print("Progress: " + str(numProcessedArticle / numArticleJson))
+            print("Progress: " + str(numProcessedArticle) +  "/"  + str(numArticleJson))
 
         with open('predictions.json', 'w') as outfile:
             jsonModule.dump(json, outfile)

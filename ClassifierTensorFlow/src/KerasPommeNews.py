@@ -2,23 +2,19 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 from typing import List
 
-from keras_preprocessing.text import Tokenizer
 from tensorflow.python.keras.preprocessing.text import Tokenizer
-from tensorflow.python.keras .layers import *
-from nltk.stem import WordNetLemmatizer
-
 
 import tensorflow as tf
 import numpy as np
 import tensorflow.keras as keras
 import math
 import json as jsonModule
-import FrenchStopwords
 
-import Plot
+import Plot ## required if plotting error.
 from ArticlePreprocessor import ArticlePreprocessor
 from ClassifierModel1Creator import ClassifierModel1Creator
 from JsonArticlePredictor import JsonArticlePredictor
+from ManualTestPrint import ManualTestPrint
 
 print("\n\n\n####################################\n####################################")
 
@@ -27,10 +23,9 @@ print("\n\n\n####################################\n#############################
 ############################################
 
 DO_COMPARISONS = False
-POST_ALL_CLASSIFY = True
-POST_CLASSIFY_NO_CLASSIFIED = True
+POST_ALL_CLASSIFY = False
 
-DATASET_BATCH_SIZE = 30
+DATASET_BATCH_SIZE = 100
 ARTICLE_MAX_WORD_COUNT = 200
 TRAIN_RATIO = 0.65
 VALIDATION_RATIO = 0.17 # TEST if 1 - TRAIN_RATIO - VALIDATION_RATIO
@@ -38,10 +33,12 @@ VOCABULARY_MAX_SIZE = 50000 # not used for now!
 
 LANG = "french"
 
-OUT_FILE = "~/out.json"
-
 file = open("articles_fr.json", "r")
-supportedThemes: List[str] = ["google", "apple", "microsoft", "samsung", "amazon", "facebook", "netflix", "spotify"]
+# supportedThemes: List[str] = ["google", "apple", "microsoft", "samsung", "amazon", "facebook", "netflix", "spotify", "android", "ios", "iphone", "smartphone", "tablet", "ipad", "tablet", "appleWatch", "watch", "economyPolitic", "videoService", "audioService", "cloudService", "surface", "crypto", "health", "keynote", "rumor", "cloudComputing", "patent", "lawsuitLegal", "study", "future", "test", "appleMusic", "appleTVPlus", "security", "apps", "windows", "macos"]
+# supportedThemes: List[str] = ["android", "ios", "windows", "macos", "otherOS"]
+#supportedThemes: List[str] = ["tablet", "smartphone", "watch", "computer", "speaker", "component", "accessory"]
+supportedThemes: List[str] = ["tablet", "smartphone", "watch", "computer"]
+
 
 # Printing config
 # ============================
@@ -67,9 +64,9 @@ json = jsonModule.loads(file.read())
 
 # Only keep articles which have themes.
 # articles = [jsonObject["title"] + ". " + jsonObject["summary"] for jsonObject in json if len(jsonObject["themes"]) > 0]
-all_orig_articles: List[str] = [jsonObject["title"] + ". " + jsonObject["summary"] for jsonObject in json if len(jsonObject["themes"]) > 0]
-all_themes: List[List[str]] = [jsonObject["themes"] for jsonObject in json if len(jsonObject["themes"]) > 0]
-
+all_orig_articles: List[str] = [jsonObject["title"] + ". " + jsonObject["summary"] for jsonObject in json if len(jsonObject["verifiedThemes"]) > 0]
+all_themes: List[List[str]] = [jsonObject["themes"] for jsonObject in json if len(jsonObject["verifiedThemes"]) > 0]
+all_verified_themes: List[List[str]] = [jsonObject["verifiedThemes"] for jsonObject in json if len(jsonObject["verifiedThemes"]) > 0]
 
 # Preprocessing of data
 # ============================
@@ -92,9 +89,16 @@ articles = []
 idx: int = 0
 for articleThemes in themesInFiltering:
     filteredThemes = [value for value in articleThemes if value in supportedThemes]
-    if len(filteredThemes) > 0:
-        themes.append(filteredThemes)
-        articles.append(articlesInFiltering[idx])
+    filteredVerifiedThemes = [value for value in all_verified_themes[idx] if value in supportedThemes]
+
+    if len(filteredVerifiedThemes) > 0:
+        if len(filteredThemes) > 0:
+            themes.append(filteredThemes)
+            articles.append(articlesInFiltering[idx])
+        # else:
+        #     articles.append(articlesInFiltering[idx])
+        #     themes.append("none")
+
     # elif len(articleThemes) > 0:
     #     themes.append(["none"])
     #     articles.append(articlesInFiltering[idx])
@@ -152,7 +156,7 @@ for i in range(1, len(themeTokenizer.word_index) + 1): # word_index start at 1, 
 # Class weight is computed based on 1.0 = weight of the most likely class.
 
 for i in range(0,len(themeWeight)):
-    themeWeight[i] = 1 / (themeWeight[i] / largestThemeArticleCount)
+    themeWeight[i] = largestThemeArticleCount / (themeWeight[i] + 0.0001)
 
 
 print("\n\nData Analysis")
@@ -300,7 +304,11 @@ modelCreator: ClassifierModel1Creator = ClassifierModel1Creator(
     validationData=validationData,
     validation_batch_count=validation_batch_count)
 
-model = modelCreator.create_model(embedding_output_dim=128, intermediate_dim=256, last_dim=64, epochs=8)
+# For brands
+#model = modelCreator.create_model(embedding_output_dim=128, intermediate_dim=256, last_dim=64, epochs=70)
+
+# For device type
+model = modelCreator.create_model(embedding_output_dim=128, intermediate_dim=512, last_dim=64, epochs=25)
 
 print("\nPerform evaluation---")
 modelEvaluationResults = model.evaluate(testData, steps=test_batch_count)
@@ -312,76 +320,9 @@ print("Evaluation results (loss, acc): ", modelEvaluationResults)
 # Manual Tests of the created model
 ################################################################################################
 
-# Utility functions
-# ============================
-
-
-def doPrediction(text):
-    text = preprocessor.process_article(text)
-    vector = tokenizer.texts_to_sequences([text])
-    vector = keras.preprocessing.sequence.pad_sequences(vector,
-                                                        value=0,
-                                                        padding='post',
-                                                        maxlen=ARTICLE_MAX_WORD_COUNT)
-
-    return model.predict(vector)
-
-
-def predictionToHumanReadable(text):
-    predictions = doPrediction(text)[0]
-    idxWord = themeTokenizer.index_word
-    return " - ".join("{}({})".format(idxWord[idx], prediction) for idx, prediction in enumerate(predictions, start=1))
-
-
-
-# Manual test.
-# ============================
-
-
-print("\n\n--- Manual tests\n===")
-
-print("Article 1: (Apple, ios, beta)", predictionToHumanReadable("Apple propose les bêtas 2 pour iOS13.2, iPadOS 13.2 et tvOS 13.2 et watchOS 6.1 bêta 3. Apple propose ce soir la deuxième bêta d'iOS 13.2, iPadOS 13.2 et tvOS 13.2. A noter que les versions définitives d'iOS 13.1.2 et iPadOS 13.1.2 ont été dévoilées le 30 septembre dernier et qu'elle amenaient leurs lots de corrections de bugs, notamment au niveau du Bluetooth, de l'appareil photo, d'iCloud, etc.Avec la bêta 1 d'iOS 13.2, dévoilée la semaine dernière, Apple a intégré la fonctionnalité « Deep Fusion » présentée durant la keynote -que nous avons testée ci-dessous. Il s'agit d'une fonctionnalité qui permet d'améliorer les prises de vues photographiques grâce au Neural Engine des nouveaux iPhone. En complément, Apple propose également la bêta 3 de watchOS 6.1."))
-
-print("Article 2 (Apple, appleWatch):", predictionToHumanReadable("Apple supprime plusieurs dizaines de bracelets Apple Watch. À quelques semaines du keynote de septembre et de la présentation de nouvelles Apple Watch et probablement de nouveaux accessoires pour les accompagner, Apple fait le ménage sur sa boutique dans la section des bracelets. Comme le rapporte Mac Rumors, le constructeur a supprimé 14 références de sa boutique et une vingtaine de modèles sont encore listés, mais ils sont indiqués « épuisés ». \nLe bracelet Pride nylon fait partie des modèles épuisés en France également.\n\nL’état des stocks n’est pas identique en France et aux États-Unis où le site dresse sa liste exhaustive. Néanmoins, Apple a certainement prévu d’arrêter certains coloris de bracelet comme elle le fait à chaque renouvellement de gamme et le constructeur vide certainement ses stocks. Si un modèle vous donnait envie, ne trainez pas pour le commander, s’il est encore en stock. Ou alors attendez le mois de septembre pour découvrir la gamme automnale."))
-print("Article 3 (Google): ", predictionToHumanReadable("Google revoit entièrement l'interface de Wear OS. Le système d’exploitation de Google destiné aux montres connectées évolue encore. Après un changement de nom en début d’année, c’est l’interface de Wear OS qui est maintenant complètement modifiée. \n\nTrois avantages sont mis en avant par Google, à commencer par un accès simplifié aux notifications, d’un balayage du bas de l’écran vers le haut, et aux raccourcis (mode avion, Google Pay, ne pas déranger…), d’un geste du haut vers le bas.\nLa nouvelle interface de Wear OS\n\nGoogle Assistant s’intègre mieux à Wear OS : glissez vers la droite pour voir toutes les suggestions et tous les rappels de l’assistant. C’est similaire au cadran Siri de l’Apple Watch, si ce n’est que ce n’est pas un cadran mais une vue à part entière.\nLes cinq écrans de Wear OS. Montage Ars Technica.\n\nDe la même manière, Google Fit, l’application revue la semaine dernière qui permet de suivre son activité physique, est en bonne place à droite du cadran.\n\nLa mise à jour sera déployée à partir du mois prochain sur les montres Wear OS. Google pourrait présenter cet automne sa propre famille de montres connectées."))
-print("Article 4 (Google)", predictionToHumanReadable("Du neuf chez les Google Glass : de la musique, des économies, et de nouveaux Explorers. Cela fait un bon moment que nous ne vous avions pas parlé des Google Glass. Que se passe-t-il du côté de Mountain View ? Quelle sont les nouveautés ajoutées aux lunettes connectées du géant californien ? D’une compatibilité avec Google Play Music à la seconde vague d’inscriptions pour le programme Explorer, en passant pour les centaines de millions de dollars que les Glass vont pouvoir faire économiser aux entreprises, voici les principales nouveautés à ne pas rater au sujet des lunettes connectées de Google."))
-print("Article 5 (Google)", predictionToHumanReadable("L'application iGeneration débarque sur Android. Vous ne rêvez pas, ce n'est pas non plus un poisson d'avril en avance… Nous sommes fiers de vous annoncer le lancement de notre application iGeneration sur Android !"))
-print("Article 6 (Apple)", predictionToHumanReadable("Apple interdirait les contenus TV+ déplaisants pour la Chine. Apple est actuellement sous pression de la Chine, notamment vis-à-vis des problématiques autour de Hong Kong qui oblige Tim Cook à venir supprimer des applications utilisées par les manifestants. La polémique encore risque d'enfler en apprenant aujourd'hui qu'Eddy Cue en personne aurait demandé aux créateurs de contenus pour le futur service AppleTV+ d'éviter les contenus « sensibles » qui pourrait provoquer la colère du régime chinois. La pratique ne semble pas nouvelle pour Apple, ni pour l'industrie hollywoodienne en général, ceci afin de continuer à profiter de ce marché gigantesque, mais aussi très contrôlé et peu ouvert à l'auto-critique. La Pomme a d'ailleurs toutes les peines du monde à imposer là-bas ses boutiques culturelles - les iTunes Movie et iBooks stores ont été fermés 6 mois après leur sortie en Chine."))
-print("Article 7 (Apple, Google)", predictionToHumanReadable("Google Maps s’affiche dans CarPlay en bêta. Après Waze, c’est au tour de Google Maps de s’adapter à CarPlay. Les testeurs du service de cartographie du moteur de recherche ont maintenant accès à une nouvelle version de l’application compatible avec le système d’affichage déporté d’iOS. \n\n\n\n\n\n\n\nD’après un des testeurs qui partage un paquet de captures d’écran, « l’expérience » Google Maps est proche de ce qu’on connait ailleurs. Les informations, les POI ainsi que les cartes proviennent évidemment des bases de données de Google. On ignore en revanche quand l’application sera disponible — la version finale d’iOS 12 sera disponible lundi prochain."))
-print("article 8 (Microsoft, Samsung)", predictionToHumanReadable("Microsoft Suface Duo vs. Samsung Galaxy Fold : qui est le champion de la productivité ? Microsoft a frappé un grand coup en annonçant son Surface Duo, un appareil Android à double affichage qui devrait être lancé dans environ un an. Celui-ci se fonde sur un concept similaire au principe du Galaxy Fold de Samsung, que ce soit via la prise en charge sous Android ou l'aspect pliable. Avec cet appareil, la firme de Redmond pourra-t-elle faire de l'ombre au flagship du constructeur coréen ? Réponse ci-dessous."))
-print("Article 9 (Facebook)", predictionToHumanReadable("Facebook Messenger : petits changements entre amis, et bientôt un mode sombre"))
-print("Article 10 (Apple, ipad, tablet, rumor", predictionToHumanReadable("iPad Pro 2018 : une fuite en 3D annonce une tablette avec Face ID"))
-
-
-# print("\n-----\n")
-# print("articles[16]" + "themes: " + str(themes[16]) + " => ", predictionToHumanReadable(articles[16]), articles[16])
-# print("\n-----\n")
-# print("articles[160]" + "themes: " + str(themes[160]) + " => ", predictionToHumanReadable(articles[160]), articles[160])
-# print("\n-----\n")
-# print("articles[111]" + "themes: " + str(themes[111]) + " => ", predictionToHumanReadable(articles[111]), articles[111])
-# print("\n-----\n")
-# print("articles[66]" + "themes: " + str(themes[66]) + " => ", predictionToHumanReadable(articles[16]), articles[66])
-
 if POST_ALL_CLASSIFY:
-    idx = 0
-    for article in articles:
-        print("article ", idx, " themes: ", themes[idx], " # predicted ===> ", predictionToHumanReadable(articles[idx]), " ||||| original article: ", articles[idx])
-        idx = idx + 1
-
-    print("")
-    print("what is the galaxy s3?", predictionToHumanReadable("what is the galaxy s3?"))
-    print("I bought 2 ipad in the last year. I am very happy with them, I could get rid of my old computer", predictionToHumanReadable("I bought 2 ipad in the last year. I am very happy with them, I could get rid of my old computer"))
-    print("both apple and samsung are active in the it domain", predictionToHumanReadable("both apple and samsung are active in the it domain"))
-    print()
-    print("apple ipad air 2", predictionToHumanReadable("apple ipad air 2"))
-    print("iphone 4s", predictionToHumanReadable("iphone 4s"))
-    print("galaxy", predictionToHumanReadable("galaxy"))
-    print("galaxy tab", predictionToHumanReadable("galaxy tab"))
-    print("ania: \That fucking ipad.\"", predictionToHumanReadable("That fucking ipad."))
-    print("surface special: ", predictionToHumanReadable("surface special"))
-    print("surface go: ", predictionToHumanReadable("surface go"))
-    print("microsoft et apple: ", predictionToHumanReadable("microsoft et apple."))
-    print("Je suis sur la lune: ", predictionToHumanReadable("Je suis sur la lune"))
+    testPrint = ManualTestPrint(articles, themes, ARTICLE_MAX_WORD_COUNT, model, themeTokenizer)
+    testPrint.print()
 
 print("\nThemes idx:", themeTokenizer.word_index)
 
