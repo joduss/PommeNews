@@ -34,7 +34,7 @@ class JsonArticlePredictor:
         self.KEY_PREDICTED_THEMES = KEY_PREDICTED_THEMES
 
 
-    def predict(self, json):
+    def predict(self, json, all: bool = True):
 
         numArticleJson = len(json)
         numProcessedArticle = 0
@@ -46,10 +46,15 @@ class JsonArticlePredictor:
             if self.__requireClassification(self.supportedThemes, articleJson):
 
                 # classify here
-                unverifiedThemes = self.__findUnverifiedThemes(self.supportedThemes, articleVerifiedThemes)
-                if len(unverifiedThemes) == 0:
+                if all == True:
+                    themes_to_predict = self.supportedThemes
+                else:
+                    themes_to_predict = self.__findUnverifiedThemes(self.supportedThemes, articleVerifiedThemes)
+
+                if len(themes_to_predict) == 0:
                     continue
-                predictedThemes = self.__doPrediction(articleJson["title"] + ". " + articleJson["summary"], unverifiedThemes)
+
+                predictedThemes = self.__doPrediction(articleJson["title"] + ". " + articleJson["summary"], themes_to_predict)
                 articleJson[self.KEY_PREDICTED_THEMES] = predictedThemes
 
             numProcessedArticle = numProcessedArticle + 1
@@ -57,6 +62,8 @@ class JsonArticlePredictor:
 
         with open('predictions.json', 'w') as outfile:
             jsonModule.dump(json, outfile)
+
+        return json
 
 
     def __doPrediction(self, text, themesToClassify):
