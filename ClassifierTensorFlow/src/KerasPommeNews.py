@@ -11,10 +11,12 @@ import math
 import json as jsonModule
 
 import Plot ## required if plotting error.
+from Article import Article
 from ArticlePreprocessor import ArticlePreprocessor
 from ClassifierModel1Creator import ClassifierModel1Creator
 from JsonArticlePredictor import JsonArticlePredictor
 from ManualTestPrint import ManualTestPrint
+from ModelEvaluator import ModelEvaluator
 
 print("\n\n\n####################################\n####################################")
 
@@ -62,6 +64,8 @@ KEY_PREDICTED_THEMES = "predictedThemes"
 
 json = jsonModule.loads(file.read())
 
+json = json[1:1000]
+
 # Only keep articles which have themes.
 # articles = [jsonObject["title"] + ". " + jsonObject["summary"] for jsonObject in json if len(jsonObject["themes"]) > 0]
 all_orig_articles: List[str] = [jsonObject["title"] + ". " + jsonObject["summary"] for jsonObject in json if len(jsonObject["verifiedThemes"]) > 0]
@@ -85,16 +89,16 @@ themesInFiltering = all_themes
 
 themes = []
 articles = []
+verified_themes = []
 
 idx: int = 0
 for articleThemes in themesInFiltering:
     filteredThemes = [value for value in articleThemes if value in supportedThemes]
-    filteredVerifiedThemes = [value for value in all_verified_themes[idx] if value in supportedThemes]
+    # filteredVerifiedThemes = [value for value in all_verified_themes[idx] if value in supportedThemes]
 
-    if len(filteredVerifiedThemes) > 0:
-        if len(filteredThemes) > 0:
-            themes.append(filteredThemes)
-            articles.append(articlesInFiltering[idx])
+    # if len(filteredVerifiedThemes) > 0:
+    #     if len(filteredThemes) > 0:
+    themes.append(filteredThemes)
         # else:
         #     articles.append(articlesInFiltering[idx])
         #     themes.append("none")
@@ -140,23 +144,22 @@ Y = np.delete(arr=Y, obj=0, axis=1)
 
 orderedThemes = []
 themeWeight = []
-largestThemeArticleCount = 0
+articleCountOfTheme = []
+
+for theme in supportedThemes:
+    articleCountOfTheme.append(0)
 
 # Create ordered list of theme as in tokenizer
 for i in range(1, len(themeTokenizer.word_index) + 1): # word_index start at 1, 0 is reserved.
     theme = themeTokenizer.index_word[i]
     orderedThemes.append(themeTokenizer.index_word[i])
     nbWithTheme = len([currentThemes for currentThemes in themes if theme in currentThemes])
-    print("'{}' {} / {}".format(theme, nbWithTheme, len(themes)))
+    # nbThemeVerified = len([currentThemes for currentThemes in all_verified_themes if theme in currentThemes])
     themeWeight.append(nbWithTheme)
 
-    if nbWithTheme > largestThemeArticleCount:
-        largestThemeArticleCount = nbWithTheme
 
-# Class weight is computed based on 1.0 = weight of the most likely class.
-
-for i in range(0,len(themeWeight)):
-    themeWeight[i] = largestThemeArticleCount / (themeWeight[i] + 0.0001)
+# for i in range(0,len(themeWeight)):
+    # themeWeight[i] = themeWeight[i] / len([])
 
 
 print("\n\nData Analysis")
@@ -296,9 +299,10 @@ validation_batch_count = int(math.ceil(validationSize / DATASET_BATCH_SIZE))
 # ============================
 
 modelCreator: ClassifierModel1Creator = ClassifierModel1Creator(
+    article_length=ARTICLE_MAX_WORD_COUNT,
     voc_size=voc_size,
-    theme_count=theme_count,
     theme_weight=themeWeight,
+    theme_count=theme_count,
     trainData=trainData,
     train_batch_count=train_batch_count,
     validationData=validationData,
@@ -308,7 +312,8 @@ modelCreator: ClassifierModel1Creator = ClassifierModel1Creator(
 #model = modelCreator.create_model(embedding_output_dim=128, intermediate_dim=256, last_dim=64, epochs=70)
 
 # For device type
-model = modelCreator.create_model(embedding_output_dim=128, intermediate_dim=512, last_dim=64, epochs=25)
+#model = modelCreator.create_model(embedding_output_dim=256, intermediate_dim=512, last_dim=128, epochs=20)
+model = modelCreator.create_model(embedding_output_dim=128, intermediate_dim=256, last_dim=64, epochs=30)
 
 print("\nPerform evaluation---")
 modelEvaluationResults = model.evaluate(testData, steps=test_batch_count)
@@ -344,6 +349,16 @@ predictor = JsonArticlePredictor(model,
                                  KEY_VERIFIED_THEMES,
                                  KEY_PREDICTED_THEMES)
 
-predictor.predict(json)
+predictions = predictor.predict(json)
+
+predicted_articles: List[Article] = []
+
+for prediction in predictions:
+    predicted_articles.append(Article.articleFromArticleJson(prediction))
+
+evaluator = ModelEvaluator()
+
+evaluator.evaluate(predicted_articles, supportedThemes)
+
 
 print("DONE!!!")
