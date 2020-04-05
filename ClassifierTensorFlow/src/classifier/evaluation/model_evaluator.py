@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from Article import Article
+from data_models.article import Article
 
 
 @dataclass
@@ -17,45 +17,45 @@ class ModelEvaluator:
 
     def evaluateTheme(self, theme: str):
 
-        truePositive = 0
-        trueNegative = 0
-        falsePositive = 0
-        falseNegative = 0
+        true_positive = 0
+        true_negative = 0
+        false_positive = 0
+        false_negative = 0
 
         for article in self.predicted_articles:
             if theme not in article.verified_themes:
                 continue
 
-            isOfTheme = theme in article.themes
+            is_of_theme = theme in article.themes
             prediction = theme in article.predicted_themes
 
-            if isOfTheme and prediction:
-                truePositive += 1
-            elif isOfTheme and not prediction:
-                falseNegative += 1
-            elif not isOfTheme and prediction:
-                falsePositive += 1
+            if is_of_theme and prediction:
+                true_positive += 1
+            elif is_of_theme and not prediction:
+                false_negative += 1
+            elif not is_of_theme and prediction:
+                false_positive += 1
             else:
-                trueNegative += 1
+                true_negative += 1
 
         print("\n")
         print("Evaluation of predictions for theme \"{}\"".format(theme))
         print("------")
 
-        print("TP = {}".format(truePositive))
-        print("TN = {}".format(trueNegative))
-        print("FP = {}".format(falsePositive))
-        print("FN = {}".format(falseNegative))
+        print("TP = {}".format(true_positive))
+        print("TN = {}".format(true_negative))
+        print("FP = {}".format(false_positive))
+        print("FN = {}".format(false_negative))
 
         recall = 0
         precision = 0
         f_score = 0
 
-        if (truePositive + falseNegative) > 0:
-            recall = truePositive / (truePositive + falseNegative)
+        if (true_positive + false_negative) > 0:
+            recall = true_positive / (true_positive + false_negative)
 
-        if (truePositive + falsePositive) > 0:
-            precision = truePositive / (truePositive + falsePositive)
+        if (true_positive + false_positive) > 0:
+            precision = true_positive / (true_positive + false_positive)
 
         if (precision + recall) > 0:
             f_score = 2 * (precision * recall) / (precision + recall)
