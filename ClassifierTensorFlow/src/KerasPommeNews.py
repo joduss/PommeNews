@@ -7,7 +7,7 @@ from tensorflow.python.keras.preprocessing.text import Tokenizer
 import tensorflow as tf
 import numpy as np
 import tensorflow.keras as keras
-import math
+
 
 from classifier.prediction.models.ClassifierModel2 import ClassifierModel2
 from classifier.prediction.models.DatasetWrapper import DatasetWrapper
@@ -39,14 +39,14 @@ LANG = "fr"
 LANG_FULL = "french"
 
 LIMIT_ARTICLES_TRAINING = True
-LIMIT_ARTICLES_PREDICTION = None # None or a number
+LIMIT_ARTICLES_PREDICTION = 600 # None or a number
 
 # supportedThemes: List[str] = ["google", "apple", "microsoft", "samsung", "amazon", "facebook", "netflix", "spotify", "android", "ios", "iphone", "smartphone", "tablet", "ipad", "tablet", "appleWatch", "watch", "economyPolitic", "videoService", "audioService", "cloudService", "surface", "crypto", "health", "keynote", "rumor", "cloudComputing", "patent", "lawsuitLegal", "study", "future", "test", "appleMusic", "appleTVPlus", "security", "apps", "windows", "macos"]
 # supportedThemes: List[str] = ["android", "ios", "windows", "macos", "otherOS"]
 #supportedThemes: List[str] = ["tablet", "smartphone", "watch", "computer", "speaker", "component", "accessory"]
 
 #SUPPORTED_THEMES: List[str] = ["tablet", "smartphone", "watch", "computer"]
-SUPPORTED_THEMES: List[str] = ["smartphone", "computer"]
+SUPPORTED_THEMES: List[str] = ["computer", "smartphone"]
 
 
 # Printing config
@@ -122,10 +122,15 @@ themeTokenizer: Tokenizer = Tokenizer()
 themeTokenizer.fit_on_texts(articles.themes())
 
 Y = themeTokenizer.texts_to_matrix(articles.themes())
+#Y = tf.one_hot(themeTokenizer.texts_to_sequences(articles.themes()), depth=len(SUPPORTED_THEMES))
+
 
 # Remove the first column, whose first col contains only 0s.
 Y = np.delete(arr=Y, obj=0, axis=1)
 
+# for y in Y:
+#     for i in range(0, y.size):
+#         y[i] = y[i] * (i+1)
 
 
 # Create ordered list of theme as in tokenizer
@@ -175,11 +180,11 @@ print("* Number of themes: ", theme_count)
 print("\n")
 
 
-theme_weigth: List[int] = []
-
+theme_weight: List[float] = []
 for theme in orderedThemes:
     stat = [stat for stat in theme_stats if stat.theme == theme][0]
-    theme_weigth.append(1 / stat.weight())
+    # theme_weight.append(1 / stat.weight())
+    theme_weight.append(1 / stat.weight())
 
 # Padding of data
 # ============================
@@ -195,6 +200,7 @@ X = keras.preprocessing.sequence.pad_sequences(X,
 
 # Creation of dataset
 # ============================
+
 
 
 dataset: tf.data.Dataset = tf.data.Dataset.from_tensor_slices((X,Y))
@@ -243,7 +249,7 @@ datasetWrapped = DatasetWrapper(tf_dataset=dataset,
                                 )
 
 #do_ theme_weight for each theme!
-modelCreator = ClassifierModel2(theme_weigth, datasetWrapped, voc_size)
+modelCreator = ClassifierModel2(theme_weight, datasetWrapped, voc_size)
 
 model = modelCreator.create_model()
 
