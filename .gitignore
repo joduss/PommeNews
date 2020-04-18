@@ -1,2 +1,5 @@
 ClassifierTensorFlow/venv
 ClassifierTensorFlow/src/__pycache__
+ClassifierTensorFlow/predictions.json
+ClassifierTensorFlow/.idea/*
+__pycache__
