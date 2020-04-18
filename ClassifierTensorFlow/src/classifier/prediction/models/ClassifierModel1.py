@@ -6,36 +6,39 @@ import tensorflow.keras as keras
 import tensorflow.keras.metrics as metrics
 from tensorflow_core.python.keras.callbacks import Callback, LambdaCallback
 
+from classifier.prediction.losses.weightedBinaryCrossEntropy import WeightedBinaryCrossEntropy
+from classifier.prediction.models.DatasetWrapper import DatasetWrapper
 from classifier.prediction.models.utility.ManualInterrupter import ManualInterrupter
 
 
 @dataclass
-class ClassifierModel1Creator:
+class ClassifierModel1:
 
-    article_length: int = -1
+    # Variables
+    themes_weight: List[int]
+    dataset: DatasetWrapper
+    voc_size: int
 
-    voc_size: int = -1
-    theme_count: int = -1
-    theme_weight: Dict[int,float] = None
-
-    trainData: tf.data.Dataset = None
-    train_batch_count: int = -1
-
-    validationData: tf.data.Dataset = None
-    validation_batch_count: int = -1
-
+    # Configuration
+    run_eagerly: bool = False
     must_stop = False
+    model_name = "Model1"
 
-    def is_valid(self):
-        return (self.voc_size != -1
-                and self.theme_count != -1
-                and len(self.theme_weight) != None
-                and self.trainData is not None
-                and self.train_batch_count != -1
-                and self.validationData is not None
-                and self.validation_batch_count != -1)
+    def __init__(self, themes_weight: List[int], dataset: DatasetWrapper, voc_size: int):
+        self.themes_weight = themes_weight
+        self.dataset = dataset
+        self.voc_size = voc_size
+
+    def is_valid(self) -> bool:
+        return self.themes_weight is not None \
+            and self.dataset is not None \
+            and self.voc_size is not None \
+            and self.voc_size > 0
 
     def create_model(self, embedding_output_dim, intermediate_dim, last_dim, epochs=3):
+
+        article_length = self.dataset.article_length
+        theme_count = self.dataset.theme_count
 
         model = tf.keras.Sequential(
             [
@@ -77,11 +80,12 @@ class ClassifierModel1Creator:
                 #keras.layers.Dense(self.theme_count, activation=tf.nn.sigmoid)
 
                 #6
-                keras.layers.Embedding(input_dim=self.voc_size, input_length=self.article_length, output_dim=embedding_output_dim),
-                keras.layers.Bidirectional(keras.layers.LSTM(intermediate_dim)),
-                keras.layers.Dense(last_dim, activation=tf.nn.relu),
+                keras.layers.Embedding(input_dim=self.voc_size, input_length=article_length, output_dim=embedding_output_dim, mask_zero=True),
+                keras.layers.Bidirectional(keras.layers.LSTM(intermediate_dim, recurrent_dropout=0.15, dropout=0.1)),
+                #keras.layers.Dropout(0.2),
+                #keras.layers.Dense(last_dim, activation=tf.nn.relu),
                 # keras.layers.Dense(self.theme_count, activation=tf.nn.sigmoid, use_bias=True,bias_initializer=tf.keras.initializers.Constant(-1.22818328))
-                keras.layers.Dense(self.theme_count, activation=tf.nn.sigmoid, use_bias=True)
+                keras.layers.Dense(theme_count, activation=tf.nn.sigmoid)
 
                 # 7
                 # keras.layers.Embedding(input_dim=self.voc_size, input_length=self.article_length,
@@ -93,32 +97,25 @@ class ClassifierModel1Creator:
         )
 
         model.summary()
-
-        # 1
-        # model.compile(optimizer=tf.keras.optimizers.Adam(),
-        #               loss=tf.keras.losses.binary_crossentropy,
-        #               metrics=[tf.keras.metrics.CategoricalAccuracy()])
-
-        # model.compile(optimizer=tf.keras.optimizers.Adam(),
-        #               loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
-        #               metrics=[metrics.AUC(), metrics.BinaryAccuracy()])
+        model.save(self.model_name + ".h5")
 
         model.compile(optimizer=tf.keras.optimizers.Adam(),
-                      loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
-                      metrics=[metrics.AUC(), metrics.BinaryAccuracy(), metrics.TruePositives(), metrics.TrueNegatives(), metrics.FalseNegatives() , metrics.FalsePositives(), metrics.Recall(), metrics.Precision()])
+                      loss=WeightedBinaryCrossEntropy(self.themes_weight, from_logits=True),
+                      metrics=[metrics.AUC(), metrics.BinaryAccuracy(), metrics.TruePositives(), metrics.TrueNegatives(), metrics.FalseNegatives() , metrics.FalsePositives(), metrics.Recall(), metrics.Precision()],
+                      run_eagerly=self.run_eagerly)
 
-        # model.fit(self.trainData, epochs=epochs, steps_per_epoch=self.train_batch_count,
-        #           validation_data=self.validationData, validation_steps=self.validation_batch_count,
-        #           class_weight=self.theme_weight)
+        keras.utils.plot_model(model, 'Model1.png', show_shapes=True)
 
         cb_list = [ManualInterrupter()]
 
+        model.fit(self.dataset.trainData, epochs=epochs, steps_per_epoch=self.dataset.train_batch_count,
+                  validation_data=self.dataset.validationData, validation_steps=self.dataset.validation_batch_count,
+                  callbacks=cb_list)
 
+        model.save_weights(self.model_name + "_weight.h5")
 
-        model.fit(self.trainData, epochs=epochs, steps_per_epoch=self.train_batch_count,
-                  validation_data=self.validationData, validation_steps=self.validation_batch_count,
-                  callbacks=cb_list, class_weight=self.theme_weight)
-
+        print("\nPerform evaluation---")
+        model.evaluate(self.dataset.testData, steps=self.dataset.test_batch_count)
 
         return model
 
