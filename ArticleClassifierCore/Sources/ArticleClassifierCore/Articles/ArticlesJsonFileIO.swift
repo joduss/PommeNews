@@ -48,12 +48,15 @@ public class ArticlesJsonFileIO {
     
     public func WriteToFile(articles: [TCVerifiedArticle], at fileLocation: String) throws {
         let encoder = JSONEncoder()
-        let data = try encoder.encode(articles)
+        encoder.outputFormatting = .prettyPrinted
         
+        let data = try encoder.encode(articles)
         let filemanager = FileManager.default
+        
         if filemanager.fileExists(atPath: fileLocation) {
             try data.write(to: URL(fileURLWithPath: fileLocation))
         }
+        
         filemanager.createFile(atPath: fileLocation, contents: data, attributes: nil)
     }
 }

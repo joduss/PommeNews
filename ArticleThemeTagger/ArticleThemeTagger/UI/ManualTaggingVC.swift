@@ -24,21 +24,27 @@ class ManualTaggingVC: NSViewController {
     @IBOutlet weak var statsLabel: NSTextField!
     @IBOutlet weak var goToTF: NSTextField!
     
-    private let rowCount = 16.0
-    
-    private var articleFilePath: String? = nil
-    private var articles: [TCArticle] = []
-    private let themes = ArticleTheme.allThemes
-    
-    private let jsonArticlesIO = ArticlesJsonFileIO()
-    
-    private var countArticleWithoutThemes = 0
-    
     private let DropDownOptionInOrder = "In Order"
     private let DropDownOptionRandom = "Random"
     private let DropDownOptionRandomNoTheme = "Random no theme"
+    
+    private let rowCount = 16.0
+    
+    private let allThemes = ArticleTheme.allThemes
 
-    private var currentArticle: TCArticle? {
+    private let jsonArticlesIO = ArticlesJsonFileIO()
+    private var articleFilePath: String? = nil
+
+    private var articles: [Int : TCVerifiedArticle] = [:]
+    private var articlesHashArray: [Int] = []
+    private var countArticleWithoutThemes = 0
+    
+
+    private var currentArticle: TCVerifiedArticle? {
+        willSet {
+            guard  let currentArticle = self.currentArticle else { return }
+            articles[currentArticle.hashValue] = currentArticle
+        }
         didSet {
             var summaryCleaned = currentArticle?.summary ?? ""
             summaryCleaned = summaryCleaned.replacingOccurrences(of: "\n", with: "\\n")
@@ -49,7 +55,7 @@ class ManualTaggingVC: NSViewController {
             
             \(summaryCleaned)
             """
-            goToTF.stringValue = "\(articles.firstIndex(of: currentArticle!)!)"
+            goToTF.stringValue = "\(articlesHashArray.firstIndex(of: currentArticle!.hashValue)!)"
             updateCheckboxes()
             
             updateStats()
@@ -88,7 +94,7 @@ class ManualTaggingVC: NSViewController {
     private func updateCheckboxes() {
         var currentPosition = 0.0
 
-        for theme in themes {
+        for theme in allThemes {
             var row = 0.0
             var col = 0.0
             
@@ -134,7 +140,7 @@ class ManualTaggingVC: NSViewController {
             return
         }
         
-        guard let character = event.characters?.first, let article = currentArticle else {
+        guard let character = event.characters?.first else {
             return
         }
         
@@ -191,26 +197,27 @@ class ManualTaggingVC: NSViewController {
             return
         }
         
-        var themes = article.themes
-
-        if let themeIdx = themes.firstIndex(of: theme.key) {
-            themes.remove(at: themeIdx)
+        if let themeIdx = allThemes.firstIndex(of: theme) {
+            currentArticle?.themes.remove(at: themeIdx)
         }
         else {
-            themes.append(theme.key)
+            currentArticle?.themes.append(theme.key)
         }
         
-        let mutatedArticle = TCArticle(title: article.title,
-                                       summary: article.summary,
-                                       themes: themes)
-        
-        articles[articles.firstIndex(of: article)!] = mutatedArticle
-        currentArticle = mutatedArticle
+        currentArticle?.verifiedThemes = ArticleTheme.allThemes.map({$0.key})
         
         updateCheckboxes()
     }
     
+    
+    /// Load all the articles
     @IBAction func load(_ sender: Any) {
+        
+        // Cleanup
+        
+        articles = [:]
+        articlesHashArray = []
+        
         let dialog = NSOpenPanel();
         
         dialog.title                   = "Choose a .json file";
@@ -227,8 +234,18 @@ class ManualTaggingVC: NSViewController {
                 
                 if (result != nil) {
                     let path = result!.path
-                    self.articles = try jsonArticlesIO.loadArticlesFrom(fileLocation: path)
                     self.articleFilePath = path
+
+                    let loadedArticles = try jsonArticlesIO.loadVerifiedArticlesFrom(fileLocation: path)
+                    
+                    for loadedArticle in loadedArticles {
+                        let articleHash = loadedArticle.hashValue
+                        articlesHashArray.append(articleHash)
+                        articles[articleHash] = loadedArticle
+                    }
+                    
+                    currentArticle = articles[articlesHashArray.first!]
+                    
                 }
             }
         }
@@ -244,7 +261,13 @@ class ManualTaggingVC: NSViewController {
             return
         }
         do {
-            try jsonArticlesIO.WriteToFile(articles: articles, at: path)
+            // We want to keep the same order in the json.
+            var orderedArticles = Array<TCVerifiedArticle>()
+            orderedArticles.reserveCapacity(articles.count)
+            for hash in articlesHashArray {
+                orderedArticles.append(articles[hash]!)
+            }
+            try jsonArticlesIO.WriteToFile(articles: orderedArticles, at: path)
         }
         catch {
             statsLabel.stringValue = "Saving failed. \(error.localizedDescription)"
@@ -260,16 +283,19 @@ class ManualTaggingVC: NSViewController {
         switch navigationMode {
         case .InOrder:
             if let currentArticle = self.currentArticle {
-                let currentIdx = articles.firstIndex(of: currentArticle)!
-                self.currentArticle = articles[currentIdx + 1]
+                let currentIdx = articlesHashArray.firstIndex(of: currentArticle.hashValue)!
+                
+                if (currentIdx+1 == articles.count) { return }
+                
+                self.currentArticle = articles[articlesHashArray[currentIdx + 1]]
             }
             else {
-                currentArticle = articles.first
+                currentArticle = articles[articlesHashArray.first!]
             }
         case .Random:
             self.currentArticle = articles[Int.random(in:0..<articles.count)]
         case .RandomNoTheme:
-            let articlesWithoutTheme = articles.filter({$0.themes.isEmpty})
+            let articlesWithoutTheme = articles.filter({$0.value.themes.isEmpty})
             self.currentArticle = articlesWithoutTheme[Int.random(in:0..<articlesWithoutTheme.count)]
         }
         
@@ -294,7 +320,7 @@ class ManualTaggingVC: NSViewController {
             return
         }
         
-        currentArticle = articles[idx]
+        currentArticle = articles[articlesHashArray[idx]]
     }
     
     @objc
@@ -307,17 +333,13 @@ class ManualTaggingVC: NSViewController {
         let clickedTheme = ArticleTheme.init(key: sender.title)
         
         if sender.state == .on {
-            themes.append(clickedTheme.key)
+            currentArticle?.themes.append(clickedTheme.key)
         }
         else {
-            themes.remove(at: themes.firstIndex(of: clickedTheme.key)!)
+            currentArticle?.themes.remove(at: themes.firstIndex(of: clickedTheme.key)!)
         }
         
-        let mutatedArticle = TCArticle(title: article.title,
-                                       summary: article.summary,
-                                       themes: themes)
-        articles[articles.firstIndex(of: article)!] = mutatedArticle
-        currentArticle = mutatedArticle
+        currentArticle?.verifiedThemes = ArticleTheme.allThemes.map({$0.key})
     }
     
     /// Updates stats
@@ -328,7 +350,7 @@ class ManualTaggingVC: NSViewController {
         }
         
         countArticleWithoutThemes = 0
-        for article in articles {
+        for article in articles.values {
             if article.themes.isEmpty {
                 countArticleWithoutThemes += 1
             }

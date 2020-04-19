@@ -40,6 +40,7 @@ public struct TCVerifiedArticle: Codable, Hashable {
     }
     
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(title + summary)
+        hasher.combine(title)
+        hasher.combine(summary)
     }
 }

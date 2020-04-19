@@ -16,12 +16,12 @@ class ThemeVerifierVC: NSViewController {
     @IBOutlet weak var progressLabel: NSTextField!
     @IBOutlet var textView: NSTextView!
     
-    private var articlesToVerify: [TCVerifiedArticle] = []
-    
+    private let jsonArticlesIO = ArticlesJsonFileIO()
+
     private var allArticles: [Int : TCVerifiedArticle] = [:]
     private var currentArticle: TCVerifiedArticle?
-    
-    private let jsonArticlesIO = ArticlesJsonFileIO()
+    private var articlesToVerify: [TCVerifiedArticle] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +47,7 @@ class ThemeVerifierVC: NSViewController {
         }
         
         textView.string = currentArticle.title + "\n--------------\n" + currentArticle.summary
+        textView.scrollToVisible(NSRect.zero)
     }
     
     @IBAction func loadArticles(_ sender: Any) {
@@ -140,22 +141,21 @@ class ThemeVerifierVC: NSViewController {
     
     override func keyUp(with event: NSEvent) {
         print(event.keyCode)
-        
+
         let theme = themeDropdown.titleOfSelectedItem!
-        
+
         if let specialKey = event.specialKey {
             if specialKey == NSEvent.SpecialKey.rightArrow {
                 next()
             }
-            
             return
         }
-        
+
         guard currentArticle != nil else {
             textView.string = "No article to verify"
             return
         }
-                
+
         switch event.characters {
         case "y":
             if !self.currentArticle!.verifiedThemes.contains(theme) {
@@ -166,7 +166,7 @@ class ThemeVerifierVC: NSViewController {
             }
             verifyStatusLabel.stringValue = "Approved"
 
-        case "n":
+        case "v":
             if !self.currentArticle!.verifiedThemes.contains(theme) {
                 self.currentArticle!.verifiedThemes.append(theme)
             }
