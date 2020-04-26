@@ -7,7 +7,8 @@
 
 import Foundation
 
-public struct TCVerifiedArticle: Codable, Hashable {
+
+public class TCVerifiedArticle: Codable, Hashable {
     
     public let title: String
     public let summary: String
@@ -29,18 +30,31 @@ public struct TCVerifiedArticle: Codable, Hashable {
         self.themes = themes
     }
     
-    public mutating func verify(theme: String) {
+    public func verify(theme: String) {
         guard verifiedThemes.contains(theme) == false else { return }
         
         verifiedThemes.append(theme)
     }
     
     public static func == (lhs: TCVerifiedArticle, rhs: TCVerifiedArticle) -> Bool {
-        return (lhs.title + lhs.summary).hashValue == (rhs.title + rhs.summary).hashValue
+        return lhs.title == rhs.title && lhs.summary == rhs.title
     }
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(title)
         hasher.combine(summary)
+    }
+    
+    public var hashValue: Int {
+        var hasher = Hasher()
+        hash(into: &hasher)
+        return hasher.finalize()
+    }
+    
+    public var titleSummaryHash: Int {
+        var hasher = Hasher()
+        hasher.combine(title)
+        hasher.combine(summary)
+        return hasher.finalize()
     }
 }

@@ -17,6 +17,7 @@ fileprivate enum NavigationMode {
 
 class ManualTaggingVC: NSViewController {
 
+    @IBOutlet weak var filterTextView: NSTextField!
     @IBOutlet weak var buttonsView: NSView!
     @IBOutlet var textView: NSTextView!
     @IBOutlet weak var gridview: NSGridView!
@@ -34,28 +35,35 @@ class ManualTaggingVC: NSViewController {
 
     private let jsonArticlesIO = ArticlesJsonFileIO()
     private var articleFilePath: String? = nil
+    
+    private var articleList = ArticleList()
 
-    private var articles: [Int : TCVerifiedArticle] = [:]
-    private var articlesHashArray: [Int] = []
+    private var filteredArticleList = ArticleList()
+    
     private var countArticleWithoutThemes = 0
     
+    fileprivate var editingText = false
 
+    
     private var currentArticle: TCVerifiedArticle? {
-        willSet {
-            guard  let currentArticle = self.currentArticle else { return }
-            articles[currentArticle.hashValue] = currentArticle
-        }
         didSet {
-            var summaryCleaned = currentArticle?.summary ?? ""
+            guard let currentArticle = self.currentArticle else {
+                textView.string = "No Articles"
+                updateStats()
+                updateCheckboxes()
+                return
+            }
+            
+            var summaryCleaned = currentArticle.summary
             summaryCleaned = summaryCleaned.replacingOccurrences(of: "\n", with: "\\n")
             summaryCleaned = summaryCleaned.replacingOccurrences(of: "\t", with: "")
 
             textView.string = """
-            \(currentArticle!.title)
+            \(currentArticle.title)
             
             \(summaryCleaned)
             """
-            goToTF.stringValue = "\(articlesHashArray.firstIndex(of: currentArticle!.hashValue)!)"
+            goToTF.stringValue = filteredArticleList.index(of: currentArticle).description
             updateCheckboxes()
             
             updateStats()
@@ -75,22 +83,46 @@ class ManualTaggingVC: NSViewController {
         }
     }
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        // Do any additional setup after loading the view.
-        
+                
         dropdown.removeAllItems()
         dropdown.addItem(withTitle: DropDownOptionInOrder)
         dropdown.addItem(withTitle: DropDownOptionRandom)
         dropdown.addItem(withTitle: DropDownOptionRandomNoTheme)
         dropdown.selectItem(withTag: 0)
         
+        filterTextView.delegate = self
+        
         updateCheckboxes()
         updateStats()
     }
     
+    // MARK: - Article Filtering
+    
+    private func filterArticles() {
+        
+        // Empty the dic and hash arrayt
+        var filteredThemes: [String] = []
+        
+        if filterTextView.stringValue != "" {
+            filteredThemes.append(contentsOf: filterTextView.stringValue.components(separatedBy: ", "))
+        }
+        
+        filteredArticleList = articleList.filteredByMissingThemes(filteredThemes)
+        
+        guard filteredArticleList.isEmpty else {
+            currentArticle = nil
+            return
+        }
+        
+        currentArticle = filteredArticleList.first
+    }
+    
+    // MARK: - UI Update
+    //===================================================================
+
     private func updateCheckboxes() {
         var currentPosition = 0.0
 
@@ -125,10 +157,130 @@ class ManualTaggingVC: NSViewController {
             currentPosition += 1
         }
     }
+    
+    /// Updates stats
+    private func updateStats() {
+        
+        if filteredArticleList.isEmpty {
+            statsLabel.stringValue = "there are no articles"
+        }
+        
+        countArticleWithoutThemes = 0
+        for article in filteredArticleList.articles {
+            if article.themes.isEmpty {
+                countArticleWithoutThemes += 1
+            }
+        }
+        
+        statsLabel.stringValue = "Without theme: \(countArticleWithoutThemes) / \(filteredArticleList.count)"
+    }
+
+    
+    // MARK: - Load/Save articles.
+    //===================================================================
+    
+    /// Load all the articles
+    @IBAction func load(_ sender: Any) {
+        
+        // Cleanup
+        
+        let dialog = NSOpenPanel();
+        
+        dialog.title                   = "Choose a .json file";
+        dialog.showsResizeIndicator    = true;
+        dialog.showsHiddenFiles        = false;
+        dialog.canChooseDirectories    = true;
+        dialog.canCreateDirectories    = true;
+        dialog.allowsMultipleSelection = false;
+        dialog.allowedFileTypes        = ["json"];
+        
+        do {
+            if (dialog.runModal() == NSApplication.ModalResponse.OK) {
+                let result = dialog.url // Pathname of the file
+                
+                if (result != nil) {
+                    let path = result!.path
+                    self.articleFilePath = path
+
+                    let articles = try jsonArticlesIO.loadVerifiedArticlesFrom(fileLocation: path)
+                    articleList = ArticleList(articles: articles)
+                    filterArticles()
+                }
+            }
+        }
+        catch {
+            self.showError(error)
+        }
+        
+        self.updateStats()
+    }
+    
+    @IBAction func save(_ sender: Any) {
+        guard let path = self.articleFilePath else {
+            return
+        }
+        do {
+            // We want to keep the same order in the json.
+            try jsonArticlesIO.WriteToFile(articles: articleList.orderedArticles, at: path)
+        }
+        catch {
+            statsLabel.stringValue = "Saving failed. \(error.localizedDescription)"
+        }
+    }
+    
+    // MARK: - Article navigation.
+    
+    @IBAction func next(_ sender: Any) {
+        guard filteredArticleList.isEmpty == false else {
+            textView.string = "no articles. Please load something first!"
+            return
+        }
+        
+        switch navigationMode {
+        case .InOrder:
+            guard let currentArticle = self.currentArticle else { return }
+            self.currentArticle = filteredArticleList.next(after: currentArticle)
+        case .Random:
+            self.currentArticle = filteredArticleList.randomArticle
+        case .RandomNoTheme:
+            self.currentArticle = filteredArticleList.randomArticleWithoutTheme
+        }
+        
+        updateCheckboxes()
+    }
+    
+    private func previous() {
+        
+        guard filteredArticleList.isEmpty == false else {
+            textView.string = "no articles. Please load something first!"
+            return
+        }
+        
+        guard let currentArticle = self.currentArticle else { return }
+        
+        self.currentArticle = filteredArticleList.previous(before: currentArticle)
+    }
+
+    @IBAction func GoTo(_ sender: Any) {
+        let idx = Int(goToTF.stringValue) ?? 0
+        
+        guard idx < filteredArticleList.count else {
+            textView.string = "Index out of bound!"
+            return
+        }
+        
+        currentArticle = filteredArticleList.get(at: idx)
+    }
+    
+    // MARK: - Theme selection
+    //===================================================================
 
     override func keyUp(with event: NSEvent) {
+        
+        if (editingText) { return }
+        
         print(event.keyCode)
-    
+
         if let specialKey = event.specialKey {
             if specialKey == NSEvent.SpecialKey.leftArrow {
                 previous()
@@ -136,16 +288,16 @@ class ManualTaggingVC: NSViewController {
             else if specialKey == NSEvent.SpecialKey.rightArrow {
                 next(self)
             }
-            
+
             return
         }
-        
+
         guard let character = event.characters?.first else {
             return
         }
-        
+
         var themeFromKey: ArticleTheme?
-        
+
         switch event.characters {
         case "a":
             themeFromKey = ArticleTheme.apple
@@ -187,149 +339,35 @@ class ManualTaggingVC: NSViewController {
             themeFromKey = ArticleTheme.health
         case "l":
             themeFromKey = ArticleTheme.lawsuitLegal
-        case "z":
-            themeFromKey = ArticleTheme.amazon
         default:
             break
         }
-        
+
         guard let theme = themeFromKey else {
             return
         }
-        
-        if let themeIdx = allThemes.firstIndex(of: theme) {
-            currentArticle?.themes.remove(at: themeIdx)
-        }
-        else {
-            currentArticle?.themes.append(theme.key)
-        }
-        
-        currentArticle?.verifiedThemes = ArticleTheme.allThemes.map({$0.key})
-        
-        updateCheckboxes()
-    }
-    
-    
-    /// Load all the articles
-    @IBAction func load(_ sender: Any) {
-        
-        // Cleanup
-        
-        articles = [:]
-        articlesHashArray = []
-        
-        let dialog = NSOpenPanel();
-        
-        dialog.title                   = "Choose a .json file";
-        dialog.showsResizeIndicator    = true;
-        dialog.showsHiddenFiles        = false;
-        dialog.canChooseDirectories    = true;
-        dialog.canCreateDirectories    = true;
-        dialog.allowsMultipleSelection = false;
-        dialog.allowedFileTypes        = ["json"];
-        
-        do {
-            if (dialog.runModal() == NSApplication.ModalResponse.OK) {
-                let result = dialog.url // Pathname of the file
-                
-                if (result != nil) {
-                    let path = result!.path
-                    self.articleFilePath = path
 
-                    let loadedArticles = try jsonArticlesIO.loadVerifiedArticlesFrom(fileLocation: path)
-                    
-                    for loadedArticle in loadedArticles {
-                        let articleHash = loadedArticle.hashValue
-                        articlesHashArray.append(articleHash)
-                        articles[articleHash] = loadedArticle
-                    }
-                    
-                    currentArticle = articles[articlesHashArray.first!]
-                    
-                }
-            }
-        }
-        catch {
-            self.showError(error)
-        }
-        
-        self.updateStats()
-    }
-    
-    @IBAction func save(_ sender: Any) {
-        guard let path = self.articleFilePath else {
-            return
-        }
-        do {
-            // We want to keep the same order in the json.
-            var orderedArticles = Array<TCVerifiedArticle>()
-            orderedArticles.reserveCapacity(articles.count)
-            for hash in articlesHashArray {
-                orderedArticles.append(articles[hash]!)
-            }
-            try jsonArticlesIO.WriteToFile(articles: orderedArticles, at: path)
-        }
-        catch {
-            statsLabel.stringValue = "Saving failed. \(error.localizedDescription)"
-        }
-    }
-    
-    @IBAction func next(_ sender: Any) {
-        guard articles.isEmpty == false else {
-            textView.string = "no articles. Please load something first!"
-            return
-        }
-        
-        switch navigationMode {
-        case .InOrder:
-            if let currentArticle = self.currentArticle {
-                let currentIdx = articlesHashArray.firstIndex(of: currentArticle.hashValue)!
-                
-                if (currentIdx+1 == articles.count) { return }
-                
-                self.currentArticle = articles[articlesHashArray[currentIdx + 1]]
+        if let currentArticle = self.currentArticle {
+            if let themeIdx = currentArticle.themes.firstIndex(of: theme.key) {
+                currentArticle.themes.remove(at: themeIdx)
             }
             else {
-                currentArticle = articles[articlesHashArray.first!]
+                currentArticle.themes.append(theme.key)
             }
-        case .Random:
-            self.currentArticle = articles[Int.random(in:0..<articles.count)]
-        case .RandomNoTheme:
-            let articlesWithoutTheme = articles.filter({$0.value.themes.isEmpty})
-            self.currentArticle = articlesWithoutTheme[Int.random(in:0..<articlesWithoutTheme.count)]
         }
-        
+
+        currentArticle?.verifiedThemes = ArticleTheme.allThemes.map({$0.key})
+
         updateCheckboxes()
     }
-    
-    private func previous() {
-        var idx = Int(goToTF.stringValue) ?? 0
-        idx -= 1
-        guard idx < articles.count else {
-            textView.string = "Index out of bound!"
-            return
-        }
-        
-        currentArticle = articles[idx]
-    }
 
-    @IBAction func GoTo(_ sender: Any) {
-        let idx = Int(goToTF.stringValue) ?? 0
-        guard idx < articles.count else {
-            textView.string = "Index out of bound!"
-            return
-        }
-        
-        currentArticle = articles[articlesHashArray[idx]]
-    }
-    
     @objc
     private func themeSelected(sender: NSButton) {
         guard let article = currentArticle else {
             return
         }
         
-        var themes = article.themes
+        let themes = article.themes
         let clickedTheme = ArticleTheme.init(key: sender.title)
         
         if sender.state == .on {
@@ -341,23 +379,7 @@ class ManualTaggingVC: NSViewController {
         
         currentArticle?.verifiedThemes = ArticleTheme.allThemes.map({$0.key})
     }
-    
-    /// Updates stats
-    private func updateStats() {
-        
-        if articles.isEmpty {
-            statsLabel.stringValue = "there are no articles"
-        }
-        
-        countArticleWithoutThemes = 0
-        for article in articles.values {
-            if article.themes.isEmpty {
-                countArticleWithoutThemes += 1
-            }
-        }
-        
-        statsLabel.stringValue = "Without theme: \(countArticleWithoutThemes) / \(articles.count)"
-    }
+
     
     //MARK: - Helpers
     //===================================================================
@@ -374,5 +396,17 @@ class ManualTaggingVC: NSViewController {
         }
     }
 
+}
+
+extension ManualTaggingVC: NSTextFieldDelegate {
+    
+    func controlTextDidBeginEditing(_ obj: Notification) {
+        editingText = true
+    }
+    
+    func controlTextDidEndEditing(_ obj: Notification) {
+        editingText = false
+        filterArticles()
+    }
 }
 

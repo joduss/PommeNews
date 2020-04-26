@@ -28,12 +28,6 @@ class ThemeVerifierVC: NSViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func Selected(_ sender: NSPopUpButton) {
-        currentArticle = nil
-        articlesToVerify = filterUnverifiedArticles(with: sender.titleOfSelectedItem ?? "", articles: Array(allArticles.values))
-        next()
-    }
-    
     private func filterUnverifiedArticles(with theme:String, articles: [TCVerifiedArticle]) -> [TCVerifiedArticle]{
         return articles.filter({ article in
             article.predictedThemes.contains(theme) && !article.verifiedThemes.contains(theme)
@@ -49,6 +43,55 @@ class ThemeVerifierVC: NSViewController {
         textView.string = currentArticle.title + "\n--------------\n" + currentArticle.summary
         textView.scrollToVisible(NSRect.zero)
     }
+    
+    
+    // MARK: - Theme selection
+    
+    @IBAction func Selected(_ sender: NSPopUpButton) {
+        currentArticle = nil
+        articlesToVerify = filterUnverifiedArticles(with: sender.titleOfSelectedItem ?? "", articles: Array(allArticles.values))
+        next()
+    }
+    
+    override func keyUp(with event: NSEvent) {
+        print(event.keyCode)
+
+        let theme = themeDropdown.titleOfSelectedItem!
+
+        if let specialKey = event.specialKey {
+            if specialKey == NSEvent.SpecialKey.rightArrow {
+                next()
+            }
+            return
+        }
+
+        guard currentArticle != nil else {
+            textView.string = "No article to verify"
+            return
+        }
+
+        switch event.characters {
+        case "y":
+            if !self.currentArticle!.verifiedThemes.contains(theme) {
+                self.currentArticle!.verifiedThemes.append(theme)
+            }
+            if !currentArticle!.themes.contains(theme) {
+                currentArticle!.themes.append(theme)
+            }
+            verifyStatusLabel.stringValue = "Approved"
+
+        case "v":
+            if !self.currentArticle!.verifiedThemes.contains(theme) {
+                self.currentArticle!.verifiedThemes.append(theme)
+            }
+            self.currentArticle?.themes.removeAll(where: {theme in theme == themeDropdown.titleOfSelectedItem!})
+            verifyStatusLabel.stringValue = "Disapproved"
+        default:
+            break;
+        }
+    }
+    
+    //MARK: - Article Loading / Saving
     
     @IBAction func loadArticles(_ sender: Any) {
         
@@ -137,44 +180,6 @@ class ThemeVerifierVC: NSViewController {
         progressLabel.stringValue = "\(articlesToVerify.count)"
         
         displayCurrentArticle()
-    }
-    
-    override func keyUp(with event: NSEvent) {
-        print(event.keyCode)
-
-        let theme = themeDropdown.titleOfSelectedItem!
-
-        if let specialKey = event.specialKey {
-            if specialKey == NSEvent.SpecialKey.rightArrow {
-                next()
-            }
-            return
-        }
-
-        guard currentArticle != nil else {
-            textView.string = "No article to verify"
-            return
-        }
-
-        switch event.characters {
-        case "y":
-            if !self.currentArticle!.verifiedThemes.contains(theme) {
-                self.currentArticle!.verifiedThemes.append(theme)
-            }
-            if !currentArticle!.themes.contains(theme) {
-                currentArticle!.themes.append(theme)
-            }
-            verifyStatusLabel.stringValue = "Approved"
-
-        case "v":
-            if !self.currentArticle!.verifiedThemes.contains(theme) {
-                self.currentArticle!.verifiedThemes.append(theme)
-            }
-            self.currentArticle?.themes.removeAll(where: {theme in theme == themeDropdown.titleOfSelectedItem!})
-            verifyStatusLabel.stringValue = "Disapproved"
-        default:
-            break;
-        }
     }
         
     @IBAction func saveArticles(_ sender: Any) {
