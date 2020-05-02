@@ -1,4 +1,4 @@
-from tensorflow_core.python.keras.callbacks import LambdaCallback
+from tensorflow.python.keras.callbacks import LambdaCallback
 
 
 class ManualInterrupter(LambdaCallback):

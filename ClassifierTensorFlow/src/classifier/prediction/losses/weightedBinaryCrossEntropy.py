@@ -1,9 +1,7 @@
 from typing import List
 import tensorflow as tf
 
-
-import tensorflow.keras as keras
-from tensorflow_core.python.keras.losses import BinaryCrossentropy
+from tensorflow.python.keras.losses import BinaryCrossentropy
 
 
 class WeightedBinaryCrossEntropy(BinaryCrossentropy):

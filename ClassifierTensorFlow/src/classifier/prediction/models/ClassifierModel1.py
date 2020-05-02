@@ -4,7 +4,6 @@ from typing import List, Dict
 import tensorflow as tf
 import tensorflow.keras as keras
 import tensorflow.keras.metrics as metrics
-from tensorflow_core.python.keras.callbacks import Callback, LambdaCallback
 
 from classifier.prediction.losses.weightedBinaryCrossEntropy import WeightedBinaryCrossEntropy
 from classifier.prediction.models.DatasetWrapper import DatasetWrapper

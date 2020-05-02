@@ -11,6 +11,7 @@ from ManualTestPrint import ManualTestPrint
 from classifier.evaluation.model_evaluator import ModelEvaluator
 from classifier.prediction.article_predictor import ArticlePredictor
 from classifier.prediction.models.ClassifierModel1 import ClassifierModel1
+from classifier.prediction.models.ClassifierModel2 import ClassifierModel2
 from classifier.prediction.models.DatasetWrapper import DatasetWrapper
 from classifier.preprocessing.article_preprocessor import ArticlePreprocessor
 from data_models.ThemeStat import ThemeStat
@@ -199,10 +200,11 @@ datasetWrapped = DatasetWrapper(tf_dataset=dataset,
                                 )
 
 # do_ theme_weight for each theme!
-modelCreator = ClassifierModel1(theme_weight, datasetWrapped, voc_size)
+#modelCreator = ClassifierModel1(theme_weight, datasetWrapped, voc_size)
+modelCreator = ClassifierModel2(theme_weight, datasetWrapped, voc_size)
 
-# model = modelCreator.create_model()
-model = modelCreator.create_model(196, 256, 256, epochs=60)
+model = modelCreator.create_model()
+#model = modelCreator.create_model(196, 512, 512, epochs=40)
 
 if modelCreator.is_valid() is False:
     raise Exception("The model creator is invalid.")
