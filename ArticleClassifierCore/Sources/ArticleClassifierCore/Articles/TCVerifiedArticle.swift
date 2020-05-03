@@ -6,38 +6,60 @@
 //
 
 import Foundation
+import ZaJoLibrary
 
 
-public class TCVerifiedArticle: Codable, Hashable {
+public class TCVerifiedArticle {
     
+    public let id: String
     public let title: String
     public let summary: String
     public var themes: [String]
     public var verifiedThemes: [String] = []
     public var predictedThemes: [String] = []
-    
-    private enum CodingKeys: String, CodingKey {
-        case title
-        case summary
-        case themes
-        case verifiedThemes
-        case predictedThemes
-    }
+
     
     public init(title: String?, summary: String?, themes: [String] = []) {
         self.title = title ?? ""
         self.summary = summary ?? ""
         self.themes = themes
+        self.id = TCVerifiedArticle.hashSha256(title: title ?? "", summary: summary ?? "")
+    }
+    
+    public init (dto: TCVerifiedArticleDTO) {
+        self.id = dto.id ?? TCVerifiedArticle.hashSha256(title: dto.title, summary: dto.summary)
+        self.title = dto.title
+        self.summary = dto.summary
+        self.themes = dto.themes
+        self.verifiedThemes = dto.verifiedThemes
+        self.predictedThemes = dto.predictedThemes
+    }
+    
+    public func articleWithUpdated(title newTitle: String, summary newSummary: String) -> TCVerifiedArticle {
+        let newArticle = TCVerifiedArticle(title: newTitle, summary: newSummary, themes: themes)
+        newArticle.verifiedThemes += verifiedThemes
+        newArticle.predictedThemes += predictedThemes
+        return newArticle
+    }
+    
+    public static func == (lhs: TCVerifiedArticle, rhs: TCVerifiedArticle) -> Bool {
+        return lhs.title == rhs.title && lhs.summary == rhs.title
+    }
+    
+    public func toDto() -> TCVerifiedArticleDTO {
+        return TCVerifiedArticleDTO(
+            id: id,
+            title: title,
+            summary: summary,
+            themes: themes,
+            verifiedThemes: verifiedThemes,
+            predictedThemes: predictedThemes)
     }
     
     public func verify(theme: String) {
         guard verifiedThemes.contains(theme) == false else { return }
         
         verifiedThemes.append(theme)
-    }
-    
-    public static func == (lhs: TCVerifiedArticle, rhs: TCVerifiedArticle) -> Bool {
-        return lhs.title == rhs.title && lhs.summary == rhs.title
     }
     
     public func hash(into hasher: inout Hasher) {
@@ -55,6 +77,13 @@ public class TCVerifiedArticle: Codable, Hashable {
         var hasher = Hasher()
         hasher.combine(title)
         hasher.combine(summary)
+        return hasher.finalize()
+    }
+    
+    private static func hashSha256(title: String, summary: String) -> String {
+        var hasher = SHA256Hasher()
+        hasher.append(title)
+        hasher.append(summary)
         return hasher.finalize()
     }
 }

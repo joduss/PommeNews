@@ -78,7 +78,7 @@ class ViewController: NSViewController {
                     let path = result!.path
                     self.articles = try jsonArticlesIO.loadVerifiedArticlesFrom(fileLocation: path)
                     
-                    let jsonString = converter.convertToJson(articles: self.articles)
+                    let jsonString = String(data: ArticleJsonConverter.convertToJson(articles: self.articles), encoding: .utf8)
                     self.textView.string = jsonString ?? "error"
                     
                 }
@@ -98,7 +98,7 @@ class ViewController: NSViewController {
         articlesFetcher.fetchArticles(of: feeds, onProgress: {
             self.textView.string = "Fetching (\($0))"}, completion: { newArticles in
                 self.articles = self.mergeArticles(mergeInto: self.articles, from: newArticles)
-                let json = self.converter.convertToJson(articles: self.articles)
+                let json = String(data: ArticleJsonConverter.convertToJson(articles: self.articles), encoding: .utf8)
                 self.textView.string = json ?? "Nothing"
                 self.articlesCountTF.stringValue = "\(self.articles.count)"
         })

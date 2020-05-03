@@ -23,14 +23,24 @@ public class ArticleJsonConverter {
         return nil
     }
 
-    public func convertToJson(articles: [TCVerifiedArticle]) -> String? {
+//    public func convertToJson(articles: [TCVerifiedArticle]) -> String? {
+//        do {
+//            let json = ArticleJsonConverter.convertToJson(articles: articles)
+//            return String(data: json, encoding: String.Encoding.utf8)
+//        }
+//    }
+    
+    public static func convertToJson(articles: [TCVerifiedArticle]) -> Data {
         let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
 
-        do {
-            let json = try encoder.encode(articles)
-            return String(data: json, encoding: String.Encoding.utf8)
-        }
-        catch {}
-        return nil
+        return try! encoder.encode(articles.map({$0.toDto()}))
+    }
+    
+    public static func verifiedArticleFromJson(jsonData: Data) -> [TCVerifiedArticle] {
+        let decoder = JSONDecoder()
+        
+        return (try! decoder.decode([TCVerifiedArticleDTO].self, from: jsonData))
+            .map({TCVerifiedArticle(dto: $0)})
     }
 }

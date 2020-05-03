@@ -38,19 +38,15 @@ public class ArticlesJsonFileIO {
     public func loadVerifiedArticlesFrom(fileLocation: String) throws -> [TCVerifiedArticle] {
         let fileManager = FileManager.default
         if let jsonData = fileManager.contents(atPath: fileLocation) {
-            let decoder = JSONDecoder()
-            return try decoder.decode([TCVerifiedArticle].self, from: jsonData)
+            return ArticleJsonConverter.verifiedArticleFromJson(jsonData: jsonData)
         }
         else {
             throw NAError.error(message: "Error while getting the data at \(fileLocation)")
         }
     }
     
-    public func WriteToFile(articles: [TCVerifiedArticle], at fileLocation: String) throws {
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        
-        let data = try encoder.encode(articles)
+    public func WriteToFile(articles: [TCVerifiedArticle], at fileLocation: String) throws {        
+        let data: Data = ArticleJsonConverter.convertToJson(articles: articles)
         let filemanager = FileManager.default
         
         if filemanager.fileExists(atPath: fileLocation) {
