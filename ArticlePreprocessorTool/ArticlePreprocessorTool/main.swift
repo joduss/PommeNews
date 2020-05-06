@@ -57,7 +57,9 @@ for i in 0..<articlesToProcess.endIndex {
         let article = articlesToProcess[i]
         processedArticle[i] = processArticle(article)
         if (queue.progress.completedUnitCount % 10 == 0) {
-            print("Finished processing article \(queue.progress.completedUnitCount)/\(queue.progress.totalUnitCount) (\(queue.progress.fractionCompleted * 100))")
+            let message = "Finished processing article \(queue.progress.completedUnitCount)/\(queue.progress.totalUnitCount) (\(queue.progress.fractionCompleted * 100))"
+            print(message)
+            setbuf(stdout, nil);
         }
         group.leave()
     }
@@ -69,4 +71,4 @@ group.wait()
 
 try ArticlesJsonFileIO().WriteToFile(articles: processedArticle, at: parameterOutputFile)
 
-fputs(String(data: ArticleJsonConverter.convertToJson(articles: processedArticle), encoding: .utf8), stdout)
+//fputs(String(data: ArticleJsonConverter.convertToJson(articles: processedArticle), encoding: .utf8), stdout)
