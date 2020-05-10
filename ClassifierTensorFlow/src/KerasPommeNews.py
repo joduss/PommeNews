@@ -2,10 +2,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 from typing import List
 
-import numpy as np
 import tensorflow as tf
-import tensorflow.keras as keras
-from tensorflow.python.keras.preprocessing.text import Tokenizer
 
 from ManualTestPrint import ManualTestPrint
 from classifier.evaluation.model_evaluator import ModelEvaluator
@@ -13,9 +10,12 @@ from classifier.prediction.article_predictor import ArticlePredictor
 from classifier.prediction.models.ClassifierModel1 import ClassifierModel1
 from classifier.prediction.models.ClassifierModel2 import ClassifierModel2
 from classifier.prediction.models.DatasetWrapper import DatasetWrapper
-from classifier.preprocessing.article_preprocessor import ArticlePreprocessor
+from classifier.preprocessing.article_preprocessor_swift import ArticlePreprocessorSwift
+from classifier.preprocessing.article_text_tokenizer import ArticleTextTokenizer
+from classifier.preprocessing.article_theme_tokenizer import ArticleThemeTokenizer
 from data_models.ThemeStat import ThemeStat
 from data_models.articles import Articles
+from data_models.weights.theme_weights import ThemeWeights
 
 print("\n\n\n####################################\n####################################")
 
@@ -23,21 +23,12 @@ print("\n\n\n####################################\n#############################
 # Configuration
 ############################################
 
-DO_COMPARISONS = False
-POST_ALL_CLASSIFY = False
-
-DATASET_BATCH_SIZE = 100
-ARTICLE_MAX_WORD_COUNT = 100
-TRAIN_RATIO = 0.65
-VALIDATION_RATIO = 0.17  # TEST if 1 - TRAIN_RATIO - VALIDATION_RATIO
-VOCABULARY_MAX_SIZE = 50000  # not used for now!
+# DATA CONFIGURATION
+# ------------------
 
 ARTICLE_JSON_FILE = "articles_{}.json"
 LANG = "fr"
 LANG_FULL = "french"
-
-LIMIT_ARTICLES_TRAINING = False  # True or False
-LIMIT_ARTICLES_PREDICTION = None  # None or a number
 
 # supportedThemes: List[str] = ["google", "apple", "microsoft", "samsung", "amazon", "facebook", "netflix", "spotify", "android", "ios", "iphone", "smartphone", "tablet", "ipad", "tablet", "appleWatch", "watch", "economyPolitic", "videoService", "audioService", "cloudService", "surface", "crypto", "health", "keynote", "rumor", "cloudComputing", "patent", "lawsuitLegal", "study", "future", "test", "appleMusic", "appleTVPlus", "security", "apps", "windows", "macos"]
 # supportedThemes: List[str] = ["android", "ios", "windows", "macos", "otherOS"]
@@ -46,14 +37,27 @@ LIMIT_ARTICLES_PREDICTION = None  # None or a number
 SUPPORTED_THEMES: List[str] = ["tablet", "smartphone", "watch", "computer"]
 # SUPPORTED_THEMES: List[str] = ["computer", "smartphone"]
 
-# Printing config
-# ============================
+# MACHINE LEARNING CONFIGURATION
+# ------------------------------
 
-print("TensorFlow version: ", tf.version.VERSION)
-print("Keras version: ", tf.keras.__version__)
+# preprocessor: ArticlePreprocessor = ArticlePreprocessor(LANG_FULL)
+PREPROCESSOR = ArticlePreprocessorSwift()
+DATASET_BATCH_SIZE = 100
+ARTICLE_MAX_WORD_COUNT = 100
+TRAIN_RATIO = 0.65
+VALIDATION_RATIO = 0.17  # TEST if 1 - TRAIN_RATIO - VALIDATION_RATIO
+VOCABULARY_MAX_SIZE = 50000  # not used for now!
+
+# BEHAVIOUR CONFIGURATION
+LIMIT_ARTICLES_TRAINING = False  # True or False
+LIMIT_ARTICLES_PREDICTION = None  # None or a number
+
+DO_COMPARISONS = False
+POST_ALL_CLASSIFY = False
+
 
 ############################################
-# Configuration of model
+# Data loading
 ############################################
 
 
@@ -71,15 +75,8 @@ all_articles.shuffle()
 
 articles: Articles = all_articles.articles_with_all_verified_themes(SUPPORTED_THEMES)
 
-# Preprocessing of data
+# Data filtering and preprocessing
 # ============================
-
-# Lowercasing
-# -----------
-
-for article in articles.items:
-    article.title = article.title.lower()
-    article.summary = article.summary.lower()
 
 # Removal of all unsupported themes and keep only data_models who have at least one supported theme.
 # -----------
@@ -96,33 +93,19 @@ articles_count = articles.count()
 print("Removed {} data_models over {} without any supported themes. Left {}".format(all_articles_count - articles_count,
                                                                                     all_articles_count, articles_count))
 
-# Removal of stopwords and lemmatization
+# Removal of stopwords and lemmatization, lower-casing, etc
 # -----------
 
-preprocessor: ArticlePreprocessor = ArticlePreprocessor(LANG_FULL)
-articles.items = preprocessor.process_articles(articles.items)
+articles = PREPROCESSOR.process_articles(articles=articles)
 
 # Creation of tokenizer and apply them.
 # ===================================
 
-tokenizer: Tokenizer = Tokenizer()
-tokenizer.fit_on_texts(articles.title_and_summary())
+tokenizer: ArticleTextTokenizer = ArticleTextTokenizer(articles, ARTICLE_MAX_WORD_COUNT)
+theme_tokenizer: ArticleThemeTokenizer = ArticleThemeTokenizer(articles)
 
-X = tokenizer.texts_to_sequences(articles.title_and_summary())
-
-themeTokenizer: Tokenizer = Tokenizer()
-themeTokenizer.fit_on_texts(articles.themes())
-
-Y = themeTokenizer.texts_to_matrix(articles.themes())
-
-# Remove the first column, whose first col contains only 0s.
-Y = np.delete(arr=Y, obj=0, axis=1)
-
-# Create ordered list of theme as in tokenizer
-orderedThemes = []
-
-for i in range(1, len(themeTokenizer.word_index) + 1):  # word_index start at 1, 0 is reserved.
-    orderedThemes.append(themeTokenizer.index_word[i])
+X = tokenizer.sequences
+Y = theme_tokenizer.one_hot_matrix
 
 ################################################################################################
 # Data Analysis Section
@@ -142,6 +125,7 @@ for theme in SUPPORTED_THEMES:
     theme_stats.append(stat)
     print("'{}' {} / {}".format(theme, stat.article_count, stat.total_article_count))
 
+
 ################################################################################################
 # Machine Learning Section
 ################################################################################################
@@ -152,8 +136,8 @@ print("-------------------------")
 # Important Variables to be used later on.
 # ===================================
 
-voc_size = len(tokenizer.word_index) + 1  # +1 because we pad with 0.
-theme_count = len(themeTokenizer.word_index)  # + 1
+voc_size = tokenizer.voc_size  # +1 because we pad with 0.
+theme_count = theme_tokenizer.themes_count  # + 1
 
 print("Data input:")
 print("* Number of data_models: ", tokenizer.document_count)
@@ -161,26 +145,10 @@ print("* Size of vocabulary: ", voc_size)
 print("* Number of themes: ", theme_count)
 print("\n")
 
-theme_weight: List[int] = list([])
-for theme in orderedThemes:
-    stat = [stat for stat in theme_stats if stat.theme == theme][0]
-    theme_weight.append(1 / stat.weight())
-
-# Padding of data
-# ============================
-
-# Padding to make all feature vector the same length.
-X = keras.preprocessing.sequence.pad_sequences(X,
-                                               value=0,
-                                               padding='post',
-                                               maxlen=ARTICLE_MAX_WORD_COUNT)
-
-# print("Padded X: ", X)
-# print("Padded Y: ", Y)
+theme_weight = ThemeWeights(theme_stats, theme_tokenizer).to_weights()
 
 # Creation of dataset
 # ============================
-
 
 dataset: tf.data.Dataset = tf.data.Dataset.from_tensor_slices((X, Y))
 
@@ -200,11 +168,11 @@ datasetWrapped = DatasetWrapper(tf_dataset=dataset,
                                 )
 
 # do_ theme_weight for each theme!
-#modelCreator = ClassifierModel1(theme_weight, datasetWrapped, voc_size)
-modelCreator = ClassifierModel2(theme_weight, datasetWrapped, voc_size)
+modelCreator = ClassifierModel1(theme_weight, datasetWrapped, voc_size)
+# modelCreator = ClassifierModel2(theme_weight, datasetWrapped, voc_size)
 
-model = modelCreator.create_model()
-#model = modelCreator.create_model(196, 512, 512, epochs=40)
+# model = modelCreator.create_model()
+model = modelCreator.create_model(196, 512, 512, epochs=40)
 
 if modelCreator.is_valid() is False:
     raise Exception("The model creator is invalid.")
@@ -214,25 +182,25 @@ if modelCreator.is_valid() is False:
 ################################################################################################
 
 if POST_ALL_CLASSIFY:
-    testPrint = ManualTestPrint(articles.title_and_summary(), articles.themes(), ARTICLE_MAX_WORD_COUNT, model,
-                                themeTokenizer)
+    testPrint = ManualTestPrint(articles.title_and_summary(),
+                                articles.themes(),
+                                ARTICLE_MAX_WORD_COUNT,
+                                model,
+                                theme_tokenizer
+                                )
     testPrint.print()
 
-print("\nThemes idx:", themeTokenizer.word_index)
+print("\nThemes idx:", theme_tokenizer.tokenizer.word_index)
 
 ################################################################################################
 # Classify unclassified data_models
 ################################################################################################
 
-# Helper
-
-
 predictor = ArticlePredictor(model,
                              SUPPORTED_THEMES,
-                             preprocessor,
-                             ARTICLE_MAX_WORD_COUNT,
+                             PREPROCESSOR,
                              tokenizer,
-                             themeTokenizer)
+                             theme_tokenizer)
 
 predictor.limit_predictions = LIMIT_ARTICLES_PREDICTION
 

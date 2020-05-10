@@ -6,7 +6,7 @@ from tensorflow.python.keras.losses import BinaryCrossentropy
 
 class WeightedBinaryCrossEntropy(BinaryCrossentropy):
 
-    def __init__(self, weights: List[int], from_logits: bool):
+    def __init__(self, weights: List[float], from_logits: bool):
         super().__init__(from_logits=from_logits)
         self.weights = weights
 

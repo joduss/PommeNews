@@ -14,7 +14,7 @@ from classifier.prediction.models.utility.ManualInterrupter import ManualInterru
 class ClassifierModel1:
 
     # Variables
-    themes_weight: List[int]
+    themes_weight: List[float]
     dataset: DatasetWrapper
     voc_size: int
 
@@ -23,7 +23,7 @@ class ClassifierModel1:
     must_stop = False
     model_name = "Model1"
 
-    def __init__(self, themes_weight: List[int], dataset: DatasetWrapper, voc_size: int):
+    def __init__(self, themes_weight: List[float], dataset: DatasetWrapper, voc_size: int):
         self.themes_weight = themes_weight
         self.dataset = dataset
         self.voc_size = voc_size

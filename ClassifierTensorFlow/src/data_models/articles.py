@@ -15,11 +15,18 @@ class Articles:
     jsonObject: Dict
     items: List[Article]
 
-    def __init__(self, articles: List[Article]):
-        self.items = articles
+    def __init__(self, articles: List[Article] = None, article: Article = None):
+        if articles is not None and isinstance(articles, list):
+            self.items = articles
+        elif article is not None and isinstance(article, Article):
+            self.items = [article]
+        else:
+            raise Exception("article or articles must be provided. NOT BOTH either!")
 
     def __iter__(self):
         return self.items.__iter__()
+
+
 
     @staticmethod
     def from_file(path: str, limit: int = None) -> Articles:
@@ -44,6 +51,10 @@ class Articles:
             articles.append(ArticleTransformer.transformToArticle(jsonArticle))
 
         return Articles(articles)
+
+    def save(self, filepath: str):
+        with open(filepath, 'w', encoding="utf-8") as outfile:
+            jsonModule.dump([ArticleTransformer.transformToJson(article) for article in self.items], outfile, indent=4)
 
 
     def articles_with_theme(self, theme: str) -> Articles:

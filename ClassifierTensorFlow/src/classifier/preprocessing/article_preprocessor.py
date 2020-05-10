@@ -3,7 +3,9 @@ from typing import List
 import spacy
 from pathos.multiprocessing import ProcessingPool as Pool
 
+from classifier.preprocessing.interface_article_preprocessor import IArticlePreprocessor
 from data_models.article import Article
+from data_models.articles import Articles
 
 spacier = spacy.load("fr_core_news_sm")
 
@@ -14,7 +16,7 @@ nltk.download('stopwords')
 nltk.download('punkt')
 
 
-class ArticlePreprocessor:
+class ArticlePreprocessor(IArticlePreprocessor):
     """
     Preprocessor cleaning the article / data_models
     """
@@ -25,33 +27,31 @@ class ArticlePreprocessor:
         self.language = language
         self.stop_words = set(stopwords.words(self.language))
 
-    def process_articles(self, articles: List[Article]) -> List[Article]:
+    def process_articles(self, articles: Articles) -> Articles:
         """
         Remove stopwords and do lemmatization on each article, for the specified language.
         :param articles: data_models to process
         :param LANG: language of the data_models
         :return: processed data_models
         """
-
         p = Pool(8)
-
-        return p.map(self.process_article, articles)
+        return Articles(p.map(self.process_article, articles.items))
 
 
     def process_article(self, article: Article) -> Article:
         """
-        Remove stopwords and do lemmatization on an article, for the specified language.
-        :param article:
+        Remove stopwords and do lemmatization on one single article, for the specified language.
+        :param article: article to process
+        :return: processed article
         """
-
         article_copy = article.copy()
 
-        article_copy.title = self.process_text(article.title)
-        article_copy.summary = self.process_text(article.summary)
+        article_copy.title = self.__process_text(article.title).lower()
+        article_copy.summary = self.__process_text(article.summary).lower()
 
         return article_copy
 
-    def process_text(self, text: str) -> str:
+    def __process_text(self, text: str) -> str:
         """
         Remove stopwords and do lemmatization on a text, for the specified language
         :param text: article to process

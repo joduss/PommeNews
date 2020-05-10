@@ -1,20 +1,21 @@
-from __future__ import absolute_import, division, print_function, unicode_literals
-from tensorflow.python.keras.preprocessing.text import Tokenizer
-from tensorflow.python.keras .layers import *
+import subprocess
+import tempfile
+from shlex import shlex
+from subprocess import call
+import os
 
-import tensorflow as tf
-import numpy as np
-import tensorflow.keras as keras
-import math
-import json
+# print(subprocess.check_output(['/Users/jonathanduss/Desktop/ArticlePreprocessorTool']), os.getcwd())
 
-texts = ["I am groot", "I am him"]
+(file, path) = tempfile.mkstemp()
+print(file)
+print(path)
 
-tokenizer = Tokenizer()
+process = subprocess.Popen(["./ArticlePreprocessorTool", '/Users/jonathanduss/Desktop/untitled folder/articles_fr_28.json', '/Users/jonathanduss/Desktop/untitled folder/articles_fr_28_out.json'], stdout=subprocess.PIPE)
+while True:
+    p = process.poll()
+    output = process.stdout.readline()
+    if process.poll() is not None:
+        break
+    if output:
+        print(output.strip())
 
-tokenizer.fit_on_texts(texts=texts)
-
-sequences = tokenizer.texts_to_sequences(texts)
-
-for index, text in enumerate(texts):
-    print(text, " => ", sequences[index])
