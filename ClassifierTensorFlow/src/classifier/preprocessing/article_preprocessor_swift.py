@@ -1,21 +1,9 @@
 import subprocess
 import tempfile
-from typing import List
-
-import spacy
-from pathos.multiprocessing import ProcessingPool as Pool
 
 from classifier.preprocessing.interface_article_preprocessor import IArticlePreprocessor
 from data_models.article import Article
 from data_models.articles import Articles
-
-spacier = spacy.load("fr_core_news_sm")
-
-import nltk
-from nltk.corpus import stopwords
-
-nltk.download('stopwords')
-nltk.download('punkt')
 
 
 class ArticlePreprocessorSwift(IArticlePreprocessor):
@@ -56,6 +44,6 @@ class ArticlePreprocessorSwift(IArticlePreprocessor):
                 break
             if output:
                 print(output.strip())
-        rc = process.poll()
+        #rc = process.poll()
 
         return Articles.from_file(output_path)
