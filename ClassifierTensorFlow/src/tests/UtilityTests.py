@@ -2,7 +2,7 @@ import unittest
 from utilities import utility
 
 
-class MyTestCase(unittest.TestCase):
+class UtilityTests(unittest.TestCase):
     def test_something(self):
         themes = [["asd", "asdf"], [], ["sdf"]]
 

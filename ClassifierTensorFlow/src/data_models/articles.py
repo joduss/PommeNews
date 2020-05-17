@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import random
-from typing import Dict, List, TextIO
+from typing import Callable, Dict, List, TextIO
 
 import json as jsonModule
 
@@ -10,7 +10,14 @@ from data_models.transformation.article_transformer import ArticleTransformer
 from utilities.utility import intersection
 
 
-class Articles:
+class MetaArticles(type):
+
+    @property
+    def items(cls) -> List[Article]:
+        return cls.items
+
+
+class Articles(object, metaclass=MetaArticles):
 
     jsonObject: Dict
     items: List[Article]
@@ -25,8 +32,6 @@ class Articles:
 
     def __iter__(self):
         return self.items.__iter__()
-
-
 
     @staticmethod
     def from_file(path: str, limit: int = None) -> Articles:
@@ -48,18 +53,50 @@ class Articles:
         articles: List[Article] = []
 
         for jsonArticle in json:
-            articles.append(ArticleTransformer.transformToArticle(jsonArticle))
+            articles.append(ArticleTransformer.transform_to_article(jsonArticle))
 
         return Articles(articles)
 
+
     def save(self, filepath: str):
         with open(filepath, 'w', encoding="utf-8") as outfile:
-            jsonModule.dump([ArticleTransformer.transformToJson(article) for article in self.items], outfile, indent=4)
+            jsonModule.dump([ArticleTransformer.transform_to_json(article) for article in self.items], outfile, indent=4)
+
+    # def inherit_predictions(self, articles: Articles):
+    #     original_dic = { i.id : i for i in self.items }
+    #
+    #     for predicted_article in articles:
+    #         original_article: Article = original_dic[predicted_article.id]
+    #         original_article.predicted_themes = predicted_article.predicted_themes
+    #
+    #     print("done")
+
+    def subset(self, size: int) -> Articles:
+        return Articles(self.items[0:size])
 
 
     def articles_with_theme(self, theme: str) -> Articles:
-        return Articles(list(filter(lambda article: theme in article.themes, self.copyEachArticle())))
+        """
+        Returns articles which have the given theme in the list of themes (property 'themes')
+        :param theme: theme that must be present
+        :return: articles having the given theme.
+        """
+        return Articles(
+            list(
+                filter(lambda article: theme in article.themes, self.items)
+            )
+        )
 
+
+    def filter(self, filter_function: Callable[[Article], bool]) -> Articles:
+        return Articles(
+                list(
+                    filter(
+                        lambda article: filter_function(article),
+                        self.items,
+                    )
+                )
+            )
 
     def articles_with_all_verified_themes(self, themes: List[str]) -> Articles:
         """
@@ -71,13 +108,16 @@ class Articles:
             list(
                 filter(
                     lambda article: (len(intersection(themes, article.verified_themes)) == len(themes)),
-                    self.copyEachArticle()
+                    self.items
                 )
             )
         )
 
 
     def themes(self) -> List[str]:
+        """
+        Returns the list of themes for each articles according to the order of articles.
+        """
         return list(
             map(lambda article: article.themes, self.items)
         )
@@ -97,6 +137,10 @@ class Articles:
         return list(
             map(lambda article: article.copy(), self.items)
         )
+
+
+    def deep_copy(self) -> Articles:
+        return Articles(self.copyEachArticle())
 
 
     def shuffle(self):
