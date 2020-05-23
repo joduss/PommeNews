@@ -20,10 +20,10 @@ public class TCVerifiedArticle {
 
     
     public init(title: String?, summary: String?, themes: [String] = []) {
+        self.id = TCVerifiedArticle.hashSha256(title: title ?? "", summary: summary ?? "")
         self.title = title ?? ""
         self.summary = summary ?? ""
         self.themes = themes
-        self.id = TCVerifiedArticle.hashSha256(title: title ?? "", summary: summary ?? "")
     }
     
     public init (dto: TCVerifiedArticleDTO) {
@@ -35,8 +35,15 @@ public class TCVerifiedArticle {
         self.predictedThemes = dto.predictedThemes
     }
     
+    private init(id: String, title: String?, summary: String?, themes: [String] = []) {
+        self.id = id
+        self.title = title ?? ""
+        self.summary = summary ?? ""
+        self.themes = themes
+    }
+    
     public func articleWithUpdated(title newTitle: String, summary newSummary: String) -> TCVerifiedArticle {
-        let newArticle = TCVerifiedArticle(title: newTitle, summary: newSummary, themes: themes)
+        let newArticle = TCVerifiedArticle(id: id, title: newTitle, summary: newSummary, themes: themes)
         newArticle.verifiedThemes += verifiedThemes
         newArticle.predictedThemes += predictedThemes
         return newArticle

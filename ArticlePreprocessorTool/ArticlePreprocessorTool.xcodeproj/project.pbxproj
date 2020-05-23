@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B619AF624794F170003DD9B /* ArticlePreprocessorTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B619AF524794F170003DD9B /* ArticlePreprocessorTool.swift */; };
+		6B619B25247956180003DD9B /* ArticlePreprocessorToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B619B24247956180003DD9B /* ArticlePreprocessorToolTests.swift */; };
+		6B619B31247956E50003DD9B /* ArticleClassifierCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6B619B30247956E50003DD9B /* ArticleClassifierCore */; };
+		6B619B33247956E50003DD9B /* ZaJoLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 6B619B32247956E50003DD9B /* ZaJoLibrary */; };
+		6B619B35247957900003DD9B /* ArticlePreprocessorTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B619AF524794F170003DD9B /* ArticlePreprocessorTool.swift */; };
 		6BFED5E4245DD7B100B83388 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFED5E3245DD7B100B83388 /* main.swift */; };
 		6BFED5EE245F000000B83388 /* ArticleClassifierCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6BFED5ED245F000000B83388 /* ArticleClassifierCore */; };
 		6BFED5F0245F000000B83388 /* ZaJoLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 6BFED5EF245F000000B83388 /* ZaJoLibrary */; };
@@ -25,6 +30,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B619AF524794F170003DD9B /* ArticlePreprocessorTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePreprocessorTool.swift; sourceTree = "<group>"; };
+		6B619B22247956180003DD9B /* ArticlePreprocessorToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArticlePreprocessorToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B619B24247956180003DD9B /* ArticlePreprocessorToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePreprocessorToolTests.swift; sourceTree = "<group>"; };
+		6B619B26247956180003DD9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BFED5E0245DD7B100B83388 /* ArticlePreprocessorTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ArticlePreprocessorTool; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BFED5E3245DD7B100B83388 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		6BFED5EA245DD84A00B83388 /* ZaJoLibrary */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZaJoLibrary; path = ../ZaJoLibrary; sourceTree = "<group>"; };
@@ -32,6 +41,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6B619B1F247956180003DD9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B619B33247956E50003DD9B /* ZaJoLibrary in Frameworks */,
+				6B619B31247956E50003DD9B /* ArticleClassifierCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BFED5DD245DD7B100B83388 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -44,12 +62,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B619B23247956180003DD9B /* ArticlePreprocessorToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				6B619B24247956180003DD9B /* ArticlePreprocessorToolTests.swift */,
+				6B619B26247956180003DD9B /* Info.plist */,
+			);
+			path = ArticlePreprocessorToolTests;
+			sourceTree = "<group>";
+		};
 		6BFED5D7245DD7B100B83388 = {
 			isa = PBXGroup;
 			children = (
 				6BFED5EB245DD85300B83388 /* ArticleClassifierCore */,
 				6BFED5EA245DD84A00B83388 /* ZaJoLibrary */,
 				6BFED5E2245DD7B100B83388 /* ArticlePreprocessorTool */,
+				6B619B23247956180003DD9B /* ArticlePreprocessorToolTests */,
 				6BFED5E1245DD7B100B83388 /* Products */,
 				6BFED5EC245F000000B83388 /* Frameworks */,
 			);
@@ -59,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				6BFED5E0245DD7B100B83388 /* ArticlePreprocessorTool */,
+				6B619B22247956180003DD9B /* ArticlePreprocessorToolTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				6BFED5E3245DD7B100B83388 /* main.swift */,
+				6B619AF524794F170003DD9B /* ArticlePreprocessorTool.swift */,
 			);
 			path = ArticlePreprocessorTool;
 			sourceTree = "<group>";
@@ -81,6 +111,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6B619B21247956180003DD9B /* ArticlePreprocessorToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B619B29247956180003DD9B /* Build configuration list for PBXNativeTarget "ArticlePreprocessorToolTests" */;
+			buildPhases = (
+				6B619B1E247956180003DD9B /* Sources */,
+				6B619B1F247956180003DD9B /* Frameworks */,
+				6B619B20247956180003DD9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArticlePreprocessorToolTests;
+			packageProductDependencies = (
+				6B619B30247956E50003DD9B /* ArticleClassifierCore */,
+				6B619B32247956E50003DD9B /* ZaJoLibrary */,
+			);
+			productName = ArticlePreprocessorToolTests2;
+			productReference = 6B619B22247956180003DD9B /* ArticlePreprocessorToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6BFED5DF245DD7B100B83388 /* ArticlePreprocessorTool */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BFED5E7245DD7B100B83388 /* Build configuration list for PBXNativeTarget "ArticlePreprocessorTool" */;
@@ -112,6 +163,9 @@
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = ZaJo;
 				TargetAttributes = {
+					6B619B21247956180003DD9B = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
 					6BFED5DF245DD7B100B83388 = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
@@ -131,22 +185,79 @@
 			projectRoot = "";
 			targets = (
 				6BFED5DF245DD7B100B83388 /* ArticlePreprocessorTool */,
+				6B619B21247956180003DD9B /* ArticlePreprocessorToolTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		6B619B20247956180003DD9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		6B619B1E247956180003DD9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B619B25247956180003DD9B /* ArticlePreprocessorToolTests.swift in Sources */,
+				6B619B35247957900003DD9B /* ArticlePreprocessorTool.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BFED5DC245DD7B100B83388 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6BFED5E4245DD7B100B83388 /* main.swift in Sources */,
+				6B619AF624794F170003DD9B /* ArticlePreprocessorTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		6B619B2A247956180003DD9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = SB56D8K42E;
+				INFOPLIST_FILE = ArticlePreprocessorToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticlePreprocessorToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6B619B2B247956180003DD9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = SB56D8K42E;
+				INFOPLIST_FILE = ArticlePreprocessorToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.zajo.ArticlePreprocessorToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		6BFED5E5245DD7B100B83388 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -287,6 +398,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6B619B29247956180003DD9B /* Build configuration list for PBXNativeTarget "ArticlePreprocessorToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B619B2A247956180003DD9B /* Debug */,
+				6B619B2B247956180003DD9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6BFED5DB245DD7B100B83388 /* Build configuration list for PBXProject "ArticlePreprocessorTool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -308,6 +428,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6B619B30247956E50003DD9B /* ArticleClassifierCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ArticleClassifierCore;
+		};
+		6B619B32247956E50003DD9B /* ZaJoLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ZaJoLibrary;
+		};
 		6BFED5ED245F000000B83388 /* ArticleClassifierCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ArticleClassifierCore;
