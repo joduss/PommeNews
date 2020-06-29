@@ -1,5 +1,11 @@
+import os
 import subprocess
+import sys
 import tempfile
+from logging import getLogger
+import tracemalloc
+
+tracemalloc.start()
 
 from classifier.preprocessing.interface_article_preprocessor import IArticlePreprocessor
 from data_models.article import Article
@@ -34,16 +40,25 @@ class ArticlePreprocessorSwift(IArticlePreprocessor):
         (input_file, input_path) = tempfile.mkstemp()
         (output_file, output_path) = tempfile.mkstemp()
 
+        os.close(input_file)
+        os.close(output_file)
+
         articles.save(input_path)
 
-        process = subprocess.Popen(
-            ["./ArticlePreprocessorTool", input_path, output_path], stdout=subprocess.PIPE)
-        while True:
-            output = process.stdout.readline()
-            if process.poll() is not None:
-                break
-            if output:
-                print(output.strip())
-        #rc = process.poll()
+        command_directory = os.path.dirname(os.path.abspath(__file__))
+        command_path = f"{command_directory}/ArticlePreprocessorTool"
+
+        with subprocess.Popen([command_path, input_path, output_path], stdout=subprocess.PIPE) as process:
+            while True:
+                output = process.stdout.readline()
+                if process.poll() is not None:
+                    break
+                if output:
+                    print(output.strip(), end="\r")
+            #rc = process.poll()
+
+        print("", end="\r")
+        getLogger().info("Finished processing %d articles.", articles.count())
+
 
         return Articles.from_file(output_path)
