@@ -17,6 +17,8 @@ class ThemeWeights:
     def to_weights(self) -> List[float]:
         theme_weight: List[float] = list([])
 
+        raise Exception("To review")
+
         for theme in self.theme_tokenizer.orderedThemes:
             stat = [stat for stat in self.theme_stats if stat.theme == theme][0]
             theme_weight.append(1 / stat.weight())
