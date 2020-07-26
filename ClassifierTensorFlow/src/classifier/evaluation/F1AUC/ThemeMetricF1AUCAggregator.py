@@ -56,31 +56,18 @@ class ThemeMetricF1AUCAggregator(ThemeMetricAggregator):
 
             x = range(0, len(f1_train))
 
-            if len(theme) == 1:
-                ax[i, 0].plot(x, f1_validation, label="f1-validation")
-                ax[i, 0].plot(x, f1_train, label="f1-train")
+            # if len(theme) == 1:
+            ax[i, 0].plot(x, f1_validation, label="f1-validation")
+            ax[i, 0].plot(x, f1_train, label="f1-train")
 
-                ax[i, 1].plot(x, auc_validation, label="auc-validation")
-                ax[i, 1].plot(x, auc_train, label="auc-train")
+            ax[i, 1].plot(x, auc_validation, label="auc-validation")
+            ax[i, 1].plot(x, auc_train, label="auc-train")
 
-                ax[i, 0].set_title(theme)
-                ax[i, 1].set_title(theme)
-                ax[i, 1].legend()
-                ax[i, 0].legend()
-            else:
-                ax[i].plot(x, f1_validation, label="f1-validation")
-                ax[0].plot(x, f1_train, label="f1-train")
-
-                ax[1].plot(x, auc_validation, label="auc-validation")
-                ax[1].plot(x, auc_train, label="auc-train")
-
-                ax[0].set_title(theme)
-                ax[1].set_title(theme)
-                ax[1].legend()
-                ax[0].legend()
-
-
-
+            ax[i, 0].set_title(theme)
+            ax[i, 1].set_title(theme)
+            ax[i, 1].legend()
+            ax[i, 0].legend()
+        
             i+=1
 
         fig.autofmt_xdate()
