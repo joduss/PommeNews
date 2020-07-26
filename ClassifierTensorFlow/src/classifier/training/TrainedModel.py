@@ -18,7 +18,7 @@ class TrainedModel:
 
 
     def save(self, directory: str):
-        raise Exception("")
+        self.model.save_model(directory)
 
     def load(self, director: str):
         raise Exception("")

@@ -88,6 +88,7 @@ class ClassifierModel4(IClassifierModel):
                   callbacks=callbacks)
 
         self.__model__ = model
+        self.save_model()
 
 
     def get_model_name(self):

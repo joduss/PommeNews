@@ -27,6 +27,8 @@ ARTICLE_JSON_FILE = "input/articles_{}.json"
 LANG = "fr"
 LANG_FULL = "french"
 
+OUTPUT_DIR = "output/"
+
 # supportedThemes: List[str] = ["android", "ios", "windows", "macos", "otherOS"]
 # supportedThemes: List[str] = ["tablet", "smartphone", "watch", "computer", "speaker", "component", "accessory"]
 
@@ -155,7 +157,7 @@ trainer.batch_size = DATASET_BATCH_SIZE
 trainer.validation_ratio = VALIDATION_RATIO
 
 trained_model = trainer.train()
-
+trained_model.save(OUTPUT_DIR)
 
 theme_metric.plot()
 
