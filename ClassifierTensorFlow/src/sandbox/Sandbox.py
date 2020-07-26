@@ -1,104 +1,37 @@
 import tensorflow as tf
 import tensorflow.keras as keras
 
-# rule: out 1: si in1 >= 10 => 1
-# rule out2: si in2 >= 20 => 1
-from classifier.prediction.losses.weightedBinaryCrossEntropy import WeightedBinaryCrossEntropy
-
-data_in = [[0, 6], [11, 6], [1, 1], [9, 0], [50, 20], [20, 22], [0, 19], [5, 17], [10, 9], [18, 3],
-           [11, 19], [11, 21], [9,19], [9,21], [15,15], [18,22], [22,18], [3,3], [8,18], [0, 0]]
-data_out = [[0, 0], [1, 0], [0, 0], [0, 0], [1, 1], [1, 1], [0, 0], [0, 0], [1, 0], [1, 0],
-            [1, 0], [1,1], [0,0], [0,1], [1,0], [1,1], [1,0], [0,0], [0,0], [0,0]]
-
-# data = [[0, 6],[11, 6],[1,1],[9,0],[50,20],[20,22],[0,19],[5,17],[10,9],[18, 3]]
-# out = [[0, 0], [1,0], [0,0], [0,0], [1,1], [1,1], [0,0], [0,0], [1,0], [1,0]]
-
-in_tf = tf.constant(data_in)
-out_tf = tf.constant(data_out)
-out_tf = tf.reshape(out_tf, [20,2,1])
-
-# class 1: 10 / 20
-# class 2: 5 / 20
-
-# model = keras.models.Sequential([
-#     keras.layers.Dense(2, activation=keras.activations.relu),
-#     keras.layers.Dense(2, activation=keras.activations.sigmoid)
-# ])
-
-input = keras.layers.Input(shape=(2), name="Input")
-
-dense = keras.layers.Dense(2, activation=keras.activations.relu)(input)
-out1 = keras.layers.Dense(1, activation=keras.activations.sigmoid, name="out1")(dense)
-out2 = keras.layers.Dense(1, activation=keras.activations.sigmoid, name="out2")(dense)
-
-model = keras.Model(inputs=[input], outputs=[out1, out2])
-
-model.summary()
-
-model.compile(loss=WeightedBinaryCrossEntropy(3.03, from_logits=False), metrics=keras.metrics.BinaryAccuracy(), run_eagerly=True)
-# model.fit(x=data_in, y=data_out, epochs=1000)
-# model.fit(x=data_in, y=data_out, epochs=1000, class_weight={"out1" : {0: 1, 1: 1}, "out2" : {0 : 0.666, 1: 2}})
-model.fit(x=data_in, y=data_out, epochs=1000, class_weight={0 : 1, 1: 3.03030303})
-
-
-print(f"[11,27] => {model.predict([[12,27]])}")
-print(f"[0,0] => {model.predict([[0,0]])}")
-print(f"[9,18] => {model.predict([[9,18]])}")
-print(f"[10,20] => {model.predict([[10,20]])}")
-print(f"[0,22] => {model.predict([[0,22]])}")
-print(f"[0,18] => {model.predict([[0,18]])}")
-print(f"[8,0] => {model.predict([[8,0]])}")
-print(f"[12,0] => {model.predict([[12,0]])}")
 
 
 # Investigation how the MaxPooling, GlobalMaxPooling and Conv1D are working
 # ========================================================
 # ========================================================
 
-# values = [[1, 2, 3, 0]]
-# tf_values = tf.constant(values)
-# print(tf_values.get_shape())
-#
-# embedder = keras.layers.Embedding(6, 2, mask_zero=True)
-# embedded = embedder(tf_values)
-#
-# max_pool = keras.layers.MaxPooling1D()
-# max_pooled = max_pool(embedded)
-#
-# global_max_pool = keras.layers.GlobalMaxPooling1D()
-# global_max_pooled = global_max_pool(embedded)
-#
+values = [[1, 2, 3, 0],[5,10,3,22]]
+tf_values = tf.constant(values)
+print(tf_values.get_shape())
+
+embedder = keras.layers.Embedding(6, 2, mask_zero=True)
+embedded = embedder(tf_values)
+
+max_pool = keras.layers.MaxPooling1D()
+max_pooled = max_pool(embedded)
+
+global_max_pool = keras.layers.GlobalMaxPooling1D()
+global_max_pooled = global_max_pool(embedded)
+
 # convolution = keras.layers.Conv1D(1, 3)
 # convoluted = convolution(embedded)
-#
+
 # print("Embedded")
 # print(embedded)
-#
-# a = 0.00484044
-# af = 0.33562374
-# b = -0.0118643
-# bf = -0.0233146
-#
-# c = 0.04557529
-# cf = -0.332606
-# d = -0.00043412
-# df = 0.66535354
-#
-# e = -0.04166546
-# ef = 0.5160408
-# f = -0.00935776
-# ff = 0.28127122
-#
-# v = a*af + b*bf + c * cf + d*df + e*ef + f*ff
-#
-# print(v)
-#
-# # print("Max pooling:")
-# # print(max_pooled)
-# #
-# # print("Global max pooling:")
-# # print(global_max_pooled)
-#
+
+print("Max pooling:")
+print(max_pooled)
+
+print("Global max pooling:")
+print(global_max_pooled)
+
 # print("Convoluted:")
 # print(convoluted)
 # print(convolution.get_weights())
