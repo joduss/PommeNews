@@ -1,6 +1,5 @@
 ClassifierTensorFlow/venv
 ClassifierTensorFlow/src/__pycache__
-ClassifierTensorFlow/predictions.json
 __pycache__
 ClassifierTensorFlow/.idea
 ClassifierTensorFlow/.vscode
