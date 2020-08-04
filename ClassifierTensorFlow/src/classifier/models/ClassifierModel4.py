@@ -11,12 +11,14 @@ from tensorflow.python.keras.layers import Conv1D, Dense, Dropout, Embedding, Ma
 from classifier.Data.TrainValidationDataset import TrainValidationDataset
 from classifier.models.IClassifierModel import IClassifierModel
 from classifier.models.utility.ManualInterrupter import ManualInterrupter
+from classifier.prediction.losses.weightedBinaryCrossEntropy import WeightedBinaryCrossEntropy
 from data_models.weights.theme_weights import ThemeWeights
 
 
 class ClassifierModel4(IClassifierModel):
 
-    embedding_size = 100
+    embedding_output_dim = 128
+    epochs = 20
 
     # Will contain the model once trained.
     __model__: Model
@@ -32,43 +34,31 @@ class ClassifierModel4(IClassifierModel):
 
     def train_model(self, themes_weight: ThemeWeights, dataset: TrainValidationDataset, voc_size: int, keras_callback: LambdaCallback):
 
-        input = keras.layers.Input(shape=(dataset.article_length), name="Input")
+        article_length = dataset.article_length
+        theme_count = dataset.theme_count
 
-        layer = Embedding(input_dim=voc_size, output_dim=self.embedding_size, name="Embedding")(input)
-        layer = Conv1D(32, 3, name="Convolution")(layer)
-        layer = MaxPooling1D(3, name="MaxPooling1D")(layer)
-        layer = Dropout(0.25, name="Dropout")(layer)
+        model = tf.keras.Sequential(
+            [
+                keras.layers.Embedding(input_dim=voc_size, input_length=article_length, output_dim=self.embedding_output_dim,
+                                       mask_zero=True),
+                Dropout(0.5),
+                keras.layers.Conv1D(filters=64, kernel_size=3, input_shape=(voc_size, self.embedding_output_dim),
+                                    activation=tf.nn.relu),
+                keras.layers.MaxPooling1D(3),
+                #keras.layers.Bidirectional(keras.layers.LSTM(64)),
+                keras.layers.GlobalAveragePooling1D(),
+                Dropout(0.5),
+                keras.layers.Dense(theme_count, activation=tf.nn.sigmoid)
+            ]
+        )
 
-        outputs: List[keras.layers.Layer] = []
-        losses: Dict[str, keras.losses.Loss] = {}
-        metrics: Dict[str, List[keras.metrics.Metric]] = {}
-        class_weights: Dict[str, Dict[int, float]] = {}
 
-        for i in range(0, dataset.theme_count):
-            print("")
-
-            name = f"output-{i}"
-
-            output = Dense(1, name=name)(layer)
-
-            outputs.append(output)
-            losses[name] = keras.losses.BinaryCrossentropy(from_logits=True)
-            metrics[name] = [AUC(multi_label=True), BinaryAccuracy(), TruePositives(),
-                             TrueNegatives(), FalseNegatives(), FalsePositives(),
-                             Recall(), Precision()]
-            class_weights[name] = themes_weight.weights_of_theme(i)
-
-        # if len(outputs) > 1:
-        #     outputs = [keras.layers.concatenate(outputs)]
-        # else:
-        #     outputs = [outputs]
-
-        model = keras.Model(inputs=[input], outputs=outputs)
-
-        model.compile(optimizer=tf.keras.optimizers.Adam(clipnorm=1, clipvalue=0.5),
-                      loss=losses,
-                      metrics=metrics,
-                      run_eagerly=False)
+        model.compile(optimizer=tf.keras.optimizers.Adam(clipnorm=1),
+                      loss=WeightedBinaryCrossEntropy(themes_weight.weight_array()),
+                      metrics=[AUC(multi_label=True), BinaryAccuracy(), TruePositives(),
+                         TrueNegatives(), FalseNegatives(), FalsePositives(),
+                         Recall(), Precision()],
+                      run_eagerly=True)
 
         model.summary()
 
@@ -80,8 +70,7 @@ class ClassifierModel4(IClassifierModel):
         callbacks = [ManualInterrupter(), keras_callback]
 
         model.fit(dataset.trainData,
-                  epochs=40,
-                  class_weight=class_weights,
+                  epochs=self.epochs,
                   steps_per_epoch=dataset.train_batch_count,
                   validation_data=dataset.validationData,
                   validation_steps=dataset.validation_batch_count,
