@@ -34,7 +34,7 @@ OUTPUT_DIR = "output/"
 
 # SUPPORTED_THEMES: List[str] = ["smartphone", "computer", "tablet"]
 #SUPPORTED_THEMES: List[str] = ["computer"]
-SUPPORTED_THEMES: List[str] = ["smartphone", "computer"]
+SUPPORTED_THEMES: List[str] = ["smartphone", "tablet"]
 
 # MACHINE LEARNING CONFIGURATION
 # ------------------------------
@@ -42,7 +42,7 @@ SUPPORTED_THEMES: List[str] = ["smartphone", "computer"]
 # preprocessor: ArticlePreprocessor = ArticlePreprocessor(LANG_FULL)
 PREPROCESSOR = ArticlePreprocessorSwift()
 DATASET_BATCH_SIZE = 64
-ARTICLE_MAX_WORD_COUNT = 100
+ARTICLE_MAX_WORD_COUNT = 150
 TRAIN_RATIO = 0.65
 VALIDATION_RATIO = 0.15  # TEST is 1 - TRAIN_RATIO - VALIDATION_RATIO
 VOCABULARY_MAX_SIZE = 50000  # not used for now!
