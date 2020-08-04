@@ -131,6 +131,7 @@ class Trainer(LambdaCallback):
 
     def on_epoch_end(self, epoch, logs=None):
 
+        # Custom metrics computed at the end of an epoch.
         predictor = ArticlePredictor(self.model,
                                      self.__supported_themes,
                                      self.__preprocessor,

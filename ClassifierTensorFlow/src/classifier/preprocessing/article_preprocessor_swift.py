@@ -1,6 +1,5 @@
 import os
 import subprocess
-import sys
 import tempfile
 from logging import getLogger
 import tracemalloc
@@ -60,5 +59,6 @@ class ArticlePreprocessorSwift(IArticlePreprocessor):
         print("", end="\r")
         getLogger().info("Finished processing %d articles.", articles.count())
 
+        getLogger().info(f"Preprocessed articles available at {output_path}.")
 
         return Articles.from_file(output_path)

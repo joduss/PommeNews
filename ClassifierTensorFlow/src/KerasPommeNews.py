@@ -195,7 +195,7 @@ if LIMIT_ARTICLES_PREDICTION is not None:
     articles_to_predict = all_articles.subset(LIMIT_ARTICLES_PREDICTION)
 
 all_articles_predicted = predictor.predict(articles_to_predict).get_articles_with_predictions()
-all_articles_predicted.save("predictions.json")
+all_articles_predicted.save(f"{OUTPUT_DIR}predictions.json")
 
 debugLogger.info("End of program.")
 
