@@ -1,6 +1,8 @@
+from typing import Dict, List
+
 import matplotlib.pyplot as plt
-import matplotlib.pylab as pl
-import numpy as np
+from matplotlib.figure import Figure
+
 
 def plotLosses(x, yAndLabels, fig=None):
     if fig is None:
@@ -19,6 +21,28 @@ def plotLosses(x, yAndLabels, fig=None):
     fig.autofmt_xdate()
 
     ax.set_title("Losses")
+    ax.legend()
+
+    plt.get_current_fig_manager().show()
+    plt.pause(0.05)
+
+    return fig
+
+
+def plot_score_per_theme(x, vector: List[float], ):
+
+    fig: Figure = plt.figure("plot_score_per_theme")
+
+    plt.clf()
+    plt.ion()
+
+    f, ax = fig.subplots(ncols=col + 1, nrows=row + 1)
+    ax[col, row].plot(x, vector, label=legend)
+
+    plt.xticks(x)
+    fig.autofmt_xdate()
+
+    ax.set_title(title)
     ax.legend()
 
     plt.get_current_fig_manager().show()
