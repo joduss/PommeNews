@@ -18,7 +18,7 @@ from classifier.prediction.models.utility.ManualInterrupter import ManualInterru
 class ClassifierModel3(IClassifierModel):
 
     # Will contain the model once trained.
-    __model: Model
+    __model__: Model
 
     # Model properties
     model_name = "Model3"
@@ -73,15 +73,15 @@ class ClassifierModel3(IClassifierModel):
         model.save("output/" + self.model_name + ".h5")
         model.save_weights("output/" + self.model_name + "_weight.h5")
 
-        self.__model = model
+        self.__model__ = model
 
     def get_name(self) -> str:
         return self.model_name
 
     def get_keras_model(self) -> Model:
-        if self.__model is None:
+        if self.__model__ is None:
             raise Exception("The model must first be trained!")
-        return self.__model
+        return self.__model__
 
     def stop(self, model):
         model.stop_training = True
