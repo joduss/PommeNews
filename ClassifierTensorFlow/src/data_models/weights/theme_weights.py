@@ -45,3 +45,20 @@ class ThemeWeights:
 
         return {0 : theme_stat[0].binary_weight_neg(),
                 1 : theme_stat[0].binary_weight_pos()}
+
+
+    def weight_array(self) -> List[List[float]]:
+        theme_weight_array: List[List[float]] = []
+
+        # raise Exception("To review")
+
+        for theme in self.theme_tokenizer.orderedThemes:
+            stat = [stat for stat in self.theme_stats if stat.theme == theme][0]
+
+            theme_weight = [0,0]
+            theme_weight[0] = stat.binary_weight_neg()
+            theme_weight[1] = stat.binary_weight_pos()
+
+            theme_weight_array.append(theme_weight)
+
+        return theme_weight_array
