@@ -9,22 +9,19 @@ from tensorflow.python.keras.callbacks import LambdaCallback
 from tensorflow.python.keras.models import Model
 
 from classifier.Data.TrainValidationDataset import TrainValidationDataset
-from classifier.prediction.models.IClassifierModel import IClassifierModel
-from classifier.prediction.models.utility.ManualInterrupter import ManualInterrupter
+from classifier.models.IClassifierModel import IClassifierModel
+from classifier.models.utility.ManualInterrupter import ManualInterrupter
 
 
 @dataclass
 class ClassifierModel1(IClassifierModel):
 
-    # Configuration
-    run_eagerly: bool = False
-    must_stop = False
+    # Will contain the model once trained.
+    __model__: Model
 
     # Model properties
-    model_name = "Model1"
-
-    __model__: Model = None
-    __interrupter__: ManualInterrupter = ManualInterrupter()
+    __model_name__ = "Model-1"
+    run_eagerly: bool = False
 
 
     def __init__(self):
@@ -103,20 +100,20 @@ class ClassifierModel1(IClassifierModel):
 
         keras.utils.plot_model(model, 'Model1.png', show_shapes=True)
 
-        cb_list = [self.__interrupter__, keras_callback]
+        cb_list = [ManualInterrupter, keras_callback]
 
         model.fit(dataset.trainData, epochs=10, steps_per_epoch=dataset.train_batch_count,
                   validation_data=dataset.validationData, validation_steps=dataset.validation_batch_count,
                   callbacks=cb_list, class_weight={0:1, 1:themes_weight[0]})
 
-        model.save("output/" + self.model_name + ".h5")
-        model.save_weights("output/" + self.model_name + "_weight.h5")
+        model.save("output/" + self.get_model_name() + ".h5")
+        model.save_weights("output/" + self.get_model_name() + "_weight.h5")
 
         self.__model__ = model
 
 
-    def get_name(self) -> str:
-        return self.model_name
+    def get_model_name(self) -> str:
+        return self.__model_name__
 
 
     def get_keras_model(self) -> Model:

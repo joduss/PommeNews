@@ -10,8 +10,8 @@ from tensorflow.python.keras.models import Model
 
 from classifier.Data.TrainValidationDataset import TrainValidationDataset
 from classifier.prediction.losses.weightedBinaryCrossEntropy import WeightedBinaryCrossEntropy
-from classifier.prediction.models.IClassifierModel import IClassifierModel
-from classifier.prediction.models.utility.ManualInterrupter import ManualInterrupter
+from classifier.models.IClassifierModel import IClassifierModel
+from classifier.models.utility.ManualInterrupter import ManualInterrupter
 
 
 @dataclass
@@ -21,11 +21,8 @@ class ClassifierModel3(IClassifierModel):
     __model__: Model
 
     # Model properties
-    model_name = "Model3"
-
-    # Configuration
+    __model_name__ = "Model-3"
     run_eagerly: bool = False
-    must_stop = False
 
 
     def __init__(self):
@@ -75,8 +72,9 @@ class ClassifierModel3(IClassifierModel):
 
         self.__model__ = model
 
-    def get_name(self) -> str:
-        return self.model_name
+
+    def get_model_name(self) -> str:
+        return self.__model_name__
 
     def get_keras_model(self) -> Model:
         if self.__model__ is None:
