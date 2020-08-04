@@ -1,8 +1,4 @@
-from typing import Dict
-
-from tensorflow.python.keras.models import Model
-
-from classifier.prediction.models.IClassifierModel import IClassifierModel
+from classifier.models.IClassifierModel import IClassifierModel
 from classifier.preprocessing.article_text_tokenizer import ArticleTextTokenizer
 from classifier.preprocessing.article_theme_tokenizer import ArticleThemeTokenizer
 

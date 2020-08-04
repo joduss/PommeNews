@@ -8,7 +8,7 @@ from classifier.Data.TrainValidationDataset import TrainValidationDataset
 from classifier.evaluation.abstracts.ThemeMetricAggregator import ThemeMetricAggregator
 from classifier.prediction.ArticlesPrediction import ArticlesPrediction
 from classifier.prediction.article_predictor import ArticlePredictor
-from classifier.prediction.models.IClassifierModel import IClassifierModel
+from classifier.models.IClassifierModel import IClassifierModel
 from classifier.preprocessing.article_text_tokenizer import ArticleTextTokenizer
 from classifier.preprocessing.article_theme_tokenizer import ArticleThemeTokenizer
 from classifier.preprocessing.interface_article_preprocessor import IArticlePreprocessor
@@ -79,7 +79,7 @@ class Trainer(LambdaCallback):
         getLogger().info("* Number of themes: %d", self.__theme_tokenizer.themes_count)
         getLogger().info("\n")
 
-        theme_weight = ThemeWeights(self.__theme_stats, self.__theme_tokenizer).to_weights()
+        theme_weights = ThemeWeights(self.__theme_stats, self.__theme_tokenizer)
 
         self.__dataset__ = TrainValidationDataset(
             self.__X__,
@@ -93,7 +93,7 @@ class Trainer(LambdaCallback):
         getLogger().info("Batch size: %d", self.batch_size)
         getLogger().info("validation ratio: %d", self.validation_ratio)
 
-        self.__model__.train_model(theme_weight, self.__dataset__, self.__article_tokenizer.voc_size, self)
+        self.__model__.train_model(theme_weights, self.__dataset__, self.__article_tokenizer.voc_size, self)
 
         return TrainedModel(self.__model__, self.__article_tokenizer, self.__theme_tokenizer)
 
@@ -126,7 +126,7 @@ class Trainer(LambdaCallback):
             article_with_theme = self.__processed_articles.articles_with_theme(theme).items
             stat = ThemeStat(theme, len(article_with_theme), self.__processed_articles.count())
             self.__theme_stats.append(stat)
-            getLogger().info("'{}' {} / {} => Weights: (Negative: {} to {})".format(theme, stat.article_count, stat.total_article_count,, stat.binary_weight_pos()))
+            getLogger().info("'{}' {} / {} => Weights: (Positive: {}, : Negative: {})".format(theme, stat.article_of_theme_count, stat.total_article_count, stat.binary_weight_pos(), stat.binary_weight_neg()))
 
 
     def on_epoch_end(self, epoch, logs=None):

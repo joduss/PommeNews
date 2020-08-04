@@ -2,15 +2,14 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import logging
 from logging import getLogger
-from time import time
 from typing import List
 
 from classifier.evaluation.F1AUC.F1AUCModelEvaluator import F1AUCModelEvaluator
 from classifier.evaluation.F1AUC.ThemeMetricF1AUCAggregator import ThemeMetricF1AUCAggregator
+from classifier.models.ClassifierModel4 import ClassifierModel4
 from classifier.prediction.article_predictor import ArticlePredictor
-from classifier.prediction.models.ClassifierModel1 import ClassifierModel1
-from classifier.prediction.models.ClassifierModel3 import ClassifierModel3
-from classifier.prediction.models.IClassifierModel import IClassifierModel
+from classifier.models.ClassifierModel2 import ClassifierModel2
+from classifier.models.IClassifierModel import IClassifierModel
 from classifier.preprocessing.article_preprocessor_swift import ArticlePreprocessorSwift
 from classifier.training.Trainer import Trainer
 from data_models.articles import Articles
@@ -33,7 +32,7 @@ LANG_FULL = "french"
 
 # SUPPORTED_THEMES: List[str] = ["smartphone", "computer", "tablet"]
 #SUPPORTED_THEMES: List[str] = ["computer"]
-SUPPORTED_THEMES: List[str] = ["smartphone"]
+SUPPORTED_THEMES: List[str] = ["smartphone", "computer"]
 
 # MACHINE LEARNING CONFIGURATION
 # ------------------------------
@@ -139,14 +138,12 @@ debugLogger.info("-------------------------")
 
 
 # do_ theme_weight for each theme!
-#modelCreator = ClassifierModel1(theme_weight, datasetWrapped, voc_size)
-# modelCreator = ClassifierModel2(theme_weight, datasetWrapped, voc_size)
 theme_metric = ThemeMetricF1AUCAggregator(themes=SUPPORTED_THEMES,
                                           evaluator=F1AUCModelEvaluator())
 
 
 #classifierModel: IClassifierModel = ClassifierModel3()
-classifierModel: IClassifierModel = ClassifierModel1()
+classifierModel: IClassifierModel = ClassifierModel4()
 
 trainer: Trainer = Trainer(preprocessor=PREPROCESSOR,
                            articles=articles_train,

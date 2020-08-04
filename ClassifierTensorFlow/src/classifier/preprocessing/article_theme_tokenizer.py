@@ -39,6 +39,9 @@ class ArticleThemeTokenizer:
     def index_of_theme(self, theme: str):
         return self.tokenizer.word_index[theme] - 1
 
+    def theme_at_index(self, index: int):
+        return self.tokenizer.index_word[index + 1]
+
     def boolean_vector_to_themes(self, prediction_vector: List[bool]) -> List[str]:
 
         themes: List[str] = []
