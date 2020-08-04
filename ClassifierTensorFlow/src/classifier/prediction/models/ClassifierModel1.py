@@ -1,43 +1,40 @@
 from dataclasses import dataclass
-from typing import List, Dict
+from typing import List
 
 import tensorflow as tf
 import tensorflow.keras as keras
 import tensorflow.keras.metrics as metrics
+from tensorflow.python.keras import regularizers
+from tensorflow.python.keras.callbacks import LambdaCallback
+from tensorflow.python.keras.models import Model
 
-from classifier.prediction.losses.weightedBinaryCrossEntropy import WeightedBinaryCrossEntropy
-from classifier.prediction.models.DatasetWrapper import DatasetWrapper
+from classifier.Data.TrainValidationDataset import TrainValidationDataset
+from classifier.prediction.models.IClassifierModel import IClassifierModel
 from classifier.prediction.models.utility.ManualInterrupter import ManualInterrupter
 
 
 @dataclass
-class ClassifierModel1:
-
-    # Variables
-    themes_weight: List[float]
-    dataset: DatasetWrapper
-    voc_size: int
+class ClassifierModel1(IClassifierModel):
 
     # Configuration
     run_eagerly: bool = False
     must_stop = False
+
+    # Model properties
     model_name = "Model1"
 
-    def __init__(self, themes_weight: List[float], dataset: DatasetWrapper, voc_size: int):
-        self.themes_weight = themes_weight
-        self.dataset = dataset
-        self.voc_size = voc_size
+    __model__: Model = None
+    __interrupter__: ManualInterrupter = ManualInterrupter()
 
-    def is_valid(self) -> bool:
-        return self.themes_weight is not None \
-            and self.dataset is not None \
-            and self.voc_size is not None \
-            and self.voc_size > 0
 
-    def create_model(self, embedding_output_dim, intermediate_dim, last_dim, epochs=3):
+    def __init__(self):
+        pass
 
-        article_length = self.dataset.article_length
-        theme_count = self.dataset.theme_count
+
+    def train_model(self, themes_weight: List[float], dataset: TrainValidationDataset, voc_size: int, keras_callback: LambdaCallback):
+
+        article_length = dataset.article_length
+        theme_count = dataset.theme_count
 
         model = tf.keras.Sequential(
             [
@@ -79,12 +76,13 @@ class ClassifierModel1:
                 #keras.layers.Dense(self.theme_count, activation=tf.nn.sigmoid)
 
                 #6
-                keras.layers.Embedding(input_dim=self.voc_size, input_length=article_length, output_dim=embedding_output_dim, mask_zero=True),
-                keras.layers.Bidirectional(keras.layers.LSTM(intermediate_dim, recurrent_dropout=0.15, dropout=0.1)),
+                keras.layers.Embedding(input_dim=voc_size, input_length=article_length, output_dim=128, mask_zero=True),
+                keras.layers.Bidirectional(keras.layers.LSTM(128, recurrent_dropout=0.2, dropout=0.2)),
                 #keras.layers.Dropout(0.2),
                 #keras.layers.Dense(last_dim, activation=tf.nn.relu),
                 # keras.layers.Dense(self.theme_count, activation=tf.nn.sigmoid, use_bias=True,bias_initializer=tf.keras.initializers.Constant(-1.22818328))
-                keras.layers.Dense(theme_count, activation=tf.nn.sigmoid)
+                keras.layers.Dense(theme_count, activation=tf.nn.sigmoid, kernel_regularizer=regularizers.l2(0.1),
+                                        activity_regularizer=regularizers.l1(0.05))
 
                 # 7
                 # keras.layers.Embedding(input_dim=self.voc_size, input_length=self.article_length,
@@ -96,27 +94,35 @@ class ClassifierModel1:
         )
 
         model.summary()
-        model.save(self.model_name + ".h5")
 
-        model.compile(optimizer=tf.keras.optimizers.Adam(),
-                      loss=WeightedBinaryCrossEntropy(self.themes_weight, from_logits=True),
+        model.compile(optimizer=tf.keras.optimizers.Adam(clipnorm=1, clipvalue=0.5),
+                      #loss=WeightedBinaryCrossEntropy(themes_weight, from_logits=True),
+                      loss=keras.losses.BinaryCrossentropy(from_logits=True),
                       metrics=[metrics.AUC(), metrics.BinaryAccuracy(), metrics.TruePositives(), metrics.TrueNegatives(), metrics.FalseNegatives() , metrics.FalsePositives(), metrics.Recall(), metrics.Precision()],
                       run_eagerly=self.run_eagerly)
 
         keras.utils.plot_model(model, 'Model1.png', show_shapes=True)
 
-        cb_list = [ManualInterrupter()]
+        cb_list = [self.__interrupter__, keras_callback]
 
-        model.fit(self.dataset.trainData, epochs=epochs, steps_per_epoch=self.dataset.train_batch_count,
-                  validation_data=self.dataset.validationData, validation_steps=self.dataset.validation_batch_count,
-                  callbacks=cb_list)
+        model.fit(dataset.trainData, epochs=10, steps_per_epoch=dataset.train_batch_count,
+                  validation_data=dataset.validationData, validation_steps=dataset.validation_batch_count,
+                  callbacks=cb_list, class_weight={0:1, 1:themes_weight[0]})
 
-        model.save_weights(self.model_name + "_weight.h5")
+        model.save("output/" + self.model_name + ".h5")
+        model.save_weights("output/" + self.model_name + "_weight.h5")
 
-        print("\nPerform evaluation---")
-        model.evaluate(self.dataset.testData, steps=self.dataset.test_batch_count)
+        self.__model__ = model
 
-        return model
+
+    def get_name(self) -> str:
+        return self.model_name
+
+
+    def get_keras_model(self) -> Model:
+        if self.__model__ is None:
+            raise Exception("The model must first be trained!")
+        return self.__model__
 
 
     def stop(self, model):

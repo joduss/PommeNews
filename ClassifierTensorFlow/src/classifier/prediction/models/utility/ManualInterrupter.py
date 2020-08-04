@@ -8,7 +8,7 @@ class ManualInterrupter(LambdaCallback):
 
     should_stop: bool = False
 
-    def __init__(self, patience=0):
+    def __init__(self):
         super(LambdaCallback, self).__init__()
 
     def on_epoch_end(self, epoch, logs=None):

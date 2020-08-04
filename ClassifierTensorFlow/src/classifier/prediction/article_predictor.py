@@ -1,25 +1,24 @@
-import json as jsonModule
+from logging import getLogger
 from typing import List
 
 import tensorflow as tf
-import tensorflow.keras as keras
+import tensorflow.keras
 
+from classifier.prediction.ArticlesPrediction import ArticlesPrediction
 from classifier.preprocessing.article_text_tokenizer import ArticleTextTokenizer
 from classifier.preprocessing.article_theme_tokenizer import ArticleThemeTokenizer
 from classifier.preprocessing.interface_article_preprocessor import IArticlePreprocessor
 from data_models.article import Article
 from data_models.articles import Articles
-from data_models.transformation.article_transformer import ArticleTransformer
 
 
 class ArticlePredictor:
     """
-    Do theme predictions for data_models.
+    Do theme predictions for articles.
     """
 
     CLASSIFIER_THRESHOLD: float = 0.5
-
-    limit_predictions: int = None
+    logger = getLogger()
 
     def __init__(self,
                  classifier_model: tf.keras.models.Model,
@@ -34,71 +33,79 @@ class ArticlePredictor:
         self.article_tokenizer: ArticleTextTokenizer = article_tokenizer
 
 
-    def predict(self, articles: Articles, article_preprocessed: bool = False):
-
-        if self.limit_predictions is not None:
-            articles.items = articles.items[0:self.limit_predictions]
-
-        num_article_json = articles.count()
-        num_processed_article = 0
-
-        article: Article
-        for article in articles.items:
-
-            if article_preprocessed is False:
-                article.predicted_themes = self.__predict_article(article, self.supported_themes)
-            else:
-                article.predicted_themes = self.__predict_preprocessed_article(article, self.supported_themes)
-
-            num_processed_article += 1
-
-            if num_processed_article % 10 == 0:
-                print("Progress: " + str(num_processed_article) + "/" + str(num_article_json))
-
-        with open('predictions.json', 'w', encoding="utf-8") as outfile:
-            jsonModule.dump([ArticleTransformer.transformToJson(article) for article in articles], outfile, indent=4)
-
-
-    def __predict_article(self, article: Article, themes_to_classify: List[str]):
+    def predict(self, articles_original: Articles) -> ArticlesPrediction:
         """
-        Run prediction for an article that is not preprocessed yet. (Will be in this method!)
-        :param article:
+        Pre-processes articles, compute the predictions for each of them and aggregate the predictions into a
+        ArticlesPrediction object, which is returned.
+        :param articles_original: NON-preprocessed articles
+        """
+        predictions = ArticlesPrediction(self.theme_tokenizer, articles_original)
+        processed_articles = Articles([article for article in self.preprocessor.process_articles(articles_original)])
+
+        self.logger.debug("Will start predictions with keras model")
+        matrix = self.article_tokenizer.transform_to_sequences(processed_articles)
+        prediction_matrix = self.classifier_model.predict(matrix)
+        self.logger.debug("Did predictions with keras model")
+
+        idx = 0
+        for prediction_vector in prediction_matrix:
+            article_id = processed_articles[idx].id
+            predictions.addPredictionsForArticle(prediction_vector, article_id)
+
+            idx += 1
+
+        # processed_articles = {article.id : article for article in self.preprocessor.process_articles(articles_original)}
+        #
+        # num_article_json = len(processed_articles)
+        # num_processed_article = 0
+        #
+        # predictions = ArticlesPrediction(self.theme_tokenizer, articles_original)
+        # article_orig: Article
+
+        # for article_orig in articles_original:
+        #     article_processed = processed_articles[article_orig.id]
+        #     prediction = self.__predict_article(article_processed, self.supported_themes)
+        #     predictions.add(article_orig, prediction)
+        #     num_processed_article += 1
+        #
+        #     if num_processed_article % 10 == 0:
+        #         print("Progress: " + str(num_processed_article) + "/" + str(num_article_json), end='\r')
+
+        self.logger.info("Finished predicting themes for %d articles", articles_original.count())
+        return predictions
+
+
+    def predict_preprocessed(self, processed_articles: Articles) -> ArticlesPrediction:
+        """
+        Compute the predictions for articles of them and aggregate the predictions into a
+        ArticlesPrediction object, which is returned.
+        Articles must have been previously pre-processed!
+        :param processed_articles: Preprocessed articles
+        """
+        predictions = ArticlesPrediction(self.theme_tokenizer, processed_articles)
+
+        self.logger.debug("Will start predictions with keras model")
+        matrix = self.article_tokenizer.transform_to_sequences(processed_articles)
+        prediction_matrix = self.classifier_model.predict(matrix)
+        self.logger.debug("Did predictions with keras model")
+
+        idx = 0
+        for prediction_vector in prediction_matrix:
+            article_id = processed_articles[idx].id
+            predictions.addPredictionsForArticle(prediction_vector, article_id)
+
+            idx += 1
+
+        self.logger.info("Finished predicting themes for %d articles", processed_articles.count())
+        return predictions
+
+
+    def __predict_article(self, article: Article, themes_to_classify: List[str]) -> List[float]:
+        """
+        Do prediction for a preprocessed article.
+        :param article preprocessed article:
         :param themes_to_classify:
         :return:
         """
-        article_processed = self.preprocessor.process_article(article)
-        vector = self.article_tokenizer.transform_to_sequence(article_processed)
-
-        predictions = self.classifier_model.predict(vector)
-
-        themes_predictions = []
-        for theme_to_classify in themes_to_classify:
-
-            idx_theme = self.theme_tokenizer.tokenizer.word_index[theme_to_classify] - 1
-
-            if predictions[0][idx_theme] > self.CLASSIFIER_THRESHOLD:
-                themes_predictions.append(theme_to_classify)
-
-        return themes_predictions
-
-
-    def __predict_preprocessed_article(self, preprocessed_article: Article, themes_to_classify: List[str]):
-        """
-        Run prediction for an article that is has already been preprocessed. (Will be processed)
-        :param preprocessed_article:
-        :param themes_to_classify:
-        :return:
-        """
-        vector = self.article_tokenizer.transform_to_sequence(preprocessed_article)
-
-        predictions = self.classifier_model.predict(vector)
-
-        themes_predictions = []
-        for themeToClassify in themes_to_classify:
-
-            idx_theme = self.theme_tokenizer.indexOfTheme(themeToClassify)
-
-            if predictions[0][idx_theme] > self.CLASSIFIER_THRESHOLD:
-                themes_predictions.append(themeToClassify)
-
-        return themes_predictions
+        vector = self.article_tokenizer.transform_to_sequence(article)
+        return self.classifier_model.predict(vector)[0]

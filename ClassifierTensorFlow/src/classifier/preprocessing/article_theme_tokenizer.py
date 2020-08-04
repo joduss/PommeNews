@@ -36,5 +36,16 @@ class ArticleThemeTokenizer:
 
 
 
-    def indexOfTheme(self, theme: str):
+    def index_of_theme(self, theme: str):
         return self.tokenizer.word_index[theme] - 1
+
+    def boolean_vector_to_themes(self, prediction_vector: List[bool]) -> List[str]:
+
+        themes: List[str] = []
+
+        for idx in range(0, len(prediction_vector)):
+            if prediction_vector[idx]:
+                # +1 because the first index (0) is reserved by default.
+                themes.append(self.tokenizer.index_word[idx + 1])
+
+        return themes

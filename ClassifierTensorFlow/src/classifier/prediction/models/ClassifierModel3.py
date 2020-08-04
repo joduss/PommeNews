@@ -1,87 +1,87 @@
 from dataclasses import dataclass
-from typing import List, Dict
-import numpy as np
+from typing import List
 
 import tensorflow as tf
 import tensorflow.keras as keras
 import tensorflow.keras.metrics as metrics
+from tensorflow.python.keras import regularizers
+from tensorflow.python.keras.callbacks import LambdaCallback
+from tensorflow.python.keras.models import Model
 
+from classifier.Data.TrainValidationDataset import TrainValidationDataset
 from classifier.prediction.losses.weightedBinaryCrossEntropy import WeightedBinaryCrossEntropy
+from classifier.prediction.models.IClassifierModel import IClassifierModel
 from classifier.prediction.models.utility.ManualInterrupter import ManualInterrupter
-from classifier.prediction.models.DatasetWrapper import DatasetWrapper
 
-class ClassifierModel3:
 
-    themes_weight: Dict[int,float]
-    voc_size: int
+@dataclass
+class ClassifierModel3(IClassifierModel):
 
-    X: np.ndarray
-    Y: np.ndarray
+    # Will contain the model once trained.
+    __model: Model
 
-    theme_count: int
+    # Model properties
+    model_name = "Model3"
 
+    # Configuration
+    run_eagerly: bool = False
     must_stop = False
 
-    def __init__(self, themes_weight: Dict[int,float], X: np.ndarray, Y: np.ndarray, voc_size: int):
-        self.theme_weight = themes_weight
-        self.X = X
-        self.Y = Y
-        self.voc_size = voc_size
-        self.themes_count = Y[0].size
-        self.article_size = X[0].size
+
+    def __init__(self):
+        pass
 
 
-    def create_model(self):
+    def train_model(self, themes_weight: List[float], dataset: TrainValidationDataset, voc_size: int, keras_callback: LambdaCallback):
+        epochs = 60
+        embedding_output_dim = 128
+        last_dim = 128
 
-        input = keras.layers.Input(shape=(self.X[0].size))
+        article_length = dataset.article_length
+        theme_count = dataset.theme_count
 
-        outputs: List[keras.layers.Layer] = []
-
-        for i in range(0, self.dataset.theme_count):
-            print("")
-            dense = keras.layers.Embedding(input_dim=self.voc_size, output_dim=128)(input)
-            ltsm = keras.layers.Bidirectional(keras.layers.LSTM(256))(dense)
-            dense2 = keras.layers.Dense(units=256, activation=tf.nn.relu)(ltsm)
-            output = keras.layers.Dense(units=1, activation=tf.nn.sigmoid, name=str(i))(dense2)
-            outputs.append(output)
-
-
-        # if len(outputs) > 1:
-        outputs = [keras.layers.concatenate(outputs)]
-        # else:
-        #     outputs = [outputs]
-
-        model = keras.Model(inputs=[input], outputs=outputs)
-
-        model.compile(optimizer=tf.keras.optimizers.Adam(),
-                      #loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
-                      loss=WeightedBinaryCrossEntropy(weights=[], from_logits=True),
-                      # loss = {"0" : tf.keras.losses.BinaryCrossentropy(from_logits=True),
-                      #         "1" : tf.keras.losses.BinaryCrossentropy(from_logits=True)},
-                      metrics=[metrics.AUC(), metrics.BinaryAccuracy(), metrics.TruePositives(),
-                               metrics.TrueNegatives(), metrics.FalseNegatives(), metrics.FalsePositives(),
-                               metrics.Recall(), metrics.Precision()])
+        model = tf.keras.Sequential(
+            [
+                keras.layers.Embedding(input_dim=voc_size, input_length=article_length, output_dim=embedding_output_dim,
+                                       mask_zero=True),
+                keras.layers.Conv1D(filters=64, kernel_size=3, input_shape=(voc_size, embedding_output_dim),
+                                    activation=tf.nn.relu),
+                keras.layers.GlobalMaxPooling1D(),
+                keras.layers.Dropout(0.2),
+                keras.layers.Dense(last_dim, activation=tf.nn.relu),
+                keras.layers.Dropout(0.2),
+                keras.layers.Dense(theme_count, activation=tf.nn.sigmoid, kernel_regularizer=regularizers.l2(0.2),
+                                   activity_regularizer=regularizers.l1(0.1))
+            ]
+        )
 
         model.summary()
 
-        keras.utils.plot_model(model, 'my_first_model_with_shape_info.png', show_shapes=True)
+        model.compile(optimizer=tf.keras.optimizers.Adam(clipnorm=1, clipvalue=0.5),
+                      loss=WeightedBinaryCrossEntropy(themes_weight, from_logits=True),
+                      metrics=[metrics.AUC(), metrics.BinaryAccuracy(), metrics.TruePositives(),
+                               metrics.TrueNegatives(), metrics.FalseNegatives(), metrics.FalsePositives(),
+                               metrics.Recall(), metrics.Precision()],
+                      run_eagerly=self.run_eagerly)
 
-        should_stop = False
-        callbacks = [ManualInterrupter(should_stop)]
+        keras.utils.plot_model(model, "output/" + self.model_name + ".png", show_shapes=True)
 
-        # model.fit(self.dataset.trainData, epochs=15, steps_per_epoch=self.dataset.train_batch_count,
-        #           validation_data=self.dataset.validationData, validation_steps=self.dataset.validation_batch_count,
-        #           callbacks=callbacks, class_weight=self.theme_weight)
+        model.fit(dataset.trainData, epochs=epochs, steps_per_epoch=dataset.train_batch_count,
+                  validation_data=dataset.validationData, validation_steps=dataset.validation_batch_count,
+                  callbacks=[ManualInterrupter(), keras_callback])
 
-        model.fit(self.dataset.trainData, epochs=10, steps_per_epoch=self.dataset.train_batch_count,
-                  validation_data=self.dataset.validationData, validation_steps=self.dataset.validation_batch_count,
-                  callbacks=callbacks, class_weight={ 0 : 1, 1 : 7.8, 2 : 4.3})
+        model.save("output/" + self.model_name + ".h5")
+        model.save_weights("output/" + self.model_name + "_weight.h5")
 
-        # model.fit(self.dataset.trainData, epochs=10, steps_per_epoch=self.dataset.train_batch_count,
-        #           validation_data=self.dataset.validationData, validation_steps=self.dataset.validation_batch_count,
-        #           callbacks=callbacks)
+        self.__model = model
 
-        print("\nPerform evaluation---")
-        model.evaluate(self.dataset.testData, steps=self.dataset.test_batch_count)
+    def get_name(self) -> str:
+        return self.model_name
 
-        return model
+    def get_keras_model(self) -> Model:
+        if self.__model is None:
+            raise Exception("The model must first be trained!")
+        return self.__model
+
+    def stop(self, model):
+        model.stop_training = True

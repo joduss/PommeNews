@@ -1,6 +1,6 @@
 from typing import List
 
-from classifier.evaluation.model_evaluator import ModelEvaluator
+from classifier.evaluation.F1AUC.F1AUCModelEvaluator import F1AUCModelEvaluator
 from classifier.prediction.losses.weightedBinaryCrossEntropy import WeightedBinaryCrossEntropy
 from data_models.articles import Articles
 from tensorflow.keras.models import load_model
@@ -33,4 +33,4 @@ model = load_model(MODEL_PATH, custom_objects={"WeightedBinaryCrossEntropy" : We
 # Perform evaluation
 # ==================
 
-ModelEvaluator().evaluate(all_articles, SUPPORTED_THEMES)
+F1AUCModelEvaluator().evaluate(all_articles, SUPPORTED_THEMES)
