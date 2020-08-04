@@ -17,15 +17,6 @@ class ArticlesTests(unittest.TestCase):
 
         return Articles([article1, article2, article3, article4, article5, article6])
 
-    def test_filter(self):
-        articles = ArticlesTests.create_articles()
-
-        filtered = articles.filter(lambda article: "T" not in article.themes and "T" in article.verified_themes)
-
-        self.assertEqual(2, filtered.count())
-        self.assertTrue(articles.items[3] in filtered)
-        self.assertTrue(articles.items[4] in filtered)
-
     def test_articles_with_theme(self):
         articles = ArticlesTests.create_articles()
 
@@ -39,12 +30,23 @@ class ArticlesTests(unittest.TestCase):
 
     def test_articles_with_all_verified_themes(self):
         articles = ArticlesTests.create_articles()
-
         filtered = articles.articles_with_all_verified_themes(["T", "T2"])
 
         self.assertEqual(1, filtered.count())
         self.assertTrue(articles.items[5] in filtered)
         self.assertFalse(articles.items[0] in filtered)
+
+    def test_articles_with_any_verified_themes(self):
+        articles = ArticlesTests.create_articles()
+        filtered = articles.articles_with_any_verified_themes(["T", "T2", "T3"])
+
+        self.assertEqual(4, filtered.count())
+        self.assertFalse(articles[0] in filtered)
+        self.assertTrue(articles[1] in filtered)
+        self.assertFalse(articles[2] in filtered)
+        self.assertTrue(articles[3] in filtered)
+        self.assertTrue(articles[4] in filtered)
+        self.assertTrue(articles[5] in filtered)
 
     def test_themes(self):
         themes = ArticlesTests.create_articles().themes()
@@ -86,6 +88,21 @@ class ArticlesTests(unittest.TestCase):
 
             article.predicted_themes.append("T4")
             self.assertEqual(article.predicted_themes, article_copy.predicted_themes)
+
+    def test_substraction(self):
+        articles = self.create_articles()
+
+        articles_to_remove = Articles(self.create_articles()[0:2])
+
+        filtered_articles = articles - articles_to_remove
+
+        self.assertEqual(filtered_articles.count() + 2, articles.count())
+        self.assertFalse(filtered_articles.contains(articles_to_remove[0].id))
+        self.assertFalse(filtered_articles.contains(articles_to_remove[1].id))
+        self.assertTrue(filtered_articles.contains(articles[2].id))
+        self.assertTrue(filtered_articles.contains(articles[3].id))
+        self.assertTrue(filtered_articles.contains(articles[4].id))
+        self.assertTrue(filtered_articles.contains(articles[5].id))
 
 
 if __name__ == '__main__':
