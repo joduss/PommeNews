@@ -84,11 +84,14 @@ else:
 
 all_articles.shuffle()
 
+for article in all_articles:
+    article.make_immutable()
+
 
 # Data filtering and partitionning
 # ============================
 
-articles_train: Articles = all_articles.articles_with_all_verified_themes(SUPPORTED_THEMES)
+articles_train: Articles = all_articles.articles_with_all_verified_themes(SUPPORTED_THEMES).deep_copy()
 
 # Removal of all unsupported themes and keep only data_models who have at least one supported theme.
 # -----------
