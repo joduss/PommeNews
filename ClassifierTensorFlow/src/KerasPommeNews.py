@@ -30,16 +30,12 @@ LANG_FULL = "french"
 OUTPUT_DIR = "output/"
 
 # supportedThemes: List[str] = ["android", "ios", "windows", "macos", "otherOS"]
-# supportedThemes: List[str] = ["tablet", "smartphone", "watch", "computer", "speaker", "component", "accessory"]
-
 # SUPPORTED_THEMES: List[str] = ["smartphone", "computer", "tablet"]
-#SUPPORTED_THEMES: List[str] = ["computer"]
-SUPPORTED_THEMES: List[str] = ["smartphone", "tablet"]
+SUPPORTED_THEMES: List[str] = ["tablet"]
 
 # MACHINE LEARNING CONFIGURATION
 # ------------------------------
 
-# preprocessor: ArticlePreprocessor = ArticlePreprocessor(LANG_FULL)
 PREPROCESSOR = ArticlePreprocessorSwift()
 DATASET_BATCH_SIZE = 64
 ARTICLE_MAX_WORD_COUNT = 150
@@ -197,8 +193,12 @@ if LIMIT_ARTICLES_PREDICTION is not None:
     debugLogger.info("Limiting the number of articles to predict to " + str(LIMIT_ARTICLES_PREDICTION))
     articles_to_predict = all_articles.subset(LIMIT_ARTICLES_PREDICTION)
 
+
 all_articles_predicted = predictor.predict(articles_to_predict).get_articles_with_predictions()
-all_articles_predicted.save(f"{OUTPUT_DIR}predictions.json")
+if LIMIT_ARTICLES_PREDICTION is not None:
+    all_articles_predicted.save(f"{OUTPUT_DIR}predictions_limit_{LIMIT_ARTICLES_PREDICTION}.json")
+else:
+    all_articles_predicted.save(f"{OUTPUT_DIR}predictions.json")
 
 debugLogger.info("End of program.")
 

@@ -1,12 +1,10 @@
-from typing import Dict, List
-
 import tensorflow as tf
 import tensorflow.keras as keras
-from tensorflow.keras.metrics import FalsePositives, TrueNegatives, FalseNegatives, Precision, TruePositives, \
-    BinaryAccuracy, Recall, AUC
+from tensorflow.keras.metrics import AUC, BinaryAccuracy, FalseNegatives, FalsePositives, Precision, Recall, \
+    TrueNegatives, TruePositives
 from tensorflow.python.keras import Model
 from tensorflow.python.keras.callbacks import LambdaCallback
-from tensorflow.python.keras.layers import Conv1D, Dense, Dropout, Embedding, MaxPooling1D
+from tensorflow.python.keras.layers import Dropout
 
 from classifier.Data.TrainValidationDataset import TrainValidationDataset
 from classifier.models.IClassifierModel import IClassifierModel
@@ -77,8 +75,6 @@ class ClassifierModel4(IClassifierModel):
                   callbacks=callbacks)
 
         self.__model__ = model
-        self.save_model()
-
 
     def get_model_name(self):
         return self.__model_name__
