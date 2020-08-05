@@ -18,7 +18,7 @@ class ArticlesPreprocessorTests(unittest.TestCase):
 
     def __test_single_processor(self, processor: IArticlePreprocessor):
         articles = self.__create_articles()
-        articles_copied = articles.deep_copy()
+        articles_copied = self.__create_articles()
 
         articles_processed = processor.process_articles(articles)
 
