@@ -71,7 +71,7 @@ class Articles(object, metaclass=MetaArticles):
 
     def save(self, filepath: str):
         with open(filepath, 'w', encoding="utf-8") as outfile:
-            jsonModule.dump([ArticleTransformer.transform_to_json(article) for article in self.items], outfile, indent=4)
+            jsonModule.dump([ArticleTransformer.transform_to_json(article) for article in self.items], outfile, indent=4, ensure_ascii=False)
 
     # def inherit_predictions(self, articles: Articles):
     #     original_dic = { i.id : i for i in self.items }
