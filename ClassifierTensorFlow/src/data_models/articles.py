@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import random
 import math
+import time
 from typing import Callable, Dict, List, TextIO
 
 import json as jsonModule
@@ -41,12 +42,8 @@ class Articles(object, metaclass=MetaArticles):
 
     @staticmethod
     def from_file(path: str, limit: int = None) -> Articles:
-        try:
-            with open(path, "r", encoding="utf-8") as file:
-                return Articles.load_articles(file, limit)
-        except Exception:
-            with open(path, "r", encoding="utf-8") as file:
-                return Articles.load_articles(file, limit)
+        with open(path, "r", encoding="utf-8") as file:
+            return Articles.load_articles(file, limit)
 
 
     @staticmethod
