@@ -7,6 +7,7 @@ from typing import List
 from classifier.evaluation.F1AUC.F1AUCModelEvaluator import F1AUCModelEvaluator
 from classifier.evaluation.F1AUC.ThemeMetricF1AUCAggregator import ThemeMetricF1AUCAggregator
 from classifier.models.ClassifierModel4 import ClassifierModel4
+from classifier.models.ClassifierModel5 import ClassifierModel5
 from classifier.prediction.article_predictor import ArticlePredictor
 from classifier.models.ClassifierModel2 import ClassifierModel2
 from classifier.models.IClassifierModel import IClassifierModel
@@ -144,7 +145,7 @@ theme_metric = ThemeMetricF1AUCAggregator(themes=SUPPORTED_THEMES,
 
 
 #classifierModel: IClassifierModel = ClassifierModel3()
-classifierModel: IClassifierModel = ClassifierModel4(OUTPUT_DIR)
+classifierModel: IClassifierModel = ClassifierModel5(OUTPUT_DIR)
 
 trainer: Trainer = Trainer(preprocessor=PREPROCESSOR,
                            articles=articles_train,
