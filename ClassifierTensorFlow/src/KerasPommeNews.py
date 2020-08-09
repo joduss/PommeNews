@@ -144,7 +144,7 @@ theme_metric = ThemeMetricF1AUCAggregator(themes=SUPPORTED_THEMES,
 
 
 #classifierModel: IClassifierModel = ClassifierModel3()
-classifierModel: IClassifierModel = ClassifierModel4()
+classifierModel: IClassifierModel = ClassifierModel4(OUTPUT_DIR)
 
 trainer: Trainer = Trainer(preprocessor=PREPROCESSOR,
                            articles=articles_train,

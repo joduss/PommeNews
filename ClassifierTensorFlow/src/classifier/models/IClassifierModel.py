@@ -1,3 +1,4 @@
+from tensorflow import keras
 from tensorflow.python.keras.callbacks import LambdaCallback
 from tensorflow.python.keras.models import Model
 
@@ -35,3 +36,11 @@ class IClassifierModel:
     def save_model(self, directory: str):
         self.get_keras_model().save(directory + self.get_model_name() + ".h5")
         self.get_keras_model().save_weights(directory + self.get_model_name() + "_weight.h5")
+
+    def plot_model(self, directory: str):
+        """
+        Plot the model and save the image in the given directory.
+        """
+        keras.utils.plot_model(self.get_keras_model(),
+                               directory + self.get_model_name() + '.png',
+                               show_shapes=True)

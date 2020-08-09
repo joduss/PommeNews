@@ -43,6 +43,7 @@ class ArticlePreprocessorSwift(IArticlePreprocessor):
         os.close(output_file)
 
         articles.save(input_path)
+        getLogger().info(f"Articles about to be processed available at {input_path}.")
 
         command_directory = os.path.dirname(os.path.abspath(__file__))
         command_path = f"{command_directory}/ArticlePreprocessorTool"

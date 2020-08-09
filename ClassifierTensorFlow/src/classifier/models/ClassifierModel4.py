@@ -16,7 +16,7 @@ from data_models.weights.theme_weights import ThemeWeights
 class ClassifierModel4(IClassifierModel):
 
     embedding_output_dim = 128
-    epochs = 20
+    epochs = 15
 
     # Will contain the model once trained.
     __model__: Model
@@ -25,9 +25,11 @@ class ClassifierModel4(IClassifierModel):
     __model_name__ = "Model-4"
     run_eagerly: bool = False
 
+    # Other properties
+    __plot_directory: str
 
-    def __init__(self):
-        pass
+    def __init__(self, plot_directory: str = None):
+        self.__plot_directory = plot_directory
 
 
     def train_model(self, themes_weight: ThemeWeights, dataset: TrainValidationDataset, voc_size: int, keras_callback: LambdaCallback):
@@ -59,11 +61,13 @@ class ClassifierModel4(IClassifierModel):
                       run_eagerly=True)
 
         model.summary()
+        self.__model__ = model
+
+        if self.__plot_directory is not None:
+            self.plot_model(self.__plot_directory)
 
         # Fix for https://github.com/tensorflow/tensorflow/issues/38988
         model._layers = [layer for layer in model._layers if not isinstance(layer, dict)]
-
-        keras.utils.plot_model(model, self.get_model_name() + '.png', show_shapes=True)
 
         callbacks = [ManualInterrupter(), keras_callback]
 
@@ -74,7 +78,6 @@ class ClassifierModel4(IClassifierModel):
                   validation_steps=dataset.validation_batch_count,
                   callbacks=callbacks)
 
-        self.__model__ = model
 
     def get_model_name(self):
         return self.__model_name__
