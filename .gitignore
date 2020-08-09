@@ -1,7 +1,5 @@
 ClassifierTensorFlow/venv
-ClassifierTensorFlow/src/__pycache__
 __pycache__
-ClassifierTensorFlow/.idea
 ClassifierTensorFlow/.vscode
 ClassifierTensorFlow/.idea
 *.xcuserdatad/
