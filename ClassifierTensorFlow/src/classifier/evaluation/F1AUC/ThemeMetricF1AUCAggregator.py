@@ -1,3 +1,4 @@
+import logging
 from typing import List
 
 from matplotlib.figure import Figure
@@ -21,6 +22,7 @@ class ThemeMetricF1AUCAggregator(ThemeMetricAggregator):
         super(ThemeMetricAggregator, self).__init__()
         self.__supported_themes__ = themes
         self.evaluator = evaluator
+        logging.getLogger('matplotlib').setLevel(logging.WARNING)
 
 
     def evaluate(self,
@@ -37,9 +39,10 @@ class ThemeMetricF1AUCAggregator(ThemeMetricAggregator):
             self.perThemeMetricsTrain.add(theme, metric_train)
 
 
-    def plot(self):
+    def plot(self, block: bool = False):
         fig: Figure = plt.figure("plot_score_per_theme")
 
+        plt.rcParams['axes.grid'] = True
         plt.clf()
         plt.ion()
 
@@ -83,7 +86,7 @@ class ThemeMetricF1AUCAggregator(ThemeMetricAggregator):
             i+=1
 
         fig.autofmt_xdate()
-        plt.get_current_fig_manager().show()
+        plt.show(block=block)
         plt.pause(0.05)
 
-        fig.show()
+        #fig.show(block=False)

@@ -158,7 +158,6 @@ trainer.validation_ratio = VALIDATION_RATIO
 trained_model = trainer.train()
 trained_model.save(OUTPUT_DIR)
 
-theme_metric.plot()
 
 ################################################################################################
 # Classify unclassified data_models
@@ -203,4 +202,5 @@ else:
 debugLogger.info("End of program.")
 
 
+theme_metric.plot(True)
 k=input("press close to exit")
