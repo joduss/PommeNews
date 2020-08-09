@@ -41,13 +41,13 @@ class ClassifierModel4(IClassifierModel):
             [
                 keras.layers.Embedding(input_dim=voc_size, input_length=article_length, output_dim=self.embedding_output_dim,
                                        mask_zero=True),
-                Dropout(0.5),
+                Dropout(0.3),
                 keras.layers.Conv1D(filters=64, kernel_size=3, input_shape=(voc_size, self.embedding_output_dim),
                                     activation=tf.nn.relu),
-                keras.layers.MaxPooling1D(3),
+                #keras.layers.MaxPooling1D(3),
                 #keras.layers.Bidirectional(keras.layers.LSTM(64)),
                 keras.layers.GlobalAveragePooling1D(),
-                Dropout(0.5),
+                Dropout(0.3),
                 keras.layers.Dense(theme_count, activation=tf.nn.sigmoid)
             ]
         )
