@@ -43,7 +43,12 @@ class Articles(object, metaclass=MetaArticles):
     @staticmethod
     def from_file(path: str, limit: int = None) -> Articles:
         with open(path, "r", encoding="utf-8") as file:
-            return Articles.load_articles(file, limit)
+            try:
+                return Articles.load_articles(file, limit)
+            except:
+                time.sleep(5)
+                return Articles.load_articles(file, limit)
+
 
 
     @staticmethod
