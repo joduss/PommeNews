@@ -15,6 +15,7 @@ class ThemeVerifierVC: NSViewController {
     @IBOutlet weak var verifyStatusLabel: NSTextField!
     @IBOutlet weak var progressLabel: NSTextField!
     @IBOutlet var textView: NSTextView!
+    @IBOutlet weak var showAllButton: NSButton!
     
     private let jsonArticlesIO = ArticlesJsonFileIO()
 
@@ -28,9 +29,17 @@ class ThemeVerifierVC: NSViewController {
         // Do any additional setup after loading the view.
     }
     
-    private func filterUnverifiedArticles(with theme:String, articles: [TCVerifiedArticle]) -> [TCVerifiedArticle]{
+    /// Returns a list of articles that hasn't been verified for a given theme, but for which that theme has been predicted.
+    private func filterUnverifiedPredictedArticles(with theme:String, articles: [TCVerifiedArticle]) -> [TCVerifiedArticle]{
         return articles.filter({ article in
             article.predictedThemes.contains(theme) && !article.verifiedThemes.contains(theme)
+        })
+    }
+    
+    /// Returns a list of articles that hasn't been verified for a given theme
+    private func filterUnverifiedArticles(with theme:String, articles: [TCVerifiedArticle]) -> [TCVerifiedArticle]{
+        return articles.filter({ article in
+            !article.verifiedThemes.contains(theme)
         })
     }
     
@@ -44,12 +53,24 @@ class ThemeVerifierVC: NSViewController {
         textView.scrollToVisible(NSRect.zero)
     }
     
+    @IBAction func showAllButtonClicked(_ sender: NSButton) {
+        if sender.state == .on {
+            currentArticle = nil
+            articlesToVerify = filterUnverifiedArticles(with: themeDropdown.titleOfSelectedItem ?? "", articles: Array(allArticles.values))
+            next()
+        }
+        else {
+            currentArticle = nil
+            articlesToVerify = filterUnverifiedPredictedArticles(with: themeDropdown.titleOfSelectedItem ?? "", articles: Array(allArticles.values))
+            next()
+        }
+    }
     
     // MARK: - Theme selection
     
     @IBAction func Selected(_ sender: NSPopUpButton) {
         currentArticle = nil
-        articlesToVerify = filterUnverifiedArticles(with: sender.titleOfSelectedItem ?? "", articles: Array(allArticles.values))
+        articlesToVerify = filterUnverifiedPredictedArticles(with: sender.titleOfSelectedItem ?? "", articles: Array(allArticles.values))
         next()
     }
     
@@ -93,7 +114,7 @@ class ThemeVerifierVC: NSViewController {
     
     //MARK: - Article Loading / Saving
     
-    @IBAction func loadArticles(_ sender: Any) {
+    @IBAction func openArticleFile(_ sender: Any) {
         
         allArticles.removeAll()
         currentArticle = nil
@@ -110,7 +131,7 @@ class ThemeVerifierVC: NSViewController {
         themeDropdown.addItems(withTitles: themes.map({$0.key}))
         themeDropdown.selectItem(withTitle: themes.first?.key ?? "error!")
         
-        articlesToVerify = filterUnverifiedArticles(with: themes.first?.key ?? "", articles: Array(allArticles.values))
+        articlesToVerify = filterUnverifiedPredictedArticles(with: themes.first?.key ?? "", articles: Array(allArticles.values))
         
         guard articlesToVerify.count > 0 else {
             textView.string = "No articles to verify!"
