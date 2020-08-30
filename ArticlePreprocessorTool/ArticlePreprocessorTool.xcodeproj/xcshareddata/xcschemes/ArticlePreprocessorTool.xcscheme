@@ -62,11 +62,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "&quot;/Users/jonathanduss/Desktop/untitled folder/articles_fr_28.json&quot;"
+            argument = "&quot;/Users/jonathanduss/Desktop/untitled folder/tmphbjicnf2.txt&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "&quot;/Users/jonathanduss/Desktop/untitled folder/articles_fr_28_processed.json&quot;"
+            argument = "&quot;/Users/jonathanduss/Desktop/untitled folder/tmphbjicnf2_ok.txt&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

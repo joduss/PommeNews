@@ -25,12 +25,18 @@ public class ArticlePreprocessorTool {
     private let outputPath: String
 
     
-    public init(inputFilePath: String, outputFilePath: String) throws {
+    public init(inputFilePath: String, outputFilePath: String) {
         queue.maxConcurrentOperationCount = 16
         
         self.outputPath = outputFilePath
         
-        articlesToProcess = try ArticlesJsonFileIO().loadVerifiedArticlesFrom(fileLocation: inputFilePath)
+        do {
+            articlesToProcess = try ArticlesJsonFileIO().loadVerifiedArticlesFrom(fileLocation: inputFilePath)
+        } catch {
+            print("Failed to load articles: \(error)")
+            fatalError("Failed to load articles (\(error.localizedDescription)).")
+        }
+        
         firstArticle = articlesToProcess.first!
         
         processor = ACTextPreprocessor(representativeText: firstArticle.title + firstArticle.summary)
@@ -64,8 +70,14 @@ public class ArticlePreprocessorTool {
         print("Now just waiting that all are processed.")
         group.wait()
         print("Continue... all articles have been now processed.")
-
-        try ArticlesJsonFileIO().WriteToFile(articles: processedArticle, at: self.outputPath)
+        
+        do {
+            try ArticlesJsonFileIO().WriteToFile(articles: processedArticle, at: self.outputPath)
+        }
+        catch {
+            print("Failed to write articles: \(error)")
+            fatalError("Failed to write articles: \(error)")
+        }
     }
     
     private func setArticle(article: TCVerifiedArticle, arrayIdx: Int) {
