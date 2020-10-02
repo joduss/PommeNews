@@ -6,3 +6,6 @@ ClassifierTensorFlow/.idea
 ClassifierTensorFlow/.vscode
 ClassifierTensorFlow/.idea
 *.xcuserdatad/
+PommeNews/Carthage
+ClassifierTensorFlow/output
+ClassifierTensorFlow/input
