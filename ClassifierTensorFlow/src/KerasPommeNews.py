@@ -12,6 +12,7 @@ from classifier.prediction.article_predictor import ArticlePredictor
 from classifier.models.ClassifierModel2 import ClassifierModel2
 from classifier.models.IClassifierModel import IClassifierModel
 from classifier.preprocessing.article_preprocessor_swift import ArticlePreprocessorSwift
+from classifier.training.TrainedModel import TrainedModel
 from classifier.training.Trainer import Trainer
 from data_models.articles import Articles
 
@@ -32,16 +33,16 @@ OUTPUT_DIR = "output/"
 
 # supportedThemes: List[str] = ["android", "ios", "windows", "macos", "otherOS"]
 # SUPPORTED_THEMES: List[str] = ["smartphone", "computer", "tablet"]
-SUPPORTED_THEMES: List[str] = ["tablet"]
+SUPPORTED_THEMES: List[str] = ["iphone"]
 
 # MACHINE LEARNING CONFIGURATION
 # ------------------------------
 
 PREPROCESSOR = ArticlePreprocessorSwift()
-DATASET_BATCH_SIZE = 64
+DATASET_BATCH_SIZE = 256
 ARTICLE_MAX_WORD_COUNT = 150
-TRAIN_RATIO = 0.65
-VALIDATION_RATIO = 0.15  # TEST is 1 - TRAIN_RATIO - VALIDATION_RATIO
+TRAIN_RATIO = 0.75
+VALIDATION_RATIO = 0.01  # TEST is 1 - TRAIN_RATIO - VALIDATION_RATIO
 VOCABULARY_MAX_SIZE = 50000  # not used for now!
 
 # BEHAVIOUR CONFIGURATION
@@ -158,6 +159,7 @@ trainer.validation_ratio = VALIDATION_RATIO
 
 trained_model = trainer.train()
 trained_model.save(OUTPUT_DIR)
+
 
 
 ################################################################################################
