@@ -1,6 +1,7 @@
 import os
 import subprocess
 import tempfile
+from json.decoder import JSONDecodeError
 from logging import getLogger
 import tracemalloc
 
@@ -12,6 +13,9 @@ from data_models.articles import Articles
 
 
 class ArticlePreprocessorSwift(IArticlePreprocessor):
+
+    failed_attemps = 0
+
     """
     Preprocessor cleaning the article / data_models, by a swift program.
     """
@@ -39,8 +43,7 @@ class ArticlePreprocessorSwift(IArticlePreprocessor):
 
 
 
-    @staticmethod
-    def __execute_swift_program(articles: Articles) -> Articles:
+    def __execute_swift_program(self, articles: Articles) -> Articles:
         (input_file, input_path) = tempfile.mkstemp()
         (output_file, output_path) = tempfile.mkstemp()
 
@@ -67,4 +70,15 @@ class ArticlePreprocessorSwift(IArticlePreprocessor):
 
         getLogger().info(f"Preprocessed articles available at {output_path}.")
 
-        return Articles.from_file(output_path)
+
+        try:
+            processed_articles = Articles.from_file(output_path)
+            self.failed_attemps = 0
+            return processed_articles
+        except JSONDecodeError:
+            getLogger().error(f"Failed to read the processed articles.... trying again (attemp {self.failed_attemps})")
+            self.failed_attemps += 1
+            if self.failed_attemps > 5:
+                raise
+            else:
+                return self.__execute_swift_program(articles)
