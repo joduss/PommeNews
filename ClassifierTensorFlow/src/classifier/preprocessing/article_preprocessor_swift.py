@@ -31,7 +31,12 @@ class ArticlePreprocessorSwift(IArticlePreprocessor):
         :param article: article to process
         :return: processed article
         """
-        return self.__execute_swift_program(Articles(article=article)).items[0]
+        while(True):
+            try:
+                return self.__execute_swift_program(Articles(article=article)).items[0]
+            except:
+                continue
+
 
 
     @staticmethod
@@ -51,11 +56,11 @@ class ArticlePreprocessorSwift(IArticlePreprocessor):
         with subprocess.Popen([command_path, input_path, output_path], stdout=subprocess.PIPE) as process:
             while True:
                 output = process.stdout.readline()
+                #print(output)
                 if process.poll() is not None:
                     break
                 if output:
                     print(output.strip(), end="\r")
-            #rc = process.poll()
 
         print("", end="\r")
         getLogger().info("Finished processing %d articles.", articles.count())
