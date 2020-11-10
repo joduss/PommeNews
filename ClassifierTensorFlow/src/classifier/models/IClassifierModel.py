@@ -8,6 +8,8 @@ from data_models.weights.theme_weights import ThemeWeights
 
 class IClassifierModel:
 
+    _model: keras.Model
+
     def train_model(self, themes_weight: ThemeWeights, dataset: TrainValidationDataset, voc_size: int, keras_callback: LambdaCallback):
         """
         Creates and train the model.
@@ -25,17 +27,18 @@ class IClassifierModel:
         """
         raise Exception("Not implemented.")
 
-
     def get_keras_model(self) -> Model:
-        """
-        Returns the trained model.
-        Throws an exception no model has been trained.
-        """
-        raise Exception("Not implemented.")
+        if self._model is None:
+            raise Exception("The model must first be trained!")
+        return self._model
 
     def save_model(self, directory: str):
-        self.get_keras_model().save(directory + self.get_model_name() + ".h5")
-        self.get_keras_model().save_weights(directory + self.get_model_name() + "_weight.h5")
+        self._model.save(directory + self.get_model_name() + ".h5")
+        #self.get_keras_model().save_weights(directory + self.get_model_name() + "_weight.h5")
+
+    def load_model(self, directory: str):
+        self._model = keras.models.load_model(directory + self.get_model_name() + ".h5")
+        # model.load_weights(directory + self.get_model_name() + "_weight.h5")
 
     def plot_model(self, directory: str):
         """

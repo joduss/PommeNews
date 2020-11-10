@@ -111,8 +111,3 @@ class ClassifierModel5(IClassifierModel):
 
     def get_model_name(self):
         return self.__model_name__
-
-    def get_keras_model(self) -> Model:
-        if self.__model__ is None:
-            raise Exception("The model must first be trained!")
-        return self.__model__

@@ -16,9 +16,8 @@ class TrainedModel:
         self.article_tokenizer = article_tokenizer
         self.model = model
 
-
     def save(self, directory: str):
         self.model.save_model(directory)
 
-    def load(self, director: str):
-        raise Exception("")
+    def load(self, directory: str):
+        self.model.load_model(directory)
