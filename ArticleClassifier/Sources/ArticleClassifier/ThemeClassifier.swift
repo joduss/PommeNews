@@ -9,7 +9,6 @@
 import Foundation
 import ArticleClassifierCore
 
-
 public class ThemeClassifier {
     
     private let classifierTermsGenerator = ThemeClassifierTermsMultiLocalization()
