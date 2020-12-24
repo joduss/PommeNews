@@ -12,6 +12,7 @@ public struct ArticleTheme: Hashable, Equatable {
     
     public static let iPhone = ArticleTheme(key: "iphone")
     public static let iPad = ArticleTheme(key: "ipad")
+    public static let iPadWide = ArticleTheme(key: "ipad-wide")
     public static let appleWatch = ArticleTheme(key: "appleWatch")
     public static let appleTV = ArticleTheme(key: "appleTV")
     public static let mac = ArticleTheme(key: "mac")
@@ -107,6 +108,7 @@ public struct ArticleTheme: Hashable, Equatable {
     public static var allThemes: [ArticleTheme] = [
         ArticleTheme.iPhone,
         ArticleTheme.iPad,
+        ArticleTheme.iPadWide,
         ArticleTheme.appleTV,
         ArticleTheme.appleWatch,
         ArticleTheme.mac,
