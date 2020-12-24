@@ -23,6 +23,8 @@ public class ArticlePreprocessorTool {
     
     private var processedArticle: [TCVerifiedArticle]
     private let outputPath: String
+    
+    public init() { }
 
     
     public init(inputFilePath: String, outputFilePath: String) {
@@ -87,7 +89,7 @@ public class ArticlePreprocessorTool {
     }
 
     
-    private func processArticle(_ article: TCVerifiedArticle) -> TCVerifiedArticle {
+    public func processArticle(_ article: TCVerifiedArticle) -> TCVerifiedArticle {
         let title = processor.process(text: article.title)
         let summary = processor.process(text: article.summary)
         return article.articleWithUpdated(title: title, summary: summary)
